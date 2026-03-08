@@ -1,9 +1,12 @@
-<style>
-body {
 
+
+body{
+   
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin: 0 auto ;
+    padding: 0 auto;
+    box-sizing: border-box;
 }
 
 
@@ -15,22 +18,35 @@ nav {
     color: white;
     padding: 15px, 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-
+    
 }
 
 .nav-logo{
 font-size: 20px;
 font-weight: bold;
+display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+
+}
+.home, 
+.Payment, 
+.Que-Number{
+
+    border: solid 1px transparent;
+   
+   border-radius: 5px;
+    margin: 0 auto;
 
 
 }
-
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px
+    gap: 20px;
+    
 }
 
 .nav-links li a{
@@ -75,7 +91,7 @@ font-weight: bold;
     margin: auto;
     font-size: 24px;
     height: 100vh;
-    
+
     
     
     
@@ -91,6 +107,17 @@ h1{
     margin-bottom: 10px;
 }
 
+.hero4{
+
+    border: solid rgb(255, 255, 255);
+    background-color: rgb(255, 214, 214);
+     border-radius: 20px;
+    padding: 40px 60px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+   
+    text-align: left;
+   
+}
 .hero button {
     background-color: white;
     color: #990000;
@@ -105,23 +132,37 @@ h1{
     padding: 40px 20px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px
-    justify-content: flex-start;
+    gap: 20px;
+    justify-content: space-evenly;
+    
 }
 
+.window1{
+
+    margin-bottom: 250px; ;
+}
 .services h2 {
     margin-bottom: 20px;
     text-align: center;
 }
 
 .card {
-    background-color: white;
+    background-color: red;
     padding: 15px;
     margin: 10px;
     width: 250px;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+     background: rgb(255, 214, 214) ;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
     
+}
+.card:hover{
+
+    background: #ff4b4b;    
+  transform: translateY(-3px);
 }
 
 .card h3 {
@@ -159,7 +200,7 @@ footer {
 
 
 .join{
-    border: 1px solid black;
+    border:  black;
     font-size: large;
     border-radius:50px;
     cursor: pointer;
@@ -210,4 +251,78 @@ select{
         width: 80%;
     }
 }
-</style>
+    .bodd1{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+
+      
+    }
+
+    .bodd2{
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+
+    }
+.queue-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 60px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 300px;
+    
+
+    
+   
+  }
+  .current-number {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ff6b6b;
+    margin-bottom: 30px;
+  }
+
+  .queue-list {
+    list-style: none;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .queue-list li {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: #f7f7f7;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+  }
+ .queue-list li.current {
+    background: #ff6b6b;
+    color: white;
+    font-weight: bold;
+  }
+
+    .status-message {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+   button.cancel-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ccc;
+    color: #333;
+    cursor: pointer;
+    transition: 0.3s;
+  }
