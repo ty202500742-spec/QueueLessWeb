@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="main.css"
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queueuless | WMSU</title>
+
+</head>
+<body>
+<nav>
+    
+    
+  
+   
+    <h1 class="nav-logo">Queueless | WMSU</h1>
+
+    <ul class="nav-links">
+        <li class="home"><a href="main.html">Home</a></li>
+        <li class="Payment"><a href="Payment.html">Payments</a></li>
+        <li class="Que-Number"><a href="Que-number.html" class="active">Que-Number</a></li>
+
+    </ul>
+       
+    <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
+        
+</nav>
+<div class="bodd1">
+<div class="bodd2">
+<div class="queue-container">
+  <h1 id="serviceTitle">Now in Queue</h1>
+  <div class="current-number" id="userQueueNumber">-</div>
+     <div class="status-message" id="statusMessage">Loading...</div>
+  <ul class="queue-list" id="queueList">
+    <!-- Queue will be populated by JavaScript -->
+  </ul>
+  <button class="cancel-btn" onclick="leaveQueue()">Cancel Queue</button>
+
+<script>
+  // Initialize queue on page load
+  window.addEventListener('load', function() {
+    const selectedService = sessionStorage.getItem('selectedQueue') || 'Unknown Service';
+    const defaultQueue = [
+      { number: 1, name: 'James Peter' },
+      { number: 2, name: 'Rudolf Ariston' },
+      { number: 3, name: 'Alkaizer jalaidi' },
+      { number: 4, name: 'Peter James' },
+      { number: 5, name: 'Ariston Rudolf' }
+    ];
+
+    // Assign user a new queue number (next after the last)
+    // Find the highest number in the queue and add 1
+    const maxNumber = Math.max(...defaultQueue.map(q => q.number));
+    let userNumber = maxNumber + 1;
+    
+    if (!sessionStorage.getItem('userQueueNumber')) {
+      sessionStorage.setItem('userQueueNumber', userNumber);
+    } else {
+      userNumber = parseInt(sessionStorage.getItem('userQueueNumber'));
+    }
+
+    // Update title and user number
+    document.getElementById('serviceTitle').textContent = `Now in Queue - ${selectedService}`;
+    document.getElementById('userQueueNumber').textContent = userNumber;
+
+    // Add user to the queue list
+    let fullQueue = [...defaultQueue, { number: userNumber, name: 'You', isUser: true }];
+    
+    // Find position
+    let userPosition = fullQueue.findIndex(q => q.isUser);
+    let peopleAhead = userPosition;
+    let estimatedTime = (userPosition + 1) * 5; // 5 minutes per person
+    
+    // Update status message
+    document.getElementById('statusMessage').textContent = `You are in position ${userPosition + 1}. ${peopleAhead} people ahead of you. Estimated wait time: ${estimatedTime} minutes.`;
+
+    // Render queue list
+    const queueList = document.getElementById('queueList');
+    queueList.innerHTML = '';
+    fullQueue.forEach((person, index) => {
+      const li = document.createElement('li');
+      if (person.isUser) {
+        li.className = 'current';
+        li.innerHTML = `${person.number} <span>${person.name}</span>`;
+      } else {
+        li.innerHTML = `${person.number} <span>${person.name}</span>`;
+      }
+      queueList.appendChild(li);
+    });
+  });
+
+  function leaveQueue() {
+    // Clear queue data
+    sessionStorage.removeItem('userQueueNumber');
+    // Mark queue as done
+    sessionStorage.setItem('queueActive', 'false');
+    // Redirect back to main page (modal will appear again)
+    window.location.href = 'main.html';
+  }
+</script>
+</div>
+</div>
+</div>
+
+<footer>
+    © 2026 Queueuless | Western Mindanao State University
+</footer>
+</body>
+
+
+</html>

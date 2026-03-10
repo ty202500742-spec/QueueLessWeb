@@ -1,0 +1,83 @@
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: 
+             linear-gradient(to top, black, transparent),
+            url("../images/wmsu.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+         
+         
+
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+
+        
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background-color: rgb(255, 214, 214);
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            
+        }
+
+        .brand-logo {
+            display: block;
+            margin: 0 auto 15px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #8B0000;
+            font-size: 25px;
+            margin-top: 0px;
+            font-weight: bolder;
+        }
+
+        input {
+        
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ffffff;
+            border-radius: 20px;
+            
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px ;
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+    .container {
+        padding: 30px;
+    }
+}
+
+
+
+      
+    
+   
+
