@@ -224,8 +224,10 @@ h1{
 }
 .card:hover{
 
-    background: #ff4b4b;    
+    background: #ff9595;    
   transform: translateY(-3px);
+  color: #f0f2f5;
+  
 }
 
 .card h3 {
