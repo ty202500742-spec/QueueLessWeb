@@ -389,3 +389,9 @@ select{
     cursor: pointer;
     transition: 0.3s;
   }
+
+.cancel-btn:hover{
+background-color: #ff6b6b;
+    transform: translateY(-2px);
+color:#f5f5f5;
+}
