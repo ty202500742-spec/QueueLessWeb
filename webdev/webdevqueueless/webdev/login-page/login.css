@@ -1,79 +1,126 @@
-        * {
-            box-sizing: border-box;
-        }
+<style>
+        * { 
+box-sizing: border-box; 
+margin: 0; 
+padding: 0; 
+}
 
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: 
-             linear-gradient(to top, black, transparent),
-            url("../images/wmsu.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-         
-         
+ font-family: Arial, sans-serif; 
+background: white;
+ min-height: 100vh;
+ display: flex;
+ align-items: center; 
+justify-content: center; 
+padding: 20px; 
+flex-direction: column;
+ }
 
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        } 
-
-        
-
-        .container {
-            width: 90%;
-            max-width: 500px;
-            background-color: rgb(255, 214, 214);
-            padding: 60px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-            
-        }
-
-        .brand-logo {
-            display: block;
-            margin: 0 auto 15px auto;
-            max-width: 100%;
-            height: auto;
-        }
-
+        .card { 
+background: rgb(246, 115, 115); 
+border-radius: 16px; 
+padding: 32px;
+ width: 100%; 
+max-width: 420px;
+ box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+ }
+        .toggle { 
+display: flex; 
+background: maroon;
+ border-radius: 10px;
+ padding: 4px;
+ margin-bottom: 24px;
+ gap: 4px;
+ }
+        .toggle button { 
+flex: 1; 
+padding: 9px;
+ border: none;
+ border-radius: 8px;
+ font-size: 14px;
+ font-weight: 600;
+ cursor: pointer; 
+background: transparent;
+ color: #666;
+ }
+        .toggle button.active { 
+background: white;
+ color: #111;
+ box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+ }
+        .toggle button.admin-active {
+ background: #d70808;
+ color: white;
+ }
         h2 {
-            text-align: center;
-            color: #8B0000;
-            font-size: 25px;
-            margin-top: 0px;
-            font-weight: bolder;
-        }
-
-        input {
-        
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ffffff;
-            border-radius: 20px;
-            
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px ;
-            background-color: #8B0000;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 600px) {
-    .container {
-        padding: 30px;
-    }
+ font-size: 18px; 
+font-weight: 700; 
+margin-bottom: 4px;
+ } 
+.sub {
+ font-size: 13px; 
+color: #666;
+ margin-bottom: 20px;
+ }
+        .label {
+ display: block;
+ font-size: 13px; 
+font-weight: 600;
+ margin-bottom: 5px;
+ margin-top: 12px; 
 }
+        input { 
+
+width: 100%; 
+padding: 10px 12px; 
+border: 1.5px solid #e5e7eb;
+ border-radius: 8px;
+ font-size: 14px;
+ outline: 
+none; 
+}
+        input:focus {
+ border-color: #8B0000;
+ }
+        .err {
+ display: none; 
+background: #fef2f2;
+ border: 1px solid #fecaca;
+ color: #991b1b; 
+font-size: 13px;
+ padding: 9px 12px; 
+border-radius: 8px;
+ margin-top: 10px;
+ }
+        .btn { 
+width: 100%;
+ padding: 12px;
+ background: maroon;
+ color: white;
+ border: none;
+ border-radius: 8px;
+ font-size: 15px; 
+font-weight: 700;
+ cursor: pointer;
+ margin-top: 16px;
+ }
+        .btn.admin {
+ background: #8B0000;
+ }
+        .hint {
+ margin-top: 14px; 
+background: #fff5f5; 
+border: 1px solid #fecaca;
+ border-radius: 8px; 
+padding: 12px; 
+font-size: 12px;
+ color: #7a0000;
+ line-height: 1.8;
+ }
+        .hint strong {
+ display: block; 
+margin-bottom: 2px; }
+    </style>
 
 
 
