@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="main.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queueuless | WMSU</title>
+
+
+</head>
+
+<body>
+
+<!-- Queue Selection Modal -->
+<div id="queueModal" class="modal">
+    <div class="modal-content">
+        <h2>Select Your Service</h2>
+        <p>Choose which service you need assistance with:</p>
+        <div class="queue-options">
+            <button class="queue-btn" data-queue="Enrollment Assistance">Enrollment Assistance</button>
+            <button class="queue-btn" data-queue="Payments">Payments</button>
+            <button class="queue-btn" data-queue="Documents & Certificates">Documents & Certificates</button>
+            <button class="queue-btn" data-queue="Aptitude Tests">Aptitude Tests</button>
+            <button class="queue-btn" data-queue="Other Services">Other Services</button>
+        </div>
+    </div>
+</div>
+
+<nav>
+    
+    
+ 
+   
+    <h1 class="nav-logo">Queueless | WMSU</h1>
+
+    <ul class="nav-links">
+        <li class="home"><a href="main.html" class="active">Home</a></li>
+        <li class="Payment"><a href="Payment.html">Queue</a></li>
+        <li class="Que-Number"><a href="Que-number.html">Que-Number</a></li>
+
+    </ul>
+       
+    <button onclick="logoutUser()" class="logout">Logout</button>
+        
+</nav>
+
+<div class="hero">
+    <div class="hero4">
+    <h1 >Queue</h1>
+     <h1>Management</h1>
+      <h1>System</h1>
+    <p>Simplifying Journeys, Enhancing Experiences</p>
+    <br>
+    </div>
+</div>
+
+
+<footer>
+    © 2026 Queueuless | Western Mindanao State University
+</footer>
+
+<script>
+    // Logout function - clear session storage
+    function logoutUser() {
+        sessionStorage.clear();
+        location.href = '../login-page/login.html';
+    }
+
+    // Show modal on page load
+    window.addEventListener('load', function() {
+        const modal = document.getElementById('queueModal');
+        const queueActive = sessionStorage.getItem('queueActive');
+        
+        // Show modal only if queue is NOT active (or no queue selected yet)
+        if (queueActive !== 'true') {
+            modal.style.display = 'flex';
+        } else {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Handle queue button clicks
+    document.querySelectorAll('.queue-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedQueue = this.getAttribute('data-queue');
+            // Store the selection
+            sessionStorage.setItem('selectedQueue', selectedQueue);
+            // Mark queue as active
+            sessionStorage.setItem('queueActive', 'true');
+            // Hide the modal
+            document.getElementById('queueModal').style.display = 'none';
+            // You can also redirect to queue number page if needed
+            // window.location.href = 'Que-number.html';
+        });
+    });
+</script>
+
+</body>
+</html>

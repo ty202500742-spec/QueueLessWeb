@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Queueuless | WMSU Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+<body>
+
+
+
+<div class="container" id="loginBox">
+    <img src="../images/UEUELESS.png" alt="Brand Logo" class="brand-logo">
+    <h2>Student Login</h2>
+<form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <div id="errorMessage" style="color: red; display: none; margin: 10px 0; font-size: 14px;"></div>
+    <button type="submit">Login</button>
+</form>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const errorDiv = document.getElementById('errorMessage');
+        
+        // Check if email ends with @wmsu.edu.ph
+        if (!email.endsWith('@wmsu.edu.ph')) {
+            errorDiv.textContent = 'Please use your WMSU email (ending with @wmsu.edu.ph)';
+            errorDiv.style.display = 'block';
+            return;
+        }
+        
+        // Check if password is not empty
+        if (!password) {
+            errorDiv.textContent = 'Please enter your password';
+            errorDiv.style.display = 'block';
+            return;
+        }
+        
+        // If valid, redirect to main page
+        // My buddy copilot is helping with this, change if wanted.
+        errorDiv.style.display = 'none';
+        window.location.href = '../student-landing-page/main.html';
+    });
+</script>
+</div>
+
+    
+
+</body>
+</html>
