@@ -25,81 +25,29 @@
     <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
         
 </nav>
+
 <div class="bodd1">
-<div class="bodd2">
-<div class="queue-container">
-  <h1 id="serviceTitle">Now in Queue</h1>
-  <div class="current-number" id="userQueueNumber">-</div>
-     <div class="status-message" id="statusMessage">Loading...</div>
-  <ul class="queue-list" id="queueList">
-    <!-- Queue will be populated by JavaScript -->
-  </ul>
-  <button class="cancel-btn" onclick="leaveQueue()">Cancel Queue</button>
+ <div class="bodd2">
+  <div class="queue-container">
 
-<script>
-  // Initialize queue on page load
-  window.addEventListener('load', function() {
-    const selectedService = sessionStorage.getItem('selectedQueue') || 'Unknown Service';
-    const defaultQueue = [
-      { number: 1, name: 'James Peter' },
-      { number: 2, name: 'Rudolf Ariston' },
-      { number: 3, name: 'Alkaizer jalaidi' },
-      { number: 4, name: 'Peter James' },
-      { number: 5, name: 'Ariston Rudolf' }
-    ];
+  <h1>Now in Queue</h1>
+  <div class="current-number">006</div>
+     <div class="status-message">You are in position 6. 5 people ahead. Est. wait: 25 min.</div>
+  
+  
+     <ul class="queue-list">
+       <li><span>#001 James Peter</span><span>Waiting</span></li>
+                <li><span>#002 Rudolf Ariston</span><span>Waiting</span></li>
+                <li><span>#003 Alkaizer Jalaidi</span><span>Waiting</span></li>
+                <li><span>#004 Peter James</span><span>Waiting</span></li>
+                <li><span>#005 Ariston Rudolf</span><span>Waiting</span></li>
+                <li class="current"><span>#006 You</span><span>Your Turn</span></li>
+            </ul>
 
-    // Assign user a new queue number (next after the last)
-    // Find the highest number in the queue and add 1
-    const maxNumber = Math.max(...defaultQueue.map(q => q.number));
-    let userNumber = maxNumber + 1;
-    
-    if (!sessionStorage.getItem('userQueueNumber')) {
-      sessionStorage.setItem('userQueueNumber', userNumber);
-    } else {
-      userNumber = parseInt(sessionStorage.getItem('userQueueNumber'));
-    }
-
-    // Update title and user number
-    document.getElementById('serviceTitle').textContent = `Now in Queue - ${selectedService}`;
-    document.getElementById('userQueueNumber').textContent = userNumber;
-
-    // Add user to the queue list
-    let fullQueue = [...defaultQueue, { number: userNumber, name: 'Dexter Jay', isUser: true }];
-    
-    // Find position
-    let userPosition = fullQueue.findIndex(q => q.isUser);
-    let peopleAhead = userPosition;
-    let estimatedTime = (userPosition + 1) * 5; // 5 minutes per person
-    
-    // Update status message
-    document.getElementById('statusMessage').textContent = `You are in position ${userPosition + 1}. ${peopleAhead} people ahead of you. Estimated wait time: ${estimatedTime} minutes.`;
-
-    // Render queue list
-    const queueList = document.getElementById('queueList');
-    queueList.innerHTML = '';
-    fullQueue.forEach((person, index) => {
-      const li = document.createElement('li');
-      if (person.isUser) {
-        li.className = 'current';
-        li.innerHTML = `${person.number} <span>${person.name}</span>`;
-      } else {
-        li.innerHTML = `${person.number} <span>${person.name}</span>`;
-      }
-      queueList.appendChild(li);
-    });
-  });
-
-  function leaveQueue() {
-    // Clear queue data
-    sessionStorage.removeItem('userQueueNumber');
-    // Mark queue as done
-    sessionStorage.setItem('queueActive', 'false');
-    // Redirect back to main page (modal will appear again)
-    window.location.href = 'main.html';
-  }
-</script>
-</div>
-</div>
+            <a href="main.html" class="cancel-btn">Cancel Queue</a>
+ 
+    </div>
+  </div>
 </div>
 
 <footer>
