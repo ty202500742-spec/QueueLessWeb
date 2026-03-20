@@ -26,17 +26,35 @@
 
     </ul>
        
-    <button onclick="logoutUser()" class="logout">Logout</button>
+    <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
         
 </nav>
 
 <div class="hero">
     <div class="hero4">
-    <h1 >Queue</h1>
-     <h1>Management</h1>
-      <h1>System</h1>
+    <h1 >Welcome!</h1>
     <p>Simplifying Journeys, Enhancing Experiences</p>
-    <br>
+    
+    <div class="butt">
+            <a href='Payment.html' class="b1">Get Queue Number</a>
+            <a href='Que-number.html' class="b2">My Queue Number</a>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat"><div class="n">75%</div><div class="l">Less Waiting</div></div>
+        <div class="stat"><div class="n">2,500+</div><div class="l">Students Daily</div></div>
+        <div class="stat"><div class="n">8</div><div class="l">Windows Open</div></div>
+    </div>
+
+    <div class="steps">
+        <h2>How It Works</h2>
+        <div class="sg">
+            <div class="step"><div class="nb">1</div><h3>Choose Window</h3><p>Pick the service you need.</p></div>
+          <div class="step"><div class="nb">2</div><h3>Get Number</h3><p>Get your queue number.</p></div>
+            <div class="step"><div class="nb">3</div><h3>Track Position</h3><p>Monitor your position live.</p></div>
+            <div class="step"><div class="nb">4</div><h3>Go to Window</h3><p>Arrive when it's your turn.</p></div>
+        </div>
     </div>
 </div>
 
@@ -45,41 +63,6 @@
     © 2026 Queueuless | Western Mindanao State University
 </footer>
 
-<script>
-    // Logout function - clear session storage
-    function logoutUser() {
-        sessionStorage.clear();
-        location.href = '../login-page/login.html';
-    }
-
-    // Show modal on page load
-    window.addEventListener('load', function() {
-        const modal = document.getElementById('queueModal');
-        const queueActive = sessionStorage.getItem('queueActive');
-        
-        // Show modal only if queue is NOT active (or no queue selected yet)
-        if (queueActive !== 'true') {
-            modal.style.display = 'flex';
-        } else {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Handle queue button clicks
-    document.querySelectorAll('.queue-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const selectedQueue = this.getAttribute('data-queue');
-            // Store the selection
-            sessionStorage.setItem('selectedQueue', selectedQueue);
-            // Mark queue as active
-            sessionStorage.setItem('queueActive', 'true');
-            // Hide the modal
-            document.getElementById('queueModal').style.display = 'none';
-            // You can also redirect to queue number page if needed
-            // window.location.href = 'Que-number.html';
-        });
-    });
-</script>
 
 </body>
 </html>
