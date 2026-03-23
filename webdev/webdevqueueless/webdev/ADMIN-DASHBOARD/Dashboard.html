@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queueless | Admin Dashboard</title>
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="logo-area">
+            <img src="../images/UEUELESS.png" alt="Queueless Logo" class="logo">
+        </div>
+
+        <p class="menu-label">Overview</p>
+        <a href="Dashboard.html" class="menu-link active">Dashboard</a>
+        <a href="#" class="menu-link">Windows</a>
+        <a href="#" class="menu-link">Queue Monitor</a>
+
+        <p class="menu-label">Management</p>
+        <a href="../student-landing-page/main.html" class="menu-link">Students</a>
+        <a href="../student-landing-page/Payment.html" class="menu-link">Payments</a>
+        <a href="#" class="menu-link">Reports</a>
+        <a href="#" class="menu-link">Analytics</a>
+
+        <p class="menu-label">System</p>
+        <a href="#" class="menu-link">Settings</a>
+        <a href="#" class="menu-link">Access</a>
+
+        <div class="admin-info">
+            <p class="admin-name">Dexter OngChua</p>
+            <p class="admin-role">Administrator</p>
+            <button onclick="location.href='../login-page/login.html'" class="logout-btn">Logout</button>
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <div>
+                <h2>Dashboard</h2>
+                <p>Monday, March 23, 2026</p>
+            </div>
+            <div class="topbar-right">
+                <span class="live-badge">LIVE</span>
+                <span class="time">7:19 AM</span>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- STAT CARDS -->
+            <div class="stat-row">
+
+                <div class="stat-card" style="border-top: 4px solid #8B0000;">
+                    <p class="stat-icon">STATS</p>
+                    <p class="stat-value">2,851</p>
+                    <p class="stat-label">Students Served Today</p>
+                    <p class="stat-sub">312 more than yesterday</p>
+                </div>
+
+                <div class="stat-card" style="border-top: 4px solid #16a34a;">
+                    <p class="stat-icon">QUEUE</p>
+                    <p class="stat-value">40</p>
+                    <p class="stat-label">Currently Waiting</p>
+                    <p class="stat-sub">Avg. wait: ~14 minutes</p>
+                </div>
+
+                <div class="stat-card" style="border-top: 4px solid #2563eb;">
+                    <p class="stat-icon">WINDOWS</p>
+                    <p class="stat-value">8</p>
+                    <p class="stat-label">Total Windows</p>
+                    <p class="stat-sub">6 open, 2 at capacity</p>
+                </div>
+
+                <div class="stat-card" style="border-top: 4px solid #d97706;">
+                    <p class="stat-icon">SERVICE</p>
+                    <p class="stat-value">7.2 min</p>
+                    <p class="stat-label">Avg. Service Time</p>
+                    <p class="stat-sub">Target: less than 6 min</p>
+                </div>
+
+            </div>
+
+            <!-- WINDOW STATUS TABLE -->
+            <div class="section">
+                <h3>Window Status</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Window</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                            <th>Now Serving</th>
+                            <th>Queue</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Window 1</td>
+                            <td>Enrollment Assistance</td>
+                            <td><span class="pill open">Open</span></td>
+                            <td>#023</td>
+                            <td>8 waiting</td>
+                            <td><button class="btn-next">Next</button></td>
+                        </tr>
+                        <tr>
+                            <td>Window 2</td>
+                            <td>Payments</td>
+                            <td><span class="pill busy">Busy</span></td>
+                            <td>#017</td>
+                            <td>12 waiting</td>
+                            <td><button class="btn-next">Next</button></td>
+                        </tr>
+                        <tr>
+                            <td>Window 3</td>
+                            <td>Documents &amp; Certs</td>
+                            <td><span class="pill open">Open</span></td>
+                            <td>#031</td>
+                            <td>5 waiting</td>
+                            <td><button class="btn-next">Next</button></td>
+                        </tr>
+                        <tr>
+                            <td>Window 4</td>
+                            <td>Aptitude Tests</td>
+                            <td><span class="pill open">Open</span></td>
+                            <td>#008</td>
+                            <td>3 waiting</td>
+                            <td><button class="btn-next">Next</button></td>
+                        </tr>
+                        <tr>
+                            <td>Window 5</td>
+                            <td>ID &amp; Scholarship</td>
+                            <td><span class="pill busy">Busy</span></td>
+                            <td>#044</td>
+                            <td>9 waiting</td>
+                            <td><button class="btn-next">Next</button></td>
+                        </tr>
+                        <tr>
+                            <td>Window 6</td>
+                            <td>Other Services</td>
+                            <td><span class="pill open">Open</span></td>
+                            <td>#012</td>
+                            <td>2 waiting</td>
+                            <td><button class="btn-next">Next</button></td>
+                        </tr>
+                        <tr>
+                            <td>Window 7</td>
+                            <td>Other Services</td>
+                            <td><span class="pill closed">Closed</span></td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><button class="btn-open">Open</button></td>
+                        </tr>
+                        <tr>
+                            <td>Window 8</td>
+                            <td>Other Services</td>
+                            <td><span class="pill closed">Closed</span></td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><button class="btn-open">Open</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- BOTTOM ROW -->
+            <div class="bottom-row">
+
+                <!-- Recently Served -->
+                <div class="section half">
+                    <h3>Recently Served</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Queue No.</th>
+                                <th>Name</th>
+                                <th>Window</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#022</td>
+                                <td>Alkaizer Jalaidi</td>
+                                <td>Window 1 - Enrollment</td>
+                                <td>Just now</td>
+                            </tr>
+                            <tr>
+                                <td>#016</td>
+                                <td>Rudolf Ariston</td>
+                                <td>Window 2 - Payments</td>
+                                <td>2 min ago</td>
+                            </tr>
+                            <tr>
+                                <td>#030</td>
+                                <td>Kaizer Jalaidi</td>
+                                <td>Window 3 - Documents</td>
+                                <td>4 min ago</td>
+                            </tr>
+                            <tr>
+                                <td>#007</td>
+                                <td>James Torejas</td>
+                                <td>Window 4 - Aptitude</td>
+                                <td>6 min ago</td>
+                            </tr>
+                            <tr>
+                                <td>#043</td>
+                                <td>Peter Pan</td>
+                                <td>Window 5 - ID &amp; Scholar</td>
+                                <td>9 min ago</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Live Activity -->
+                <div class="section half">
+                    <h3>Live Activity</h3>
+                    <ul class="feed">
+                        <li>Window 1 served! <strong>#022</strong> — just now</li>
+                        <li>Alert: <strong>#025</strong> joined Window 2 queue — 1 min ago</li>
+                        <li>Alert: Window 2 queue exceeds 10 — 3 min ago</li>
+                        <li>Window 3 served! <strong>#030</strong> — 4 min ago</li>
+                        <li>Alert: <strong>#031</strong> now being served at Window 3 — 4 min ago</li>
+                        <li>Alert: <strong>#044</strong> joined Window 5 queue — 6 min ago</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,78 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <title>Queueuless | WMSU Login</title>
+    <title>Queueless | WMSU Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
 </head>
-
 <body>
- 
-    
-     
+    <img src="../images/wmsu.jpg" alt="WMSU Background" style="width: 100%; height: 100%; object-fit: cover; position: fixed; top: 0; left: 0; z-index: -1;">
+<!-- Hidden checkbox controls the tab state -->
+<input type="checkbox" id="toggle-admin">
+
 <div class="card">
+
+    <!-- Toggle Tabs -->
     <div class="toggle">
-        <button type="button" id="btnS" class="active" onclick="sw('student')">Student</button>
-        <button type="button" id="btnA" onclick="sw('admin')">Admin</button>
+        <label for="toggle-student" >Student</label>
+        <label for="toggle-admin" >Admin</label>
     </div>
 
-    <h2 id="ttl">Student Login</h2>
-    <p class="sub" id="sub">Enter your WMSU credentials</p>
-    <form id="frm">
-        <div id="eWrap"><label>Email</label><input type="email" id="email" placeholder="student@wmsu.edu.ph"></div>
-        <div id="uWrap" style="display:none"><label>Username</label><input type="text" id="uname" placeholder="Admin username" autocomplete="off"></div>
-        <label>Password</label>
-        <input type="password" id="pw" placeholder="Password">
-        <div class="err" id="err"></div>
-        <button type="submit" class="btn" id="sbtn">Login as Student</button>
-    </form>
-    <div class="hint" id="hint"><strong>Demo:</strong> juandelacruz@wmsu.edu.ph | any password</div>
+    <!-- STUDENT FORM -->
+    <div class="student-form">
+        <div class="form-title">
+            <h2>Student Login</h2>
+            <p class="sub">Enter your WMSU credentials</p>
+        </div>
+        <form action="../student-landing-page/main.html" method="get">
+            <label for="s-email">Email</label>
+            <input type="email" id="s-email" name="email" placeholder="student@wmsu.edu.ph" required>
+            <label for="s-pw">Password</label>
+            <input type="password" id="s-pw" name="password" placeholder="Password" required>
+            <button type="submit" class="btn">Login as Student</button>
+        </form>
+    </div>
+
+    <!-- ADMIN FORM -->
+    <div class="admin-form">
+        <div class="form-title">
+            <h2>Admin Login</h2>
+            <p class="sub">Enter staff credentials</p>
+        </div>
+        <form action="../ADMIN-DASHBOARD/Dashboard.html" method="get">
+            <label for="a-user">Username</label>
+            <input type="text" id="a-user" name="username" placeholder="Admin username" required autocomplete="off">
+            <label for="a-pw">Password</label>
+            <input type="password" id="a-pw" name="password" placeholder="Password" required>
+            <button type="submit" class="btn">Login as Admin</button>
+        </form>
+    </div>
+
 </div>
-<script>
-    let role='student';
-    const admins=[
-        {u:'admin',p:'wmsu2026',n:'System Admin',r:'Superadmin'},
-        {u:'window1',p:'teller1',n:'Teller - Window 1',r:'Enrollment Assistance'},
-        {u:'window2',p:'teller2',n:'Teller - Window 2',r:'Payments'},
-        {u:'window3',p:'teller3',n:'Teller - Window 3',r:'Documents'},
-        {u:'window4',p:'teller4',n:'Teller - Window 4',r:'Aptitude Tests'},
-        {u:'window5',p:'teller5',n:'Teller - Window 5',r:'Other Services'}
-    ];
-    function sw(r){
-        role=r; const a=r==='admin';
-        document.getElementById('btnS').className=a?'':'active';
-        document.getElementById('btnA').className=a?'admin-active':'';
-        document.getElementById('eWrap').style.display=a?'none':'block';
-        document.getElementById('uWrap').style.display=a?'block':'none';
-        document.getElementById('ttl').textContent=a?'Admin Login':'Student Login';
-        document.getElementById('sub').textContent=a?'Enter staff credentials':'Enter your WMSU credentials';
-        document.getElementById('sbtn').textContent=a?'Login as Admin':'Login as Student';
-        document.getElementById('sbtn').className=a?'btn admin':'btn';
-        document.getElementById('hint').innerHTML=a?'<strong>Admin Demo:</strong> admin / wmsu2026 &nbsp;|&nbsp; window1 / teller1':'<strong>Demo:</strong> juandelacruz@wmsu.edu.ph | any password';
-        document.getElementById('err').style.display='none';
-    }
-    document.getElementById('frm').addEventListener('submit',function(e){
-        e.preventDefault();
-        const pw=document.getElementById('pw').value;
-        const err=document.getElementById('err');
-        if(role==='admin'){
-            const u=document.getElementById('uname').value.trim();
-            const m=admins.find(a=>a.u===u&&a.p===pw);
-            if(!m){err.textContent='Invalid username or password.';err.style.display='block';return;}
-            sessionStorage.setItem('adminName',m.n);sessionStorage.setItem('adminRole',m.r);
-            window.location.href='admin-dashboard.html';
-        } else {
-            const em=document.getElementById('email').value.trim();
-            if(!em.endsWith('@wmsu.edu.ph')){err.textContent='Use your WMSU email (@wmsu.edu.ph)';err.style.display='block';return;}
-            const name=em.split('@')[0].replace(/[._]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-            sessionStorage.setItem('userName',name);sessionStorage.setItem('userEmail',em);
-            window.location.href='../student-landing-page/main.html';
-        }
-    });
-</script>
+
 </body>
 </html>
-
- 
