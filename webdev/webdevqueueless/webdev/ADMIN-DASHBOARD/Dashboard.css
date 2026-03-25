@@ -327,3 +327,14 @@ tbody tr:hover {
 .feed li:last-child {
     border-bottom: none;
 }
+
+/* ── Responsive ── */
+        @media (max-width: 600px) {
+            .stats-row, .window-grid {
+                padding: 14px;
+                grid-template-columns: 1fr;
+            }
+            .page-header {
+                padding: 16px;
+            }
+        }

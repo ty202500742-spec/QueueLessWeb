@@ -1,94 +1,85 @@
-/* ── RESET & BASE ── */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
 body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f5f5f5;
     font-family: Arial, sans-serif;
 }
 
-/* ── CARD ── */
+
 .card {
     background: white;
     border-radius: 14px;
     padding: 36px 32px;
     width: 100%;
     max-width: 400px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* ── TOGGLE TABS ── */
+/* ── RADIO BUTTONS (HIDDEN) ── */
+#toggle-student,
 #toggle-admin {
     display: none;
 }
 
+
 .toggle {
     display: flex;
-    gap: 0;
-    margin-bottom: 24px;
     background: #f1f1f1;
     border-radius: 8px;
     padding: 4px;
+    margin-bottom: 24px;
 }
 
 .toggle label {
     flex: 1;
     text-align: center;
-    padding: 9px 0;
+    padding: 10px 0;
     border-radius: 6px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     color: #555;
-    transition: all 0.2s;
+    transition: 0.2s;
     user-select: none;
 }
 
-/* Student tab active by default */
-.toggle label:first-of-type{
-    background-color: white;
-    color: #8B0000;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* When admin is checked, flip active tab */
+/* ACTIVE TAB */
+#toggle-student:checked ~ .card .toggle label[for="toggle-student"],
 #toggle-admin:checked ~ .card .toggle label[for="toggle-admin"] {
-    background-color: white;
+    background: white;
     color: #8B0000;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-#toggle-admin:checked ~ .card .toggle label[for="toggle-student"] {
-    background-color: transparent;
-    color: #555;
-    box-shadow: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
 /* ── FORM VISIBILITY ── */
 .student-form {
-    display: block;
+    display: none;
 }
 
 .admin-form {
     display: none;
 }
 
-#toggle-admin:checked ~ .card .student-form {
-    display: none;
+
+#toggle-student:checked ~ .card .student-form {
+    display: block;
 }
+
 
 #toggle-admin:checked ~ .card .admin-form {
     display: block;
 }
 
-/* ── FORM TITLE ── */
+
 .form-title {
     margin-bottom: 20px;
 }
@@ -105,7 +96,7 @@ h2 {
     margin-bottom: 22px;
 }
 
-/* ── INPUTS ── */
+
 label {
     display: block;
     font-size: 13px;
@@ -124,7 +115,6 @@ input[type="text"] {
     font-size: 14px;
     margin-bottom: 16px;
     outline: none;
-    box-sizing: border-box;
     transition: border-color 0.2s;
 }
 
@@ -132,7 +122,7 @@ input:focus {
     border-color: #8B0000;
 }
 
-/* ── BUTTON ── */
+
 .btn {
     width: 100%;
     padding: 11px;
@@ -151,14 +141,3 @@ input:focus {
     background-color: #6a0000;
 }
 
-/* ── HINT ── */
-.hint {
-    margin-top: 16px;
-    font-size: 12px;
-    color: #aaa;
-    text-align: center;
-}
-
-.hint strong {
-    color: #888;
-}
