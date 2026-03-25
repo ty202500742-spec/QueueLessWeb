@@ -246,3 +246,13 @@ footer {
    
 
 }
+/* ── Responsive ── */
+        @media (max-width: 600px) {
+            .stats-row, .window-grid {
+                padding: 14px;
+                grid-template-columns: 1fr;
+            }
+            .page-header {
+                padding: 16px;
+            }
+        }
