@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueueLess | Cashier Window</title>
+    <link rel="stylesheet" href="Admin-Global.css">
+    <link rel="stylesheet" href="Admin-windows.css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <div class="sidebar">
+            <div class="logo-area">
+                <img src="../images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+            </div>
+
+            <p class="menu-label">Overview</p>
+            <a href="Admin-Dashboard.html" class="menu-link">Dashboard</a>
+            
+            <p class="menu-label">Windows</p>
+            <a href="Admin-Registrar.html" class="menu-link">Registrar</a>
+            <a href="Admin-cashier.html" class="menu-link active">Cashier</a>
+
+            <p class="menu-label">Management</p>
+            <a href="Admin-non-students.html" class="menu-link">Non-Students List</a>
+            <a href="Admin-Students.html" class="menu-link">Students List</a>
+            <a href="Admin-reports.html" class="menu-link">Reports and Analytics</a>
+            <a href="Admin-Settings.html" class="menu-link">Settings</a>
+
+            <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
+        </div>
+
+        <div class="main-content">
+            <div class="topbar">
+                <h2>Cashier Window Management</h2>
+                <div class="status-indicator">Counter: <strong>OPEN</strong></div>
+            </div>
+
+            <div class="page-wrapper">
+                <div class="window-layout">
+                    
+                    <div class="active-panel">
+                        <div class="panel-header">Currently Serving</div>
+                        <div class="active-details">
+                            <h1 class="current-q">#C-088</h1>
+                            <h3 class="student-name">Rudolf Ariston</h3>
+                            <p class="transaction-type">Tuition Fee Payment</p>
+                        </div>
+                        
+                        <div class="action-grid">
+                            <a href="#done-modal" class="btn btn-done">Mark Done</a>
+                            <a href="#skip-modal" class="btn btn-warning">No Show / Skip</a>
+                            <a href="#next-modal" class="btn btn-confirm"> Call Next</a>
+                        </div>
+                    </div>
+
+                    <div class="queue-panel">
+                        <div class="panel-header">Up Next</div>
+                        <ul class="queue-list">
+                            <li class="queue-item next-up">
+                                <div class="q-num">#C-089</div>
+                                <div class="q-info">
+                                    <strong>Jims Piter</strong>
+                                    <span>Miscellaneous Fee</span>
+                                </div>
+                            </li>
+                            <li class="queue-item">
+                                <div class="q-num">#C-090</div>
+                                <div class="q-info">
+                                    <strong>Dexter OngChua</strong>
+                                    <span>TOR Payment</span>
+                                </div>
+                            </li>
+                            <li class="queue-item">
+                                <div class="q-num">#C-091</div>
+                                <div class="q-info">
+                                    <strong>Pid Ru</strong>
+                                    <span>Graduation Fee</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="next-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Call Next Student?</h3>
+            <p>This will notify <strong>#C-089 (Alkaizer Jalaidi)</strong> to proceed to the Cashier window.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-confirm">Call Next</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="done-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Complete Transaction</h3>
+            <p>Mark transaction for <strong>#C-088</strong> as successfully completed?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-done">Complete</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="skip-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Mark as No Show</h3>
+            <p>Student #C-088 is not present. They will be skipped and moved to the missed queue.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-warning">Confirm Skip</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="logout-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="../login-page/login.html" class="btn btn-confirm">Logout</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/*SIDEBAR */
+.sidebar {
+    width: 240px;
+    background-color: #8B0000;
+    color: white;
+    padding: 20px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
+    filter:brightness(0) invert(1);
+}
+
+.logo-area {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+/*SIDEBAR LINKS*/
+.menu-label {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 15px 0 5px 10px;
+    letter-spacing: 0.5px;
+}
+
+.menu-link {
+    display: block;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.menu-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-link.active {
+    background-color: rgb(255, 255, 255);
+    color: #8B0000;
+    font-weight: bold;
+}
+
+.logout-link {
+    margin-top: auto; /* Pushes the logout button to the bottom */
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.logout-link:hover {
+    background-color: #ff4c4c;
+    color: white;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    flex: 1;
+    margin-left: 240px; /* Crucial: Pushes content past the fixed sidebar */
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 240px);
+}
+
+.topbar {
+    background: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.page-wrapper {
+    padding: 30px;
+    flex: 1;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 999;
+}
+
+/* WHEN THE URL TARGET MATCHES THE MODAL ID, SHOW IT */
+.modal-overlay:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s;
+}
+
+.modal-overlay:target .modal-box {
+    transform: translateY(0);
+}
+
+.modal-box h3 { margin-bottom: 10px; color: #8B0000; }
+.modal-box p { font-size: 14px; color: #666; margin-bottom: 20px; }
+
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.btn { padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: bold; cursor: pointer;}
+.btn-cancel { background: #eee; color: #333; }
+.btn-confirm { background: #8B0000; color: white; }
+
+/* RESPONSIVE DESIGN SA GLOBAL */
+@media (max-width: 900px) {
+    .wrapper, body {
+        flex-direction: column;
+        display: flex;
+    }
+    
+    /* Change Sidebar from fixed side to relative top */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 15px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .logo-area {
+        width: 100%;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    .sidebar-logo {
+        max-height: 50px; /* Smaller logo on mobile */
+    }
+
+    .menu-label {
+        display: none; /* Hide labels to save space */
+    }
+
+    .menu-link {
+        margin-bottom: 0;
+        padding: 8px 12px;
+        font-size: 13px;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .logout-link {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    /* Reset Main Content */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .topbar {
+        padding: 15px;
+        height: auto;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .page-wrapper {
+        padding: 15px;
+    }
+    
+    .modal-box {
+        margin: 20px;
+        max-width: 100%;
+    }
+}

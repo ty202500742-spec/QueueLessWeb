@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueueLess | Non-Students</title>
+    <link rel="stylesheet" href="Admin-Global.css">
+    <link rel="stylesheet" href="Admin-non-students.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo-area">
+            <img src="../images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+        </div>
+
+        <p class="menu-label">Overview</p>
+        <a href="Admin-Dashboard.html" class="menu-link">Dashboard</a>
+        
+        <p class="menu-label">Windows</p>
+        <a href="Admin-Registrar.html" class="menu-link">Registrar</a>
+        <a href="Admin-Cashier.html" class="menu-link">Cashier</a>
+        
+        <p class="menu-label">Management</p>
+        <a href="Admin-non-students.html" class="menu-link active">Non-Students List</a>
+        <a href="Admin-Students.html" class="menu-link">Students List</a>
+        <a href="Admin-Reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="Admin-Settings.html" class="menu-link">Settings</a>
+
+        <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
+    </nav>
+
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Non-Student Records</h2>
+            <a href="#add-student-modal" class="btn btn-confirm">+ Manual Registration</a>
+        </div>
+
+        <div class="page-wrapper">
+            <div class="table-container">
+                <table class="student-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Recent Queue Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alkaizer Jalaidi</td>
+                            <td>Served (Window 1)</td>
+                        </tr>
+                        <tr>
+                            <td>Maria Cristina Falls</td>
+                            <td>Waiting (#046)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-student-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Manual Queue Registration</h3>
+            <p>Add a student to a queue manually if they cannot access the portal.</p>
+            
+            <form action="#" class="modal-form">
+                <label>Valid ID</label>
+                <input type="text" placeholder="e.g. 2021-00000" required>
+                
+                <label>Select Window</label>
+                <select required>
+                    <option>Window 1 - Registrar</option>
+                    <option>Window 2 - Cashier</option>
+                </select>
+                
+                <div class="modal-actions" style="margin-top: 20px;">
+                    <a href="#" class="btn btn-cancel">Cancel</a>
+                    <button type="submit" class="btn btn-confirm">Add to Queue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="logout-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="login.html" class="btn btn-confirm">Logout</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
