@@ -12,6 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif;
+    background-color: white;
 }
 
 
@@ -24,60 +25,17 @@ body {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* ── RADIO BUTTONS (HIDDEN) ── */
-#toggle-student,
-#toggle-admin {
-    display: none;
-}
 
-
-.toggle {
-    display: flex;
+.student-form {
+    display: block;
     background: #f1f1f1;
     border-radius: 8px;
     padding: 4px;
     margin-bottom: 24px;
-}
-
-.toggle label {
-    flex: 1;
-    text-align: center;
-    padding: 10px 0;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    color: #555;
-    transition: 0.2s;
-    user-select: none;
-}
-
-/* ACTIVE TAB */
-#toggle-student:checked ~ .card .toggle label[for="toggle-student"],
-#toggle-admin:checked ~ .card .toggle label[for="toggle-admin"] {
-    background: white;
-    color: #8B0000;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-/* ── FORM VISIBILITY ── */
-.student-form {
-    display: none;
-}
-
-.admin-form {
-    display: none;
+     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
 
-#toggle-student:checked ~ .card .student-form {
-    display: block;
-}
-
-
-#toggle-admin:checked ~ .card .admin-form {
-    display: block;
-}
 
 
 .form-title {
@@ -123,6 +81,7 @@ input:focus {
 }
 
 
+
 .btn {
     width: 100%;
     padding: 11px;
@@ -152,11 +111,4 @@ input:focus {
             }
         }
 
-        .nonstu{
-
-            font-size:smaller;
-            color: #8B0000;
-            cursor: pointer;
-            border: none;
-            background-color: white;
-        }
+       
