@@ -1,0 +1,150 @@
+.settings-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px; /* Keeps the settings page from stretching too wide */
+    margin: 0 auto;
+}
+
+.panel {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.panel-header {
+    background: #f8f9fa;
+    padding: 15px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.panel-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.text-red {
+    color: #dc2626 !important;
+}
+
+.panel-body {
+    padding: 25px;
+}
+
+/* CUSTOM CSS TOGGLE SWITCHES */
+.toggle-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.toggle-wrap:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.t-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.t-desc {
+    font-size: 12px;
+    color: #888;
+}
+
+/* The actual Switch Box */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* Hide default HTML checkbox */
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The Slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+/* When Checked */
+input:checked + .slider {
+    background-color: #8B0000; /* WMSU Crimson */
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+/* IMPORTANT BUTTONS */
+.danger-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-danger {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.btn-danger:hover {
+    background: #fee2e2;
+}
+
+/* Modal specific danger button */
+.modal-actions .btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    .toggle-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .toggle {
+        align-self: flex-start;
+    }
+}

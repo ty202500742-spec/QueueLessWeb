@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueueLess | Registrar Window</title>
+    <link rel="stylesheet" href="Admin-Global.css">
+    <link rel="stylesheet" href="Admin-windows.css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <div class="sidebar"> 
+        
+        <div class="logo-area">
+            <img src="../images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+        </div>
+
+            <p class="menu-label">Overview</p>
+            <a href="admin-dashboard.html" class="menu-link">Dashboard</a>
+            
+            <p class="menu-label">Windows</p>
+            <a href="admin-registrar.html" class="menu-link active">Registrar</a>
+            <a href="admin-cashier.html" class="menu-link">Cashier</a>
+
+            <p class="menu-label">Management</p>
+            <a href="Admin-non-students.html" class="menu-link">Non-Students List</a>
+            <a href="admin-students.html" class="menu-link">Students List</a>
+            <a href="admin-reports.html" class="menu-link">Reports and Analytics</a>
+            <a href="admin-settings.html" class="menu-link">Settings</a>
+
+            <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
+        </div>
+
+        <div class="main-content">
+            <div class="topbar">
+                <h2>Registrar Window Management</h2>
+                <div class="status-indicator">Counter: <strong>OPEN</strong></div>
+            </div>
+
+            <div class="page-wrapper">
+                <div class="window-layout">
+                    
+                    <div class="active-panel">
+                        <div class="panel-header">Currently Serving</div>
+                        <div class="active-details">
+                            <h1 class="current-q">#R-022</h1>
+                            <h3 class="student-name">Maria Cristina Falls</h3>
+                            <p class="transaction-type">TOR Request</p>
+                        </div>
+                        
+                        <div class="action-grid">
+                            <a href="#done-modal" class="btn btn-done"> Mark Done</a>
+                            <a href="#skip-modal" class="btn btn-warning"> No Show / Skip</a>
+                            <a href="#next-modal" class="btn btn-confirm"> Call Next</a>
+                        </div>
+                    </div>
+
+                    <div class="queue-panel">
+                        <div class="panel-header">Up Next</div>
+                        <ul class="queue-list">
+                            <li class="queue-item next-up">
+                                <div class="q-num">#R-023</div>
+                                <div class="q-info">
+                                    <strong>Peter Jims</strong>
+                                    <span>Enrollment</span>
+                                </div>
+                            </li>
+                            <li class="queue-item">
+                                <div class="q-num">#R-024</div>
+                                <div class="q-info">
+                                    <strong>Pedro Penduko</strong>
+                                    <span>Certificate of Grades</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div> </body>
+</html>

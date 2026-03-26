@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueueLess | Admin Overview</title>
+    <link rel="stylesheet" href="Admin-Global.css">
+    <link rel="stylesheet" href="Admin-Dashboard.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo-area">
+            <img src="../images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+        </div>
+
+        <p class="menu-label">Overview</p>
+        <a href="Admin-Dashboard.html" class="menu-link active">Dashboard</a>
+        
+        <p class="menu-label">Windows</p>
+        <a href="Admin-Registrar.html" class="menu-link">Registrar</a>
+        <a href="Admin-Cashier.html" class="menu-link">Cashier</a>
+        
+        <p class="menu-label">Management</p>
+        <a href="Admin-non-students.html" class="menu-link">Non-Students List</a>
+        <a href="Admin-Students.html" class="menu-link">Students List</a>
+        <a href="Admin-Reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="Admin-Settings.html" class="menu-link">Settings</a>
+
+        <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
+    </nav>
+
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Dashboard Overview</h2>
+            <div class="topbar-badge">System Online ✅</div>
+        </div>
+
+        <div class="page-wrapper">
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">In Queue Now 🎟️</div>
+                    <div class="val">14</div>
+                    <div class="stat-sub">↑ 3 from last hour</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Served Today ✅</div>
+                    <div class="val">87</div>
+                    <div class="stat-sub">↑ 12% vs yesterday</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg. Wait Time ⏱️</div>
+                    <div class="val">8 <span>min</span></div>
+                    <div class="stat-sub">↓ 2 min improvement</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Active Counters 🖥️</div>
+                    <div class="val">5</div>
+                    <div class="stat-sub">3 offices open</div>
+                </div>
+            </div>
+            
+            <div class="bottom-row">
+                
+                <div class="panel main-panel">
+                    <h3>Live Queue — Overview</h3>
+                    <div class="table-container">
+                        <table class="queue-table">
+                            <thead>
+                                <tr>
+                                    <th>Q#</th>
+                                    <th>Student Name</th>
+                                    <th>Purpose</th>
+                                    <th>Wait</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>R-001</strong></td>
+                                    <td>Maria Santos</td>
+                                    <td>TOR Request</td>
+                                    <td>0 min</td>
+                                    <td><span class="pill serving">Serving</span></td>
+                                    <td><a href="#done-modal" class="btn-sm done">Done</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>C-088</strong></td>
+                                    <td>Juan dela Cruz</td>
+                                    <td>Tuition Fee</td>
+                                    <td>4 min</td>
+                                    <td><span class="pill waiting">Waiting</span></td>
+                                    <td><a href="#serve-modal" class="btn-sm serve">Serve</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>R-002</strong></td>
+                                    <td>Ana Reyes</td>
+                                    <td>Certificate</td>
+                                    <td>9 min</td>
+                                    <td><span class="pill waiting">Waiting</span></td>
+                                    <td><a href="#serve-modal" class="btn-sm serve">Serve</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>R-003</strong></td>
+                                    <td>Carlo Mendoza</td>
+                                    <td>Grade Inquiry</td>
+                                    <td>13 min</td>
+                                    <td><span class="pill waiting">Waiting</span></td>
+                                    <td><a href="#skip-modal" class="btn-sm skip">Skip</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel side-panel">
+                    <h3>Live Activity Feed</h3>
+                    <ul class="feed">
+                        <li class="feed-item">
+                            <div class="feed-dot green"></div>
+                            <div>Registrar served! <strong>#R-001</strong> <br><span class="feed-time">just now</span></div>
+                        </li>
+                        <li class="feed-item">
+                            <div class="feed-dot blue"></div>
+                            <div>Alert: <strong>#C-088</strong> joined Cashier queue <br><span class="feed-time">1 min ago</span></div>
+                        </li>
+                        <li class="feed-item">
+                            <div class="feed-dot red"></div>
+                            <div>Alert: Registrar queue exceeds 10 <br><span class="feed-time">3 min ago</span></div>
+                        </li>
+                        <li class="feed-item">
+                            <div class="feed-dot green"></div>
+                            <div>Clinic served! <strong>#M-030</strong> <br><span class="feed-time">4 min ago</span></div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="serve-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Call Student to Counter</h3>
+            <p>Are you sure you want to call this student? This will update the live monitors.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-confirm">Call Next</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="done-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Complete Transaction</h3>
+            <p>Mark this transaction as successfully completed?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-done" style="background: #198754; color: white;">Complete</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="skip-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Mark as No Show</h3>
+            <p>Student is not present. They will be skipped and moved to the missed queue.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-warning" style="background: #ffc107; color: black;">Confirm Skip</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="logout-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to securely log out?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="../login-page/login.html" class="btn btn-confirm">Logout</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

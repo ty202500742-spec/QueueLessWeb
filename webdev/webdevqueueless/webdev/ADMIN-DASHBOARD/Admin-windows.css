@@ -1,0 +1,169 @@
+.window-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+}
+
+.active-panel, .queue-panel {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.panel-header {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+/* Currently Serving Area */
+.active-details {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.current-q {
+    font-size: 64px;
+    color: #8B0000;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.student-name {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.transaction-type {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+
+/* Buttons */
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 20px;
+    background: #fcfcfc;
+    border-top: 1px solid #eee;
+}
+
+.btn-done { background: #198754; color: white; text-align: center; }
+.btn-warning { background: #ffc107; color: black; text-align: center; }
+.btn-confirm { background: #8B0000; color: white; text-align: center; }
+
+/* Up Next Queue List */
+.queue-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.queue-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.queue-item:last-child {
+    border-bottom: none;
+}
+
+.queue-item.next-up {
+    background: #fffafa;
+    border-left: 4px solid #8B0000;
+}
+
+.q-num {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8B0000;
+    width: 80px;
+}
+
+.q-info strong {
+    display: block;
+    color: #333;
+    font-size: 15px;
+}
+
+.q-info span {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Status Indicator in Topbar */
+.status-indicator {
+    background: #e6f4ea;
+    color: #1e8e3e;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.windows-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.window-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid #8B0000;
+    text-align: center;
+}
+
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.window-header h3 {
+    font-size: 16px;
+    color: #333;
+}
+
+.status-badge.active {
+    background: #e6f4ea;
+    color: #1e8e3e;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.current-serving p {
+    color: #888;
+    font-size: 14px;
+}
+
+.current-serving h1 {
+    font-size: 48px;
+    color: #8B0000;
+    margin: 10px 0 20px;
+}
+
+.queue-actions .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+}

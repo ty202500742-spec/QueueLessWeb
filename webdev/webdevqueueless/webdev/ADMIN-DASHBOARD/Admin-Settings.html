@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueueLess | Settings</title>
+    <link rel="stylesheet" href="Admin-Global.css">
+    <link rel="stylesheet" href="Admin-Settings.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo-area">
+            <img src="../images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+        </div>
+
+        <p class="menu-label">Overview</p>
+        <a href="Admin-Dashboard.html" class="menu-link">Dashboard</a>
+        
+        <p class="menu-label">Windows</p>
+        <a href="Admin-Registrar.html" class="menu-link">Registrar</a>
+        <a href="Admin-Cashier.html" class="menu-link">Cashier</a>
+        
+        <p class="menu-label">Management</p>
+        <a href="Admin-non-students.html" class="menu-link">Non-Students List</a>
+        <a href="Admin-Students.html" class="menu-link">Students List</a>
+        <a href="Admin-Reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="Admin-Settings.html" class="menu-link active">Settings</a>
+
+        <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
+    </nav>
+
+    <div class="main-content">
+        <div class="topbar">
+            <h2>System Settings</h2>
+            <div class="topbar-badge">System Online ✅</div>
+        </div>
+
+        <div class="page-wrapper">
+            
+            <div class="settings-grid">
+                
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title">System Configuration</div>
+                    </div>
+                    <div class="panel-body">
+                        
+                        <div class="toggle-wrap">
+                            <div>
+                                <div class="t-label">Enable Voice Announcements</div>
+                                <div class="t-desc">Text-to-speech reading of queue numbers and windows.</div>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-wrap">
+                            <div>
+                                <div class="t-label">Maintenance Mode</div>
+                                <div class="t-desc">Pause all queues and display maintenance banner.</div>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-wrap">
+                            <div>
+                                <div class="t-label">Student Satisfaction Survey</div>
+                                <div class="t-desc">Prompt students to rate their experience after being served.</div>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title text-red">Important Actions</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="danger-buttons">
+                            <a href="#reset-modal" class="btn btn-danger">Reset Today's Queue Data</a>
+                            <a href="#clear-modal" class="btn btn-danger">Clear All Student Records</a>
+                            <a href="#flush-modal" class="btn btn-danger">Flush Notification Log</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="reset-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Reset Today's Queue?</h3>
+            <p>Are you sure you want to reset ALL queue data for today? This will clear active queues.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-danger">Confirm Reset</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="clear-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Clear All Student Records?</h3>
+            <p>Are you sure you want to clear all student records? <strong>This action cannot be undone.</strong></p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-danger">Delete All</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="flush-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Flush Notification Log?</h3>
+            <p>Clear all system alerts and notification history?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-danger">Confirm Flush</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="logout-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to securely log out?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="../login-page/login.html" class="btn btn-confirm">Logout</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

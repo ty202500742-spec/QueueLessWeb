@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueueLess | Windows & Queues</title>
+    <link rel="stylesheet" href="Admin-Global.css">
+    <link rel="stylesheet" href="Admin-windows.css"> 
+</head>
+<body>
+
+   <nav class="sidebar">
+        <div class="logo-area">
+            <img src="../images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+        </div>
+
+        <p class="menu-label">Overview</p>
+        <a href="Admin-Dashboard.html" class="menu-link">Dashboard</a>
+        
+        <p class="menu-label">Windows</p>
+        <a href="Admin-Registrar.html" class="menu-link">Registrar</a>
+        <a href="Admin-Cashier.html" class="menu-link">Cashier</a>
+
+        <p class="menu-label">Management</p>
+        <a href="Admin-non-students.html" class="menu-link">Non-Students List</a>
+        <a href="Admin-Students.html" class="menu-link">Students List</a>
+        <a href="Admin-Reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="Admin-Settings.html" class="menu-link">Settings</a>
+
+        <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
+    </nav>
+
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Windows & Live Queues</h2>
+            <div>System Online</div>
+        </div>
+
+        <div class="page-wrapper">
+            <div class="windows-grid">
+                <div class="window-card">
+                    <div class="window-header">
+                        <h3>Window 1 - Registrar</h3>
+                        <span class="status-badge active">Active</span>
+                    </div>
+                    <div class="current-serving">
+                        <p>Currently Serving</p>
+                        <h1>#022</h1>
+                    </div>
+                    <div class="queue-actions">
+                        <a href="#call-next-modal" class="btn btn-confirm">Call Next (#023)</a>
+                    </div>
+                </div>
+
+                <div class="window-card">
+                    <div class="window-header">
+                        <h3>Window 2 - Cashier</h3>
+                        <span class="status-badge active">Active</span>
+                    </div>
+                    <div class="current-serving">
+                        <p>Currently Serving</p>
+                        <h1>#045</h1>
+                    </div>
+                    <div class="queue-actions">
+                        <a href="#call-next-modal" class="btn btn-confirm">Call Next (#046)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="call-next-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Call Next Student?</h3>
+            <p>This will alert the next student in line and update the live queue monitors.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="#" class="btn btn-confirm">Confirm & Call</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="logout-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="login.html" class="btn btn-confirm">Logout</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

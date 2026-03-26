@@ -1,0 +1,72 @@
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.student-table th, .student-table td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.student-table th {
+    background-color: #f9f9f9;
+    color: #555;
+    font-size: 14px;
+}
+
+.student-table td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Modal Form Styles */
+.modal-form label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.modal-form input, .modal-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.modal-form button {
+    border: none;
+    font-family: inherit;
+}
+
+/* RESPONSIVE DESIGN: WINDOWS */
+@media (max-width: 900px) {
+    .window-layout {
+        grid-template-columns: 1fr; /* to stack active panel and queue */
+    }
+}
+
+@media (max-width: 600px) {
+    .action-grid {
+        grid-template-columns: 1fr; /* to stack buttons 1 by 1 */
+    }
+    
+    .current-q {
+        font-size: 48px; /* fix: slightly smaller number on mobile */
+    }
+    
+    .windows-grid {
+        grid-template-columns: 1fr;
+    }
+}
