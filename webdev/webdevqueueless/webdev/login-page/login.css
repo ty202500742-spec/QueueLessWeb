@@ -24,12 +24,25 @@ body {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* ── LOGO ── */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.logo {
+    max-width: 250px;
+    max-height: 100px;
+    object-fit: contain;
+}
+
 /* ── RADIO BUTTONS (HIDDEN) ── */
 #toggle-student,
 #toggle-admin {
     display: none;
 }
-
 
 .toggle {
     display: flex;
