@@ -9,19 +9,18 @@ body{
     font-family: Arial, sans-serif;
     background-color: #ffffff;
     
-    
 }
 
 nav {
     position: sticky;
     top: 0;
-    
     background-color: #990000;
-     color:rgb(255, 255, 255);
-    padding: 15px 40px;
+    color:rgb(255, 255, 255);
+    padding: 25px 40px;
     display: flex; 
     align-items: center;
     justify-content: space-between;
+    z-index: 999;
 }
 
 /* ── NAVBAR LOGO ── */
@@ -32,8 +31,8 @@ nav {
 }
 
 .nav-logo-img {
-    max-height: 45px;
-    width: auto;
+    max-height: 95px;
+    width: 150px;
     filter: brightness(0) invert(1);
     transition: transform 0.2s ease;
 }
@@ -44,26 +43,23 @@ nav {
 
 .nav-links {
      list-style: none;
-      display: flex;
+     display: flex;
      gap: 20px;
-     
-
  }
 
 .nav-links li a {
     color: rgba(255,255,255);
-     text-decoration: none;
-    font-size: 14px;
-     font-weight: 500;
-     padding: 6px 12px;
-     border-radius: 6px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
     transition: background 0.2s, color 0.2s;
 }
 
 .nav-links li a:hover {
     background-color: rgb(255, 255, 255);
     color: #000000;
-    
 }
 
 .nav-links li a.active {
@@ -74,20 +70,20 @@ nav {
 } 
 
 .logout {
-    background: rgb(115, 0, 0);
+    background: rgba(255, 255,  255, 0.15);
+    color: rgb(255, 255, 255);
     padding: 6px 14px; 
     border: none;
     border-radius: 6px;
-    cursor: pointer;
-    color: white; 
-    font-size: 13px;
-     font-weight: 600;
-     
-     
+    font-size: 18px;
+    font-weight: 500;
+    padding: 6px 12px;
+    transition: background 0.2s, color 0.2s;
 }
 
 .logout:hover {
     background-color: rgb(255, 255, 255);
+    color: #960000;
 }
 
 
@@ -98,29 +94,24 @@ nav {
     color: black;
     text-align: center;
     margin: auto;
-   padding-bottom: 250px;
-
+    padding-bottom: 250px;
 }
 
  h1{
     margin: 0;
     font-weight: 900;
-
 }
 
-
-
 .hero4{
-
     background:  #8B0000;
     color: rgb(255, 255, 255);
-    padding: 40px 60px;
+    font-size: 40px;
+    padding: 110px 90px;
     text-align: center;
-   
 }
 
 .hero p{
-    font-size: 18px;
+    font-size: 25px;
     margin-bottom: 20px;
     font-weight: 100;
     opacity: 0.8;
@@ -133,15 +124,16 @@ nav {
     gap: 20px;
     margin-top: 30px;
 }
+
 .b1, .b2 {
     background: white;
     font-weight: 500; 
     border-radius: 25px;   
     text-decoration: none; 
-    font-size: 14px; 
+    font-size: 20px; 
     text-align: center;
     display: inline-block; 
-    padding: 12px 24px; 
+    padding: 20px 40px; 
     border: none; 
 }
 
@@ -255,16 +247,17 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+    font-size: 20px;
    
 
 }
 /* ── Responsive ── */
         @media (max-width: 600px) {
-            .stats-row, .window-grid {
+            .stats-row, .window-grid{
                 padding: 14px;
                 grid-template-columns: 1fr;
             }
             .page-header {
                 padding: 16px;
             }
-        }
+}
