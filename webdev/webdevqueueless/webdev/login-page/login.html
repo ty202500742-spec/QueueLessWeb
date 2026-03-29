@@ -13,6 +13,7 @@ style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0;
 
 <!-- RADIO BUTTONS -->
 <input type="radio" name="tab" id="toggle-student" checked>
+<input type="radio" name="tab" id="toggle-nonstudent">
 <input type="radio" name="tab" id="toggle-admin">
 
 <div class="card">
@@ -25,6 +26,7 @@ style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0;
     <!-- Toggle Tabs -->
     <div class="toggle">
         <label for="toggle-student">Student</label>
+        <label for="toggle-nonstudent">Non-student</label>
         <label for="toggle-admin">Admin</label>
     </div>
 
@@ -41,8 +43,24 @@ style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0;
 
             <label>Password</label>
             <input type="password" placeholder="Password" required>
-              <a href="sign-up.html" class="nonstu">Sign up as non-student</a>
             <button type="submit" class="btn">Login as Student</button>
+        </form>
+    </div>
+
+    <!-- NON-STUDENT FORM -->
+    <div class="nonstudent-form">
+        <div class="form-title">
+            <h2>Non-Student Login</h2>
+            <p class="sub">Enter your credentials</p>
+        </div>
+
+        <form action="../student-landing-page/main.html" method="get">
+            <label>Email</label>
+            <input type="email" placeholder="nonstudent@email.com" required>
+
+            <label>Password</label>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="btn">Login as Non-Student</button>
         </form>
     </div>
 

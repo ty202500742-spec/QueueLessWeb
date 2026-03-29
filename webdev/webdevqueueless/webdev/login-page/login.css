@@ -40,6 +40,7 @@ body {
 
 /* ── RADIO BUTTONS (HIDDEN) ── */
 #toggle-student,
+#toggle-nonstudent,
 #toggle-admin {
     display: none;
 }
@@ -67,6 +68,7 @@ body {
 
 /* ACTIVE TAB */
 #toggle-student:checked ~ .card .toggle label[for="toggle-student"],
+#toggle-nonstudent:checked ~ .card .toggle label[for="toggle-nonstudent"],
 #toggle-admin:checked ~ .card .toggle label[for="toggle-admin"] {
     background: white;
     color: #8B0000;
@@ -74,7 +76,11 @@ body {
 }
 
 /* ── FORM VISIBILITY ── */
-.student-form {
+    .student-form {
+        display: none;
+    }
+
+.nonstudent-form {
     display: none;
 }
 
@@ -84,6 +90,11 @@ body {
 
 
 #toggle-student:checked ~ .card .student-form {
+    display: block;
+}
+
+
+#toggle-nonstudent:checked ~ .card .nonstudent-form {
     display: block;
 }
 
