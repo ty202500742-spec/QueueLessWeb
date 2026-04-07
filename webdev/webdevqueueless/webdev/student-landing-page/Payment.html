@@ -263,7 +263,9 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+    <button class="get-btn" onclick="addQueue('Window 1', 'Enrollment Assistance')">
+        confirm and proceed
+    </button>
 
     </div>
 </div>
@@ -297,7 +299,9 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+    <button class="get-btn" onclick="addQueue('Window 2', 'Payment Services')">
+        confirm and proceed
+    </button>
 
     </div>
 </div>
@@ -331,7 +335,9 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+    <button class="get-btn" onclick="addQueue('Window 3', 'Document Services')">
+        confirm and proceed
+    </button>
 
     </div>
 </div>
@@ -365,7 +371,9 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+    <button class="get-btn" onclick="addQueue('Winow 4','Aptitude Tests Services ')">
+        confirm and proceed
+    </button>
 
     </div>
 </div>
@@ -400,8 +408,9 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
-
+        <button class="get-btn" onclick="addQueue('Window 5', 'Processing ID and Scholarships Services')">
+            confirm and proceed
+        </button>
     </div>
 </div>
 
@@ -435,7 +444,9 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+        <button class="get-btn" onclick="addQueue('Window 6', 'General inquiry services for Students')">
+            confirm and proceed
+        </button>
 
     </div>
 </div>
@@ -470,7 +481,9 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+       <button class="get-btn" onclick="addQueue('Window 6', 'General inquiry services for Students')">
+            confirm and proceed
+        </button>
 
     </div>
 </div>
@@ -505,13 +518,37 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+         <button class="get-btn" onclick="addQueue('Window 6', 'General inquiry services for Students')">
+            confirm and proceed
+        </button>
 
     </div>
 </div>
 
 </div>
+<script>
+    function addQueue(windowName, purpose){
+        let queue = JSON.parse(localStorage.getItem("queueList")) || [];
 
+        let newQueue = {
+            id: "Q-" + Math.floor(Math.random()* 1000),
+            name: "student User", 
+            window: windowName,
+            purpose: purpose,
+            status: "waiting",
+            time: new Date().toLocaleDateString()
+
+
+        };
+
+        queue.push(newQueue);
+
+        localStorage.setItem("queueList", JSON.stringify(queue));
+        
+        window.location.href = "Que-number.html";
+    }
+
+</script>
 
 <footer>
     © 2026 Queueuless | Western Mindanao State University

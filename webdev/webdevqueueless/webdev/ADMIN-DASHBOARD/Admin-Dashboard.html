@@ -77,7 +77,7 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="queueTableBody">
                                 <tr>
                                     <td><strong>R-001</strong></td>
                                     <td>Maria Santos</td>
@@ -184,6 +184,64 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function loadQueue() {
+            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+            let table = document.getElementById("queueTableBody");
+
+
+
+        }
+
+        
+function loadQueue() {
+    const params = new URLSearchParams(window.location.search);
+    const windowName = params.get("window");
+    const purpose = params.get("purpose");
+
+    if (!windowName) return;
+
+    const table = document.getElementById("queueTableBody");
+
+    const newRow = `
+    <tr>
+        <td><strong>Q-999</strong></td>
+        <td>New User</td>
+        <td>${purpose} (${windowName})</td>
+        <td>0 min</td>
+        <td><span class="pill waiting">Waiting</span></td>
+        <td><a href="#serve-modal" class="btn-sm serve">Serve</a></td>
+    </tr>
+    `;
+
+    table.innerHTML += newRow; // 👈 THIS IS THE KEY
+}
+
+
+
+        function serve(id) {
+            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+
+            queue = queue.map(q => {
+                if (q.id === id) {
+                    q.status = "Serving";
+
+                }
+                return q;
+
+            });
+
+            localStorage.setItem("queueList", JSON.stringify(queue));
+            loadQueue();
+
+        }
+
+          
+        loadQueue();
+    </script>
+
+
 
 </body>
 
