@@ -185,62 +185,32 @@
         </div>
     </div>
 
-    <script>
-        function loadQueue() {
-            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-            let table = document.getElementById("queueTableBody");
-
-
-
-        }
-
+   <script>
         
-function loadQueue() {
-    const params = new URLSearchParams(window.location.search);
-    const windowName = params.get("window");
-    const purpose = params.get("purpose");
+    tbody id="queueTableBody">
 
-    if (!windowName) return;
-
-    const table = document.getElementById("queueTableBody");
-
-    const newRow = `
+    <!-- KEEP your hardcoded rows -->
     <tr>
-        <td><strong>Q-999</strong></td>
-        <td>New User</td>
-        <td>${purpose} (${windowName})</td>
+        <td><strong>R-001</strong></td>
+        <td>Maria Santos</td>
+        <td>TOR Request</td>
         <td>0 min</td>
+        <td><span class="pill serving">Serving</span></td>
+        <td><a href="#done-modal" class="btn-sm done">Done</a></td>
+    </tr>
+
+    <tr>
+        <td><strong>C-088</strong></td>
+        <td>Juan dela Cruz</td>
+        <td>Tuition Fee</td>
+        <td>4 min</td>
         <td><span class="pill waiting">Waiting</span></td>
         <td><a href="#serve-modal" class="btn-sm serve">Serve</a></td>
     </tr>
-    `;
 
-    table.innerHTML += newRow; // 👈 THIS IS THE KEY
-}
+</tbody>
 
-
-
-        function serve(id) {
-            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-
-            queue = queue.map(q => {
-                if (q.id === id) {
-                    q.status = "Serving";
-
-                }
-                return q;
-
-            });
-
-            localStorage.setItem("queueList", JSON.stringify(queue));
-            loadQueue();
-
-        }
-
-          
-        loadQueue();
-    </script>
-
+   </script>
 
 
 </body>
