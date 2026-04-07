@@ -186,31 +186,32 @@
     </div>
 
    <script>
-        
-    tbody id="queueTableBody">
+function loadQueue() {
+    const params = new URLSearchParams(window.location.search);
+    const windowName = params.get("window");
+    const purpose = params.get("purpose");
 
-    <!-- KEEP your hardcoded rows -->
+    if (!windowName) return;
+
+    const table = document.getElementById("queueTableBody");
+
+    const newRow = `
     <tr>
-        <td><strong>R-001</strong></td>
-        <td>Maria Santos</td>
-        <td>TOR Request</td>
+        <td><strong>Q-999</strong></td>
+        <td>New User</td>
+        <td>${purpose} (${windowName})</td>
         <td>0 min</td>
-        <td><span class="pill serving">Serving</span></td>
-        <td><a href="#done-modal" class="btn-sm done">Done</a></td>
-    </tr>
-
-    <tr>
-        <td><strong>C-088</strong></td>
-        <td>Juan dela Cruz</td>
-        <td>Tuition Fee</td>
-        <td>4 min</td>
         <td><span class="pill waiting">Waiting</span></td>
         <td><a href="#serve-modal" class="btn-sm serve">Serve</a></td>
     </tr>
+    `;
 
-</tbody>
+    // ✅ ADD TO TOP (not bottom)
+    table.innerHTML = newRow + table.innerHTML;
+}
 
-   </script>
+loadQueue();
+</script>
 
 
 </body>
