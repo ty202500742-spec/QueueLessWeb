@@ -263,7 +263,7 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <button class="get-btn" onclick="addQueue('Window 1', 'Enrollment Assistance')">
+    <button class="get-btn" onclick="addQueue('Enrollment Assistance')">
         confirm and proceed
     </button>
 
@@ -299,7 +299,7 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <button class="get-btn" onclick="addQueue('Window 2', 'Payment Services')">
+    <button class="get-btn" onclick="addQueue('Payment Services')">
         confirm and proceed
     </button>
 
@@ -335,7 +335,7 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <button class="get-btn" onclick="addQueue('Window 3', 'Document Services')">
+    <button class="get-btn" onclick="addQueue('Document Services')">
         confirm and proceed
     </button>
 
@@ -371,7 +371,7 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <button class="get-btn" onclick="addQueue('Winow 4','Aptitude Tests Services ')">
+    <button class="get-btn" onclick="addQueue('Aptitude Tests Services ')">
         confirm and proceed
     </button>
 
@@ -408,7 +408,7 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-        <button class="get-btn" onclick="addQueue('Window 5', 'Processing ID and Scholarships Services')">
+        <button class="get-btn" onclick="addQueue('Processing ID and Scholarships Services')">
             confirm and proceed
         </button>
     </div>
@@ -444,7 +444,7 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-        <button class="get-btn" onclick="addQueue('Window 6', 'General inquiry services for Students')">
+        <button class="get-btn" onclick="addQueue('General inquiry services for Students')">
             confirm and proceed
         </button>
 
@@ -481,7 +481,7 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-       <button class="get-btn" onclick="addQueue('Window 6', 'General inquiry services for Students')">
+       <button class="get-btn" onclick="addQueue('General inquiry services for Students')">
             confirm and proceed
         </button>
 
@@ -518,7 +518,7 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-         <button class="get-btn" onclick="addQueue('Window 6', 'General inquiry services for Students')">
+         <button class="get-btn" onclick="addQueue('General inquiry services for Students')">
             confirm and proceed
         </button>
 
@@ -527,16 +527,15 @@
 
 </div>
 <script>
-    function addQueue(windowName, purpose){
+    function addQueue( purpose){
         let queue = JSON.parse(localStorage.getItem("queueList")) || [];
 
         let newQueue = {
             id: "Q-" + Math.floor(Math.random()* 1000),
             name: "student User", 
-            window: windowName,
             purpose: purpose,
             status: "waiting",
-            time: new Date().toLocaleDateString()
+            time: new Date().toLocaleTimeString()
 
 
         };

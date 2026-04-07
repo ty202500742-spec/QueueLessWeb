@@ -185,32 +185,42 @@
         </div>
     </div>
 
-   <script>
+ <script>
 function loadQueue() {
-    const params = new URLSearchParams(window.location.search);
-    const windowName = params.get("window");
-    const purpose = params.get("purpose");
+    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+    let table = document.getElementById("queueTableBody");
 
-    if (!windowName) return;
+    table.innerHTML = "";
 
-    const table = document.getElementById("queueTableBody");
+    queue.forEach((q, index) => {
+       
+        let row = document.createElement('tr');
+        row.innerHTML = `
+      
+            <td><strong>${q.id}</strong></td>
+            <td>${q.name}</td>
+            <td>${q.purpose}</td>
+            <td>${q.time}</td>
+            <td><span class="pill waiting">${q.status}</span></td>
+            <td><a href="#serve-modal" class="btn-sm serve">Serve</a></td>
+        
+        `;
 
-    const newRow = `
-    <tr>
-        <td><strong>Q-999</strong></td>
-        <td>New User</td>
-        <td>${purpose} (${windowName})</td>
-        <td>0 min</td>
-        <td><span class="pill waiting">Waiting</span></td>
-        <td><a href="#serve-modal" class="btn-sm serve">Serve</a></td>
-    </tr>
-    `;
+        row.querySelector(".serve").addEventListener("click", () =>{
 
-    // ✅ ADD TO TOP (not bottom)
-    table.innerHTML = newRow + table.innerHTML;
+            queue.splice(index, 1);
+
+            localStorage.setItem("queueList", JSON.stringify(queue));
+
+            loadQueue();
+
+        })
+            table.prepend(row);
+    });
 }
 
 loadQueue();
+
 </script>
 
 
