@@ -231,20 +231,22 @@
         <div class="win-icon" style="background:#dbeafe;">🎓</div>
         <h2>enrollment Assistance</h2>
         <br>
-        <p>Enrollment services.</p>
 
-
-        <h4>Requirements:</h4>
-        <br>
         <ul class="ulpop">
-            <li>CET results</li>
-            <li>Registration Form</li>
+            <li><button class="optionchoice" onclick="chooseService('Enrollment')">Enrollment</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Shifting')">shifting</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Readmission')">Readmission</button></li>
+           
+           
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+       
+      <div id="confirmBox1" class="confirmboxes">
+      <p id="selectedText1"></p>
+       <button class="proceed-btn" onclick="addQueue()">Confirm & Proceed</button>
+</div>
 
     </div>
 </div>
@@ -278,7 +280,9 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+   <button class="get-btn" onclick="addQueue('payment services')"">
+    confirm and proceed
+</button>
 
     </div>
 </div>
@@ -313,7 +317,7 @@
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+        <button class="get-btn" onclick="addQueue('aptitude test')"></button>
 
     </div>
 </div>
@@ -459,6 +463,44 @@
 </div>
 
 </div>
+
+<script>
+    function chooseService(purpose) {
+    selectedService = purpose;
+
+    // show confirm UI
+    document.getElementById("confirmBox1").style.display = "block";
+    document.getElementById("confirmBox2").style.display = "block";
+
+    document.getElementById("selectedText1").textContent =
+        "You selected: " + purpose;
+        document.getElementById("selectedText2").textContent =
+        "You selected: " + purpose;
+}
+    function addQueue(){
+      
+        let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+
+        let newQueue = {
+            id: "Q-" + Math.floor(Math.random()* 1000),
+            name: "non-student User", 
+            purpose: selectedService,
+            status: "waiting",
+            time: new Date().toLocaleTimeString()
+
+
+        };
+
+        queue.push(newQueue);
+
+        localStorage.setItem("queueList", JSON.stringify(queue));
+        
+        window.location.href = "Que-number.html";
+    }
+
+    
+
+</script>
 
 
 <footer>

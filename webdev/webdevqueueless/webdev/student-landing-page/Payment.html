@@ -250,22 +250,24 @@
         <div class="win-icon" style="background:#dbeafe;">🎓</div>
         <h2>enrollment Assistance</h2>
         <br>
-        <p>Enrollment services.</p>
+      
 
 
-        <h4>Requirements:</h4>
-        <br>
         <ul class="ulpop">
-            <li>CET results</li>
-            <li>Registration Form</li>
+            <li><button class="optionchoice" onclick="chooseService('Enrollment')">Enrollment</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Shifting')">shifting</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Readmission')">Readmission</button></li>
+           
+           
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <button class="get-btn" onclick="addQueue('Enrollment Assistance')">
-        confirm and proceed
-    </button>
+      <div id="confirmBox1" class="confirmboxes">
+      <p id="selectedText1"></p>
+       <button class="proceed-btn" onclick="addQueue()">Confirm & Proceed</button>
+</div>
 
     </div>
 </div>
@@ -286,25 +288,26 @@
         <div class="win-icon" style="background:#dbeafe;">💳</div>
         <h2>Payments</h2>
         <br>
-        <p>Payment services.</p>
+      
 
-
-        <h4>Requirements:</h4>
-        <br>
         <ul class="ulpop">
-            <li>School ID</li>
-            <li>Required amount to pay</li>
+         <li><button class="optionchoice" onclick="chooseService('Tuition Fee')">Tuition fee</button></li>
+         <li><button class="optionchoice" onclick="chooseService('Miscellaneous')">Miscellaneous </button></li>
+         <li><button class="optionchoice" onclick="chooseService('Other fees')">Other fees</button></li>
+
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <button class="get-btn" onclick="addQueue('Payment Services')">
-        confirm and proceed
-    </button>
+        <div id="confirmBox2" class="confirmboxes">
+            <p id="selectedText2"></p>
+               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
+    
+         </div>
+   </div>
 
-    </div>
-</div>
+  </div>
 
 </div>
 
@@ -527,13 +530,26 @@
 
 </div>
 <script>
-    function addQueue( purpose){
+    function chooseService(purpose) {
+    selectedService = purpose;
+
+    // show confirm UI
+    document.getElementById("confirmBox1").style.display = "block";
+    document.getElementById("confirmBox2").style.display = "block";
+
+    document.getElementById("selectedText1").textContent =
+        "You selected: " + purpose;
+        document.getElementById("selectedText2").textContent =
+        "You selected: " + purpose;
+}
+    function addQueue(){
+      
         let queue = JSON.parse(localStorage.getItem("queueList")) || [];
 
         let newQueue = {
             id: "Q-" + Math.floor(Math.random()* 1000),
             name: "student User", 
-            purpose: purpose,
+            purpose: selectedService,
             status: "waiting",
             time: new Date().toLocaleTimeString()
 
@@ -546,6 +562,8 @@
         
         window.location.href = "Que-number.html";
     }
+
+    
 
 </script>
 
