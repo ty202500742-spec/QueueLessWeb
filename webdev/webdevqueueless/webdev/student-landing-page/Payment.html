@@ -266,6 +266,7 @@
         
       <div id="confirmBox1" class="confirmboxes">
       <p id="selectedText1"></p>
+      <p id="requirementText1"></p>
        <button class="proceed-btn" onclick="addQueue()">Confirm & Proceed</button>
 </div>
 
@@ -547,6 +548,8 @@
 
     document.getElementById("selectedText1").textContent =
         "You selected: " + purpose;
+    document.getElementById("requirementText1").textContent = 
+        "Requirements: CET Results";
     document.getElementById("selectedText2").textContent =
         "You selected: " + purpose;
      document.getElementById("selectedText3").textContent =

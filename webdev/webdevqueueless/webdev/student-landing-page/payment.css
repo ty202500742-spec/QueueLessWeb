@@ -421,6 +421,8 @@ footer {
 
         }
 
+
+
         .popup:target{
             opacity: 1;
             visibility: visible;
@@ -474,7 +476,7 @@ footer {
 
         .ulpop{
 
-            margin: 20px;
+            margin-bottom: 10px;
              list-style: none;
         }
 
@@ -485,15 +487,24 @@ footer {
 
         .optionchoice{
 
-            background-color: black;
-            color: white;
-            width: 100%;
-            border: white;
-            border-radius: 5px;
-            padding: 10px;
             margin: 3px;
+            width:100%;
+            padding: 10px;
+            background: #111827;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s;
             cursor: pointer;
+        }
 
+        .optionchoice:hover {
+
+                background-color: #8B0000 ;
         }
 
         .confirmBoxes{
@@ -501,4 +512,11 @@ footer {
             display:none; 
             margin-top:10px;
 
+        }
+
+        .proceed-btn:hover{
+
+            background-color: white;
+            color: black;
+            cursor: pointer;
         }
