@@ -148,6 +148,7 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     transform: translateY(-20px);
     transition: transform 0.3s;
+    
 }
 
 .modal-overlay:target .modal-box {

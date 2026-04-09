@@ -265,8 +265,8 @@
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
       <div id="confirmBox1" class="confirmboxes">
-      <p id="selectedText1"></p>
-      <p id="requirementText1"></p>
+      <p class="selandreq" id="selectedText1"></p>
+      <p class="selandreq" id="requirementText1"></p>
        <button class="proceed-btn" onclick="addQueue()">Confirm & Proceed</button>
 </div>
 
@@ -303,7 +303,8 @@
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
         <div id="confirmBox2" class="confirmboxes">
-            <p id="selectedText2"></p>
+            <p class="selandreq" id="selectedText2"></p>
+              <p class="selandreq" id="requirementText2"></p>
                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
     
          </div>
@@ -340,7 +341,8 @@
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
         <div id="confirmBox3" class="confirmboxes">
-            <p id="selectedText3"></p>
+            <p class="selandreq" id="selectedText3"></p>
+              <p class="selandreq" id="requirementText3"></p>
                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
     
          </div>
@@ -378,7 +380,8 @@
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
         <div id="confirmBox4" class="confirmboxes">
-            <p id="selectedText4"></p>
+            <p class="selandreq" id="selectedText4"></p>
+              <p class="selandreq" id="requirementText4"></p>
                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
     
          </div>
@@ -414,7 +417,8 @@
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
         <div id="confirmBox5" class="confirmboxes">
-            <p id="selectedText5"></p>
+            <p  class="selandreq" id="selectedText5"></p>
+              <p class="selandreq" id="requirementText5"></p>
                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
     
          </div>
@@ -449,7 +453,8 @@
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
         <div id="confirmBox6" class="confirmboxes">
-            <p id="selectedText6"></p>
+            <p class="selandreq" id="selectedText6"></p>
+              <p class="selandreq" id="requirementText6"></p>
                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
     
          </div>
@@ -486,7 +491,8 @@
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
         <div id="confirmBox7" class="confirmboxes">
-            <p id="selectedText7"></p>
+            <p class="selandreq" id="selectedText7"></p>
+              <p class="selandreq" id="requirementText7"></p>
                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
     
          </div>
@@ -523,7 +529,8 @@
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
         <div id="confirmBox8" class="confirmboxes">
-            <p id="selectedText8"></p>
+            <p class="selandreq" id="selectedText8"></p>
+              <p class="selandreq" id="requirementText8"></p>
                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
     
          </div>
@@ -534,7 +541,7 @@
 </div>
 <script>
     function chooseService(purpose) {
-    selectedService = purpose;
+        selectedService = purpose;
 
     // show confirm UI
     document.getElementById("confirmBox1").style.display = "block";
@@ -546,24 +553,76 @@
     document.getElementById("confirmBox7").style.display = "block";
     document.getElementById("confirmBox8").style.display = "block";
 
-    document.getElementById("selectedText1").textContent =
-        "You selected: " + purpose;
-    document.getElementById("requirementText1").textContent = 
-        "Requirements: CET Results";
-    document.getElementById("selectedText2").textContent =
-        "You selected: " + purpose;
-     document.getElementById("selectedText3").textContent =
-        "You selected: " + purpose;
-     document.getElementById("selectedText4").textContent =
-        "You selected: " + purpose;
-     document.getElementById("selectedText5").textContent =
-        "You selected: " + purpose;
-     document.getElementById("selectedText6").textContent =
-        "You selected: " + purpose;
-     document.getElementById("selectedText7").textContent =
-        "You selected: " + purpose;
-     document.getElementById("selectedText8").textContent =
-        "You selected: " + purpose;
+
+     let requirements = "";
+    if (purpose === "Enrollment") requirements = "CET Results";
+    else if (purpose === "Shifting") requirements = "School ID or COR";
+    else if (purpose === "Readmission") requirements = "School ID or COR";
+
+    else if (purpose === "Tuition Fee")requirements = "COR and Required Amount";
+    else if (purpose === "Miscellaneous") requirements = "School ID or COR";
+    else if (purpose === "Other fees") requirements = "School ID";
+
+    else if (purpose === "TOR")requirements = "COR and Required Amount";
+    else if (purpose === "Certificate") requirements = "School ID or COR";
+    else if (purpose === "Diploma") requirements = "School ID or COR";
+
+    else if (purpose === "EAT") requirements = "CET results";
+    else if (purpose === "NAT") requirements = "CET results";
+    else if (purpose === "Interview")requirements = "CET results";
+
+    else if (purpose === "ID Request") requirements = "COR and Required amount";
+    else if (purpose === "ID Replacement") requirements = "COR and Required amount";
+    else if (purpose === "Scholarship")requirements = "Form 138 or ano basta grado";
+
+    else if (purpose === "ID Request") requirements = "COR and Required amount";
+    else if (purpose === "ID Replacement") requirements = "COR and Required amount";
+    else if (purpose === "Scholarship")requirements = "Form 138 or ano basta grado";
+
+    else requirements = "Check office for Requirements";
+
+
+
+
+        document.getElementById("selectedText1").innerHTML =
+        "<strong>You selected:</strong> " + purpose;
+     document.getElementById("requirementText1").innerHTML = 
+        "<strong>Requirements:</strong>" + requirements;
+
+    document.getElementById("selectedText2").innerHTML =
+       "<strong>You selected:</strong> " + purpose;
+        document.getElementById("requirementText2").innerHTML = 
+        "<strong>Requirements:</strong> " + requirements;
+
+     document.getElementById("selectedText3").innerHTML =
+        "<strong>You selected:</strong> " + purpose;
+          document.getElementById("requirementText3").innerHTML = 
+        "<strong>Requirements:</strong> "+ requirements;
+        
+     document.getElementById("selectedText4").innerHTML =
+        "<strong>You selected:</strong> " + purpose;
+        document.getElementById("requirementText4").innerHTML = 
+         "<strong>Requirements:</strong> " + requirements;
+
+     document.getElementById("selectedText5").innerHTML =
+        "<strong>You selected:</strong> " + purpose;
+        document.getElementById("requirementText5").innerHTML = 
+         "<strong>Requirements:</strong> " + requirements;
+
+     document.getElementById("selectedText6").innerHTML =
+       "<strong>You selected:</strong> " + purpose;
+        document.getElementById("requirementText6").innerHTML= 
+         "<strong>Requirements:</strong> " + requirements;
+
+     document.getElementById("selectedText7").innerHTML =
+        "<strong>You selected:</strong> " + purpose;
+        document.getElementById("requirementText7").innerHTML = 
+        "<strong>Requirements:</strong> " + requirements;
+
+     document.getElementById("selectedText8").innerHTML =
+        "<strong>You selected:</strong> "+ purpose;
+        document.getElementById("requirementText8").innerHTML = 
+        "<strong>Requirements:</strong> " + requirements;
         
 }
     function addQueue(){

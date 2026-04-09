@@ -520,3 +520,13 @@ footer {
             color: black;
             cursor: pointer;
         }
+
+       .selandreq{
+
+        transition: background 0.2s;
+        margin-top: 10px;
+        
+        font-size: 15px;
+        
+
+       }
