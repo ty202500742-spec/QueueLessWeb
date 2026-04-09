@@ -543,105 +543,69 @@
     function chooseService(purpose) {
         selectedService = purpose;
 
-    // show confirm UI
-    document.getElementById("confirmBox1").style.display = "block";
-    document.getElementById("confirmBox2").style.display = "block";
-    document.getElementById("confirmBox3").style.display = "block";
-    document.getElementById("confirmBox4").style.display = "block";
-    document.getElementById("confirmBox5").style.display = "block";
-    document.getElementById("confirmBox6").style.display = "block";
-    document.getElementById("confirmBox7").style.display = "block";
-    document.getElementById("confirmBox8").style.display = "block";
+     for (let i = 1; i <= 8; i++) {
+        document.getElementById("confirmBox" + i).style.display = "block";
+    }
 
+    // Determine requirements
+    let requirements = "";
+    switch (purpose) {
+        case "Enrollment":
+        case "EAT":
+        case "NAT":
+        case "Interview":
+            requirements = "CET Results";
+            break;
+        case "Shifting":
+        case "Readmission":
+        case "Miscellaneous":
+        case "Certificate":
+        case "Diploma":
+            requirements = "School ID or COR";
+            break;
+        case "Tuition Fee":
+        case "TOR":
+        case "ID Request":
+        case "ID Replacement":
+            requirements = "COR and Required Amount";
+            break;
+        case "Other fees":
+        case "ID Request":
+            requirements = "School ID";
+            break;
+        case "Scholarship":
+            requirements = "Form 138 or any grade report";
+            break;
+        default:
+            requirements = "Check office for Requirements";
+    }
 
-     let requirements = "";
-    if (purpose === "Enrollment") requirements = "CET Results";
-    else if (purpose === "Shifting") requirements = "School ID or COR";
-    else if (purpose === "Readmission") requirements = "School ID or COR";
-
-    else if (purpose === "Tuition Fee")requirements = "COR and Required Amount";
-    else if (purpose === "Miscellaneous") requirements = "School ID or COR";
-    else if (purpose === "Other fees") requirements = "School ID";
-
-    else if (purpose === "TOR")requirements = "COR and Required Amount";
-    else if (purpose === "Certificate") requirements = "School ID or COR";
-    else if (purpose === "Diploma") requirements = "School ID or COR";
-
-    else if (purpose === "EAT") requirements = "CET results";
-    else if (purpose === "NAT") requirements = "CET results";
-    else if (purpose === "Interview")requirements = "CET results";
-
-    else if (purpose === "ID Request") requirements = "COR and Required amount";
-    else if (purpose === "ID Replacement") requirements = "COR and Required amount";
-    else if (purpose === "Scholarship")requirements = "Form 138 or ano basta grado";
-
-    else if (purpose === "ID Request") requirements = "COR and Required amount";
-    else if (purpose === "ID Replacement") requirements = "COR and Required amount";
-    else if (purpose === "Scholarship")requirements = "Form 138 or ano basta grado";
-
-    else requirements = "Check office for Requirements";
-
-
-
-
-        document.getElementById("selectedText1").innerHTML =
-        "<strong>You selected:</strong> " + purpose;
-     document.getElementById("requirementText1").innerHTML = 
-        "<strong>Requirements:</strong>" + requirements;
-
-    document.getElementById("selectedText2").innerHTML =
-       "<strong>You selected:</strong> " + purpose;
-        document.getElementById("requirementText2").innerHTML = 
-        "<strong>Requirements:</strong> " + requirements;
-
-     document.getElementById("selectedText3").innerHTML =
-        "<strong>You selected:</strong> " + purpose;
-          document.getElementById("requirementText3").innerHTML = 
-        "<strong>Requirements:</strong> "+ requirements;
-        
-     document.getElementById("selectedText4").innerHTML =
-        "<strong>You selected:</strong> " + purpose;
-        document.getElementById("requirementText4").innerHTML = 
-         "<strong>Requirements:</strong> " + requirements;
-
-     document.getElementById("selectedText5").innerHTML =
-        "<strong>You selected:</strong> " + purpose;
-        document.getElementById("requirementText5").innerHTML = 
-         "<strong>Requirements:</strong> " + requirements;
-
-     document.getElementById("selectedText6").innerHTML =
-       "<strong>You selected:</strong> " + purpose;
-        document.getElementById("requirementText6").innerHTML= 
-         "<strong>Requirements:</strong> " + requirements;
-
-     document.getElementById("selectedText7").innerHTML =
-        "<strong>You selected:</strong> " + purpose;
-        document.getElementById("requirementText7").innerHTML = 
-        "<strong>Requirements:</strong> " + requirements;
-
-     document.getElementById("selectedText8").innerHTML =
-        "<strong>You selected:</strong> "+ purpose;
-        document.getElementById("requirementText8").innerHTML = 
-        "<strong>Requirements:</strong> " + requirements;
-        
+    // Update all 8 confirm boxes dynamically
+    for (let i = 1; i <= 8; i++) {
+        document.getElementById("selectedText" + i).innerHTML = `<strong>You selected:</strong> ${purpose}`;
+        document.getElementById("requirementText" + i).innerHTML = `<strong>Requirements:</strong> ${requirements}`;
+    }
 }
     function addQueue(){
       
         let queue = JSON.parse(localStorage.getItem("queueList")) || [];
 
+         let qNum = "Q-" + Math.floor(Math.random()*1000).toString().padStart(3,'0');
+
         let newQueue = {
-            id: "Q-" + Math.floor(Math.random()* 1000),
+            id: qNum,
             name: "student User", 
             purpose: selectedService,
             status: "waiting",
             time: new Date().toLocaleTimeString()
-
+           
 
         };
 
         queue.push(newQueue);
 
         localStorage.setItem("queueList", JSON.stringify(queue));
+            
         
         window.location.href = "Que-number.html";
     }

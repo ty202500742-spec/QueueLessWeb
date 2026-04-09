@@ -26,30 +26,86 @@
 <div class="bodd1">
  <div class="bodd2">
   <div class="queue-container">
+    <h1>Now in Queue</h1>
+    
+    <div id="currentNumber" class="current-number">---</div>
+    <div id="statusMessage" class="status-message">Loading your position...</div>
 
-  <h1>Now in Queue</h1>
-  <div class="current-number">006</div>
-     <div class="status-message">You are in position 6. 5 people ahead. Est. wait: 25 min.</div>
-  
-  
-     <ul class="queue-list">
-       <li><span>#001 James Peter</span><span>Waiting</span></li>
-                <li><span>#002 Rudolf Ariston</span><span>Waiting</span></li>
-                <li><span>#003 Alkaizer Jalaidi</span><span>Waiting</span></li>
-                <li><span>#004 Peter James</span><span>Waiting</span></li>
-                <li><span>#005 Ariston Rudolf</span><span>Waiting</span></li>
-                <li class="current"><span>#006 You</span><span>Your Turn</span></li>
-            </ul>
+    <ul id="queueList" class="queue-list">
+        <!-- Queue items will be added here dynamically -->
+    </ul>
 
-            <a href="main.html" class="cancel-btn">Cancel Queue</a>
- 
-    </div>
+    <a href="#" class="cancel-btn" onclick="cancelQueue()">Cancel Queue</a>
+</div>
   </div>
 </div>
 
 <footer>
     © 2026 Queueuless | Western Mindanao State University
 </footer>
+
+<script>
+
+
+
+function loadQueuePage() {
+
+
+
+    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+    let queueListEl = document.getElementById("queueList");
+    let currentNumberEl = document.getElementById("currentNumber");
+    let statusMessageEl = document.getElementById("statusMessage");
+
+    queueListEl.innerHTML = "";
+
+    if(queue.length === 0){
+        currentNumberEl.textContent = "---";
+        statusMessageEl.textContent = "No queue yet.";
+        return;
+    }
+
+    // User is the last in queue
+    let userIndex = queue.length - 1;
+    let userQueue = queue[userIndex];
+
+    queue.forEach((q, index) => {
+        let li = document.createElement("li");
+
+        if(index === userIndex){
+            li.classList.add("current");
+            li.innerHTML = `<span>#${q.id} You</span><span>Your Turn</span>`;
+        } else {
+            li.innerHTML = `<span>#${q.id} ${q.name}</span><span>Waiting</span>`;
+        }
+
+        queueListEl.appendChild(li);
+    });
+
+    
+
+    // Update current number and status
+    currentNumberEl.textContent = userQueue.id;
+    let peopleAhead = userIndex;
+    let estWait = peopleAhead * 5; // estimate 5 min per person
+    statusMessageEl.textContent = `You are in position ${userIndex + 1}. ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
+}
+
+// Cancel the queue
+function cancelQueue() {
+    if(confirm("Are you sure you want to cancel your queue?")){
+        localStorage.removeItem("queueList");
+        alert("Your queue has been canceled.");
+        window.location.href = "main.html";
+    }
+}
+
+// Auto-refresh every 5 seconds for live queue
+setInterval(loadQueuePage, 5000);
+
+// Initial load
+window.onload = loadQueuePage;
+</script>
 </body>
 
 
