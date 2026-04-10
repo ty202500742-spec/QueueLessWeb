@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="Admin-Global.css">
     <link rel="stylesheet" href="Admin-Dashboard.css">
 </head>
+
 <body>
-    
+
     <nav class="sidebar">
         <div class="logo-area">
             <img src="../images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
@@ -16,11 +18,11 @@
 
         <p class="menu-label">Overview</p>
         <a href="Admin-Dashboard.html" class="menu-link active">Dashboard</a>
-        
+
         <p class="menu-label">Windows</p>
         <a href="Admin-Registrar.html" class="menu-link">Registrar</a>
         <a href="Admin-Cashier.html" class="menu-link">Cashier</a>
-        
+
         <p class="menu-label">Management</p>
         <a href="Admin-non-students.html" class="menu-link">Non-Students List</a>
         <a href="Admin-Students.html" class="menu-link">Students List</a>
@@ -37,7 +39,7 @@
         </div>
 
         <div class="page-wrapper">
-            
+
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-label">In Queue Now</div>
@@ -60,9 +62,9 @@
                     <div class="stat-sub">3 offices open</div>
                 </div>
             </div>
-            
+
             <div class="bottom-row">
-                
+
                 <div class="panel main-panel">
                     <h3>Live Queue — Overview</h3>
                     <div class="table-container">
@@ -120,11 +122,13 @@
                     <ul class="feed">
                         <li class="feed-item">
                             <div class="feed-dot green"></div>
-                            <div>Registrar served! <strong>#R-001</strong> <br><span class="feed-time">just now</span></div>
+                            <div>Registrar served! <strong>#R-001</strong> <br><span class="feed-time">just now</span>
+                            </div>
                         </li>
                         <li class="feed-item">
                             <div class="feed-dot blue"></div>
-                            <div>Alert: <strong>#C-088</strong> joined Cashier queue <br><span class="feed-time">1 min ago</span></div>
+                            <div>Alert: <strong>#C-088</strong> joined Cashier queue <br><span class="feed-time">1 min
+                                    ago</span></div>
                         </li>
                         <li class="feed-item">
                             <div class="feed-dot red"></div>
@@ -132,7 +136,8 @@
                         </li>
                         <li class="feed-item">
                             <div class="feed-dot green"></div>
-                            <div>Clinic served! <strong>#M-030</strong> <br><span class="feed-time">4 min ago</span></div>
+                            <div>Clinic served! <strong>#M-030</strong> <br><span class="feed-time">4 min ago</span>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -143,17 +148,17 @@
 
     <div id="serve-modal" class="modal-overlay" style="display:none;">
         <div class="modal-box">
-        <h3>Call Student to Counter</h3>
-        <p>Are you sure you want to call this student? This will update the live monitors.</p>
-        <div class="modal-actions">
-            <!-- Cancel button -->
-            <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
+            <h3>Call Student to Counter</h3>
+            <p>Are you sure you want to call this student? This will update the live monitors.</p>
+            <div class="modal-actions">
+                <!-- Cancel button -->
+                <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
 
-            <!-- Confirm button -->
-            <button class="btn btn-confirm" onclick="confirmServe()">Call Next</button>
+                <!-- Confirm button -->
+                <button class="btn btn-confirm" onclick="confirmServe()">Call Next</button>
+            </div>
         </div>
     </div>
-</div>
 
     <div id="done-modal" class="modal-overlay">
         <div class="modal-box">
@@ -177,7 +182,7 @@
         </div>
     </div>
 
-   <div id="logout-modal" class="modal-overlay">
+    <div id="logout-modal" class="modal-overlay">
         <div class="modal-box">
             <h3>Confirm Logout</h3>
             <p>Are you sure you want to securely log out?</p>
@@ -188,20 +193,20 @@
         </div>
     </div>
 
- <script>
+    <script>
 
-    let selectedQueueIndex = null;
+        let selectedQueueIndex = null;
 
-    function loadQueue() {
-    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-    let table = document.getElementById("queueTableBody");
+        function loadQueue() {
+            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+            let table = document.getElementById("queueTableBody");
 
-    table.innerHTML = "";
+            table.innerHTML = "";
 
-    queue.forEach((q, index) => {
-       
-        let row = document.createElement('tr');
-        row.innerHTML = `
+            queue.forEach((q, index) => {
+
+                let row = document.createElement('tr');
+                row.innerHTML = `
       
             <td><strong>${q.id}</strong></td>
             <td>${q.name}</td>
@@ -212,36 +217,36 @@
         
         `;
 
-        row.querySelector(".serve").addEventListener("click", () =>{
-            selectedQueueIndex = index;
-             document.getElementById("serve-modal").style.display = "block"; 
+                row.querySelector(".serve").addEventListener("click", () => {
+                    selectedQueueIndex = index;
+                    document.getElementById("serve-modal").style.display = "block";
 
-            
-        });
-            table.prepend(row);
-    });
-}
 
-function confirmServe() {
-    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+                });
+                table.prepend(row);
+            });
+        }
 
-    if (selectedQueueIndex !== null) {
-        queue.splice(selectedQueueIndex, 1); // remove item
-        localStorage.setItem("queueList", JSON.stringify(queue));
-        selectedQueueIndex = null;
+        function confirmServe() {
+            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
 
-        document.getElementById("serve-modal").style.display = "none"; // hide modal
-        loadQueue(); // refresh table
-    }
-}
+            if (selectedQueueIndex !== null) {
+                queue.splice(selectedQueueIndex, 1); // remove item
+                localStorage.setItem("queueList", JSON.stringify(queue));
+                selectedQueueIndex = null;
 
-function closeModal() {
-    document.getElementById("serve-modal").style.display = "none";
-}
-// user this command to clear storage = localStorage.clear();
-loadQueue();
+                document.getElementById("serve-modal").style.display = "none"; // hide modal
+                loadQueue(); // refresh table
+            }
+        }
 
-</script>
+        function closeModal() {
+            document.getElementById("serve-modal").style.display = "none";
+        }
+        // user this command to clear storage = localStorage.clear();
+        loadQueue();
+
+    </script>
 
 
 </body>

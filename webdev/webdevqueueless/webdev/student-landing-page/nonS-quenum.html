@@ -1,111 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="quenumber.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Queueuless | queue</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="quenumber.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queueuless | queue</title>
 
 </head>
+
 <body>
 
     <nav>
         <a href="main.html" class="nav-logo-link">
             <img src="../images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
         </a>
-        
+
         <ul class="nav-links">
             <li><a href="nonS-main.html">Home</a></li>
             <li><a href="nonS-payment.html">Services</a></li>
             <li><a href="nonS-quenum.html">Que-Number</a></li>
         </ul>
-        
+
         <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
     </nav>
 
-<div class="bodd1">
- <div class="bodd2">
-  <div class="queue-container">
-    <h1>Now in Queue</h1>
-    
-    <div id="currentNumber" class="current-number">---</div>
-    <div id="statusMessage" class="status-message">Loading your position...</div>
+    <div class="bodd1">
+        <div class="bodd2">
+            <div class="queue-container">
+                <h1>Now in Queue</h1>
 
-    <ul id="queueList" class="queue-list">
-        <!-- Queue items will be added here dynamically -->
-    </ul>
+                <div id="currentNumber" class="current-number">---</div>
+                <div id="statusMessage" class="status-message">Loading your position...</div>
 
-    <a href="#" class="cancel-btn" onclick="cancelQueue()">Cancel Queue</a>
-</div>
-  </div>
-</div>
+                <ul id="queueList" class="queue-list">
+                    <!-- Queue items will be added here dynamically -->
+                </ul>
 
-<footer>
-    © 2026 Queueuless | Western Mindanao State University
-</footer>
+                <a href="#" class="cancel-btn" onclick="cancelQueue()">Cancel Queue</a>
+            </div>
+        </div>
+    </div>
 
-<script>
+    <footer>
+        © 2026 Queueuless | Western Mindanao State University
+    </footer>
 
-
-
-function loadQueuePage() {
+    <script>
 
 
 
-    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-    let queueListEl = document.getElementById("queueList");
-    let currentNumberEl = document.getElementById("currentNumber");
-    let statusMessageEl = document.getElementById("statusMessage");
+        function loadQueuePage() {
 
-    queueListEl.innerHTML = "";
 
-    if(queue.length === 0){
-        currentNumberEl.textContent = "---";
-        statusMessageEl.textContent = "No queue yet.";
-        return;
-    }
 
-    // User is the last in queue
-    let userIndex = queue.length - 1;
-    let userQueue = queue[userIndex];
+            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+            let queueListEl = document.getElementById("queueList");
+            let currentNumberEl = document.getElementById("currentNumber");
+            let statusMessageEl = document.getElementById("statusMessage");
 
-    queue.forEach((q, index) => {
-        let li = document.createElement("li");
+            queueListEl.innerHTML = "";
 
-        if(index === userIndex){
-            li.classList.add("current");
-            li.innerHTML = `<span>#${q.id} You</span><span>Your Turn</span>`;
-        } else {
-            li.innerHTML = `<span>#${q.id} ${q.name}</span><span>Waiting</span>`;
+            if (queue.length === 0) {
+                currentNumberEl.textContent = "---";
+                statusMessageEl.textContent = "No queue yet.";
+                return;
+            }
+
+            // User is the last in queue
+            let userIndex = queue.length - 1;
+            let userQueue = queue[userIndex];
+
+            queue.forEach((q, index) => {
+                let li = document.createElement("li");
+
+                if (index === userIndex) {
+                    li.classList.add("current");
+                    li.innerHTML = `<span>#${q.id} You</span><span>Your Turn</span>`;
+                } else {
+                    li.innerHTML = `<span>#${q.id} ${q.name}</span><span>Waiting</span>`;
+                }
+
+                queueListEl.appendChild(li);
+            });
+
+
+
+            // Update current number and status
+            currentNumberEl.textContent = userQueue.id;
+            let peopleAhead = userIndex;
+            let estWait = peopleAhead * 5; // estimate 5 min per person
+            statusMessageEl.textContent = `You are in position ${userIndex + 1}. ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
         }
 
-        queueListEl.appendChild(li);
-    });
+        // Cancel the queue
+        function cancelQueue() {
+            if (confirm("Are you sure you want to cancel your queue?")) {
+                localStorage.removeItem("queueList");
+                alert("Your queue has been canceled.");
+                window.location.href = "main.html";
+            }
+        }
 
-    
+        // Auto-refresh every 5 seconds for live queue
+        setInterval(loadQueuePage, 5000);
 
-    // Update current number and status
-    currentNumberEl.textContent = userQueue.id;
-    let peopleAhead = userIndex;
-    let estWait = peopleAhead * 5; // estimate 5 min per person
-    statusMessageEl.textContent = `You are in position ${userIndex + 1}. ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
-}
-
-// Cancel the queue
-function cancelQueue() {
-    if(confirm("Are you sure you want to cancel your queue?")){
-        localStorage.removeItem("queueList");
-        alert("Your queue has been canceled.");
-        window.location.href = "main.html";
-    }
-}
-
-// Auto-refresh every 5 seconds for live queue
-setInterval(loadQueuePage, 5000);
-
-// Initial load
-window.onload = loadQueuePage;
-</script>
+        // Initial load
+        window.onload = loadQueuePage;
+    </script>
 </body>
 
 

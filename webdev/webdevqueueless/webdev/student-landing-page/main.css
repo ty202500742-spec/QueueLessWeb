@@ -1,23 +1,23 @@
 * {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-   
+body {
+
     font-family: Arial, sans-serif;
     background-color: #ffffff;
-    
+
 }
 
 nav {
     position: sticky;
     top: 0;
     background-color: #990000;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     padding: 25px 40px;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 999;
@@ -42,13 +42,13 @@ nav {
 }
 
 .nav-links {
-     list-style: none;
-     display: flex;
-     gap: 20px;
- }
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
 
 .nav-links li a {
-    color: rgba(255,255,255);
+    color: rgba(255, 255, 255);
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
@@ -63,16 +63,16 @@ nav {
 }
 
 .nav-links li a.active {
-    color: rgba(255,255,255);
-     text-decoration: none;
-     font-weight: 700;
-    
-} 
+    color: rgba(255, 255, 255);
+    text-decoration: none;
+    font-weight: 700;
+
+}
 
 .logout {
-    background: rgba(255, 255,  255, 0.15);
+    background: rgba(255, 255, 255, 0.15);
     color: rgb(255, 255, 255);
-    padding: 6px 14px; 
+    padding: 6px 14px;
     border: none;
     border-radius: 6px;
     font-size: 18px;
@@ -88,7 +88,7 @@ nav {
 
 
 .hero {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(180, 0, 0,0.6)), url('../images/wmsu.jpg');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(180, 0, 0, 0.6)), url('../images/wmsu.jpg');
     background-position: center;
     background-size: cover;
     color: black;
@@ -97,20 +97,20 @@ nav {
     padding-bottom: 250px;
 }
 
- h1{
+h1 {
     margin: 0;
     font-weight: 900;
 }
 
-.hero4{
-    background:  #8B0000;
+.hero4 {
+    background: #8B0000;
     color: rgb(255, 255, 255);
     font-size: 40px;
     padding: 110px 90px;
     text-align: center;
 }
 
-.hero p{
+.hero p {
     font-size: 25px;
     margin-bottom: 20px;
     font-weight: 100;
@@ -125,43 +125,45 @@ nav {
     margin-top: 30px;
 }
 
-.b1, .b2 {
+.b1,
+.b2 {
     background: white;
-    font-weight: 500; 
-    border-radius: 25px;   
-    text-decoration: none; 
-    font-size: 20px; 
+    font-weight: 500;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 20px;
     text-align: center;
-    display: inline-block; 
-    padding: 20px 40px; 
-    border: none; 
+    display: inline-block;
+    padding: 20px 40px;
+    border: none;
 }
 
 .b1 {
     color: rgb(117, 0, 0);
 }
+
 .b2 {
     color: #8B0000;
 }
 
 .stats {
-     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     padding: 32px;
     max-width: 8000px;
     margin: 0 auto;
     box-sizing: border-box;
-    width:  100%;
+    width: 100%;
 }
 
 .stat {
-    
+
     background: rgb(242, 228, 228);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 .stat .n {
@@ -172,69 +174,69 @@ nav {
 }
 
 .stat .l {
-    font-size: 18px; 
+    font-size: 18px;
     font-weight: 50;
     color: #666;
     margin-top: 4px;
 
 }
 
-.steps { 
-     margin: 40px auto;
-     padding: 40px 60px;
-     background: none;
+.steps {
+    margin: 40px auto;
+    padding: 40px 60px;
+    background: none;
     border-radius: 20px;
-    padding: 10px 32px 48px; 
-    max-width: 8000px; 
-    margin: 100px auto 40px; 
-    color: rgb(255, 255, 255); 
+    padding: 10px 32px 48px;
+    max-width: 8000px;
+    margin: 100px auto 40px;
+    color: rgb(255, 255, 255);
 }
 
-.steps h2 { 
-    font-size: 40px; 
-    font-weight: 800; 
-    margin-bottom: 16px; 
-    text-align: center; 
+.steps h2 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    text-align: center;
 }
 
-.sg { 
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 12px; 
+.sg {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
 }
 
-.step { 
-    background: rgb(252, 230, 230); 
-    border-radius: 12px; 
-    padding: 18px; 
-    text-align: center; 
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06); 
-    color: black; 
+.step {
+    background: rgb(252, 230, 230);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    color: black;
 }
 
-.step .nb { 
-    width: 38px; 
-    height: 38px; 
-    background: #8B0000; 
-    color: rgb(255, 255, 255); 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 18px; 
-    font-weight: 800; 
-    margin: 0 auto 10px; 
+.step .nb {
+    width: 38px;
+    height: 38px;
+    background: #8B0000;
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0 auto 10px;
 }
 
-.step h3 { 
-    font-size: 18px; 
-    font-weight: 700; 
-    margin-bottom: 4px; 
+.step h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
 }
 
-.step p { 
-    font-size: 18px; 
-    color: #666; 
+.step p {
+    font-size: 18px;
+    color: #666;
 }
 
 .services h2 {
@@ -248,16 +250,20 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 20px;
-   
+
 
 }
+
 /* ── Responsive ── */
-        @media (max-width: 600px) {
-            .stats-row, .window-grid{
-                padding: 14px;
-                grid-template-columns: 1fr;
-            }
-            .page-header {
-                padding: 16px;
-            }
+@media (max-width: 600px) {
+
+    .stats-row,
+    .window-grid {
+        padding: 14px;
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        padding: 16px;
+    }
 }

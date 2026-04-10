@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="Admin-Global.css">
     <link rel="stylesheet" href="Admin-non-students.css">
 </head>
+
 <body>
 
     <nav class="sidebar">
@@ -16,11 +18,11 @@
 
         <p class="menu-label">Overview</p>
         <a href="Admin-Dashboard.html" class="menu-link">Dashboard</a>
-        
+
         <p class="menu-label">Windows</p>
         <a href="Admin-Registrar.html" class="menu-link">Registrar</a>
         <a href="Admin-Cashier.html" class="menu-link">Cashier</a>
-        
+
         <p class="menu-label">Management</p>
         <a href="Admin-non-students.html" class="menu-link active">Non-Students List</a>
         <a href="Admin-Students.html" class="menu-link">Students List</a>
@@ -64,17 +66,17 @@
         <div class="modal-box">
             <h3>Manual Queue Registration</h3>
             <p>Add a student to a queue manually if they cannot access the portal.</p>
-            
+
             <form action="#" class="modal-form">
                 <label>Valid ID</label>
                 <input type="text" placeholder="e.g. 2021-00000" required>
-                
+
                 <label>Select Window</label>
                 <select required>
                     <option>Window 1 - Registrar</option>
                     <option>Window 2 - Cashier</option>
                 </select>
-                
+
                 <div class="modal-actions" style="margin-top: 20px;">
                     <a href="#" class="btn btn-cancel">Cancel</a>
                     <button type="submit" class="btn btn-confirm">Add to Queue</button>
@@ -83,7 +85,7 @@
         </div>
     </div>
 
-   <div id="logout-modal" class="modal-overlay">
+    <div id="logout-modal" class="modal-overlay">
         <div class="modal-box">
             <h3>Confirm Logout</h3>
             <p>Are you sure you want to securely log out?</p>
@@ -95,16 +97,16 @@
     </div>
 
     <script>
-function loadQueue() {
-    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-    let table = document.getElementById("queueTableBody");
+        function loadQueue() {
+            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+            let table = document.getElementById("queueTableBody");
 
-    table.innerHTML = "";
+            table.innerHTML = "";
 
-    queue.forEach((q, index) => {
-       
-        let row = document.createElement('tr');
-        row.innerHTML = `
+            queue.forEach((q, index) => {
+
+                let row = document.createElement('tr');
+                row.innerHTML = `
       
             <td><strong>${q.id}</strong></td>
             <td>${q.name}</td>
@@ -115,21 +117,22 @@ function loadQueue() {
         
         `;
 
-        row.querySelector(".serve").addEventListener("click", () =>{
+                row.querySelector(".serve").addEventListener("click", () => {
 
-            queue.splice(index, 1);
+                    queue.splice(index, 1);
 
-            localStorage.setItem("queueList", JSON.stringify(queue));
+                    localStorage.setItem("queueList", JSON.stringify(queue));
 
-            loadQueue();
+                    loadQueue();
 
-        })
-            table.prepend(row);
-    });
-}
+                })
+                table.prepend(row);
+            });
+        }
 
-loadQueue();
+        loadQueue();
 
-</script>
+    </script>
 </body>
+
 </html>
