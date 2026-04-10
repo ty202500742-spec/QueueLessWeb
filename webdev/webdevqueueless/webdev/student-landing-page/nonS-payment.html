@@ -19,9 +19,9 @@
     </a>
     
     <ul class="nav-links">
-        <li><a href="main.html">Home</a></li>
-        <li><a href="Payment.html">Services</a></li>
-        <li><a href="Que-number.html">Que-Number</a></li>
+        <li><a href="nonS-main.html">Home</a></li>
+        <li><a href="nonS-payment.html">Services</a></li>
+        <li><a href="nonS-quenum.html">Que-Number</a></li>
     </ul>
     
     <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
@@ -231,20 +231,23 @@
         <div class="win-icon" style="background:#dbeafe;">🎓</div>
         <h2>enrollment Assistance</h2>
         <br>
+      
+
 
         <ul class="ulpop">
+
             <li><button class="optionchoice" onclick="chooseService('Enrollment')">Enrollment</button></li>
             <li><button class="optionchoice" onclick="chooseService('Shifting')">shifting</button></li>
             <li><button class="optionchoice" onclick="chooseService('Readmission')">Readmission</button></li>
-           
            
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-       
+        
       <div id="confirmBox1" class="confirmboxes">
-      <p id="selectedText1"></p>
+      <p class="selandreq" id="selectedText1"></p>
+      <p class="selandreq" id="requirementText1"></p>
        <button class="proceed-btn" onclick="addQueue()">Confirm & Proceed</button>
 </div>
 
@@ -267,28 +270,68 @@
         <div class="win-icon" style="background:#dbeafe;">💳</div>
         <h2>Payments</h2>
         <br>
-        <p>Payment services.</p>
+      
 
-
-        <h4>Requirements:</h4>
-        <br>
         <ul class="ulpop">
-            <li>School ID</li>
-            <li>Required amount to pay</li>
+
+         <li><button class="optionchoice" onclick="chooseService('Tuition Fee')">Tuition fee</button></li>
+         <li><button class="optionchoice" onclick="chooseService('Miscellaneous')">Miscellaneous </button></li>
+         <li><button class="optionchoice" onclick="chooseService('Other fees')">Other fees</button></li>
+
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-   <button class="get-btn" onclick="addQueue('payment services')"">
-    confirm and proceed
-</button>
+        <div id="confirmBox2" class="confirmboxes">
+            <p class="selandreq" id="selectedText2"></p>
+              <p class="selandreq" id="requirementText2"></p>
+               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
+    
+         </div>
+   </div>
+
+  </div>
+
+</div>
+
+<div id="popup3" class="popup">
+    <div class="popup-card">
+        <a href="#" class="close-btn">&times;</a>
+
+        <div class="card-top">
+
+            <span class="win-label">Window 3</span>
+            <span class="win-amt">₱75</span>
+
+        </div>
+
+        <div class="win-icon" style="background:#dbeafe;">💳</div>
+        <h2>Documents</h2>
+        <br>
+       
+        <ul class="ulpop">
+
+         <li><button class="optionchoice" onclick="chooseService('TOR')">TOR</button></li>
+         <li><button class="optionchoice" onclick="chooseService('Certificate')">Certificate</button></li>
+         <li><button class="optionchoice" onclick="chooseService('Diploma')">Diploma</button></li>
+
+        </ul>
+
+        <h4>Schedule:</h4>
+        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+        
+        <div id="confirmBox3" class="confirmboxes">
+            <p class="selandreq" id="selectedText3"></p>
+              <p class="selandreq" id="requirementText3"></p>
+               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
+    
+         </div>
 
     </div>
 </div>
 
 </div>
-
 
 <div id="popup4" class="popup">
     <div class="popup-card">
@@ -296,7 +339,7 @@
 
         <div class="card-top">
 
-            <span class="win-label">Window 4</span>
+            <span class="win-label">Window 3</span>
             <span class="win-amt">₱200</span>
 
         </div>
@@ -304,21 +347,25 @@
         <div class="win-icon" style="background:#dbeafe;">📝</div>
         <h2>Aptitude Tests</h2>
         <br>
-        <p>Aptitude test services.</p>
 
 
-        <h4>Requirements:</h4>
-        <br>
-        <ul class="ulpop">
-            <li>CET Results</li>
-            <li>Required amount to pay</li>
+         <ul class="ulpop">
+
+         <li><button class="optionchoice" onclick="chooseService('EAT')">EAT</button></li>
+         <li><button class="optionchoice" onclick="chooseService('NAT')">NAT</button></li>
+         <li><button class="optionchoice" onclick="chooseService('Interview')">Interview</button></li>
+
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-        <button class="get-btn" onclick="addQueue('aptitude test')"></button>
-
+        <div id="confirmBox4" class="confirmboxes">
+            <p class="selandreq" id="selectedText4"></p>
+              <p class="selandreq" id="requirementText4"></p>
+               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
+    
+         </div>
     </div>
 </div>
 
@@ -338,22 +385,24 @@
         <div class="win-icon" style="background:#dbeafe;">🪪</div>
         <h2>ID & Scholarships</h2>
         <br>
-        <p>processing of ID and Scholarship services.</p>
 
-
-        <h4>Requirements:</h4>
-        <br>
         <ul class="ulpop">
-            <li>School ID</li>
-            <li>COR</li>
-            <li>Required amount of credits</li>
+
+         <li><button class="optionchoice" onclick="chooseService('ID Request')">ID Request</button></li>
+         <li><button class="optionchoice" onclick="chooseService('ID Replacement')">ID Replacement</button></li>
+         <li><button class="optionchoice" onclick="chooseService('Scholarship')">Scholarship</button></li>
+
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
-
+        <div id="confirmBox5" class="confirmboxes">
+            <p  class="selandreq" id="selectedText5"></p>
+              <p class="selandreq" id="requirementText5"></p>
+               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
+    
+         </div>
     </div>
 </div>
 
@@ -373,21 +422,23 @@
         <div class="win-icon" style="background:#dbeafe;">🔖</div>
         <h2>Other Services</h2>
         <br>
-        <p>General inquiry services for Students.</p>
+         <ul class="ulpop">
 
+         <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
+         <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative concerns</button></li>
+        
 
-        <h4>Requirements:</h4>
-        <br>
-        <ul class="ulpop">
-            <li>School ID</li>
-            <li>COR</li>
-            <li>Required amount to pay</li>
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+        <div id="confirmBox6" class="confirmboxes">
+            <p class="selandreq" id="selectedText6"></p>
+              <p class="selandreq" id="requirementText6"></p>
+               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
+    
+         </div>
 
     </div>
 </div>
@@ -408,21 +459,24 @@
         <div class="win-icon" style="background:#dbeafe;">📋</div>
         <h2>Other Services</h2>
         <br>
-        <p>General inquiry services for Students.</p>
 
+          <ul class="ulpop">
 
-        <h4>Requirements:</h4>
-        <br>
-        <ul class="ulpop">
-            <li>School ID</li>
-            <li>COR</li>
-            <li>Required amount to pay</li>
+         <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
+         <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative concerns</button></li>
+        
+
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+        <div id="confirmBox7" class="confirmboxes">
+            <p class="selandreq" id="selectedText7"></p>
+              <p class="selandreq" id="requirementText7"></p>
+               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
+    
+         </div>
 
     </div>
 </div>
@@ -443,21 +497,24 @@
         <div class="win-icon" style="background:#dbeafe;">🗂️</div>
         <h2>Other Services</h2>
         <br>
-        <p>General inquiry services for Students.</p>
 
+          <ul class="ulpop">
 
-        <h4>Requirements:</h4>
-        <br>
-        <ul class="ulpop">
-            <li>School ID</li>
-            <li>COR</li>
-            <li>Required amount amount to pay</li>
+         <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
+         <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative concerns</button></li>
+        
+
         </ul>
 
         <h4>Schedule:</h4>
         <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
         
-    <a href="Que-number.html" class="get-btn">confirm and proceed</a>
+        <div id="confirmBox8" class="confirmboxes">
+            <p class="selandreq" id="selectedText8"></p>
+              <p class="selandreq" id="requirementText8"></p>
+               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
+    
+         </div>
 
     </div>
 </div>
@@ -466,28 +523,64 @@
 
 <script>
     function chooseService(purpose) {
-    selectedService = purpose;
+        selectedService = purpose;
 
-    // show confirm UI
-    document.getElementById("confirmBox1").style.display = "block";
-    document.getElementById("confirmBox2").style.display = "block";
+     for (let i = 1; i <= 8; i++) {
+        document.getElementById("confirmBox" + i).style.display = "block";
+    }
 
-    document.getElementById("selectedText1").textContent =
-        "You selected: " + purpose;
-        document.getElementById("selectedText2").textContent =
-        "You selected: " + purpose;
+    // Determine requirements
+    let requirements = "";
+    switch (purpose) {
+        case "Enrollment":
+        case "EAT":
+        case "NAT":
+        case "Interview":
+            requirements = "CET Results";
+            break;
+        case "Shifting":
+        case "Readmission":
+        case "Miscellaneous":
+        case "Certificate":
+        case "Diploma":
+            requirements = "School ID or COR";
+            break;
+        case "Tuition Fee":
+        case "TOR":
+        case "ID Request":
+        case "ID Replacement":
+            requirements = "COR and Required Amount";
+            break;
+        case "Other fees":
+        case "ID Request":
+            requirements = "School ID";
+            break;
+        case "Scholarship":
+            requirements = "Form 138 or any grade report";
+            break;
+        default:
+            requirements = "Check office for Requirements";
+    }
+
+    // Update all 8 confirm boxes dynamically
+    for (let i = 1; i <= 8; i++) {
+        document.getElementById("selectedText" + i).innerHTML = `<strong>You selected:</strong> ${purpose}`;
+        document.getElementById("requirementText" + i).innerHTML = `<strong>Requirements:</strong> ${requirements}`;
+    }
 }
     function addQueue(){
       
         let queue = JSON.parse(localStorage.getItem("queueList")) || [];
 
+         let qNum = "Q-" + Math.floor(Math.random()*1000).toString().padStart(3,'0');
+
         let newQueue = {
-            id: "Q-" + Math.floor(Math.random()* 1000),
-            name: "non-student User", 
+            id: qNum,
+            name: "Non-student User", 
             purpose: selectedService,
             status: "waiting",
             time: new Date().toLocaleTimeString()
-
+           
 
         };
 
@@ -495,7 +588,8 @@
 
         localStorage.setItem("queueList", JSON.stringify(queue));
         
-        window.location.href = "Que-number.html";
+        
+        window.location.href = "nonS-quenum.html";
     }
 
     

@@ -55,11 +55,41 @@ style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0;
         </div>
 
         <form action="../student-landing-page/nonS-main.html" method="get">
-            <label>Email</label>
-            <input type="email" placeholder="nonstudent@email.com" required>
+           
+            <label>Full Name</label>
+            <input type="text" placeholder="First Name" required>
+            <input type="text" placeholder="Middle (optional)">
+            <input type="text" placeholder="Last Name" required>
+            <label for="birthday">Birthday</label>
+            <input type="date" id="birthday" name="birthday" required>
+            <br>
+            <br>
+            <label>Gender</label>
+           <div class="gender-min">
+  <label>
+    <input type="radio" name="gender" value="male">
+    Male
+  </label>
 
+  <label>
+    <input type="radio" name="gender" value="female">
+    Female
+  </label>
+
+  <label>
+    <input type="radio" name="gender" value="other">
+    Other
+  </label>
+</div>
+<br>
+             <label>Email</label>
+            <input type="email" placeholder="nonstudent@email.com" required>
+            <label>Phone number</label>
+            <input type="text" placeholder="091234567891">
+            <label></label>
             <label>Password</label>
             <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
             <button type="submit" class="btn">Login as Non-Student</button>
         </form>
     </div>

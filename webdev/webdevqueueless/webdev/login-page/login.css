@@ -128,10 +128,42 @@ label {
     color: #333;
     margin-bottom: 5px;
 }
+.gender-min {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.gender-min label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #333;
+}
+
+.gender-min input {
+  accent-color: #2563eb; /* clean blue */
+  cursor: pointer;
+}
+
+input[type="date"] {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+input[type="date"]:focus {
+  border-color: #2563eb;
+}
+
 
 input[type="email"],
 input[type="password"],
-input[type="text"] {
+input[type="text"]
+ {
     width: 100%;
     padding: 10px 13px;
     border: 1px solid #ddd;
