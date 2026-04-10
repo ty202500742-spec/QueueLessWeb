@@ -4,10 +4,10 @@
     <link rel="stylesheet" href="payment.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queueuless | WMSU</title>
+    <title>Queueuless | Payment</title>
 </head>
 <body>
-    
+
     <input type="radio" class="filter-radio" name="hfilter" id="f-all"  checked>
 <input type="radio" class="filter-radio" name="hfilter" id="f-done">
 <input type="radio" class="filter-radio" name="hfilter" id="f-wait">
@@ -23,7 +23,7 @@
         <li><a href="nonS-payment.html">Services</a></li>
         <li><a href="nonS-quenum.html">Que-Number</a></li>
     </ul>
-    
+
     <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
 </nav>
 
@@ -215,7 +215,7 @@
    
  </div>
 </div>
-
+    
 
 <div id="popup1" class="popup">
     <div class="popup-card">
@@ -522,10 +522,11 @@
 </div>
 
 <script>
+    
     function chooseService(purpose) {
         selectedService = purpose;
 
-     for (let i = 1; i <= 8; i++) {
+     for (let i = 1; i <= 7; i++) {
         document.getElementById("confirmBox" + i).style.display = "block";
     }
 
