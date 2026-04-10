@@ -1,606 +1,614 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="payment.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Queueuless | payment</title>
 </head>
+
 <body>
 
-    <input type="radio" class="filter-radio" name="hfilter" id="f-all"  checked>
-<input type="radio" class="filter-radio" name="hfilter" id="f-done">
-<input type="radio" class="filter-radio" name="hfilter" id="f-wait">
-<input type="radio" class="filter-radio" name="hfilter" id="f-miss">
+    <input type="radio" class="filter-radio" name="hfilter" id="f-all" checked>
+    <input type="radio" class="filter-radio" name="hfilter" id="f-done">
+    <input type="radio" class="filter-radio" name="hfilter" id="f-wait">
+    <input type="radio" class="filter-radio" name="hfilter" id="f-miss">
 
-<nav>
-    <a href="main.html" class="nav-logo-link">
-        <img src="../images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
-    </a>
-    
-    <ul class="nav-links">
-        <li><a href="nonS-main.html">Home</a></li>
-        <li><a href="nonS-payment.html">Services</a></li>
-        <li><a href="nonS-quenum.html">Que-Number</a></li>
-    </ul>
+    <nav>
+        <a href="main.html" class="nav-logo-link">
+            <img src="../images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
+        </a>
 
-    <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
-</nav>
+        <ul class="nav-links">
+            <li><a href="nonS-main.html">Home</a></li>
+            <li><a href="nonS-payment.html">Services</a></li>
+            <li><a href="nonS-quenum.html">Que-Number</a></li>
+        </ul>
 
-<!-- Page Header -->
-<div class="page-header">
-    <h2>Registrar Services</h2>
-    <p>Select a window to get your queue number.</p>
-</div>
+        <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
+    </nav>
 
-<!-- Stats -->
-<div class="stats-row">
-    <div class="stat-card green">
-        <div class="sv">40</div>
-        <div class="sl">Students Waiting</div>
+    <!-- Page Header -->
+    <div class="page-header">
+        <h2>Registrar Services</h2>
+        <p>Select a window to get your queue number.</p>
     </div>
-    <div class="stat-card blue">
-        <div class="sv">1</div>
-        <div class="sl">Your Active Queues</div>
-    </div>
-    <div class="stat-card purple">
-        <div class="sv">2,851</div>
-        <div class="sl">Served Today</div>
-    </div>
-</div>
 
-<!-- Window Cards -->
+    <!-- Stats -->
+    <div class="stats-row">
+        <div class="stat-card green">
+            <div class="sv">40</div>
+            <div class="sl">Students Waiting</div>
+        </div>
+        <div class="stat-card blue">
+            <div class="sv">1</div>
+            <div class="sl">Your Active Queues</div>
+        </div>
+        <div class="stat-card purple">
+            <div class="sv">2,851</div>
+            <div class="sl">Served Today</div>
+        </div>
+    </div>
+
+    <!-- Window Cards -->
 
     <div class="main-layout">
 
-    <!-- ── HISTORY PANEL (left) ── -->
-    <aside class="history-panel">
+        <!-- ── HISTORY PANEL (left) ── -->
+        <aside class="history-panel">
 
-        <div class="history-header">
-            <h3> Queue History</h3>
-            <span class="history-badge">6</span>
-        </div>
-
-        <div class="history-filter">
-            <label for="f-all"  class="filter-lbl lbl-all" >All</label>
-            <label for="f-done" class="filter-lbl lbl-done">Done</label>
-            <label for="f-wait" class="filter-lbl lbl-wait">Waiting</label>
-            <label for="f-miss" class="filter-lbl lbl-miss">Missed</label>
-        </div>
-
-        <div class="history-list">
-
-            <div class="history-item is-active">
-                <div class="h-icon" style="background:#dcfce7;">💳</div>
-                <div class="h-info">
-                    <div class="h-title">Payments</div>
-                    <div class="h-sub">Window 2 <span class="h-num">Q-047</span></div>
-                </div>
-                <div class="h-right">
-                    <span class="h-status active">Active</span>
-                    <div class="h-time">Now · In Progress</div>
-                </div>
+            <div class="history-header">
+                <h3> Queue History</h3>
+                <span class="history-badge">6</span>
             </div>
 
-            <div class="history-item is-waiting">
-                <div class="h-icon" style="background:#fef9c3;">📄</div>
-                <div class="h-info">
-                    <div class="h-title">Documents & Certs</div>
-                    <div class="h-sub">Window 3 <span class="h-num">Q-062</span></div>
-                </div>
-                <div class="h-right">
-                    <span class="h-status waiting">Waiting</span>
-                    <div class="h-time">Today, 10:45 AM</div>
-                </div>
+            <div class="history-filter">
+                <label for="f-all" class="filter-lbl lbl-all">All</label>
+                <label for="f-done" class="filter-lbl lbl-done">Done</label>
+                <label for="f-wait" class="filter-lbl lbl-wait">Waiting</label>
+                <label for="f-miss" class="filter-lbl lbl-miss">Missed</label>
             </div>
 
-            <div class="history-item is-done">
-                <div class="h-icon" style="background:#dbeafe;">🎓</div>
-                <div class="h-info">
-                    <div class="h-title">Enrollment Assistance</div>
-                    <div class="h-sub">Window 1 <span class="h-num">Q-031</span></div>
+            <div class="history-list">
+
+                <div class="history-item is-active">
+                    <div class="h-icon" style="background:#dcfce7;">💳</div>
+                    <div class="h-info">
+                        <div class="h-title">Payments</div>
+                        <div class="h-sub">Window 2 <span class="h-num">Q-047</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status active">Active</span>
+                        <div class="h-time">Now · In Progress</div>
+                    </div>
                 </div>
-                <div class="h-right">
-                    <span class="h-status done">Served</span>
-                    <div class="h-time">Today, 9:14 AM</div>
+
+                <div class="history-item is-waiting">
+                    <div class="h-icon" style="background:#fef9c3;">📄</div>
+                    <div class="h-info">
+                        <div class="h-title">Documents & Certs</div>
+                        <div class="h-sub">Window 3 <span class="h-num">Q-062</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status waiting">Waiting</span>
+                        <div class="h-time">Today, 10:45 AM</div>
+                    </div>
                 </div>
+
+                <div class="history-item is-done">
+                    <div class="h-icon" style="background:#dbeafe;">🎓</div>
+                    <div class="h-info">
+                        <div class="h-title">Enrollment Assistance</div>
+                        <div class="h-sub">Window 1 <span class="h-num">Q-031</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status done">Served</span>
+                        <div class="h-time">Today, 9:14 AM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-done">
+                    <div class="h-icon" style="background:#fce7f3;">📝</div>
+                    <div class="h-info">
+                        <div class="h-title">Aptitude Tests</div>
+                        <div class="h-sub">Window 4 <span class="h-num">Q-019</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status done">Served</span>
+                        <div class="h-time">Today, 8:50 AM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-missed">
+                    <div class="h-icon" style="background:#f3e8ff;">🪪</div>
+                    <div class="h-info">
+                        <div class="h-title">ID & Scholarship</div>
+                        <div class="h-sub">Window 5 <span class="h-num">Q-088</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status missed">Missed</span>
+                        <div class="h-time">Yesterday, 2:30 PM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-done">
+                    <div class="h-icon" style="background:#ffedd5;">🔖</div>
+                    <div class="h-info">
+                        <div class="h-title">Other Services</div>
+                        <div class="h-sub">Window 6 <span class="h-num">Q-012</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status done">Served</span>
+                        <div class="h-time">Mar 24, 3:15 PM</div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+        <div class="window-grid">
+            <a href="#popup1" class="wcard">
+                <div class="card-top">
+                    <span class="win-label">Window 1</span>
+                    <span class="win-amt">Free</span>
+                </div>
+                <div class="win-icon" style="background:#dbeafe;">🎓</div>
+                <h3>Enrollment Assistance</h3>
+                <p>New, continuing, shifting, and late enrollment services.</p>
+                <span class="get-btn"># Get Queue Number</span>
+            </a>
+
+            <a href="#popup2" class="wcard">
+                <div class="card-top">
+                    <span class="win-label">Window 2</span>
+                    <span class="win-amt">₱2,500+</span>
+                </div>
+                <div class="win-icon" style="background:#dcfce7;">💳</div>
+                <h3>Payments</h3>
+                <p>Tuition, miscellaneous, and other fee payments.</p>
+                <span class="get-btn"># Get Queue Number</span>
+            </a>
+
+
+            <a href="#popup4" class="wcard">
+                <div class="card-top">
+                    <span class="win-label">Window 3</span>
+                    <span class="win-amt">₱200</span>
+                </div>
+                <div class="win-icon" style="background:#fce7f3;">📝</div>
+                <h3>Aptitude Tests</h3>
+                <p>Engineering and Nursing aptitude test registration.</p>
+                <span class="get-btn"># Get Queue Number</span>
+            </a>
+
+            <a href="#popup5" class="wcard">
+                <div class="card-top">
+                    <span class="win-label">Window 4</span>
+                    <span class="win-amt">₱100</span>
+                </div>
+                <div class="win-icon" style="background:#f3e8ff;">🪪</div>
+                <h3>ID & Scholarship</h3>
+                <p>ID processing and scholarship application.</p>
+                <span class="get-btn"># Get Queue Number</span>
+            </a>
+
+            <a href="#popup6" class="wcard">
+                <div class="card-top">
+                    <span class="win-label">Window 6</span>
+                    <span class="win-amt">₱50</span>
+                </div>
+                <div class="win-icon" style="background:#ffedd5;">🔖</div>
+                <h3>Other Services</h3>
+                <p>General inquiries and other administrative concerns.</p>
+                <span class="get-btn"># Get Queue Number</span>
+            </a>
+
+            <a href="#popup7" class="wcard">
+                <div class="card-top">
+                    <span class="win-label">Window 7</span>
+                    <span class="win-amt">₱50</span>
+                </div>
+                <div class="win-icon" style="background:#e0f2fe;">📋</div>
+                <h3>Other Services</h3>
+                <p>General inquiries and other administrative concerns.</p>
+                <span class="get-btn"># Get Queue Number</span>
+            </a>
+
+
+        </div>
+    </div>
+
+
+    <div id="popup1" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+
+            <div class="card-top">
+
+                <span class="win-label">Window 1</span>
+                <span class="win-amt">Free</span>
+
             </div>
 
-            <div class="history-item is-done">
-                <div class="h-icon" style="background:#fce7f3;">📝</div>
-                <div class="h-info">
-                    <div class="h-title">Aptitude Tests</div>
-                    <div class="h-sub">Window 4 <span class="h-num">Q-019</span></div>
-                </div>
-                <div class="h-right">
-                    <span class="h-status done">Served</span>
-                    <div class="h-time">Today, 8:50 AM</div>
-                </div>
-            </div>
+            <div class="win-icon" style="background:#dbeafe;">🎓</div>
+            <h2>enrollment Assistance</h2>
+            <br>
 
-            <div class="history-item is-missed">
-                <div class="h-icon" style="background:#f3e8ff;">🪪</div>
-                <div class="h-info">
-                    <div class="h-title">ID & Scholarship</div>
-                    <div class="h-sub">Window 5 <span class="h-num">Q-088</span></div>
-                </div>
-                <div class="h-right">
-                    <span class="h-status missed">Missed</span>
-                    <div class="h-time">Yesterday, 2:30 PM</div>
-                </div>
-            </div>
 
-            <div class="history-item is-done">
-                <div class="h-icon" style="background:#ffedd5;">🔖</div>
-                <div class="h-info">
-                    <div class="h-title">Other Services</div>
-                    <div class="h-sub">Window 6 <span class="h-num">Q-012</span></div>
-                </div>
-                <div class="h-right">
-                    <span class="h-status done">Served</span>
-                    <div class="h-time">Mar 24, 3:15 PM</div>
-                </div>
+
+            <ul class="ulpop">
+
+                <li><button class="optionchoice" onclick="chooseService('Enrollment')">Enrollment</button></li>
+                <li><button class="optionchoice" onclick="chooseService('Shifting')">shifting</button></li>
+                <li><button class="optionchoice" onclick="chooseService('Readmission')">Readmission</button></li>
+
+            </ul>
+
+            <h4>Schedule:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+
+            <div id="confirmBox1" class="confirmboxes">
+                <p class="selandreq" id="selectedText1"></p>
+                <p class="selandreq" id="requirementText1"></p>
+                <button class="proceed-btn" onclick="addQueue()">Confirm & Proceed</button>
             </div>
 
         </div>
-    </aside>
- <div class="window-grid">
-    <a href="#popup1" class="wcard">
-        <div class="card-top">
-            <span class="win-label">Window 1</span>
-            <span class="win-amt">Free</span>
-        </div>
-        <div class="win-icon" style="background:#dbeafe;">🎓</div>
-        <h3>Enrollment Assistance</h3>
-        <p>New, continuing, shifting, and late enrollment services.</p>
-        <span class="get-btn"># Get Queue Number</span>
-    </a>
-
-    <a href="#popup2" class="wcard">
-        <div class="card-top">
-            <span class="win-label">Window 2</span>
-            <span class="win-amt">₱2,500+</span>
-        </div>
-        <div class="win-icon" style="background:#dcfce7;">💳</div>
-        <h3>Payments</h3>
-        <p>Tuition, miscellaneous, and other fee payments.</p>
-        <span class="get-btn"># Get Queue Number</span>
-    </a>
-
-
-    <a href="#popup4" class="wcard">
-        <div class="card-top">
-            <span class="win-label">Window 3</span>
-            <span class="win-amt">₱200</span>
-        </div>
-        <div class="win-icon" style="background:#fce7f3;">📝</div>
-        <h3>Aptitude Tests</h3>
-        <p>Engineering and Nursing aptitude test registration.</p>
-        <span class="get-btn"># Get Queue Number</span>
-    </a>
-
-    <a href="#popup5" class="wcard">
-        <div class="card-top">
-            <span class="win-label">Window 4</span>
-            <span class="win-amt">₱100</span>
-        </div>
-        <div class="win-icon" style="background:#f3e8ff;">🪪</div>
-        <h3>ID & Scholarship</h3>
-        <p>ID processing and scholarship application.</p>
-        <span class="get-btn"># Get Queue Number</span>
-    </a>
-
-    <a href="#popup6" class="wcard">
-        <div class="card-top">
-            <span class="win-label">Window 6</span>
-            <span class="win-amt">₱50</span>
-        </div>
-        <div class="win-icon" style="background:#ffedd5;">🔖</div>
-        <h3>Other Services</h3>
-        <p>General inquiries and other administrative concerns.</p>
-        <span class="get-btn"># Get Queue Number</span>
-    </a>
-
-    <a href="#popup7" class="wcard">
-        <div class="card-top">
-            <span class="win-label">Window 7</span>
-            <span class="win-amt">₱50</span>
-        </div>
-        <div class="win-icon" style="background:#e0f2fe;">📋</div>
-        <h3>Other Services</h3>
-        <p>General inquiries and other administrative concerns.</p>
-        <span class="get-btn"># Get Queue Number</span>
-    </a>
-
-   
- </div>
-</div>
-    
-
-<div id="popup1" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-
-        <div class="card-top">
-
-            <span class="win-label">Window 1</span>
-            <span class="win-amt">Free</span>
-
-        </div>
-
-        <div class="win-icon" style="background:#dbeafe;">🎓</div>
-        <h2>enrollment Assistance</h2>
-        <br>
-      
-
-
-        <ul class="ulpop">
-
-            <li><button class="optionchoice" onclick="chooseService('Enrollment')">Enrollment</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Shifting')">shifting</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Readmission')">Readmission</button></li>
-           
-        </ul>
-
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-      <div id="confirmBox1" class="confirmboxes">
-      <p class="selandreq" id="selectedText1"></p>
-      <p class="selandreq" id="requirementText1"></p>
-       <button class="proceed-btn" onclick="addQueue()">Confirm & Proceed</button>
-</div>
+    </div>
 
     </div>
-</div>
 
-</div>
+    <div id="popup2" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
 
-<div id="popup2" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
+            <div class="card-top">
 
-        <div class="card-top">
+                <span class="win-label">Window 2</span>
+                <span class="win-amt">₱2,500+</span>
 
-            <span class="win-label">Window 2</span>
-            <span class="win-amt">₱2,500+</span>
+            </div>
 
+            <div class="win-icon" style="background:#dbeafe;">💳</div>
+            <h2>Payments</h2>
+            <br>
+
+
+            <ul class="ulpop">
+
+                <li><button class="optionchoice" onclick="chooseService('Tuition Fee')">Tuition fee</button></li>
+                <li><button class="optionchoice" onclick="chooseService('Miscellaneous')">Miscellaneous </button></li>
+                <li><button class="optionchoice" onclick="chooseService('Other fees')">Other fees</button></li>
+
+            </ul>
+
+            <h4>Schedule:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+
+            <div id="confirmBox2" class="confirmboxes">
+                <p class="selandreq" id="selectedText2"></p>
+                <p class="selandreq" id="requirementText2"></p>
+                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button>
+
+            </div>
         </div>
-
-        <div class="win-icon" style="background:#dbeafe;">💳</div>
-        <h2>Payments</h2>
-        <br>
-      
-
-        <ul class="ulpop">
-
-         <li><button class="optionchoice" onclick="chooseService('Tuition Fee')">Tuition fee</button></li>
-         <li><button class="optionchoice" onclick="chooseService('Miscellaneous')">Miscellaneous </button></li>
-         <li><button class="optionchoice" onclick="chooseService('Other fees')">Other fees</button></li>
-
-        </ul>
-
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-        <div id="confirmBox2" class="confirmboxes">
-            <p class="selandreq" id="selectedText2"></p>
-              <p class="selandreq" id="requirementText2"></p>
-               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
-    
-         </div>
-   </div>
-
-  </div>
-
-</div>
-
-<div id="popup3" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-
-        <div class="card-top">
-
-            <span class="win-label">Window 3</span>
-            <span class="win-amt">₱75</span>
-
-        </div>
-
-        <div class="win-icon" style="background:#dbeafe;">💳</div>
-        <h2>Documents</h2>
-        <br>
-       
-        <ul class="ulpop">
-
-         <li><button class="optionchoice" onclick="chooseService('TOR')">TOR</button></li>
-         <li><button class="optionchoice" onclick="chooseService('Certificate')">Certificate</button></li>
-         <li><button class="optionchoice" onclick="chooseService('Diploma')">Diploma</button></li>
-
-        </ul>
-
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-        <div id="confirmBox3" class="confirmboxes">
-            <p class="selandreq" id="selectedText3"></p>
-              <p class="selandreq" id="requirementText3"></p>
-               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
-    
-         </div>
 
     </div>
-</div>
-
-</div>
-
-<div id="popup4" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-
-        <div class="card-top">
-
-            <span class="win-label">Window 3</span>
-            <span class="win-amt">₱200</span>
-
-        </div>
-
-        <div class="win-icon" style="background:#dbeafe;">📝</div>
-        <h2>Aptitude Tests</h2>
-        <br>
-
-
-         <ul class="ulpop">
-
-         <li><button class="optionchoice" onclick="chooseService('EAT')">EAT</button></li>
-         <li><button class="optionchoice" onclick="chooseService('NAT')">NAT</button></li>
-         <li><button class="optionchoice" onclick="chooseService('Interview')">Interview</button></li>
-
-        </ul>
-
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-        <div id="confirmBox4" class="confirmboxes">
-            <p class="selandreq" id="selectedText4"></p>
-              <p class="selandreq" id="requirementText4"></p>
-               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
-    
-         </div>
-    </div>
-</div>
-
-</div>
-
-<div id="popup5" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-
-        <div class="card-top">
-
-            <span class="win-label">Window 5</span>
-            <span class="win-amt">₱100</span>
-
-        </div>
-
-        <div class="win-icon" style="background:#dbeafe;">🪪</div>
-        <h2>ID & Scholarships</h2>
-        <br>
-
-        <ul class="ulpop">
-
-         <li><button class="optionchoice" onclick="chooseService('ID Request')">ID Request</button></li>
-         <li><button class="optionchoice" onclick="chooseService('ID Replacement')">ID Replacement</button></li>
-         <li><button class="optionchoice" onclick="chooseService('Scholarship')">Scholarship</button></li>
-
-        </ul>
-
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-        <div id="confirmBox5" class="confirmboxes">
-            <p  class="selandreq" id="selectedText5"></p>
-              <p class="selandreq" id="requirementText5"></p>
-               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
-    
-         </div>
-    </div>
-</div>
-
-</div>
-
-<div id="popup6" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-
-        <div class="card-top">
-
-            <span class="win-label">Window 6</span>
-            <span class="win-amt">₱50</span>
-
-        </div>
-
-        <div class="win-icon" style="background:#dbeafe;">🔖</div>
-        <h2>Other Services</h2>
-        <br>
-         <ul class="ulpop">
-
-         <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
-         <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative concerns</button></li>
-        
-
-        </ul>
-
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-        <div id="confirmBox6" class="confirmboxes">
-            <p class="selandreq" id="selectedText6"></p>
-              <p class="selandreq" id="requirementText6"></p>
-               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
-    
-         </div>
 
     </div>
-</div>
 
-</div>
+    <div id="popup3" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
 
-<div id="popup7" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
+            <div class="card-top">
 
-        <div class="card-top">
+                <span class="win-label">Window 3</span>
+                <span class="win-amt">₱75</span>
 
-            <span class="win-label">Window 6</span>
-            <span class="win-amt">₱50</span>
+            </div>
 
-        </div>
+            <div class="win-icon" style="background:#dbeafe;">💳</div>
+            <h2>Documents</h2>
+            <br>
 
-        <div class="win-icon" style="background:#dbeafe;">📋</div>
-        <h2>Other Services</h2>
-        <br>
+            <ul class="ulpop">
 
-          <ul class="ulpop">
+                <li><button class="optionchoice" onclick="chooseService('TOR')">TOR</button></li>
+                <li><button class="optionchoice" onclick="chooseService('Certificate')">Certificate</button></li>
+                <li><button class="optionchoice" onclick="chooseService('Diploma')">Diploma</button></li>
 
-         <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
-         <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative concerns</button></li>
-        
+            </ul>
 
-        </ul>
+            <h4>Schedule:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
 
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-        <div id="confirmBox7" class="confirmboxes">
-            <p class="selandreq" id="selectedText7"></p>
-              <p class="selandreq" id="requirementText7"></p>
-               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
-    
-         </div>
+            <div id="confirmBox3" class="confirmboxes">
+                <p class="selandreq" id="selectedText3"></p>
+                <p class="selandreq" id="requirementText3"></p>
+                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button>
 
-    </div>
-</div>
-
-</div>
-
-<div id="popup8" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-
-        <div class="card-top">
-
-            <span class="win-label">Window 6</span>
-            <span class="win-amt">₱50</span>
+            </div>
 
         </div>
-
-        <div class="win-icon" style="background:#dbeafe;">🗂️</div>
-        <h2>Other Services</h2>
-        <br>
-
-          <ul class="ulpop">
-
-         <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
-         <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative concerns</button></li>
-        
-
-        </ul>
-
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-        <div id="confirmBox8" class="confirmboxes">
-            <p class="selandreq" id="selectedText8"></p>
-              <p class="selandreq" id="requirementText8"></p>
-               <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button> 
-    
-         </div>
+    </div>
 
     </div>
-</div>
 
-</div>
+    <div id="popup4" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
 
-<script>
-    
-    function chooseService(purpose) {
-        selectedService = purpose;
+            <div class="card-top">
 
-     for (let i = 1; i <= 7; i++) {
-        document.getElementById("confirmBox" + i).style.display = "block";
-    }
+                <span class="win-label">Window 3</span>
+                <span class="win-amt">₱200</span>
 
-    // Determine requirements
-    let requirements = "";
-    switch (purpose) {
-        case "Enrollment":
-        case "EAT":
-        case "NAT":
-        case "Interview":
-            requirements = "CET Results";
-            break;
-        case "Shifting":
-        case "Readmission":
-        case "Miscellaneous":
-        case "Certificate":
-        case "Diploma":
-            requirements = "School ID or COR";
-            break;
-        case "Tuition Fee":
-        case "TOR":
-        case "ID Request":
-        case "ID Replacement":
-            requirements = "COR and Required Amount";
-            break;
-        case "Other fees":
-        case "ID Request":
-            requirements = "School ID";
-            break;
-        case "Scholarship":
-            requirements = "Form 138 or any grade report";
-            break;
-        default:
-            requirements = "Check office for Requirements";
-    }
+            </div>
 
-    // Update all 8 confirm boxes dynamically
-    for (let i = 1; i <= 8; i++) {
-        document.getElementById("selectedText" + i).innerHTML = `<strong>You selected:</strong> ${purpose}`;
-        document.getElementById("requirementText" + i).innerHTML = `<strong>Requirements:</strong> ${requirements}`;
-    }
-}
-    function addQueue(){
-      
-        let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-
-         let qNum = "Q-" + Math.floor(Math.random()*1000).toString().padStart(3,'0');
-
-        let newQueue = {
-            id: qNum,
-            name: "Non-student User", 
-            purpose: selectedService,
-            status: "waiting",
-            time: new Date().toLocaleTimeString()
-           
-
-        };
-
-        queue.push(newQueue);
-
-        localStorage.setItem("queueList", JSON.stringify(queue));
-        
-        
-        window.location.href = "nonS-quenum.html";
-    }
-
-    
-
-</script>
+            <div class="win-icon" style="background:#dbeafe;">📝</div>
+            <h2>Aptitude Tests</h2>
+            <br>
 
 
-<footer>
-    © 2026 Queueuless | Western Mindanao State University
-</footer>
+            <ul class="ulpop">
+
+                <li><button class="optionchoice" onclick="chooseService('EAT')">EAT</button></li>
+                <li><button class="optionchoice" onclick="chooseService('NAT')">NAT</button></li>
+                <li><button class="optionchoice" onclick="chooseService('Interview')">Interview</button></li>
+
+            </ul>
+
+            <h4>Schedule:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+
+            <div id="confirmBox4" class="confirmboxes">
+                <p class="selandreq" id="selectedText4"></p>
+                <p class="selandreq" id="requirementText4"></p>
+                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div id="popup5" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+
+            <div class="card-top">
+
+                <span class="win-label">Window 5</span>
+                <span class="win-amt">₱100</span>
+
+            </div>
+
+            <div class="win-icon" style="background:#dbeafe;">🪪</div>
+            <h2>ID & Scholarships</h2>
+            <br>
+
+            <ul class="ulpop">
+
+                <li><button class="optionchoice" onclick="chooseService('ID Request')">ID Request</button></li>
+                <li><button class="optionchoice" onclick="chooseService('ID Replacement')">ID Replacement</button></li>
+                <li><button class="optionchoice" onclick="chooseService('Scholarship')">Scholarship</button></li>
+
+            </ul>
+
+            <h4>Schedule:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+
+            <div id="confirmBox5" class="confirmboxes">
+                <p class="selandreq" id="selectedText5"></p>
+                <p class="selandreq" id="requirementText5"></p>
+                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div id="popup6" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+
+            <div class="card-top">
+
+                <span class="win-label">Window 6</span>
+                <span class="win-amt">₱50</span>
+
+            </div>
+
+            <div class="win-icon" style="background:#dbeafe;">🔖</div>
+            <h2>Other Services</h2>
+            <br>
+            <ul class="ulpop">
+
+                <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button>
+                </li>
+                <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative
+                        concerns</button></li>
+
+
+            </ul>
+
+            <h4>Schedule:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+
+            <div id="confirmBox6" class="confirmboxes">
+                <p class="selandreq" id="selectedText6"></p>
+                <p class="selandreq" id="requirementText6"></p>
+                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button>
+
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+    <div id="popup7" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+
+            <div class="card-top">
+
+                <span class="win-label">Window 6</span>
+                <span class="win-amt">₱50</span>
+
+            </div>
+
+            <div class="win-icon" style="background:#dbeafe;">📋</div>
+            <h2>Other Services</h2>
+            <br>
+
+            <ul class="ulpop">
+
+                <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button>
+                </li>
+                <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative
+                        concerns</button></li>
+
+
+            </ul>
+
+            <h4>Schedule:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+
+            <div id="confirmBox7" class="confirmboxes">
+                <p class="selandreq" id="selectedText7"></p>
+                <p class="selandreq" id="requirementText7"></p>
+                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button>
+
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+    <div id="popup8" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+
+            <div class="card-top">
+
+                <span class="win-label">Window 6</span>
+                <span class="win-amt">₱50</span>
+
+            </div>
+
+            <div class="win-icon" style="background:#dbeafe;">🗂️</div>
+            <h2>Other Services</h2>
+            <br>
+
+            <ul class="ulpop">
+
+                <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button>
+                </li>
+                <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative
+                        concerns</button></li>
+
+
+            </ul>
+
+            <h4>Schedule:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+
+            <div id="confirmBox8" class="confirmboxes">
+                <p class="selandreq" id="selectedText8"></p>
+                <p class="selandreq" id="requirementText8"></p>
+                <button class="proceed-btn" onclick="addQueue()">confirm & proceed</button>
+
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+
+        function chooseService(purpose) {
+            selectedService = purpose;
+
+            for (let i = 1; i <= 7; i++) {
+                document.getElementById("confirmBox" + i).style.display = "block";
+            }
+
+            // Determine requirements
+            let requirements = "";
+            switch (purpose) {
+                case "Enrollment":
+                case "EAT":
+                case "NAT":
+                case "Interview":
+                    requirements = "CET Results";
+                    break;
+                case "Shifting":
+                case "Readmission":
+                case "Miscellaneous":
+                case "Certificate":
+                case "Diploma":
+                    requirements = "School ID or COR";
+                    break;
+                case "Tuition Fee":
+                case "TOR":
+                case "ID Request":
+                case "ID Replacement":
+                    requirements = "COR and Required Amount";
+                    break;
+                case "Other fees":
+                case "ID Request":
+                    requirements = "School ID";
+                    break;
+                case "Scholarship":
+                    requirements = "Form 138 or any grade report";
+                    break;
+                default:
+                    requirements = "Check office for Requirements";
+            }
+
+            // Update all 8 confirm boxes dynamically
+            for (let i = 1; i <= 8; i++) {
+                document.getElementById("selectedText" + i).innerHTML = `<strong>You selected:</strong> ${purpose}`;
+                document.getElementById("requirementText" + i).innerHTML = `<strong>Requirements:</strong> ${requirements}`;
+            }
+        }
+        function addQueue() {
+
+            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+
+            let qNum = "Q-" + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+
+            let newQueue = {
+                id: qNum,
+                name: "Non-student User",
+                purpose: selectedService,
+                status: "waiting",
+                time: new Date().toLocaleTimeString()
+
+
+            };
+
+            queue.push(newQueue);
+
+            localStorage.setItem("queueList", JSON.stringify(queue));
+
+
+            window.location.href = "nonS-quenum.html";
+        }
+
+
+
+    </script>
+
+
+    <footer>
+        © 2026 Queueuless | Western Mindanao State University
+    </footer>
 </body>
 
 </html>
