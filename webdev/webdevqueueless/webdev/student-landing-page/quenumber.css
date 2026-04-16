@@ -179,7 +179,6 @@ footer {
     padding: 20px;
 }
 
-/* ── Mobile ── */
 @media (max-width: 600px) {
     .nav-links {
         flex-direction: column;

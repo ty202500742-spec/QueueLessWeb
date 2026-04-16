@@ -29,7 +29,6 @@
 
 .stat-card .val span {
     font-size: 18px;
-    /* Makes the "min" text smaller */
     color: #666;
 }
 
@@ -39,7 +38,6 @@
     margin-top: 5px;
 }
 
-/* BOTTOM ROW */
 .bottom-row {
     display: flex;
     gap: 20px;
@@ -48,12 +46,10 @@
 
 .main-panel {
     flex: 2;
-    /* Takes up more space */
 }
 
 .side-panel {
     flex: 1;
-    /* Takes up less space */
 }
 
 .panel {
@@ -71,7 +67,6 @@
     padding-bottom: 12px;
 }
 
-/* TABLE STYLES WITH PILLS & BUTTONS */
 .table-container {
     overflow-x: auto;
 }
@@ -99,7 +94,6 @@
     color: #444;
 }
 
-/* Status Pills */
 .pill {
     padding: 4px 10px;
     border-radius: 20px;
@@ -118,7 +112,6 @@
     color: #856404;
 }
 
-/* Table Action Buttons */
 .btn-sm {
     text-decoration: none;
     padding: 6px 12px;
@@ -157,7 +150,7 @@
 }
 
 
-/* LIVE ACTIVITY FEED */
+
 .feed {
     list-style: none;
     padding: 0;

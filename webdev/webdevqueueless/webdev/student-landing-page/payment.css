@@ -224,7 +224,6 @@ nav {
     background: #8B0000;
 }
 
-/* ── Responsive ── */
 @media (max-width: 600px) {
 
     .stats-row,

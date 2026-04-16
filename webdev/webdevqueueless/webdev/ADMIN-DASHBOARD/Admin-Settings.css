@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    max-width: 800px; /* Keeps the settings page from stretching too wide */
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -33,7 +33,6 @@
     padding: 25px;
 }
 
-/* CUSTOM CSS TOGGLE SWITCHES */
 .toggle-wrap {
     display: flex;
     justify-content: space-between;
@@ -59,7 +58,6 @@
     color: #888;
 }
 
-/* The actual Switch Box */
 .toggle {
     position: relative;
     display: inline-block;
@@ -68,14 +66,12 @@
     flex-shrink: 0;
 }
 
-/* Hide default HTML checkbox */
 .toggle input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* The Slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -97,7 +93,6 @@
     border-radius: 50%;
 }
 
-/* When Checked */
 input:checked + .slider {
     background-color: #8B0000; /* WMSU Crimson */
 }
@@ -106,7 +101,6 @@ input:checked + .slider:before {
     transform: translateX(22px);
 }
 
-/* IMPORTANT BUTTONS */
 .danger-buttons {
     display: flex;
     flex-direction: column;
@@ -131,13 +125,11 @@ input:checked + .slider:before {
     background: #fee2e2;
 }
 
-/* Modal specific danger button */
 .modal-actions .btn-danger {
     background: #dc2626;
     color: white;
 }
 
-/* RESPONSIVE DESIGN */
 @media (max-width: 600px) {
     .toggle-wrap {
         flex-direction: column;
