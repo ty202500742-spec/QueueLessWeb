@@ -5,33 +5,31 @@
     <title>Queueless | WMSU Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 
 <body>
 
-    <img src="../images/wmsu.jpg" alt="WMSU Background"
+    <img src="../assets/images/wmsu.jpg" alt="WMSU Background"
         style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0; z-index:-1;">
 
     <input type="radio" name="tab" id="toggle-student" checked>
-    <input type="radio" name="tab" id="toggle-nonstudent">
-    <input type="radio" name="tab" id="toggle-admin">
+    
 
     <div class="card">
 
         <div class="logo-container">
-            <img src="../images/UEUELESS.png" alt="Queueless Logo" class="logo">
+            <img src="../assets/images/queueless.png" alt="Queueless Logo" class="logo">
         </div>
 
         <div class="toggle">
-            <label for="toggle-student">Student</label>
-            <label for="toggle-nonstudent">Non-student</label>
-            <label for="toggle-admin">Admin</label>
+            <label for="toggle-student"></label>
+            
         </div>
 
         <div class="student-form">
             <div class="form-title">
-                <h2>Student Login</h2>
+                <h2>Login</h2>
                 <p class="sub">Enter your WMSU credentials</p>
             </div>
 
@@ -42,72 +40,11 @@
                 <label>Password</label>
                 <input type="password" placeholder="Password" required>
                 <button type="submit" class="btn">Login as Student</button>
+                <a href="nonS-login.html" class="nonsignup">dont have an account? sign up</a>
             </form>
         </div>
 
-        <div class="nonstudent-form">
-            <div class="form-title">
-                <h2>Non-Student Login</h2>
-                <p class="sub">Enter your credentials</p>
-            </div>
-
-            <form action="../student-landing-page/nonS-main.html" method="get">
-
-                <label>Full Name</label>
-                <input type="text" placeholder="First Name" required>
-                <input type="text" placeholder="Middle (optional)">
-                <input type="text" placeholder="Last Name" required>
-                <label for="birthday">Birthday</label>
-                <input type="date" id="birthday" name="birthday" required>
-                <br>
-                <br>
-                <label>Gender</label>
-                <div class="gender-min">
-                    <label>
-                        <input type="radio" name="gender" value="male">
-                        Male
-                    </label>
-
-                    <label>
-                        <input type="radio" name="gender" value="female">
-                        Female
-                    </label>
-
-                    <label>
-                        <input type="radio" name="gender" value="other">
-                        Other
-                    </label>
-                </div>
-                <br>
-                <label>Email</label>
-                <input type="email" placeholder="nonstudent@email.com" required>
-                <label>Phone number</label>
-                <input type="text" placeholder="091234567891">
-                <label></label>
-                <label>Password</label>
-                <input type="password" placeholder="Password" required>
-                <input type="password" placeholder="Confirm Password" required>
-                <button type="submit" class="btn">Login as Non-Student</button>
-            </form>
-        </div>
-
-        <div class="admin-form">
-            <div class="form-title">
-                <h2>Admin Login</h2>
-                <p class="sub">Enter staff credentials</p>
-            </div>
-
-            <form action="../ADMIN-DASHBOARD/Admin-Dashboard.html" method="get">
-                <label>Username</label>
-                <input type="text" placeholder="Admin username" required>
-
-                <label>Password</label>
-                <input type="password" placeholder="Password" required>
-
-                <button type="submit" class="btn">Login as Admin</button>
-            </form>
-        </div>
-
+        
     </div>
 
 </body>
