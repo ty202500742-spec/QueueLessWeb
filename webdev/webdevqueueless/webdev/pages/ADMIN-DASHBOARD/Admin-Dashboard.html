@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QueueLess | Admin Overview</title>
-    <link rel="stylesheet" href="Admin-Global.css">
-    <link rel="stylesheet" href="Admin-Dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/Admin-Global.css">
+    <link rel="stylesheet" href="../../assets/css/Admin-Dashboard.css">
 </head>
 
 <body>
 
     <nav class="sidebar">
         <div class="logo-area">
-            <img src="../images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
         </div>
 
         <p class="menu-label">Overview</p>
@@ -146,7 +146,7 @@
         </div>
     </div>
 
-    <div id="serve-modal" class="modal-overlay" style="display:none;">
+    <div id="serve-modal" class="modal-overlay">
         <div class="modal-box">
             <h3>Call Student to Counter</h3>
             <p>Are you sure you want to call this student? This will update the live monitors.</p>
@@ -190,59 +190,7 @@
         </div>
     </div>
 
-    <script>
-
-        let selectedQueueIndex = null;
-
-        function loadQueue() {
-            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-            let table = document.getElementById("queueTableBody");
-
-            table.innerHTML = "";
-
-            queue.forEach((q, index) => {
-
-                let row = document.createElement('tr');
-                row.innerHTML = `
-      
-            <td><strong>${q.id}</strong></td>
-            <td>${q.name}</td>
-            <td>${q.purpose}</td>
-            <td>${q.time}</td>
-            <td><span class="pill waiting">${q.status}</span></td>
-            <td><button class="btn-sm serve">Serve</button></td>
-        
-        `;
-
-                row.querySelector(".serve").addEventListener("click", () => {
-                    selectedQueueIndex = index;
-                    document.getElementById("serve-modal").style.display = "block";
-
-
-                });
-                table.prepend(row);
-            });
-        }
-
-        function confirmServe() {
-            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-
-            if (selectedQueueIndex !== null) {
-                queue.splice(selectedQueueIndex, 1); // remove item
-                localStorage.setItem("queueList", JSON.stringify(queue));
-                selectedQueueIndex = null;
-
-                document.getElementById("serve-modal").style.display = "none"; // hide modal
-                loadQueue(); // refresh table
-            }
-        }
-
-        function closeModal() {
-            document.getElementById("serve-modal").style.display = "none";
-        }
-        loadQueue();
-
-    </script>
+    <script src="../assets/java/admin-dash.js"></script>
 
 
 </body>

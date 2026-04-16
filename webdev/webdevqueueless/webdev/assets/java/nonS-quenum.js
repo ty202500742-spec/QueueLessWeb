@@ -1,56 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../assets/css/quenumber.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queueuless | queue</title>
-
-</head>
-
-<body>
-
-    <nav>
-        <a href="main.html" class="nav-logo-link">
-            <img src="../assets/images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
-        </a>
-
-        <ul class="nav-links">
-            <li><a href="nonS-main.html">Home</a></li>
-            <li><a href="nonS-payment.html">Services</a></li>
-            <li><a href="nonS-quenum.html">Que-Number</a></li>
-        </ul>
-
-        <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
-    </nav>
-
-    <div class="bodd1">
-        <div class="bodd2">
-            <div class="queue-container">
-                <h1>Now in Queue</h1>
-
-                <div id="currentNumber" class="current-number">---</div>
-                <div id="statusMessage" class="status-message">Loading your position...</div>
-
-                <ul id="queueList" class="queue-list">
-                    <!-- Queue items will be added here dynamically -->
-                </ul>
-
-                <a href="#" class="cancel-btn" onclick="cancelQueue()">Cancel Queue</a>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        © 2026 Queueuless | Western Mindanao State University
-    </footer>
-
-    <script>
-
-
-
-        function loadQueuePage() {
+     function loadQueuePage() {
 
 
 
@@ -107,8 +55,3 @@
 
         // Initial load
         window.onload = loadQueuePage;
-    </script>
-</body>
-
-
-</html>

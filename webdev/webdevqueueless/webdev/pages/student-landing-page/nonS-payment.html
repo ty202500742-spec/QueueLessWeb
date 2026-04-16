@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="../assets/css/payment.css">
+    <link rel="stylesheet" href="../../assets/css/payment.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queueuless | Payment</title>
+    <title>Queueuless | payment</title>
 </head>
 
 <body>
@@ -17,23 +17,25 @@
 
     <nav>
         <a href="main.html" class="nav-logo-link">
-            <img src="../assets/images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
+            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
         </a>
 
         <ul class="nav-links">
-            <li><a href="main.html">Home</a></li>
-            <li><a href="Payment.html">Services</a></li>
-            <li><a href="Que-number.html">Que-Number</a></li>
+            <li><a href="nonS-main.html">Home</a></li>
+            <li><a href="nonS-payment.html">Services</a></li>
+            <li><a href="nonS-quenum.html">Que-Number</a></li>
         </ul>
 
         <button onclick="location.href='../login-page/login.html'" class="logout">Logout</button>
     </nav>
 
+    <!-- Page Header -->
     <div class="page-header">
         <h2>Registrar Services</h2>
         <p>Select a window to get your queue number.</p>
     </div>
 
+    <!-- Stats -->
     <div class="stats-row">
         <div class="stat-card green">
             <div class="sv">40</div>
@@ -49,8 +51,11 @@
         </div>
     </div>
 
+    <!-- Window Cards -->
+
     <div class="main-layout">
 
+        <!-- ── HISTORY PANEL (left) ── -->
         <aside class="history-panel">
 
             <div class="history-header">
@@ -164,20 +169,10 @@
                 <span class="get-btn"># Get Queue Number</span>
             </a>
 
-            <a href="#popup3" class="wcard">
-                <div class="card-top">
-                    <span class="win-label">Window 3</span>
-                    <span class="win-amt">₱75</span>
-                </div>
-                <div class="win-icon" style="background:#fef9c3;">💳</div>
-                <h3>Documents </h3>
-                <p>Request TOR, Certificates, Diploma, and more.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
 
             <a href="#popup4" class="wcard">
                 <div class="card-top">
-                    <span class="win-label">Window 4</span>
+                    <span class="win-label">Window 3</span>
                     <span class="win-amt">₱200</span>
                 </div>
                 <div class="win-icon" style="background:#fce7f3;">📝</div>
@@ -188,7 +183,7 @@
 
             <a href="#popup5" class="wcard">
                 <div class="card-top">
-                    <span class="win-label">Window 5</span>
+                    <span class="win-label">Window 4</span>
                     <span class="win-amt">₱100</span>
                 </div>
                 <div class="win-icon" style="background:#f3e8ff;">🪪</div>
@@ -219,16 +214,7 @@
                 <span class="get-btn"># Get Queue Number</span>
             </a>
 
-            <a href="#popup8" class="wcard">
-                <div class="card-top">
-                    <span class="win-label">Window 8</span>
-                    <span class="win-amt">₱50</span>
-                </div>
-                <div class="win-icon" style="background:#ecfdf5;">🗂️</div>
-                <h3>Other Services</h3>
-                <p>General inquiries and other administrative concerns.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
+
         </div>
     </div>
 
@@ -542,7 +528,9 @@
     </div>
 
     </div>
-    <script src="../assets/java/payment.js"></script>
+
+    <script src="../assets/java/nonS-pay.js"></script>
+
 
     <footer>
         © 2026 Queueuless | Western Mindanao State University
