@@ -151,10 +151,7 @@
             <h3>Call Student to Counter</h3>
             <p>Are you sure you want to call this student? This will update the live monitors.</p>
             <div class="modal-actions">
-                <!-- Cancel button -->
                 <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
-
-                <!-- Confirm button -->
                 <button class="btn btn-confirm" onclick="confirmServe()">Call Next</button>
             </div>
         </div>
@@ -243,7 +240,6 @@
         function closeModal() {
             document.getElementById("serve-modal").style.display = "none";
         }
-        // user this command to clear storage = localStorage.clear();
         loadQueue();
 
     </script>

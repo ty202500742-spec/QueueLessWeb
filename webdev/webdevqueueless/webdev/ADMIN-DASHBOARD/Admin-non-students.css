@@ -28,7 +28,6 @@
     color: #333;
 }
 
-/* Modal Form Styles */
 .modal-form label {
     display: block;
     font-size: 13px;
@@ -52,23 +51,19 @@
     font-family: inherit;
 }
 
-/* RESPONSIVE DESIGN: WINDOWS */
 @media (max-width: 900px) {
     .window-layout {
         grid-template-columns: 1fr;
-        /* to stack active panel and queue */
     }
 }
 
 @media (max-width: 600px) {
     .action-grid {
         grid-template-columns: 1fr;
-        /* to stack buttons 1 by 1 */
     }
 
     .current-q {
         font-size: 48px;
-        /* fix: slightly smaller number on mobile */
     }
 
     .windows-grid {

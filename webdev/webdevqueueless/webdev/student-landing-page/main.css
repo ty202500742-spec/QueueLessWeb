@@ -23,7 +23,6 @@ nav {
     z-index: 999;
 }
 
-/* ── NAVBAR LOGO ── */
 .nav-logo-link {
     display: flex;
     align-items: center;
@@ -85,7 +84,6 @@ nav {
     background-color: rgb(255, 255, 255);
     color: #960000;
 }
-
 
 .hero {
     background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(180, 0, 0, 0.6)), url('../images/wmsu.jpg');
