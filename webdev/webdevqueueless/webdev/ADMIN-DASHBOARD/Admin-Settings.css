@@ -94,7 +94,7 @@
 }
 
 input:checked + .slider {
-    background-color: #8B0000; /* WMSU Crimson */
+    background-color: #8B0000;
 }
 
 input:checked + .slider:before {

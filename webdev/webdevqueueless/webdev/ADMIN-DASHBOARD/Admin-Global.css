@@ -185,11 +185,11 @@ body {
     }
 
     .sidebar-logo {
-        max-height: 50px; /* Smaller logo on mobile */
+        max-height: 50px;
     }
 
     .menu-label {
-        display: none; /* Hide labels to save space */
+        display: none;
     }
 
     .menu-link {
@@ -205,7 +205,6 @@ body {
         width: 100%;
     }
 
-    /* Reset Main Content */
     .main-content {
         margin-left: 0;
         width: 100%;

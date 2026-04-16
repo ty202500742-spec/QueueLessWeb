@@ -316,7 +316,6 @@ footer {
     border-color: var(--accent);
 }
 
-/* Active label highlight via :checked sibling */
 #f-all:checked~.main-layout .lbl-all,
 #f-done:checked~.main-layout .lbl-done,
 #f-wait:checked~.main-layout .lbl-wait,
@@ -340,7 +339,6 @@ footer {
     border-radius: 4px;
 }
 
-/* All items shown by default */
 .history-item {
     padding: .8rem 1.25rem;
     border-bottom: 1px solid var(--border);
@@ -359,7 +357,6 @@ footer {
     background: #f8fafc;
 }
 
-/* Filter: hide non-matching items when a filter radio is checked */
 #f-done:checked~.main-layout .history-item:not(.is-done) {
     display: none;
 }
@@ -463,7 +460,6 @@ footer {
     }
 }
 
-/* ── FILTER RADIOS (hidden) ── */
 .filter-radio {
     display: none;
 }

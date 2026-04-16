@@ -62,7 +62,6 @@
 .btn-warning { background: #ffc107; color: black; text-align: center; }
 .btn-confirm { background: #8B0000; color: white; text-align: center; }
 
-/* Up Next Queue List */
 .queue-list {
     list-style: none;
     padding: 0;
@@ -103,7 +102,6 @@
     color: #888;
 }
 
-/* Status Indicator in Topbar */
 .status-indicator {
     background: #e6f4ea;
     color: #1e8e3e;

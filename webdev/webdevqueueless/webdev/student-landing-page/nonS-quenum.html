@@ -34,7 +34,6 @@
                 <div id="statusMessage" class="status-message">Loading your position...</div>
 
                 <ul id="queueList" class="queue-list">
-                    <!-- Queue items will be added here dynamically -->
                 </ul>
 
                 <a href="#" class="cancel-btn" onclick="cancelQueue()">Cancel Queue</a>
@@ -47,12 +46,7 @@
     </footer>
 
     <script>
-
-
-
         function loadQueuePage() {
-
-
 
             let queue = JSON.parse(localStorage.getItem("queueList")) || [];
             let queueListEl = document.getElementById("queueList");
@@ -84,16 +78,12 @@
                 queueListEl.appendChild(li);
             });
 
-
-
-            // Update current number and status
             currentNumberEl.textContent = userQueue.id;
             let peopleAhead = userIndex;
-            let estWait = peopleAhead * 5; // estimate 5 min per person
+            let estWait = peopleAhead * 5;
             statusMessageEl.textContent = `You are in position ${userIndex + 1}. ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
         }
 
-        // Cancel the queue
         function cancelQueue() {
             if (confirm("Are you sure you want to cancel your queue?")) {
                 localStorage.removeItem("queueList");
@@ -102,10 +92,8 @@
             }
         }
 
-        // Auto-refresh every 5 seconds for live queue
         setInterval(loadQueuePage, 5000);
 
-        // Initial load
         window.onload = loadQueuePage;
     </script>
 </body>

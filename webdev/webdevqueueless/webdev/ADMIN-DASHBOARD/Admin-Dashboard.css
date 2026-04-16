@@ -197,7 +197,6 @@
     color: #888;
 }
 
-/* RESPONSIVE DESIGN (Tablets & Mobile) */
 @media (max-width: 1024px) {
     .bottom-row {
         flex-direction: column;
