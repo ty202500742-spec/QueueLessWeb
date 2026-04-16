@@ -5,10 +5,7 @@
 }
 
 body {
-
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-
 }
 
 nav {
@@ -253,7 +250,6 @@ footer {
 }
 
 @media (max-width: 600px) {
-
     .stats-row,
     .window-grid {
         padding: 14px;

@@ -1,4 +1,10 @@
-                    :root {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
                         --dt-row-selected: 13, 110, 253;
                         --dt-row-selected-text: 255, 255, 255;
                         --dt-row-selected-link: 228, 228, 228;

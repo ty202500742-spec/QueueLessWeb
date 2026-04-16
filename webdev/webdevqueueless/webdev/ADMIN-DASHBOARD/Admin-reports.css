@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .report-summary {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -54,7 +60,8 @@
     border-collapse: collapse;
 }
 
-.report-table th, .report-table td {
+.report-table th,
+.report-table td {
     text-align: left;
     padding: 12px 15px;
     border-bottom: 1px solid #eee;
@@ -112,22 +119,4 @@
     cursor: pointer;
 }
 
-@media (max-width: 900px) {
-    .window-layout {
-        grid-template-columns: 1fr;
-    }
-}
 
-@media (max-width: 600px) {
-    .action-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .current-q {
-        font-size: 48px;
-    }
-    
-    .windows-grid {
-        grid-template-columns: 1fr;
-    }
-}

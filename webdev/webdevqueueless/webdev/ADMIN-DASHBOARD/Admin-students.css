@@ -1,3 +1,14 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
 .table-container {
     background: white;
     padding: 20px;
@@ -49,22 +60,60 @@
     font-family: inherit;
 }
 
-@media (max-width: 900px) {
-    .window-layout {
-        grid-template-columns: 1fr;
-    }
+.btn-sm {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.2s;
+    border: none;
+    cursor: pointer;
 }
 
-@media (max-width: 600px) {
-    .action-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .current-q {
-        font-size: 48px;
-    }
-    
-    .windows-grid {
-        grid-template-columns: 1fr;
-    }
+.btn-sm.serve {
+    background: #8B0000;
+    color: white;
 }
+
+.btn-sm.serve:hover {
+    background: #a00000;
+}
+
+.btn-sm.done {
+    background: #198754;
+    color: white;
+}
+
+.btn-sm.done:hover {
+    background: #146c43;
+}
+
+.btn-sm.skip {
+    background: #eee;
+    color: #333;
+}
+
+.btn-sm.skip:hover {
+    background: #ddd;
+}
+
+.pill {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.pill.serving {
+    background: #e6f4ea;
+    color: #1e8e3e;
+}
+
+.pill.waiting {
+    background: #fff3cd;
+    color: #856404;
+}
+
