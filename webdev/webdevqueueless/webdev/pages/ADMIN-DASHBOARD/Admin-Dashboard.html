@@ -146,16 +146,17 @@
         </div>
     </div>
 
-    <div id="serve-modal" class="modal-overlay">
-        <div class="modal-box">
-            <h3>Call Student to Counter</h3>
-            <p>Are you sure you want to call this student? This will update the live monitors.</p>
-            <div class="modal-actions">
-                <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
-                <button class="btn btn-confirm" onclick="confirmServe()">Call Next</button>
-            </div>
+   <!-- serve-modal -->
+<div id="serve-modal" class="modal-overlay">
+    <div class="modal-box">
+        <h3>Call Student to Counter</h3>
+        <p >Are you sure you want to call this student? This will update the live monitors.</p>
+        <div class="modal-actions">
+            <button class="btn btn-cancel" onclick="closeModal('serve-modal')">Cancel</button>
+            <button class="btn btn-confirm" onclick="confirmServe()">Call Next</button>
         </div>
     </div>
+</div>
 
     <div id="done-modal" class="modal-overlay">
         <div class="modal-box">
@@ -185,12 +186,12 @@
             <p>Are you sure you want to securely log out?</p>
             <div class="modal-actions">
                 <a href="#" class="btn btn-cancel">Cancel</a>
-                <a href="../login-page/login.html" class="btn btn-confirm">Logout</a>
+                <a href="../../pages/login-page/login.html" class="btn btn-confirm">Logout</a>
             </div>
         </div>
     </div>
 
-    <script src="../assets/java/admin-dash.js"></script>
+    <script src="../../assets/java/admin-dash.js"></script>
 
 
 </body>

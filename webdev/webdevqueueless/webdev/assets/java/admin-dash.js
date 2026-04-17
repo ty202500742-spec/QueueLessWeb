@@ -16,7 +16,7 @@
             <td>${q.purpose}</td>
             <td>${q.time}</td>
             <td><span class="pill waiting">${q.status}</span></td>
-            <td><button class="btn-sm serve">Serve</button></td>
+            <td><button class="btn-sm serve " onclick="confirmServe()">Serve</button></td>
         
         `;
 
