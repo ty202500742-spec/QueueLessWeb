@@ -92,7 +92,7 @@ nav {
     color: black;
     text-align: center;
     margin: auto;
-    padding-bottom: 250px;
+    width: 100%;
 }
 
 h1 {
@@ -180,14 +180,13 @@ h1 {
 }
 
 .steps {
-    margin: 40px auto;
-    padding: 40px 60px;
-    background: none;
+    background-color: #8B0000;
     border-radius: 20px;
-    padding: 10px 32px 48px;
-    max-width: 8000px;
-    margin: 100px auto 40px;
+    padding: 60px 32px;
+    max-width:none;
+    margin: 0px;
     color: rgb(255, 255, 255);
+    flex-grow: 1;
 }
 
 .steps h2 {
@@ -243,11 +242,12 @@ h1 {
 }
 
 footer {
-    background-color: #7a0000;
+    background-color: #8B0000;
     color: white;
     text-align: center;
-    padding: 20px;
-    font-size: 20px;
+    padding: 30px;
+    font-size: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 
 
 }
