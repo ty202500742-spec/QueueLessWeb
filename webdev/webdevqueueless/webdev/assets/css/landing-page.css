@@ -184,9 +184,10 @@ h1 {
     border-radius: 20px;
     padding: 60px 32px;
     max-width:none;
-    margin: 0px;
+    margin: 0;
     color: rgb(255, 255, 255);
     flex-grow: 1;
+  
 }
 
 .steps h2 {
@@ -252,6 +253,10 @@ footer {
 
 }
 
+#howit{
+
+    transition: all 0.3s ease;
+}
 /* ── Responsive ── */
 @media (max-width: 600px) {
 

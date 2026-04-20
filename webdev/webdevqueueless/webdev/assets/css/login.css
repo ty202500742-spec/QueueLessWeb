@@ -173,6 +173,11 @@ input:focus {
     border-color: #8B0000;
 }
 
+input{
+
+    background-color: white;
+    color: black;
+}
 
 .btn {
     width: 100%;

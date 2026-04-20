@@ -18,6 +18,12 @@ body {
     padding-right: 5px;
 }
 
+input{
+
+    background-color: white;
+    color: black;
+}
+
 .card {
     width: 700px;
     padding: 18px;

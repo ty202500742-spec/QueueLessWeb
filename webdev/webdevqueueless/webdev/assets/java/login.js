@@ -5,12 +5,12 @@ function handleLogin(e) {
     let password = document.querySelector('input[name="password"]').value;
 
     // ADMIN LOGIN
-    if (email === "admin@wmsu.edu.ph" && password === "admin123") {
+    if (email === "admin@wmsu" && password === "admin123") {
         window.location.href = "../ADMIN-DASHBOARD/Admin-Dashboard.html";
     }
 
     // STUDENT LOGIN
-    else if (email.endsWith("@wmsu.edu.ph")) {
+    else if (email.endsWith("@wmsu.edu.ph") && password === "student123") {
         window.location.href = "../student-landing-page/main.html";
     }
 
