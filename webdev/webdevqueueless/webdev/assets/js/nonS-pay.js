@@ -43,11 +43,20 @@
             for (let i = 1; i <= 8; i++) {
                 document.getElementById("selectedText" + i).innerHTML = `<strong>You selected:</strong> ${purpose}`;
                 document.getElementById("requirementText" + i).innerHTML = `<strong>Requirements:</strong> ${requirements}`;
+
+
             }
         }
-        function addQueue() {
+        function addQueue(btn) {
 
+             let popup = btn.closest(".popup");
             let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+                let selectedDay = popup.querySelector("#queueDay").value;
+            
+            if(!selectedDay) {
+                alert("Please select a day before confirming.");
+                return;
+            }
 
             let qNum = "Q-" + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
 
@@ -56,6 +65,7 @@
                 name: "Non-student User",
                 purpose: selectedService,
                 status: "waiting",
+                day: selectedDay,
                 time: new Date().toLocaleTimeString()
 
 

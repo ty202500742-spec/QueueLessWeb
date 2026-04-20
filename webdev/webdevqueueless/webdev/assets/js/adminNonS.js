@@ -13,6 +13,7 @@
             <td>${q.name}</td>
             <td>${q.purpose}</td>
             <td>${q.time}</td>
+            <td>${q.day}</td>
             <td><span class="pill waiting">${q.status}</span></td>
             <td><a href="#serve-modal" class="btn-sm serve">Serve</a></td>
         
