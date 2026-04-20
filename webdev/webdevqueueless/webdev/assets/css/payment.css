@@ -23,6 +23,14 @@ nav {
     justify-content: space-between;
 }
 
+.date-picker {
+    background: white;
+    border: 1px solid #000000;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 .nav-logo-img {
     max-height: 95px;
     width: 150px;

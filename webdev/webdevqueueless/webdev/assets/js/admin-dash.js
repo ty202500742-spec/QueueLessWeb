@@ -3,8 +3,8 @@ let selectedQueueIndex = null;
 // SAMPLE DATA (remove if you already have data)
 if (!localStorage.getItem("queueList")) {
     localStorage.setItem("queueList", JSON.stringify([
-        { id: "R-001", name: "Maria Santos", purpose: "TOR", time: "1 min", status: "waiting" },
-        { id: "C-002", name: "Juan Dela Cruz", purpose: "Payment", time: "3 min", status: "waiting" }
+        { id: "R-001", name: "Maria Santos", purpose: "TOR", time: "12:00:01", day: "Tuesday", status: "waiting" },
+        { id: "C-002", name: "Juan Dela Cruz", purpose: "Payment", time: "12:01:01", day: "Monday", status: "waiting" }
     ]));
 }
 
@@ -26,6 +26,7 @@ function loadQueue() {
             <td>${q.name}</td>
             <td>${q.purpose}</td>
             <td>${q.time}</td>
+            <td>${q.day}</td>
             <td><span class="pill ${statusClass}">${q.status}</span></td>
             <td><button class="serve-btn">${buttonText}</button></td>
         `;
@@ -90,3 +91,4 @@ function closeModal() {
 
 // LOAD ON START
 loadQueue();
+
