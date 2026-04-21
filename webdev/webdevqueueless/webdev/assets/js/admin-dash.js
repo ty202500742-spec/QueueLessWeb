@@ -1,4 +1,5 @@
 let selectedQueueIndex = null;
+let currentDay = "monday";
 
 // SAMPLE DATA (remove if you already have data)
 if (!localStorage.getItem("queueList")) {
@@ -8,18 +9,29 @@ if (!localStorage.getItem("queueList")) {
     ]));
 }
 
-function loadQueue() {
+function loadQueue(selectedDay = null) {
     let queue = JSON.parse(localStorage.getItem("queueList")) || [];
     let table = document.getElementById("queueTableBody");
 
     table.innerHTML = "";
 
-    queue.forEach((q, index) => {
+   let filteredQueue = queue.filter(q =>
+    selectedDay
+        ? q.day.toLowerCase() === selectedDay.toLowerCase()
+        : true
+);
+
+if ( selectedDay !== currentDay) {
+    document.getElementById("noQueueModal").style.display = "flex";
+    return;
+}
+
+    filteredQueue.forEach((q) => {
 
         let row = document.createElement("tr");
 
-        let buttonText = q.status === "serving" ? "Done" : "Serve";
         let statusClass = q.status === "serving" ? "serving" : "waiting";
+        let buttonText = q.status === "serving" ? "Done" : "Serve";
 
         row.innerHTML = `
             <td><strong>${q.id}</strong></td>
@@ -31,7 +43,7 @@ function loadQueue() {
             <td><button class="serve-btn">${buttonText}</button></td>
         `;
 
-           let btn = row.querySelector(".serve-btn");
+        let btn = row.querySelector(".serve-btn");
 
         btn.style.background = q.status === "serving" ? "#198754" : "#860000";
         btn.style.color = "white";
@@ -40,14 +52,15 @@ function loadQueue() {
         btn.style.border = "none";
         btn.style.cursor = "pointer";
 
-        row.querySelector(".serve-btn").addEventListener("click", () => {
-            selectedQueueIndex = index;
+        btn.addEventListener("click", () => {
+
+            // BLOCK WRONG DAY
+            
+            selectedQueueId = q.id;
 
             if (q.status === "waiting") {
-                // open modal
                 document.getElementById("serve-modal").style.display = "flex";
             } else {
-                // already serving → remove
                 finishServing();
             }
         });
@@ -59,36 +72,49 @@ function loadQueue() {
 function confirmServe() {
     let queue = JSON.parse(localStorage.getItem("queueList")) || [];
 
-    if (selectedQueueIndex !== null) {
-        queue[selectedQueueIndex].status = "serving";
+    let index = queue.findIndex(q => q.id === selectedQueueId);
+
+    if (index !== -1) {
+        queue[index].status = "serving";
 
         localStorage.setItem("queueList", JSON.stringify(queue));
 
         closeModal();
-        selectedQueueIndex = null;
+        selectedQueueId = null;
 
-        loadQueue();
+        loadQueue(currentDay);
     }
 }
 
 function finishServing() {
     let queue = JSON.parse(localStorage.getItem("queueList")) || [];
 
-    if (selectedQueueIndex !== null) {
-        queue.splice(selectedQueueIndex, 1);
+    let index = queue.findIndex(q => q.id === selectedQueueId);
+
+    if (index !== -1) {
+        queue.splice(index, 1);
 
         localStorage.setItem("queueList", JSON.stringify(queue));
 
-        selectedQueueIndex = null;
+        selectedQueueId = null;
 
-        loadQueue();
+        loadQueue(currentDay);
     }
 }
-
 function closeModal() {
     document.getElementById("serve-modal").style.display = "none";
 }
 
-// LOAD ON START
-loadQueue();
+function setDay(day) {
+    currentDay = day;
+    loadQueue(currentDay);
+}
 
+function closeNoQueue() {
+    document.getElementById("noQueueModal").style.display = "none";
+}
+
+
+window.onload = function () {
+    loadQueue(currentDay);
+};
