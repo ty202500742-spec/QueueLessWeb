@@ -13,7 +13,8 @@
 
     <nav class="sidebar">
         <div class="logo-area">
-            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU"
+                class="sidebar-logo">
         </div>
 
         <p class="menu-label">Overview</p>
@@ -67,21 +68,54 @@
 
                 <div class="panel main-panel">
                     <h3>Live Queue — Overview</h3>
+                    <div class="queuedays-table">
+                        
+
+                            <input type="radio" class="queuedays" name="day" id="dmonday" onclick="setDay('monday')"
+                                checked>
+                            <label for="dmonday">Monday</label>
+
+                            <input type="radio" class="queuedays" name="day" id="dtuesday" onclick="setDay('tuesday')">
+                            <label for="dtuesday">Tuesday</label>
+
+                            <input type="radio" class="queuedays" name="day" id="dwednesday"
+                                onclick="setDay('wednesday')">
+                            <label for="dwednesday">Wednesday</label>
+
+                            <input type="radio" class="queuedays" name="day" id="dthursday"
+                                onclick="setDay('thursday')">
+                            <label for="dthursday">Thursday</label>
+
+                            <input type="radio" class="queuedays" name="day" id="dfriday" onclick="setDay('friday')">
+                            <label for="dfriday">Friday</label>
+                            
+                            <div class="day-title monday">Queues for Monday</div>
+                            <div class="day-title tuesday">Queues for Tuesday</div>
+                            <div class="day-title wednesday">Queues for Wednesday</div>
+                            <div class="day-title thursday">Queues for Thursday</div>
+                            <div class="day-title friday">Queues for Friday</div>
+
+
+                       
+
+
+                    </div>
                     <div class="table-container">
-                     <table class="queue-table">
-    <thead>
-        <tr>
-            <th>Q#</th>
-            <th>Student Name</th>
-            <th>Purpose</th>
-            <th>Wait</th>
-            <th>Day</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody id="queueTableBody"></tbody>
-</table>
+
+                        <table class="queue-table">
+                            <thead>
+                                <tr>
+                                    <th>Q#</th>
+                                    <th>Student Name</th>
+                                    <th>Purpose</th>
+                                    <th>Wait</th>
+                                    <th>Day</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="queueTableBody"></tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -114,14 +148,22 @@
         </div>
     </div>
 
-   <!-- serve-modal -->
-<div id="serve-modal">
-    <div style="background:white; padding:20px; border-radius:10px; width:300px; text-align:center;">
-        <h3>Call Student</h3>
-        <p>Are you sure you want to serve this student?</p>
+    <!-- serve-modal -->
+    <div id="serve-modal">
+        <div style="background:white; padding:20px; border-radius:10px; width:300px; text-align:center;">
+            <h3>Call Student</h3>
+            <p>Are you sure you want to serve this student?</p>
 
-        <button class="btn btn confirm" onclick="confirmServe()">Yes, Serve</button>
-        <button class="btn btn cancel" onclick="closeModal()">Cancel</button>
+            <button class="btn btn confirm" onclick="confirmServe()">Yes, Serve</button>
+            <button class="btn btn cancel" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <div id="noQueueModal" class="noqueuemodal">
+    <div class="modal-content">
+        <h2>You cannot serve Queues for this day</h2>
+        <p>Please select a different day to view available queues.</p>
+        <button class="btn btn-primary" onclick="closeNoQueue()">view queues</button>
     </div>
 </div>
 
