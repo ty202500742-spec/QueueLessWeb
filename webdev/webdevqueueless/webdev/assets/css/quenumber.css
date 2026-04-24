@@ -12,15 +12,22 @@ body {
 }
 
 nav {
-    position: sticky;
-    top: 0;
-    background-color: #990000;
-    color: rgb(255, 255, 255);
-    padding: 25px 40px;
+  position: fixed;
+  top: 0; 
+  left: 0;
+   right: 0; 
+   z-index: 100;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 1rem 5%;
+  background: rgba(139,0,0,0.97);
+  backdrop-filter: blur(8px);
+}
+.nav-logo-link {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    z-index: 999;
+    text-decoration: none;
 }
 
 .nav-logo-img {
@@ -34,39 +41,38 @@ nav {
     transform: scale(1.05);
 }
 
+.nav-name {
+  font-size: 1rem; 
+  font-weight: 700;
+   color: white;
+  letter-spacing: 0.05em; 
+  text-transform: uppercase;
+}
+.nav-name span { font-size: 0.55rem;
+     display: block; 
+     font-weight: 400;
+      opacity: 0.6; 
+      letter-spacing: 0.08em; 
+      margin-top: -2px; 
+    }
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-
+     display: flex; 
+    gap: 2rem;
+     list-style: none; 
+    }
+.nav-links a {
+  font-size: 0.9rem;
+   font-weight: 500; 
+   color: rgba(255,255,255,0.75);
+  text-decoration: none; 
+  transition: color 0.2s;
 }
-
-.nav-links li a {
-    color: rgba(255, 255, 255);
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
-}
-
-.nav-links li a:hover {
-    background-color: rgb(255, 255, 255);
-    color: #000000;
-
-}
-
-.nav-links li a.active {
-    color: rgba(255, 255, 255);
-    text-decoration: none;
-    font-weight: 700;
-
-}
-
-.logout {
-    background: rgba(255, 255, 255, 0.15);
-    color: rgb(255, 255, 255);
+.nav-links a:hover { 
+    color: white;
+ }
+.nav-btn {
+    background: rgba();
+    color: rgb(204, 5, 5);
     padding: 6px 14px;
     border: none;
     border-radius: 6px;
@@ -74,13 +80,10 @@ nav {
     font-weight: 500;
     padding: 6px 12px;
     transition: background 0.2s, color 0.2s;
-    ;
 }
-
-.logout:hover {
-    background-color: rgb(255, 255, 255);
-    color: #960000;
-}
+.nav-btn:hover { 
+    opacity: 0.9;
+ }
 
 
 .bodd1 {
