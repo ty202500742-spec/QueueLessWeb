@@ -1,4 +1,3 @@
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
  
 :root {
@@ -271,19 +270,36 @@ nav {
  background: var(--light);
  }
 
-.step .nb {
-    width: 38px;
-    height: 38px;
-    background: #8B0000;
-    color: rgb(255, 255, 255);
-    border-radius: 50;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 800;
-    margin: 0 auto 10px;
+.step-num {
+  width: 44px; 
+  height: 44px; 
+  border-radius: 50%;
+  background: var(--red); 
+  color: white;
+  font-size: 20px; 
+  font-weight: 800;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  margin: 0 auto 1.2rem;
 }
+.step-icon { 
+    font-size: 1.6rem;
+     margin-bottom: 0.6rem;
+     }
+.step-name {
+     font-size: 1.5rem;
+      font-weight: 700;
+       color: var(--black); 
+       margin-bottom: 0.4rem;
+     }
+.step-desc { 
+    font-size: 1.25rem; 
+    color: var(--gray);
+    line-height: 1.6;
+ }
+ 
+
 .about { 
     background: var(--white); 
     padding: 6rem 5%;
@@ -306,7 +322,7 @@ nav {
   overflow: hidden;
 }
 
-.about-logo {
+.about-logo{
   max-height: 100px;
   width: 300px;
   filter: brightness(0) invert(1);
