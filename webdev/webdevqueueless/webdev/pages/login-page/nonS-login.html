@@ -20,26 +20,25 @@
 
         <!-- Logo -->
         <div class="logo-container">
-            <img src="../../assets/images/queueless.png" alt="Queueless Logo" class="logo">
+            <img src="../../assets/images/UEUELESS.png" alt="Queueless Logo" class="logo">
         </div>
 
         <!-- FORM -->
         <div class="form-container">
             <div class="form-title">
-                <h2>Login</h2>
+                <h2>Sign Up</h2>
                 <p class="sub">Enter your credentials</p>
             </div>
 
             <form action="../student-landing-page/nonS-main.html" method="get">
 
-                <label>Full Name</label>
+                <label>Enter your Name:</label>
                 <div> <input type="text" name="firstName" placeholder="First Name" required> <input type="text"
-                        name="middleName" placeholder="Middle"> <input type="text" name="lastName"
+                        name="middleName" placeholder="Middle (Optional)"> <input type="text" name="lastName"
                         placeholder="Last Name" required> </div>
                 <div>
-                    <div> <label>Birthday</label> <input type="date" name="birthday" id="birthday" min="2010-01-01"
-                            max="2020-12-31" required> </div>
-                    <div> <label>Gender</label>
+                    <div> <label>Enter your Birthday:</label> <input type="date" name="birthday" id="birthday" max="2020-12-31" required> </div>
+                    <div> <label>Enter your Gender:</label>
                         <div class="gender-min"> 
                             <label><input type="radio" name="gender" value="male" required>Male</label>
                             <label><input type="radio" name="gender" value="female"> Female</label>
@@ -48,13 +47,17 @@
                     </div>
                 </div>
                 <div>
-                    <div> <label>Email</label> <input type="email" name="email" placeholder="email@gmail.com" required>
+                    <div> <label>Enter your Email:</label> <input type="email" name="email" placeholder="email@gmail.com" required>
                     </div>
-                    <div> <label>Phone</label> <input type="text" name="phone" placeholder="0912..."> </div>
+                    <div> <label>Enter your Phone Number:</label> <input type="text" name="phone" placeholder="0912..."> </div>
                 </div>
-                <div> <input type="password" name="password" placeholder="Password" required> <input type="password"
-                        name="confirmPassword" placeholder="Confirm Password" required> </div> <button type="submit"
-                    class="btn">Login</button>
+                <div> 
+                    <label>Enter your Password:</label>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <label>Confirm your Password:</label>
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password" required> </div>
+                    
+                    <button type="submit" class="btn">Sign Up</button>
 
             </form>
         </div>
