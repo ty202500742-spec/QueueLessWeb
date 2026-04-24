@@ -263,6 +263,11 @@ footer {
 
 }
 
+.nav-links a.checked {
+    color: white;
+    font-weight: 700;
+}
+
 /* ── Responsive ── */
 @media (max-width: 600px) {
 
