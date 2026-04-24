@@ -212,7 +212,7 @@ nav {
 
 .stat .l {
     font-size: 18px;
-    font-weight: 50;
+    font-weight: 500;
     color: #666;
     margin-top: 4px;
 
@@ -309,6 +309,7 @@ nav {
      opacity: 0.7; 
      line-height: 1.6;
      }
+     
 .about-tag-list {
   display: flex; 
   flex-wrap: wrap;
@@ -316,6 +317,10 @@ nav {
    margin-top: 1.5rem;
     justify-content: center;
 }
+.section-tag{
+font-size: 60px;
+}
+
 .about-tag {
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.2);
@@ -339,7 +344,7 @@ nav {
     max-width: 100%; 
 }
 .about-body {
-  font-size: 0.95rem; 
+  font-size: 20px; 
   color: var(--gray);
    line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -372,14 +377,14 @@ nav {
   flex-shrink: 0;
 }
 .about-value-text strong {
-     font-size: 0.9rem;
+     font-size: 30px;
       font-weight: 700;
        color: var(--black); 
        display: block; 
        margin-bottom: 0.2rem; 
     }
 .about-value-text span {
-     font-size: 0.82rem;
+     font-size: 20px;
       color: var(--gray); 
       line-height: 1.5;
      }
