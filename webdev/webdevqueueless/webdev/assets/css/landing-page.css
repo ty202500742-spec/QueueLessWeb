@@ -322,6 +322,13 @@ nav {
   position: relative; 
   overflow: hidden;
 }
+
+.about-logo{_
+  max-height: 100px;
+  width: 300px;
+  filter: brightness(0) invert(1);
+}
+
 .about-visual::before {
   content: '';
   position: absolute; 
