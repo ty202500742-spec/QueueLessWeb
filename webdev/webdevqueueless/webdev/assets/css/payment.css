@@ -832,3 +832,8 @@ footer {
 
 
 }
+
+.nav-links a.checked {
+    color: white;
+    font-weight: 700;
+}

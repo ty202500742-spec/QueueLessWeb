@@ -12,12 +12,12 @@
 
 <body>
 <nav>
-   <a href="main.html" class="nav-logo-link">
+   <a class="nav-logo-link">
             <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
         </a>
   <ul class="nav-links">
     <li><a href="#about">About us</a></li>
-    <li><a href="#how">How it works</a></li>
+    <li><a href="#steps">How it works</a></li>
   </ul>
    <button href="#" onclick="location.href='../login-page/nonS-login.html'" class="nav-btn">Sign Up</button>
 </nav>
@@ -30,26 +30,27 @@
   <div class="hero-actions">
      
     <a href="#" onclick="location.href='../login-page/login.html'" class="btn-white">Get your queue number</a>
-    <a href="#how"  class="btn-ghost">See how it works</a>
+    <a href="#steps"  class="btn-ghost">See how it works</a>
   </div>
 </section>
  
 
-
-        <div class="stats">
-            <div class="stat">
-                <div class="n">75%</div>
-                <div class="l">Less Waiting</div>
-            </div>
-            <div class="stat">
-                <div class="n">2,500+</div>
-                <div class="l">Students Daily</div>
-            </div>
-            <div class="stat">
-                <div class="n">8</div>
-                <div class="l">Windows Open</div>
-            </div>
-        </div>
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <p class="stat-num">75%</p>
+      <p class="stat-label">Less waiting time</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-num">2,500+</p>
+      <p class="stat-label">Students served daily</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-num">8</p>
+      <p class="stat-label">Service windows open</p>
+    </div>
+  </div>
+</div>
  
 
 <section class="steps" id="steps">
@@ -57,58 +58,55 @@
     <h2>Simple, Fast, Effortless!</h2>
     <p>Eight easy steps stand between you and a stress-free transaction at WMSU:</p>
   </div>
-
-    <div class="steps">
-            <h2>HOW IT WORKS:</h2>
-            <div class="sg">
-                <div class="step">
-                    <div class="nb">1</div>
-                    <h3>Choose Service</h3>
-                    <p>Pick the service you need.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">2</div>
-                    <h3>Go to Window</h3>
-                    <p>Choose your preferred window.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">3</div>
-                    <h3>Get Number</h3>
-                    <p>Get your queue number.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">4</div>
-                    <h3>Track Position</h3>
-                    <p>Monitor your position live.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">5</div>
-                    <h3>Receive Notification</h3>
-                    <p>System will notify your position.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">6</div>
-                    <h3>Receive Update</h3>
-                    <p>System will update you on your queue status.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">7</div>
-                    <h3>Confirm your queue</h3>
-                    <p>Every 5 mins, system will ask you if you're still queueing.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">8</div>
-                    <h3>Wait for your turn</h3>
-                    <p>Wait until it's your turn to be served.</p>
-                </div>
-            </div>
-        </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <p class="step-name">Choose a Service</p>
+      <p class="step-desc">Pick the service you need.</p>
     </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <p class="step-name">Go to Window</p>
+      <p class="step-desc">Choose your preferred Window.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <p class="step-name">Get Number</p>
+      <p class="step-desc">Get your Queue Number.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <p class="step-name">Track Position</p>
+      <p class="step-desc">Monitor your position live.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">5</div>
+      <p class="step-name">Receive Notification</p>
+      <p class="step-desc">System will notify your position.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">6</div>
+      <p class="step-name">Received Update</p>
+      <p class="step-desc">System will update you on your queue status.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">7</div>
+      <p class="step-name">Confirm your queue</p>
+      <p class="step-desc">Every 5 mins, system will ask you if you're still queueing.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">8</div>
+      <p class="step-name">Wait for your turn</p>
+      <p class="step-desc">Wait until it's your turn to be served.</p>
+    </div>
+
+  </div>
 </section>
  
 <section class="about" id="about">
   <div class="about-inner">
     <div class="about-visual">
+      <img src="../../assets/images/UEUELESS.png" class="about-logo">
       <h3>Built for WMSU</h3>
       <p>Designed specifically for the needs of Western Mindanao State University students and staff.</p>
       <div class="about-tag-list">
@@ -122,11 +120,11 @@
     <div class="about-text">
       <div class="section-header">
         <span class="section-tag">About us</span>
-        <h2>We exist to end the waiting game.</h2>
+          <h2>We exist to end the waiting game.</h2>
         <p>Queueless is a digital queue management system created for WMSU — eliminating long lines so students can spend time on what actually matters.</p>
       </div>
       <p class="about-body">
-        Long queues at university offices waste hours of student time every day. <strong>Queueless changes that</strong> by moving the waiting experience online — you join a queue from your phone, track your position live, and only show up when it's truly your turn.
+        Long queues at university offices wastes hours of student's time every day. <strong>QUEUELESS</strong> changes that by moving the waiting experience online — you join a queue from your phone, track your position live, and only show up when it's truly your turn.
       </p>
       <div class="about-values">
         <div class="about-value">
