@@ -1,78 +1,96 @@
- function chooseService(purpose) {
-            selectedService = purpose;
+let selectedService = "";
 
-            for (let i = 1; i <= 8; i++) {
-                document.getElementById("confirmBox" + i).style.display = "block";
-            }
+function chooseService(purpose) {
+    selectedService = purpose;
 
-            // Determine requirements
-            let requirements = "";
-            switch (purpose) {
-                case "Enrollment":
-                case "EAT":
-                case "NAT":
-                case "Interview":
-                    requirements = "CET Results";
-                    break;
-                case "Shifting":
-                case "Readmission":
-                case "Miscellaneous":
-                case "Certificate":
-                case "Diploma":
-                    requirements = "School ID or COR";
-                    break;
-                case "Tuition Fee":
-                case "TOR":
-                case "ID Request":
-                case "ID Replacement":
-                    requirements = "COR and Required Amount";
-                    break;
-                case "Other fees":
-                case "ID Request":
-                    requirements = "School ID";
-                    break;
-                case "Scholarship":
-                    requirements = "Form 138 or any grade report";
-                    break;
-                default:
-                    requirements = "Check office for Requirements";
-            }
+    for (let i = 1; i <= 8; i++) {
+        let box = document.getElementById("confirmBox" + i);
+        if (box) box.style.display = "block";
+    }
 
-            // Update all 8 confirm boxes dynamically
-            for (let i = 1; i <= 8; i++) {
-                document.getElementById("selectedText" + i).innerHTML = `<strong>You selected:</strong> ${purpose}`;
-                document.getElementById("requirementText" + i).innerHTML = `<strong>Requirements:</strong> ${requirements}`;
-            }
-        }
-        function addQueue(btn) {
+    let requirements = "";
+    switch (purpose) {
+        case "Enrollment":
+        case "EAT":
+        case "NAT":
+        case "Interview":
+            requirements = "CET Results";
+            break;
+        case "Shifting":
+        case "Readmission":
+        case "Miscellaneous":
+        case "Certificate":
+        case "Diploma":
+            requirements = "School ID or COR";
+            break;
+        case "Tuition Fee":
+        case "TOR":
+        case "ID Request":
+        case "ID Replacement":
+            requirements = "COR and Required Amount";
+            break;
+        case "Other fees":
+            requirements = "School ID";
+            break;
+        case "Scholarship":
+            requirements = "Form 138 or any grade report";
+            break;
+        default:
+            requirements = "Check office for Requirements";
+    }
 
-            let popup = btn.closest(".popup");
+    for (let i = 1; i <= 8; i++) {
+        let selectedEl = document.getElementById("selectedText" + i);
+        let reqEl = document.getElementById("requirementText" + i);
+        
+        if (selectedEl) selectedEl.innerHTML = `<strong>You selected:</strong> ${purpose}`;
+        if (reqEl) reqEl.innerHTML = `<strong>Requirements:</strong> ${requirements}`;
+    }
+}
 
-            let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-            let selectedDay = popup.querySelector("#queueDay").value;
-            
-            if(!selectedDay) {
-                alert("Please select a day before confirming.");
-                return;
-            }
-            let qNum = "Q-" + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+function addQueue(btn) {
+    let popup = btn.closest(".popup");
+    let selectedDay = popup.querySelector("#queueDay").value;
+    
+    if(!selectedDay) {
+        alert("Please select a day before confirming.");
+        return;
+    }
 
-            let newQueue = {
-                id: qNum,
-                name: "student User",
-                purpose: selectedService,
-                day: selectedDay,
-                status: "waiting",
-                time: new Date().toLocaleTimeString()
+    let userName = localStorage.getItem("queue_userName") || "Unknown User";
+    let userType = localStorage.getItem("queue_userType") || "guest";
 
+    let regularQueue = JSON.parse(localStorage.getItem("regularQueue")) || [];
+    let priorityQueue = JSON.parse(localStorage.getItem("priorityQueue")) || [];
 
-            };
+    let qNum = "";
 
-            queue.push(newQueue);
+    if (userType === "priority") {
 
-            localStorage.setItem("queueList", JSON.stringify(queue));
+    let nextNum = priorityQueue.length + 1;
+        qNum = "PR-" + nextNum.toString().padStart(3, '0');
+    } else {
+        let nextNum = regularQueue.length + 1;
+        qNum = "Q-" + nextNum.toString().padStart(3, '0');
+    }
 
+    let newQueue = {
+        id: qNum,
+        name: userName,
+        type: userType,
+        purpose: selectedService,
+        day: selectedDay,
+        status: "waiting",
+        time: new Date().toLocaleTimeString()
+    };
 
-            window.location.href = "Que-number.html";
-        }
+    if (userType === "priority") {
+        priorityQueue.push(newQueue);
+        localStorage.setItem("priorityQueue", JSON.stringify(priorityQueue));
+    } else {
+        regularQueue.push(newQueue);
+        localStorage.setItem("regularQueue", JSON.stringify(regularQueue));
+    }
 
+    window.location.href = "Que-number.html";
+}

@@ -13,8 +13,7 @@
 
 
 
-<img src="../../assets/images/wmsu.jpg" alt="WMSU Background"
-    style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0; z-index:-1;">
+<img src="../../assets/images/wmsu.jpg" alt="WMSU Background" class="bg-image">
 
 <div class="card">
 
@@ -26,23 +25,30 @@
     <!-- FORM -->
     <div class="form-container">
         <div class="form-title">
-            <h2>Login</h2>
-            <p class="sub">Enter your WMSU credentials</p>
+            <h2>Join Queue</h2>
+            <p class="sub">Enter your details to get your queue number</p>
         </div>
 
-        <form onsubmit="handleLogin(event)">
+        <form onsubmit="handleEntry(event)">
 
-            <label>Email</label>
-            <input type="email" name="email" placeholder="student@wmsu.edu.ph" required>
+            <label for="fullName">Full Name</label>
+            <input type="text" name="fullName" placeholder="Juan Dela Cruz" required>
 
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Password" required>
+            <label>User Type</label>
+            <select name="userType" required>
+                <option value="student">WMSU Student</option>
+                <option value="faculty">WMSU Faculty</option>
+                <option value="guest">Non-Student/Guest</option>
+                <option value="priority">Priority (PWD/Senior Citizen)</option>
+            </select>
 
-            <button type="submit" class="btn">Login</button>
+            <label>Email Address</label>
+            <input type="email" name="email" id="emailInput" placeholder="student@wmsu.edu.ph" required>
 
-            <a href="nonS-login.html" class="nonsignup">
-                Don't have an account? Sign up
-            </a>
+            <label>ID Number (Leave blank if Guest)</label>
+            <input type="text" name="idNumber" placeholder="2025-12345">
+
+            <button type="submit" class="submit-btn">Get Queue Number</button>
 
         </form>
     </div>

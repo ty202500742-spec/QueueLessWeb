@@ -90,10 +90,6 @@ nav {
     padding: 6px 12px;
     transition: background 0.2s, color 0.2s;
 }
-.nav-btn:hover { 
-    opacity: 0.9;
- }
- 
 
 .hero {
   background: var(--red);
