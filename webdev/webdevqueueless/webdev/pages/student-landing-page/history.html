@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link rel="stylesheet" href="../../assets/css/main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queueuless | Main</title>
-
-
+    <title>Queueless | History</title>
+    
+    <link rel="stylesheet" href="../../assets/css/history.css"> 
 </head>
-
 <body>
+    <input type="radio" class="filter-radio" name="hfilter" id="f-all" checked>
+    <input type="radio" class="filter-radio" name="hfilter" id="f-done">
+    <input type="radio" class="filter-radio" name="hfilter" id="f-wait">
+    <input type="radio" class="filter-radio" name="hfilter" id="f-miss">
 
-    <nav>
+     <nav>
         <!-- ========== HAMBURGER BUTTON (place this in your topbar) ========== -->
 <button class="hamburger" id="ham" onclick="toggleSidebar()" aria-label="Open menu">
   <div class="bar"></div>
@@ -50,7 +51,7 @@
   <!-- Navigation -->
   <div class="section-label">Navigation</div>
 
-  <div class="nav-item active" onclick="dashboardgo()">
+  <div class="nav-item" onclick="dashboardgo()">
     <div class="nav-icon blue">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <rect x="2" y="2" width="5" height="5" rx="1" fill="#185FA5"/>
@@ -62,7 +63,7 @@
     Dashboard
   </div>
 
-  <div class="nav-item" onclick="historygo()">
+  <div class="nav-item active" onclick="historygo()">
     <div class="nav-icon amber">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <circle cx="8" cy="8" r="6" stroke="#BA7517" stroke-width="1.4"/>
@@ -134,87 +135,100 @@
         </a>
     </nav>
 
-    <div class="hero">
-        <div class="hero4">
-            <h1>Welcome!</h1>
-            <p>Simplifying Journeys, Enhancing Experiences</p>
+     <div class="main-layout">
 
-            <div class="butt">
-              <a href='service-selection.html' class="b1">Get Queue Number</a>
-               <a href='Que-number.html' class="b2">My Queue Number</a>
+        <aside class="history-panel">
+
+            <div class="history-header">
+                <h3> Queue History</h3>
+                <span class="history-badge">6</span>
             </div>
+
+            <div class="history-filter">
+                <label for="f-all" class="filter-lbl lbl-all">All</label>
+                <label for="f-done" class="filter-lbl lbl-done">Done</label>
+                <label for="f-wait" class="filter-lbl lbl-wait">Waiting</label>
+                <label for="f-miss" class="filter-lbl lbl-miss">Missed</label>
+            </div>
+
+            <div class="history-list">
+
+                <div class="history-item is-active">
+                    <div class="h-icon" style="background:#dcfce7;">💳</div>
+                    <div class="h-info">
+                        <div class="h-title">Payments</div>
+                        <div class="h-sub">Window 2 <span class="h-num">Q-047</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status active">Active</span>
+                        <div class="h-time">Now · In Progress</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-waiting">
+                    <div class="h-icon" style="background:#fef9c3;">📄</div>
+                    <div class="h-info">
+                        <div class="h-title">Documents & Certs</div>
+                        <div class="h-sub">Window 3 <span class="h-num">Q-062</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status waiting">Waiting</span>
+                        <div class="h-time">Today, 10:45 AM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-done">
+                    <div class="h-icon" style="background:#dbeafe;">🎓</div>
+                    <div class="h-info">
+                        <div class="h-title">Enrollment Assistance</div>
+                        <div class="h-sub">Window 1 <span class="h-num">Q-031</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status done">Served</span>
+                        <div class="h-time">Today, 9:14 AM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-done">
+                    <div class="h-icon" style="background:#fce7f3;">📝</div>
+                    <div class="h-info">
+                        <div class="h-title">Aptitude Tests</div>
+                        <div class="h-sub">Window 4 <span class="h-num">Q-019</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status done">Served</span>
+                        <div class="h-time">Today, 8:50 AM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-missed">
+                    <div class="h-icon" style="background:#f3e8ff;">🪪</div>
+                    <div class="h-info">
+                        <div class="h-title">ID & Scholarship</div>
+                        <div class="h-sub">Window 5 <span class="h-num">Q-088</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status missed">Missed</span>
+                        <div class="h-time">Yesterday, 2:30 PM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-done">
+                    <div class="h-icon" style="background:#ffedd5;">🔖</div>
+                    <div class="h-info">
+                        <div class="h-title">Other Services</div>
+                        <div class="h-sub">Window 6 <span class="h-num">Q-012</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status done">Served</span>
+                        <div class="h-time">Mar 24, 3:15 PM</div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
         </div>
-
-        <div class="stats">
-            <div class="stat">
-                <div class="n">75%</div>
-                <div class="l">Less Waiting</div>
-            </div>
-            <div class="stat">
-                <div class="n">2,500+</div>
-                <div class="l">Students Daily</div>
-            </div>
-            <div class="stat">
-                <div class="n">8</div>
-                <div class="l">Windows Open</div>
-            </div>
-        </div>
-
-        <div class="steps">
-            <h2>HOW IT WORKS:</h2>
-            <div class="sg">
-                <div class="step">
-                    <div class="nb">1</div>
-                    <h3>Choose Service</h3>
-                    <p>Pick the service you need.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">2</div>
-                    <h3>Go to Window</h3>
-                    <p>Choose your preferred window.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">3</div>
-                    <h3>Get Number</h3>
-                    <p>Get your queue number.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">4</div>
-                    <h3>Track Position</h3>
-                    <p>Monitor your position live.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">5</div>
-                    <h3>Receive Notification</h3>
-                    <p>System will notify your position.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">6</div>
-                    <h3>Receive Update</h3>
-                    <p>System will update you on your queue status.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">7</div>
-                    <h3>Confirm your queue</h3>
-                    <p>Every 5 mins, system will ask you if you're still queueing.</p>
-                </div>
-                <div class="step">
-                    <div class="nb">8</div>
-                    <h3>Wait for your turn</h3>
-                    <p>Wait until it's your turn to be served.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <footer>
-        © 2026 Queueless | Western Mindanao State University
-    </footer>
-
-
-       <script src="../../assets/js/Main.js"></script> 
-        
-</body>
-
+       
+            <script src="../../assets/js/history.js"></script>
+        </body>
 </html>

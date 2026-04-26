@@ -17,7 +17,16 @@
     document.getElementById('overlay').classList.remove('active');
     document.getElementById('ham').classList.remove('active');
   }
+  function historygo() {
+    window.location.href = 'history.html';
+  }
+   function dashboardgo() {
+    window.location.href = 'main.html';
+  }
 
+  function profilego() {
+    window.location.href = 'student-profile.html';
+  }
   function setRole(r) {
     const pill  = document.getElementById('role-pill');
     const label = document.getElementById('role-label');
