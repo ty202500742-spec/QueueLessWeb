@@ -146,3 +146,34 @@ function addQueue(btn) {
     
 }
 
+const queueBtn = document.getElementById("queueBtn");
+
+queueBtn.onclick = () => {
+  openModal("queueModal");
+};
+
+function openModal(id) {
+  document.getElementById(id).style.display = "block";
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+// Handle form submit
+document.getElementById("queueForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const number = document.getElementById("number").value;
+  const terms = document.getElementById("terms").checked;
+
+  if (!terms) {
+    alert("You must accept the Terms & Conditions!");
+    return;
+  }
+  
+  
+
+  closeModal("infoModal");
+});
