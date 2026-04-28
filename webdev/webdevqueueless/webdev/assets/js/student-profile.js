@@ -47,3 +47,22 @@
       btnR.classList.remove('selected', 'reg', 'cash');
     }
 }
+
+document.getElementById("accountForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const user = {
+      name: document.getElementById("name").value,
+      empId: document.getElementById("empId").value,
+      dept: document.getElementById("dept").value,
+      contact: document.getElementById("contact").value,
+      status: document.getElementById("status").value
+    };
+
+    // Save locally (simulates account creation)
+    localStorage.setItem("userAccount", JSON.stringify(user));
+
+    alert("Account created successfully!");
+
+    console.log(user);
+  });

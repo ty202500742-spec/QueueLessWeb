@@ -1,32 +1,27 @@
 let selectedQueueIndex = null;
-let currentDay = "monday";
+
+let selectedQueueId = null;
 
 // SAMPLE DATA (remove if you already have data)
 if (!localStorage.getItem("queueList")) {
     localStorage.setItem("queueList", JSON.stringify([
-        { id: "R-001", name: "Maria Santos", purpose: "TOR", time: "12:00:01", day: "Tuesday", status: "waiting" },
-        { id: "C-002", name: "Juan Dela Cruz", purpose: "Payment", time: "12:01:01", day: "Monday", status: "waiting" }
+        { id: "R-001", name: "Maria Santos", purpose: "TOR", time: "12:00:01", status: "waiting" },
+        { id: "C-002", name: "Juan Dela Cruz", purpose: "Payment", time: "12:01:01", status: "waiting" }
     ]));
 }
 
-function loadQueue(selectedDay = null) {
+function loadQueue() {
     let queue = JSON.parse(localStorage.getItem("queueList")) || [];
     let table = document.getElementById("queueTableBody");
 
     table.innerHTML = "";
 
-   let filteredQueue = queue.filter(q =>
-    selectedDay
-        ? q.day.toLowerCase() === selectedDay.toLowerCase()
-        : true
-);
+    if (queue.length === 0) {
+        document.getElementById("noQueueModal").style.display = "flex";
+        return;
+    }
 
-if ( selectedDay !== currentDay) {
-    document.getElementById("noQueueModal").style.display = "flex";
-    return;
-}
-
-    filteredQueue.forEach((q) => {
+    queue.forEach((q) => {
 
         let row = document.createElement("tr");
 
@@ -38,7 +33,6 @@ if ( selectedDay !== currentDay) {
             <td>${q.name}</td>
             <td>${q.purpose}</td>
             <td>${q.time}</td>
-            <td>${q.day}</td>
             <td><span class="pill ${statusClass}">${q.status}</span></td>
             <td><button class="serve-btn">${buttonText}</button></td>
         `;
@@ -53,9 +47,6 @@ if ( selectedDay !== currentDay) {
         btn.style.cursor = "pointer";
 
         btn.addEventListener("click", () => {
-
-            // BLOCK WRONG DAY
-            
             selectedQueueId = q.id;
 
             if (q.status === "waiting") {
@@ -82,7 +73,7 @@ function confirmServe() {
         closeModal();
         selectedQueueId = null;
 
-        loadQueue(currentDay);
+        loadQueue();
     }
 }
 
@@ -98,23 +89,70 @@ function finishServing() {
 
         selectedQueueId = null;
 
-        loadQueue(currentDay);
+        loadQueue();
     }
 }
 function closeModal() {
     document.getElementById("serve-modal").style.display = "none";
 }
 
-function setDay(day) {
-    currentDay = day;
-    loadQueue(currentDay);
-}
+
 
 function closeNoQueue() {
     document.getElementById("noQueueModal").style.display = "none";
 }
 
 
-window.onload = function () {
-    loadQueue(currentDay);
-};
+document.getElementById("queueForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const purpose = document.getElementById("number").value;
+    const terms = document.getElementById("terms").checked;
+
+    if (!terms) {
+        alert("You must accept the Terms & Conditions!");
+        return;
+    }
+
+    // ✅ GET PRIORITY (VIP/PWD)
+    let priorityChoice = document.querySelector('input[name="priority"]:checked');
+
+    if (!priorityChoice) {
+        alert("Please select Yes or No for VIP/PWD.");
+        return;
+    }
+
+    let isPriority = priorityChoice.value === "yes";
+
+    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+
+    // ✅ UNIQUE ID
+    let newId = (isPriority ? "PR-" : "Q-") + Date.now();
+
+    let newQueue = {
+        id: newId,
+        name: name,
+        purpose: purpose,
+        time: new Date().toLocaleTimeString(),
+        status: "waiting",
+        type: isPriority ? "priority" : "regular"
+    };
+
+    // ✅ PRIORITY GOES FIRST
+    if (isPriority) {
+        queue.unshift(newQueue);
+    } else {
+        queue.push(newQueue);
+    }
+
+    localStorage.setItem("queueList", JSON.stringify(queue));
+
+    loadQueue();
+
+    this.reset();
+
+    document.getElementById("infoModal").style.display = "none";
+
+    alert("Added to queue!");
+});

@@ -49,50 +49,57 @@ function chooseService(purpose) {
 }
 
 function addQueue(btn) {
-    let popup = btn.closest(".popup");
-    let selectedDay = popup.querySelector("#queueDay").value;
-    
-    if(!selectedDay) {
-        alert("Please select a day before confirming.");
+
+    let userName = document.getElementById("name").value || "Unknown";
+
+    let terms = document.getElementById("terms").checked;
+    if (!terms) {
+        alert("You must accept the Terms & Conditions!");
         return;
     }
 
-    let userName = localStorage.getItem("queue_userName") || "Unknown User";
-    let userType = localStorage.getItem("queue_userType") || "guest";
+    let priorityChoice = document.querySelector('input[name="priority"]:checked');
 
-    let regularQueue = JSON.parse(localStorage.getItem("regularQueue")) || [];
-    let priorityQueue = JSON.parse(localStorage.getItem("priorityQueue")) || [];
-
-    let qNum = "";
-
-    if (userType === "priority") {
-
-    let nextNum = priorityQueue.length + 1;
-        qNum = "PR-" + nextNum.toString().padStart(3, '0');
-    } else {
-        let nextNum = regularQueue.length + 1;
-        qNum = "Q-" + nextNum.toString().padStart(3, '0');
+    if (!priorityChoice) {
+        alert("Please select Yes or No for VIP/PWD.");
+        return;
     }
+
+    let isPriority = priorityChoice.value === "yes";
+
+    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+
+    let qNum = (isPriority ? "PR-" : "Q-") + Date.now();
 
     let newQueue = {
         id: qNum,
         name: userName,
-        type: userType,
         purpose: selectedService,
-        day: selectedDay,
         status: "waiting",
-        time: new Date().toLocaleTimeString()
+        time: new Date().toLocaleTimeString(),
+        type: isPriority ? "priority" : "regular"
     };
 
-    if (userType === "priority") {
-        priorityQueue.push(newQueue);
-        localStorage.setItem("priorityQueue", JSON.stringify(priorityQueue));
+    if (isPriority) {
+        queue.unshift(newQueue);
     } else {
-        regularQueue.push(newQueue);
-        localStorage.setItem("regularQueue", JSON.stringify(regularQueue));
+        queue.push(newQueue);
     }
-     window.location.href = "Que-number.html";
+
+    localStorage.setItem("queueList", JSON.stringify(queue));
+
+    alert("Successfully added to queue!");
+
+    document.getElementById("name").value = "";
+    document.getElementById("otherPriority").value = "";
+    document.querySelectorAll('input[name="priority"]').forEach(r => r.checked = false);
+    document.getElementById("terms").checked = false;
+
+    closeModal("infoModal");
+
+    window.location.href = "Que-number.html";
 }
+
 
  let isOpen = false;
 
@@ -159,21 +166,3 @@ function openModal(id) {
 function closeModal(id) {
   document.getElementById(id).style.display = "none";
 }
-
-// Handle form submit
-document.getElementById("queueForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const number = document.getElementById("number").value;
-  const terms = document.getElementById("terms").checked;
-
-  if (!terms) {
-    alert("You must accept the Terms & Conditions!");
-    return;
-  }
-  
-  
-
-  closeModal("infoModal");
-});

@@ -1,8 +1,4 @@
-/* =========================================================
-   profile.css — WMSU Enrollment System · Profile Page
-   ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -549,12 +545,10 @@ body {
 
 /* ── Footer ── */
 footer {
-  background-color: #7a0000;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  margin-top: 60px;
+ background-color: #7a0000;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
 /* ── Responsive ── */
@@ -963,4 +957,18 @@ nav {
 }
 .nav-btn:hover { 
     opacity: 0.9;
+ }
+
+ .btn-submit{
+
+   
+      display: block;
+      background: rgba(139,0,0,0.97);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
  }
