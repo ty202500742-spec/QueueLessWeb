@@ -1,14 +1,13 @@
 function loadQueuePage() {
+    let userName   = localStorage.getItem("queue_userName") || "Unknown User";
+    let userId     = localStorage.getItem("queue_userId")   || "";
 
-    let userType = localStorage.getItem("queue_userType") || "guest";
-    let userName = localStorage.getItem("queue_userName") || "Unknown User";
+    // Shared queue list (same key used by payment.js and admin-dash.js)
+    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
 
-    let queueKey = (userType === "priority") ? "priorityQueue" : "regularQueue";
-    let queue = JSON.parse(localStorage.getItem(queueKey)) || [];
-
-    let queueListEl = document.getElementById("queueList");
-    let currentNumberEl = document.getElementById("currentNumber");
-    let statusMessageEl = document.getElementById("statusMessage");
+    let queueListEl      = document.getElementById("queueList");
+    let currentNumberEl  = document.getElementById("currentNumber");
+    let statusMessageEl  = document.getElementById("statusMessage");
 
     queueListEl.innerHTML = "";
 
@@ -18,9 +17,17 @@ function loadQueuePage() {
         return;
     }
 
-    let userIndex = queue.map(q => q.name).lastIndexOf(userName);
+    // Find the user by their unique queue ID (most reliable)
+    let userIndex = queue.findIndex(q => q.id === userId);
 
+    // Fallback: match by name if ID not found
+    if (userIndex === -1) {
+        userIndex = queue.map(q => q.name).lastIndexOf(userName);
+    }
+
+    // If still not found, default to last entry
     if (userIndex === -1) userIndex = queue.length - 1;
+
     let userQueue = queue[userIndex];
 
     queue.forEach((q, index) => {
@@ -28,95 +35,106 @@ function loadQueuePage() {
 
         if (index === userIndex) {
             li.classList.add("current");
-            li.innerHTML = `<span>#${q.id} You</span><span>Your Turn</span>`;
+            li.innerHTML = `<span>#${q.id} You</span><span>${q.status === "serving" ? "Now Serving!" : "Your Turn"}</span>`;
         } else {
-            li.innerHTML = `<span>#${q.id} ${q.name}</span><span>Waiting</span>`;
+            li.innerHTML = `<span>#${q.id} ${q.name}</span><span>${q.status === "serving" ? "Now Serving" : "Waiting"}</span>`;
         }
 
         queueListEl.appendChild(li);
     });
 
-    // Update current number and status
     currentNumberEl.textContent = userQueue.id;
-    let peopleAhead = userIndex;
-    let estWait = peopleAhead * 5; // estimate 5 min per person
 
-    let queueName = (userType === "priority") ? "Priority Line" : "Regular Line";
-    statusMessageEl.textContent = `You are in position ${userIndex + 1} (${queueName}). ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
+    let peopleAhead = userIndex;
+    let estWait     = peopleAhead * 5;
+    let queueType   = userQueue.type === "priority" ? "Priority Line" : "Regular Line";
+
+    if (userQueue.status === "serving") {
+        statusMessageEl.textContent = `You are now being served! Please proceed to the window.`;
+    } else {
+        statusMessageEl.textContent =
+            `You are in position ${userIndex + 1} (${queueType}). ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
+    }
 }
 
 // Cancel the queue
 function cancelQueue() {
     if (confirm("Are you sure you want to cancel your queue?")) {
-        let userType = localStorage.getItem("queue_userType") || "guest";
-        let userName = localStorage.getItem("queue_userName") || "Unknown User";
-        let queueKey = (userType === "priority") ? "priorityQueue" : "regularQueue";
+        let userId = localStorage.getItem("queue_userId") || "";
+        let queue  = JSON.parse(localStorage.getItem("queueList")) || [];
 
-        let queue = JSON.parse(localStorage.getItem(queueKey)) || [];
+        let index = queue.findIndex(q => q.id === userId);
 
-        let userIndex = queue.map(q => q.name).lastIndexOf(userName);
-
-        if (userIndex !== -1) {
-            queue.splice(userIndex, 1);
-            localStorage.setItem(queueKey, JSON.stringify(queue));
+        if (index !== -1) {
+            queue.splice(index, 1);
+            localStorage.setItem("queueList", JSON.stringify(queue));
         }
+
+        // Clear saved user queue info
+        localStorage.removeItem("queue_userName");
+        localStorage.removeItem("queue_userType");
+        localStorage.removeItem("queue_userId");
+
         alert("Your queue has been cancelled.");
         window.location.href = "main.html";
     }
 }
 
-// Auto-refresh every 5 seconds for live queue
+// Auto-refresh every 5 seconds for live updates
 setInterval(loadQueuePage, 5000);
 
-        // Initial load
-        window.onload = loadQueuePage;
+window.onload = loadQueuePage;
 
-         let isOpen = false;
+// --- Sidebar ---
+let isOpen = false;
 
-  function toggleSidebar() {
+function toggleSidebar() {
     isOpen ? closeSidebar() : openSidebar();
-  }
+}
 
-  function openSidebar() {
+function openSidebar() {
     isOpen = true;
     document.getElementById('sidebar').classList.add('open');
     document.getElementById('overlay').classList.add('active');
     document.getElementById('ham').classList.add('active');
-  }
+}
 
-  function closeSidebar() {
+function closeSidebar() {
     isOpen = false;
     document.getElementById('sidebar').classList.remove('open');
     document.getElementById('overlay').classList.remove('active');
     document.getElementById('ham').classList.remove('active');
-  }
-  function historygo() {
-    window.location.href = 'history.html';
-  }
-   function dashboardgo() {
-    window.location.href = 'main.html';
-  }
+}
 
-  function profilego() {
+function historygo() {
+    window.location.href = 'history.html';
+}
+
+function dashboardgo() {
+    window.location.href = 'main.html';
+}
+
+function profilego() {
     window.location.href = 'student-profile.html';
-  }
-  function setRole(r) {
+}
+
+function setRole(r) {
     const pill  = document.getElementById('role-pill');
     const label = document.getElementById('role-label');
     const btnR  = document.getElementById('btn-reg');
     const btnC  = document.getElementById('btn-cash');
 
     if (r === 'registrar') {
-      pill.className = 'role-pill registrar';
-      label.textContent = 'Registrar';
-      btnR.classList.add('selected', 'reg');
-      btnR.classList.remove('cash');
-      btnC.classList.remove('selected', 'cash', 'reg');
+        pill.className = 'role-pill registrar';
+        label.textContent = 'Registrar';
+        btnR.classList.add('selected', 'reg');
+        btnR.classList.remove('cash');
+        btnC.classList.remove('selected', 'cash', 'reg');
     } else {
-      pill.className = 'role-pill cashier';
-      label.textContent = 'Cashier';
-      btnC.classList.add('selected', 'cash');
-      btnC.classList.remove('reg');
-      btnR.classList.remove('selected', 'reg', 'cash');
+        pill.className = 'role-pill cashier';
+        label.textContent = 'Cashier';
+        btnC.classList.add('selected', 'cash');
+        btnC.classList.remove('reg');
+        btnR.classList.remove('selected', 'reg', 'cash');
     }
 }

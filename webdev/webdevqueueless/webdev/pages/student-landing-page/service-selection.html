@@ -248,363 +248,222 @@
     </div>
 
 
-    <div id="popup1" class="popup">
-        <div class="popup-card">
-            <a href="#" class="close-btn">&times;</a>
-
-            <div class="card-top">
-
-                <span class="win-label">Window 1</span>
-
-
-            </div>
-
-            <div class="win-icon" style="background:#dbeafe;">🎓</div>
-            <h2>Enrollment Assistance</h2>
-            <br>
-
-
-
-            <ul class="ulpop">
-
-                <li><button class="optionchoice" onclick="chooseService('Enrollment')">Enrollment</button></li>
-                <li><button class="optionchoice" onclick="chooseService('Shifting')">Shifting</button></li>
-                <li><button class="optionchoice" onclick="chooseService('Readmission')">Readmission</button></li>
-
-            </ul>
-
-            <h4>Schedule:</h4>
-            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-            
-
-            <div id="confirmBox1" class="confirmboxes">
-                <p class="selandreq" id="selectedText1"></p>
-                <p class="selandreq" id="requirementText1"></p>
-                <button class="proceed-btn" onclick="addQueue(this)">Confirm & Proceed</button>
-            </div>
-
+  <!-- ===== POPUP 1 — Enrollment Assistance ===== -->
+<div id="popup1" class="popup">
+    <div class="popup-card">
+        <a href="#" class="close-btn">&times;</a>
+        <div class="card-top"><span class="win-label">Window 1</span></div>
+        <div class="win-icon" style="background:#dbeafe;">🎓</div>
+        <h2>Enrollment Assistance</h2><br>
+        <ul class="ulpop">
+            <li><button class="optionchoice" onclick="chooseService('Enrollment')">Enrollment</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Shifting')">Shifting</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Readmission')">Readmission</button></li>
+        </ul>
+        <h4>Schedule:</h4>
+        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+        <div id="confirmBox1" class="confirmboxes">
+            <p class="selandreq" id="selectedText1"></p>
+            <p class="selandreq" id="requirementText1"></p>
+            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
         </div>
     </div>
+</div>
 
-    </div>
-
-    <div id="popup2" class="popup">
-        <div class="popup-card">
-            <a href="#" class="close-btn">&times;</a>
-
-            <div class="card-top">
-
-                <span class="win-label">Window 2</span>
-
-
-            </div>
-
-            <div class="win-icon" style="background:#dbeafe;">💳</div>
-            <h2>Payments</h2>
-            <br>
-
-
-            <ul class="ulpop">
-
-                <li><button class="optionchoice" onclick="chooseService('Tuition Fee')">Tuition fee</button></li>
-                <li><button class="optionchoice" onclick="chooseService('Miscellaneous')">Miscellaneous </button></li>
-                <li><button class="optionchoice" onclick="chooseService('Other fees')">Other fees</button></li>
-
-            </ul>
-
-            <h4>Schedule:</h4>
-            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-         
-            <div id="confirmBox2" class="confirmboxes">
-                <p class="selandreq" id="selectedText2"></p>
-                <p class="selandreq" id="requirementText2"></p>
-                <button class="proceed-btn" onclick="openModal('infoModal')">Confirm & Proceed</button>
-
-            </div>
-        </div>
-        <div id="infoModal" class="modalinfo">
-            <div class="modalinfo-content">
-                <span class="closeinfo" onclick="closeModal('infoModal')">&times;</span>
-                <h2>Enter Information</h2>
-
-                <div id="queueForm">
-                    <input type="text" id="name" placeholder="Enter Name" required><br><br>
-                    <input type="text" id="number" placeholder="Enter Number" required><br><br>
-
-                    <div class="priority-box">
-                        <span class="priority-title">are you a applicable for any of the following?</span>
-                        <ul class="priority-list">
-                            <li>PWD(person with disability)</li>
-                            <li>Senior Citizen</li>
-                            <li>VIP</li>
-                            <li>
-                                others
-                                <input type="text" id="otherPriority" placeholder="Please specify if others"><br><br>
-                            </li>
-                        </ul>
-                        <div class="priority-choice">
-                            <label for="yes">
-                                <input type="radio" id="yes" name="priority" value="yes">
-                                Yes
-                            </label>
-                            <label for="no">
-                                <input type="radio" id="no" name="priority" value="no">
-                                No
-                            </label><br><br>
-
-                        </div>
-                    </div>
-                    <label>
-                        <input type="checkbox" id="terms" required>
-                        I accept the Terms & Conditions
-                    </label><br><br>
-
-                    <button onclick="addQueue(this)">Queue</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    </div>
-
-    <div id="popup3" class="popup">
-        <div class="popup-card">
-            <a href="#" class="close-btn">&times;</a>
-
-            <div class="card-top">
-
-                <span class="win-label">Window 3</span>
-
-            </div>
-
-            <div class="win-icon" style="background:#dbeafe;">💳</div>
-            <h2>Documents</h2>
-            <br>
-
-            <ul class="ulpop">
-
-                <li><button class="optionchoice" onclick="chooseService('TOR')">TOR</button></li>
-                <li><button class="optionchoice" onclick="chooseService('Certificate')">Certificate</button></li>
-                <li><button class="optionchoice" onclick="chooseService('Diploma')">Diploma</button></li>
-
-            </ul>
-            
-            <h4>Schedule:</h4>
-            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-            
-
-            <div id="confirmBox3" class="confirmboxes">
-                <p class="selandreq" id="selectedText3"></p>
-                <p class="selandreq" id="requirementText3"></p>
-                <button class="proceed-btn" onclick="addQueue(this)">Confirm & Proceed</button>
-
-            </div>
-
+<!-- ===== POPUP 2 — Payments ===== -->
+<div id="popup2" class="popup">
+    <div class="popup-card">
+        <a href="#" class="close-btn">&times;</a>
+        <div class="card-top"><span class="win-label">Window 2</span></div>
+        <div class="win-icon" style="background:#dbeafe;">💳</div>
+        <h2>Payments</h2><br>
+        <ul class="ulpop">
+            <li><button class="optionchoice" onclick="chooseService('Tuition Fee')">Tuition Fee</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Miscellaneous')">Miscellaneous</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Other fees')">Other fees</button></li>
+        </ul>
+        <h4>Schedule:</h4>
+        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+        <div id="confirmBox2" class="confirmboxes">
+            <p class="selandreq" id="selectedText2"></p>
+            <p class="selandreq" id="requirementText2"></p>
+            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
         </div>
     </div>
+</div>
 
-    </div>
-
-    <div id="popup4" class="popup">
-        <div class="popup-card">
-            <a href="#" class="close-btn">&times;</a>
-
-            <div class="card-top">
-
-                <span class="win-label">Window 3</span>
-
-
-            </div>
-
-            <div class="win-icon" style="background:#dbeafe;">📝</div>
-            <h2>Aptitude Tests</h2>
-            <br>
-
-
-            <ul class="ulpop">
-
-                <li><button class="optionchoice" onclick="chooseService('EAT')">EAT</button></li>
-                <li><button class="optionchoice" onclick="chooseService('NAT')">NAT</button></li>
-                <li><button class="optionchoice" onclick="chooseService('Interview')">Interview</button></li>
-
-            </ul>
-
-            <h4>Schedule:</h4>
-            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-            
-           
-
-            <div id="confirmBox4" class="confirmboxes">
-                <p class="selandreq" id="selectedText4"></p>
-                <p class="selandreq" id="requirementText4"></p>
-                <button class="proceed-btn" onclick="addQueue(this)">Confirm & Proceed</button>
-
-            </div>
+<!-- ===== POPUP 3 — Documents ===== -->
+<div id="popup3" class="popup">
+    <div class="popup-card">
+        <a href="#" class="close-btn">&times;</a>
+        <div class="card-top"><span class="win-label">Window 3</span></div>
+        <div class="win-icon" style="background:#dbeafe;">💳</div>
+        <h2>Documents</h2><br>
+        <ul class="ulpop">
+            <li><button class="optionchoice" onclick="chooseService('TOR')">TOR</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Certificate')">Certificate</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Diploma')">Diploma</button></li>
+        </ul>
+        <h4>Schedule:</h4>
+        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+        <div id="confirmBox3" class="confirmboxes">
+            <p class="selandreq" id="selectedText3"></p>
+            <p class="selandreq" id="requirementText3"></p>
+            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
         </div>
     </div>
+</div>
 
-    </div>
-
-    <div id="popup5" class="popup">
-        <div class="popup-card">
-            <a href="#" class="close-btn">&times;</a>
-
-            <div class="card-top">
-
-                <span class="win-label">Window 5</span>
-
-
-            </div>
-
-            <div class="win-icon" style="background:#dbeafe;">🪪</div>
-            <h2>ID & Scholarships</h2>
-            <br>
-
-            <ul class="ulpop">
-
-                <li><button class="optionchoice" onclick="chooseService('ID Request')">ID Request</button></li>
-                <li><button class="optionchoice" onclick="chooseService('ID Replacement')">ID Replacement</button></li>
-                <li><button class="optionchoice" onclick="chooseService('Scholarship')">Scholarship</button></li>
-
-            </ul>
-
-            <h4>Schedule:</h4>
-            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        
-
-            <div id="confirmBox5" class="confirmboxes">
-                <p class="selandreq" id="selectedText5"></p>
-                <p class="selandreq" id="requirementText5"></p>
-                <button class="proceed-btn" onclick="addQueue(this)">Confirm & Proceed</button>
-
-            </div>
+<!-- ===== POPUP 4 — Aptitude Tests ===== -->
+<div id="popup4" class="popup">
+    <div class="popup-card">
+        <a href="#" class="close-btn">&times;</a>
+        <div class="card-top"><span class="win-label">Window 4</span></div>
+        <div class="win-icon" style="background:#dbeafe;">📝</div>
+        <h2>Aptitude Tests</h2><br>
+        <ul class="ulpop">
+            <li><button class="optionchoice" onclick="chooseService('EAT')">EAT</button></li>
+            <li><button class="optionchoice" onclick="chooseService('NAT')">NAT</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Interview')">Interview</button></li>
+        </ul>
+        <h4>Schedule:</h4>
+        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+        <div id="confirmBox4" class="confirmboxes">
+            <p class="selandreq" id="selectedText4"></p>
+            <p class="selandreq" id="requirementText4"></p>
+            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
         </div>
     </div>
+</div>
 
+<!-- ===== POPUP 5 — ID & Scholarships ===== -->
+<div id="popup5" class="popup">
+    <div class="popup-card">
+        <a href="#" class="close-btn">&times;</a>
+        <div class="card-top"><span class="win-label">Window 5</span></div>
+        <div class="win-icon" style="background:#dbeafe;">🪪</div>
+        <h2>ID & Scholarships</h2><br>
+        <ul class="ulpop">
+            <li><button class="optionchoice" onclick="chooseService('ID Request')">ID Request</button></li>
+            <li><button class="optionchoice" onclick="chooseService('ID Replacement')">ID Replacement</button></li>
+            <li><button class="optionchoice" onclick="chooseService('Scholarship')">Scholarship</button></li>
+        </ul>
+        <h4>Schedule:</h4>
+        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+        <div id="confirmBox5" class="confirmboxes">
+            <p class="selandreq" id="selectedText5"></p>
+            <p class="selandreq" id="requirementText5"></p>
+            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+        </div>
     </div>
+</div>
 
-    <div id="popup6" class="popup">
-        <div class="popup-card">
-            <a href="#" class="close-btn">&times;</a>
+<!-- ===== POPUP 6 — Other Services ===== -->
+<div id="popup6" class="popup">
+    <div class="popup-card">
+        <a href="#" class="close-btn">&times;</a>
+        <div class="card-top"><span class="win-label">Window 6</span></div>
+        <div class="win-icon" style="background:#dbeafe;">🔖</div>
+        <h2>Other Services</h2><br>
+        <ul class="ulpop">
+            <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
+            <li><button class="optionchoice" onclick="chooseService('administrative concerns')">Administrative Concerns</button></li>
+        </ul>
+        <h4>Schedule:</h4>
+        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+        <div id="confirmBox6" class="confirmboxes">
+            <p class="selandreq" id="selectedText6"></p>
+            <p class="selandreq" id="requirementText6"></p>
+            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+        </div>
+    </div>
+</div>
 
-            <div class="card-top">
+<!-- ===== POPUP 7 — Other Services ===== -->
+<div id="popup7" class="popup">
+    <div class="popup-card">
+        <a href="#" class="close-btn">&times;</a>
+        <div class="card-top"><span class="win-label">Window 7</span></div>
+        <div class="win-icon" style="background:#dbeafe;">📋</div>
+        <h2>Other Services</h2><br>
+        <ul class="ulpop">
+            <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
+            <li><button class="optionchoice" onclick="chooseService('administrative concerns')">Administrative Concerns</button></li>
+        </ul>
+        <h4>Schedule:</h4>
+        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+        <div id="confirmBox7" class="confirmboxes">
+            <p class="selandreq" id="selectedText7"></p>
+            <p class="selandreq" id="requirementText7"></p>
+            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+        </div>
+    </div>
+</div>
 
-                <span class="win-label">Window 6</span>
+<!-- ===== POPUP 8 — Other Services ===== -->
+<div id="popup8" class="popup">
+    <div class="popup-card">
+        <a href="#" class="close-btn">&times;</a>
+        <div class="card-top"><span class="win-label">Window 8</span></div>
+        <div class="win-icon" style="background:#dbeafe;">🗂️</div>
+        <h2>Other Services</h2><br>
+        <ul class="ulpop">
+            <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
+            <li><button class="optionchoice" onclick="chooseService('administrative concerns')">Administrative Concerns</button></li>
+        </ul>
+        <h4>Schedule:</h4>
+        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+        <div id="confirmBox8" class="confirmboxes">
+            <p class="selandreq" id="selectedText8"></p>
+            <p class="selandreq" id="requirementText8"></p>
+            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+        </div>
+    </div>
+</div>
 
+<!-- ===================================================
+     SHARED INFO MODAL — place this OUTSIDE all popups,
+     right before your closing </body> tag.
+     ===================================================  -->
+<div id="infoModal" class="modalinfo" style="display:none;">
+    <div class="modalinfo-content">
+        <span class="closeinfo" onclick="closeModal('infoModal')">&times;</span>
+        <h2>Enter Your Information</h2>
 
-            </div>
+        <!-- Shows which service they picked -->
+        <p style="margin-bottom:12px;">
+            Queuing for: <strong id="modalServicePreview"></strong>
+        </p>
 
-            <div class="win-icon" style="background:#dbeafe;">🔖</div>
-            <h2>Other Services</h2>
-            <br>
-            <ul class="ulpop">
+        <input type="text"   id="name"  placeholder="Full Name"     required><br><br>
+        <input type="tel"    id="phone" placeholder="Phone Number"  required
+               pattern="[0-9+\-\s]+" title="Enter a valid phone number"><br><br>
 
-                <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button>
+        <div class="priority-box">
+            <span class="priority-title">Are you applicable for any of the following?</span>
+            <ul class="priority-list">
+                <li>PWD (Person with Disability)</li>
+                <li>Senior Citizen</li>
+                <li>VIP</li>
+                <li>
+                    Others
+                    <input type="text" id="otherPriority" placeholder="Please specify if others"><br><br>
                 </li>
-                <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative
-                        concerns</button></li>
-
-
             </ul>
-
-            <h4>Schedule:</h4>
-            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-         
-            <div id="confirmBox6" class="confirmboxes">
-                <p class="selandreq" id="selectedText6"></p>
-                <p class="selandreq" id="requirementText6"></p>
-                <button class="proceed-btn" onclick="addQueue(this)">Confirm & Proceed</button>
-
+            <div class="priority-choice">
+                <label><input type="radio" id="yes" name="priority" value="yes"> Yes</label>
+                <label><input type="radio" id="no"  name="priority" value="no">  No</label><br><br>
             </div>
-
         </div>
+
+        <label>
+            <input type="checkbox" id="terms" required>
+            I accept the Terms &amp; Conditions
+        </label><br><br>
+
+        <button onclick="addQueue()">Join Queue</button>
     </div>
-
-    </div>
-
-    <div id="popup7" class="popup">
-        <div class="popup-card">
-            <a href="#" class="close-btn">&times;</a>
-
-            <div class="card-top">
-
-                <span class="win-label">Window 7</span>
-
-
-            </div>
-
-            <div class="win-icon" style="background:#dbeafe;">📋</div>
-            <h2>Other Services</h2>
-            <br>
-
-            <ul class="ulpop">
-
-                <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button>
-                </li>
-                <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative
-                        concerns</button></li>
-
-
-            </ul>
-
-            <h4>Schedule:</h4>
-            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-         
-
-            <div id="confirmBox7" class="confirmboxes">
-                <p class="selandreq" id="selectedText7"></p>
-                <p class="selandreq" id="requirementText7"></p>
-                <button class="proceed-btn" onclick="addQueue(this)">Confirm & Proceed</button>
-
-            </div>
-
-        </div>
-    </div>
-
-    </div>
-
-    <div id="popup8" class="popup">
-        <div class="popup-card">
-            <a href="#" class="close-btn">&times;</a>
-
-            <div class="card-top">
-
-                <span class="win-label">Window 8</span>
-
-
-            </div>
-
-            <div class="win-icon" style="background:#dbeafe;">🗂️</div>
-            <h2>Other Services</h2>
-            <br>
-
-            <ul class="ulpop">
-
-                <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button>
-                </li>
-                <li><button class="optionchoice" onclick="chooseService('administrative concerns')">administrative
-                        concerns</button></li>
-
-
-            </ul>
-
-            <h4>Schedule:</h4>
-            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-           
-
-            <div id="confirmBox8" class="confirmboxes">
-                <p class="selandreq" id="selectedText8"></p>
-                <p class="selandreq" id="requirementText8"></p>
-                <button class="proceed-btn" onclick="addQueue(this)">Confirm & Proceed</button>
-
-            </div>
-
-        </div>
-    </div>
-
-    </div>
-
+</div>
 
     <script src="../../assets/js/payment.js"></script>
 

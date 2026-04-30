@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../assets/css/phone.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueueLess | Phone Simulator</title>
+    
+</head>
+<body>
+
+    <div class="page-label">QueueLess — Student Phone Simulator</div>
+
+    <div class="status-bar-outer">
+        <div class="dot" id="connDot"></div>
+        <span id="connLabel">Waiting for admin action...</span>
+    </div>
+
+    <div class="phone-frame" id="phoneFrame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+            <div class="statusbar">
+                <span id="phoneTime">9:41 AM</span>
+                <span>LTE &nbsp;&#9646;&#9646;&#9646; 100%</span>
+            </div>
+            <div class="wallpaper">
+                <div class="wall-time" id="wallTime">9:41</div>
+                <div class="wall-date" id="wallDate">Thursday, April 30</div>
+                <div class="notif-area" id="notifArea"></div>
+                <div class="lock-icon">&#128274;</div>
+                <div class="swipe-hint">swipe up to unlock</div>
+            </div>
+            <div class="home-bar">
+                <div class="home-indicator"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="connection-status">
+        <div class="dot idle" id="lsDot"></div>
+        <span id="lsLabel">Open Admin Dashboard in another tab to connect</span>
+    </div>
+
+    <button class="clear-btn" id="clearBtn">Clear notifications</button>
+
+    <script src="../../assets/js/phone.js">
+        
+    </script>
+</body>
+</html>
