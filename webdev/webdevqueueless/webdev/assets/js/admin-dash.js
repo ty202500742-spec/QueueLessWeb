@@ -1,7 +1,7 @@
 let selectedQueueIndex = null;
 let selectedQueueId    = null;
 
-// ─── Notify the phone simulator via localStorage ──────────────────────────────
+// ─── Notify the phone simulator via localStorage 
 // phone-simulator.html listens for the "phoneNotif" key to change.
 function triggerPhoneNotif(student, type) {
     const payload = {
@@ -15,7 +15,7 @@ function triggerPhoneNotif(student, type) {
     localStorage.setItem("phoneNotif", JSON.stringify(payload));
 }
 
-// ─── Load & render the queue table ───────────────────────────────────────────
+// ─── Load & render the queue table 
 function loadQueue() {
     let queue = JSON.parse(localStorage.getItem("queueList")) || [];
     let table = document.getElementById("queueTableBody");
@@ -69,7 +69,7 @@ function loadQueue() {
     });
 }
 
-// ─── Confirm Serve ────────────────────────────────────────────────────────────
+// ─── Confirm Serve 
 function confirmServe() {
     let queue = JSON.parse(localStorage.getItem("queueList")) || [];
     let index = queue.findIndex(q => q.id === selectedQueueId);
@@ -87,7 +87,7 @@ function confirmServe() {
     }
 }
 
-// ─── Finish / Done ────────────────────────────────────────────────────────────
+// ─── Finish / Done
 function finishServing() {
     let queue = JSON.parse(localStorage.getItem("queueList")) || [];
     let index = queue.findIndex(q => q.id === selectedQueueId);
@@ -104,7 +104,7 @@ function finishServing() {
     }
 }
 
-// ─── Modals ───────────────────────────────────────────────────────────────────
+// ─── Modals
 function closeModal() {
     document.getElementById("serve-modal").style.display = "none";
 }
@@ -113,7 +113,7 @@ function closeNoQueue() {
     document.getElementById("noQueueModal").style.display = "none";
 }
 
-// ─── On page load: render immediately, then auto-refresh every 5 seconds ─────
+// ─── On page load: render immediately, then auto-refresh every 5 seconds 
 window.addEventListener("DOMContentLoaded", () => {
     loadQueue();
     setInterval(loadQueue, 5000);

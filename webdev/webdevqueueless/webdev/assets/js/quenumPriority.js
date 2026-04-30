@@ -3,8 +3,8 @@ function loadQueuePage() {
   let userId = localStorage.getItem("queue_userId") || "";
   let userService = localStorage.getItem("queue_userService") || "Unknown Service";
 
-  // For this page, we only care about the regular queue since priority users go to a different page
-  let queue = JSON.parse(localStorage.getItem("regularQueue")) || [];
+  
+ let queue = JSON.parse(localStorage.getItem("priorityQueue")) || [];
 
   let queueListEl = document.getElementById("queueList");
   let currentNumberEl = document.getElementById("currentNumber");
@@ -48,14 +48,15 @@ function loadQueuePage() {
 
   let peopleAhead = userIndex;
   let estWait = peopleAhead * 5;
-  let queueType = userQueue.type === "priority" ? "Priority Line" : "Regular Line";
+  let queueType = userQueue.type = "Priority Line" ;
 
   if (userQueue.status === "serving") {
     statusMessageEl.textContent =
       `You are now being served for ${userService}! Please proceed to the window.`;
   } else {
     statusMessageEl.textContent =
-      `You are in queue for ${userService}. (${queueType}). ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
+      `You are in queue for ${userService}.
+      (${queueType}). ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
   }
 }
 
