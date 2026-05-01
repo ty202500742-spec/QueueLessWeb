@@ -66,6 +66,7 @@
     padding: 20px 25px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+     margin-bottom: 30px;
 }
 
 .panel h3 {
@@ -74,68 +75,30 @@
     font-size: 16px;
     border-bottom: 2px solid #f0f0f0;
     padding-bottom: 12px;
+    
 }
 
 .table-container {
     overflow-x: auto;
+   
 }
 
 .queue-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
-}
-.queuedays-table {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 0px;}
-
-
-.queuedays-table input[type="radio"] {
-    display: none;
+    
 }
 
 
-.queuedays-table label {
-    padding: 10px 20px;
-    border: 2px solid #333;
-    border-radius: 8px;
-    cursor: pointer;
-    background: white;
-    transition: 0.3s;
-  
-}
 
 
-.queuedays-table label:hover {
-    background: #f0f0f0;
-}
 
 
-.queuedays-table input[type="radio"]:checked + label {
-    background: #8b0000;
-    color: white;
-}
-.day-title {
-    display: none;
-    width: 100%;
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+
 
 /* show correct title */
-#dmonday:checked ~ .day-title.monday,
-#dtuesday:checked ~ .day-title.tuesday,
-#dwednesday:checked ~ .day-title.wednesday,
-#dthursday:checked ~ .day-title.thursday,
-#dfriday:checked ~ .day-title.friday {
-    display: block;
-}
+
 .queue-table th,
 .queue-table td {
     text-align: left;

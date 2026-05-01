@@ -66,32 +66,47 @@
 
             <div class="bottom-row">
 
-                <div class="panel main-panel">
-                    <h3>Live Queue — Overview</h3>
-                    <div class="queuedays-table">
-                        
+    <!-- PRIORITY QUEUE -->
+    <div class="panel main-panel">
+        <h3>Priority Queue</h3>
+        <div class="table-container">
+            <table class="queue-table">
+                <thead>
+                    <tr>
+                        <th>Q#</th>
+                        <th>Name</th>
+                        <th>Purpose</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="priorityTableBody"></tbody>
+            </table>
+        </div>
+    </div>
 
+    <!-- REGULAR QUEUE -->
+    <div class="panel main-panel">
+        <h3>Regular Queue</h3>
+        <div class="table-container">
+            <table class="queue-table">
+                <thead>
+                    <tr>
+                        <th>Q#</th>
+                        <th>Name</th>
+                        <th>Purpose</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="regularTableBody"></tbody>
+            </table>
+        </div>
+    </div>
 
-
-                    </div>
-                    <div class="table-container">
-
-                        <table class="queue-table">
-                            <thead>
-                                <tr>
-                                    <th>Q#</th>
-                                    <th>Student Name</th>
-                                    <th>Purpose</th>
-                                    <th>Wait</th>
-                    
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="queueTableBody"></tbody>
-                        </table>
-                    </div>
-                </div>
+</div>
 
                 <div class="panel side-panel">
                     <h3>Live Activity Feed</h3>
@@ -122,24 +137,8 @@
         </div>
     </div>
 
-    <!-- serve-modal -->
-    <div id="serve-modal">
-        <div style="background:white; padding:20px; border-radius:10px; width:300px; text-align:center;">
-            <h3>Call Student</h3>
-            <p>Are you sure you want to serve this student?</p>
+    
 
-            <button class="btn btn confirm" onclick="confirmServe()">Yes, Serve</button>
-            <button class="btn btn cancel" onclick="closeModal()">Cancel</button>
-        </div>
-    </div>
-
-    <div id="noQueueModal" class="noqueuemodal">
-    <div class="modal-content">
-        <h2>You cannot serve Queues for this day</h2>
-        <p>Please select a different day to view available queues.</p>
-        <button class="btn btn-primary" onclick="closeNoQueue()">view queues</button>
-    </div>
-</div>
 
     <div id="done-modal" class="modal-overlay">
         <div class="modal-box">

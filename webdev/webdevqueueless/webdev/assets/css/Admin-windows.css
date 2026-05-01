@@ -1,169 +1,178 @@
+/* ─── Layout ───────────────── */
 .window-layout {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 30px;
+    grid-template-columns: 2fr 1fr; /* better proportion */
+    gap: 20px;
+    align-items: start;
 }
 
-.active-panel, .queue-panel {
-    background: white;
+/* LEFT SIDE (serving + table stacked) */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ─── Panels ───────────────── */
+.active-panel,
+.queue-panel,
+.table-container {
+    background: #fff;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    overflow: hidden;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow-x: auto;
 }
+#serve-modal{
+   display:none; 
+   position:fixed; 
+   top:0; left:0; 
+   width:100%; 
+   height:100%; 
+   background:rgba(0,0,0,0.5); 
+   justify-content:center; 
+   align-items:center;
 
+}
+/* Headers */
 .panel-header {
-    background: #f8f9fa;
-    padding: 15px 20px;
-    font-weight: bold;
+    background: #fafafa;
+    padding: 14px 20px;
+    font-weight: 600;
     color: #333;
     border-bottom: 1px solid #eee;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
 }
 
-/* Currently Serving Area */
+/* ─── Currently Serving ───────────────── */
 .active-details {
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
 }
 
 .current-q {
-    font-size: 64px;
+    font-size: 56px;
+    font-weight: bold;
     color: #8B0000;
-    margin-bottom: 10px;
-    line-height: 1;
+    margin-bottom: 8px;
 }
 
 .student-name {
-    font-size: 24px;
+    font-size: 20px;
     color: #333;
-    margin-bottom: 5px;
 }
 
 .transaction-type {
-    font-size: 16px;
+    font-size: 14px;
     color: #666;
-    margin-bottom: 15px;
-    font-weight: bold;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
-
-/* Buttons */
+/* ─── Buttons ───────────────── */
 .action-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
-    padding: 20px;
-    background: #fcfcfc;
-    border-top: 1px solid #eee;;
+    padding: 15px;
+    background: #fafafa;
+    border-top: 1px solid #eee;
 }
 
-.btn-done { background: #198754; color: white; text-align: center ; }
-.btn-warning { background: #ffc107; color: black; text-align: center; }
-.btn-confirm { background: #8B0000; color: white; text-align: center; }
+.btn {
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+}
 
-/* Up Next Queue List */
+.btn-done {
+    background: #198754;
+    color: #fff;
+}
+
+.btn-warning {
+    background: #eee;
+    color: #333;
+}
+
+.btn-confirm {
+    background: #8B0000;
+    color: #fff;
+}
+
+/* ─── Table ───────────────── */
+.queue-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.queue-table th {
+    background: #fafafa;
+    color: #888;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.queue-table th,
+.queue-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.queue-table td {
+    color: #444;
+}
+
+.queue-table tbody tr:hover {
+    background: #fafafa;
+}
+
+/* ─── Queue List ───────────────── */
 .queue-list {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 .queue-item {
     display: flex;
-    align-items: center;
-    padding: 15px 20px;
+    gap: 12px;
+    padding: 14px 18px;
     border-bottom: 1px solid #eee;
 }
 
-.queue-item:last-child {
-    border-bottom: none;
-}
-
 .queue-item.next-up {
-    background: #fffafa;
+    background: #fff5f5;
     border-left: 4px solid #8B0000;
 }
 
 .q-num {
-    font-size: 18px;
     font-weight: bold;
     color: #8B0000;
-    width: 80px;
+    width: 60px;
 }
 
 .q-info strong {
-    display: block;
+    font-size: 14px;
     color: #333;
-    font-size: 15px;
 }
 
 .q-info span {
-    font-size: 13px;
+    font-size: 12px;
     color: #888;
 }
 
-/* Status Indicator in Topbar */
+/* ─── Status Indicator ───────────────── */
 .status-indicator {
     background: #e6f4ea;
     color: #1e8e3e;
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 13px;
-}
-
-.windows-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.window-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border-top: 4px solid #8B0000;
-    text-align: center;
-}
-
-.window-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-.window-header h3 {
-    font-size: 16px;
-    color: #333;
-}
-
-.status-badge.active {
-    background: #e6f4ea;
-    color: #1e8e3e;
-    padding: 4px 10px;
+    padding: 6px 12px;
     border-radius: 20px;
     font-size: 12px;
-    font-weight: bold;
-}
-
-.current-serving p {
-    color: #888;
-    font-size: 14px;
-}
-
-.current-serving h1 {
-    font-size: 48px;
-    color: #8B0000;
-    margin: 10px 0 20px;
-}
-
-.queue-actions .btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 12px;
+    font-weight: 600;
 }

@@ -91,8 +91,7 @@ function addQueue() {
   let isPriority = priorityChoice.value === "yes";
 
   // different queues dpeneding on priority status, but all rendered in same admin table sorted by time
-  let priorityQueue = JSON.parse(localStorage.getItem("priorityQueue")) || [];
-  let regularQueue = JSON.parse(localStorage.getItem("regularQueue")) || [];
+ let queueList = JSON.parse(localStorage.getItem("queueList")) || [];
 
   // Generate a short 3-digit incrementing number e.g. Q-001, PR-002
   let counter = parseInt(localStorage.getItem("queueCounter") || "0") + 1;
@@ -112,13 +111,17 @@ function addQueue() {
 
   // Priority goes to top of array, regular goes to bottom
   // Admin table reads array top-to-bottom = first-in shown at top
-  if (isPriority) {
-    priorityQueue.push(newQueue); // only priority users here
-  } else {
-    regularQueue.push(newQueue);  // only regular users here
-  }
-  localStorage.setItem("priorityQueue", JSON.stringify(priorityQueue));
-  localStorage.setItem("regularQueue", JSON.stringify(regularQueue));
+queueList.push(newQueue);
+
+// Priority goes to top automatically
+queueList.sort((a, b) => {
+  if (a.type === "priority" && b.type !== "priority") return -1;
+  if (a.type !== "priority" && b.type === "priority") return 1;
+  return 0;
+});
+
+
+localStorage.setItem("queueList", JSON.stringify(queueList));
 
 
   if (isPriority) {

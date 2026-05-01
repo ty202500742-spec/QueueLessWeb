@@ -1,120 +1,84 @@
-let selectedQueueIndex = null;
-let selectedQueueId    = null;
-
-// ─── Notify the phone simulator via localStorage 
-// phone-simulator.html listens for the "phoneNotif" key to change.
+// 🔔 Notify phone
 function triggerPhoneNotif(student, type) {
     const payload = {
-        type:      type,          // "serving" | "done"
-        id:        student.id,
-        name:      student.name,
-        phone:     student.phone  || "N/A",
-        purpose:   student.purpose,
-        timestamp: Date.now()     // always different so storage event always fires
+        type,
+        id: student.id,
+        name: student.name,
+        phone: student.phone || "N/A",
+        purpose: student.purpose,
+        timestamp: Date.now()
     };
     localStorage.setItem("phoneNotif", JSON.stringify(payload));
 }
 
-// ─── Load & render the queue table 
-function loadQueue() {
+// 🔥 LOAD ALL QUEUES (MASTER SYSTEM)
+function loadQueues() {
     let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-    let table = document.getElementById("queueTableBody");
+
+    loadPriorityQueue(queue);
+    loadRegularQueue(queue);
+}
+
+// 🔥 PRIORITY TABLE
+function loadPriorityQueue(queue) {
+    let priorityQueue = queue.filter(q => q.type === "priority");
+    let table = document.getElementById("priorityTableBody");
 
     table.innerHTML = "";
 
-    if (queue.length === 0) {
-        document.getElementById("noQueueModal").style.display = "flex";
+    if (priorityQueue.length === 0) {
+        table.innerHTML = `<tr><td colspan="6" style="text-align:center;">No priority queue</td></tr>`;
         return;
     }
 
-    document.getElementById("noQueueModal").style.display = "none";
-
-    queue.forEach((q) => {
-        let row = document.createElement("tr");
-
-        let statusClass = q.status === "serving" ? "serving" : "waiting";
-        let buttonText  = q.status === "serving"  ? "Done"    : "Serve";
-
-        if (q.type === "priority") {
-            row.style.background = "#fff8e1";
-        }
-
-        row.innerHTML = `
-            <td><strong>${q.id}</strong>${q.type === "priority" ? ' <span style="color:#b45309;font-size:11px;font-weight:700;">★ PRIORITY</span>' : ""}</td>
-            <td>${q.name}</td>
-            <td>${q.purpose}</td>
-            <td>${q.time}</td>
-            <td><span class="pill ${statusClass}">${q.status}</span></td>
-            <td><button class="serve-btn">${buttonText}</button></td>
-        `;
-
-        let btn = row.querySelector(".serve-btn");
-        btn.style.background   = q.status === "serving" ? "#198754" : "#860000";
-        btn.style.color        = "white";
-        btn.style.padding      = "6px 12px";
-        btn.style.borderRadius = "6px";
-        btn.style.border       = "none";
-        btn.style.cursor       = "pointer";
-
-        btn.addEventListener("click", () => {
-            selectedQueueId = q.id;
-            if (q.status === "waiting") {
-                document.getElementById("serve-modal").style.display = "flex";
-            } else {
-                finishServing();
-            }
-        });
-
+    priorityQueue.forEach(q => {
+        let row = createRow(q, "priority");
         table.appendChild(row);
     });
 }
 
-// ─── Confirm Serve 
-function confirmServe() {
-    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-    let index = queue.findIndex(q => q.id === selectedQueueId);
+// 🔥 REGULAR TABLE
+function loadRegularQueue(queue) {
+    let regularQueue = queue.filter(q => q.type === "regular");
+    let table = document.getElementById("regularTableBody");
 
-    if (index !== -1) {
-        queue[index].status = "serving";
-        localStorage.setItem("queueList", JSON.stringify(queue));
+    table.innerHTML = "";
 
-        // 🔔 Tell phone simulator this student is now being served
-        triggerPhoneNotif(queue[index], "serving");
-
-        closeModal();
-        selectedQueueId = null;
-        loadQueue();
+    if (regularQueue.length === 0) {
+        table.innerHTML = `<tr><td colspan="6" style="text-align:center;">No regular queue</td></tr>`;
+        return;
     }
+
+    regularQueue.forEach(q => {
+        let row = createRow(q, "regular");
+        table.appendChild(row);
+    });
 }
 
-// ─── Finish / Done
-function finishServing() {
-    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
-    let index = queue.findIndex(q => q.id === selectedQueueId);
+// 🔥 CREATE ROW (REUSABLE)
+function createRow(q, type) {
+    let row = document.createElement("tr");
 
-    if (index !== -1) {
-        // 🔔 Tell phone simulator transaction is done before removing
-        triggerPhoneNotif(queue[index], "done");
+    let statusClass = q.status === "serving" ? "serving" : "waiting";
 
-        queue.splice(index, 1);
-        localStorage.setItem("queueList", JSON.stringify(queue));
-
-        selectedQueueId = null;
-        loadQueue();
+    if (type === "priority") {
+        row.style.background = "#fff8e1";
     }
+
+    row.innerHTML = `
+        <td><strong>${q.id}</strong></td>
+        <td>${q.name}</td>
+        <td>${q.purpose}</td>
+        <td>${q.time}</td>
+        <td><span class="pill ${statusClass}">${q.status}</span></td>
+        <td>—</td>
+    `;
+
+    return row;
 }
 
-// ─── Modals
-function closeModal() {
-    document.getElementById("serve-modal").style.display = "none";
-}
-
-function closeNoQueue() {
-    document.getElementById("noQueueModal").style.display = "none";
-}
-
-// ─── On page load: render immediately, then auto-refresh every 5 seconds 
+// 🔥 AUTO LOAD
 window.addEventListener("DOMContentLoaded", () => {
-    loadQueue();
-    setInterval(loadQueue, 5000);
+    loadQueues();
+    setInterval(loadQueues, 3000);
 });
