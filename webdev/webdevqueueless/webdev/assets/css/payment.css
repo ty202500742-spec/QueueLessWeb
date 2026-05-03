@@ -943,7 +943,7 @@ footer {
 }
 
 .modalinfo-content input[type="text"],
-.modalinfo-content input[type="email"] {
+.modalinfo-content input[type="tel"] {
   width: 100%;
   padding: 8px;
   margin: 10px 0;
