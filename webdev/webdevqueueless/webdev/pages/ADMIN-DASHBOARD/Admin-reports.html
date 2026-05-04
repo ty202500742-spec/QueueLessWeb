@@ -15,111 +15,139 @@
         </div>
 
         <p class="menu-label">Overview</p>
-        <a href="admin-dashboard.html" class="menu-link">Dashboard</a>
-        
-          <p class="menu-label">Windows</p>
-        <a href="registrar-dashboard.html" class="menu-link">Registrar</a>
-        <a href="cashier-dashboard.html" class="menu-link">Cashier</a>
+        <a href="Admin-Dashboard.html" class="menu-link">Dashboard</a>
+
+        <p class="menu-label">Windows</p>
+        <a href="../REGISTRAR-DASHBOARD/registrar-dashboard.html" class="menu-link">Registrar</a>
+        <a href="../CASHIER-DASHBOARD/cashier-dashboard.html" class="menu-link">Cashier</a>
 
         <p class="menu-label">Management</p>
         <a href="Admin-non-students.html" class="menu-link">Non-Students List</a>
-        <a href="admin-students.html" class="menu-link">Students List</a>
-        <a href="admin-reports.html" class="menu-link active">Reports and Analytics</a>
-        <a href="admin-settings.html" class="menu-link">Settings</a>
+        <a href="Admin-Students.html" class="menu-link">Students List</a>
+        <a href="Admin-Reports.html" class="menu-link active">Reports and Analytics</a>
+        <a href="Admin-Settings.html" class="menu-link">Settings</a>
 
         <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
     </nav>
 
     <div class="main-content">
+
+
         <div class="topbar">
             <h2>System Reports & Analytics</h2>
-            <a href="#export-modal" class="btn btn-confirm"> Export Data</a>
+            <button class="btn btn-confirm" onclick="exportToCSV()">⬇ Export CSV</button>
         </div>
 
         <div class="page-wrapper">
-            
-            <div class="report-summary">
-                <div class="summary-box">
-                    <h4>Average Wait Time</h4>
-                    <div class="val text-red">14 Mins</div>
-                    <p>↓ 5 mins from last week</p>
+
+            <div class="filter-section">
+
+                <div class="filter-group">
+                    <span class="filter-label">Year</span>
+                    <div class="filter-btns" id="yearFilters">
+                    
+                        <button class="filter-btn active" data-filter="year" data-value="all">All Years</button>
+                    </div>
                 </div>
-                <div class="summary-box">
-                    <h4>Peak Hour</h4>
-                    <div class="val">10:00 AM</div>
-                    <p>Busiest time of day</p>
+
+                <div class="filter-group">
+                    <span class="filter-label">Semester</span>
+                    <div class="filter-btns">
+                        <button class="filter-btn active" data-filter="semester" data-value="all">All</button>
+                        <button class="filter-btn" data-filter="semester" data-value="1st Semester">1st Semester</button>
+                        <button class="filter-btn" data-filter="semester" data-value="2nd Semester">2nd Semester</button>
+                        <button class="filter-btn" data-filter="semester" data-value="Summer">Summer</button>
+                    </div>
                 </div>
-                <div class="summary-box">
-                    <h4>Total Transactions</h4>
-                    <div class="val">842</div>
-                    <p>Completed this week</p>
+
+                <div class="filter-group">
+                    <span class="filter-label">Month</span>
+                    <div class="filter-btns">
+                        <button class="filter-btn active" data-filter="month" data-value="all">All</button>
+                        <button class="filter-btn" data-filter="month" data-value="1">January</button>
+                        <button class="filter-btn" data-filter="month" data-value="2">February</button>
+                        <button class="filter-btn" data-filter="month" data-value="3">March</button>
+                        <button class="filter-btn" data-filter="month" data-value="4">April</button>
+                        <button class="filter-btn" data-filter="month" data-value="5">May</button>
+                        <button class="filter-btn" data-filter="month" data-value="6">June</button>
+                        <button class="filter-btn" data-filter="month" data-value="7">July</button>
+                        <button class="filter-btn" data-filter="month" data-value="8">August</button>
+                        <button class="filter-btn" data-filter="month" data-value="9">September</button>
+                        <button class="filter-btn" data-filter="month" data-value="10">October</button>
+                        <button class="filter-btn" data-filter="month" data-value="11">November</button>
+                        <button class="filter-btn" data-filter="month" data-value="12">December</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">Service Type</span>
+                    <div class="filter-btns" id="serviceFilters">
+                        <button class="filter-btn active" data-filter="service" data-value="all">All Services</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">Category</span>
+                    <div class="filter-btns">
+                        <button class="filter-btn active" data-filter="category" data-value="all">All</button>
+                        <button class="filter-btn" data-filter="category" data-value="Regular">Regular</button>
+                        <button class="filter-btn" data-filter="category" data-value="PWD">PWD</button>
+                        <button class="filter-btn" data-filter="category" data-value="Senior Citizen">Senior Citizen</button>
+                        <button class="filter-btn" data-filter="category" data-value="VIP">VIP</button>
+                        <button class="filter-btn" data-filter="category" data-value="Others">Others</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="report-stats-row">
+                <div class="rstat-card total">
+                    <div class="rstat-num" id="totalCount">0</div>
+                    <div class="rstat-label">Total Queues</div>
+                </div>
+                <div class="rstat-card served">
+                    <div class="rstat-num" id="servedCount">0</div>
+                    <div class="rstat-label">Served</div>
+                </div>
+                <div class="rstat-card skipped">
+                    <div class="rstat-num" id="skippedCount">0</div>
+                    <div class="rstat-label">Skipped / No-Show</div>
+                </div>
+                <div class="rstat-card waiting">
+                    <div class="rstat-num" id="waitingCount">0</div>
+                    <div class="rstat-label">Still Waiting</div>
                 </div>
             </div>
 
-            <div class="table-container">
-                <h3>Transactions by Window</h3>
-                <table class="report-table">
-                    <thead>
-                        <tr>
-                            <th>Window / Department</th>
-                            <th>Total Served</th>
-                            <th>Avg. Transaction Time</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Window 1 - Registrar</td>
-                            <td>320</td>
-                            <td>4 mins</td>
-                            <td><span class="status-good">Optimal</span></td>
-                        </tr>
-                        <tr>
-                            <td>Window 2 - Cashier</td>
-                            <td>415</td>
-                            <td>6 mins</td>
-                            <td><span class="status-warning">Heavy Traffic</span></td>
-                        </tr>
-                        <tr>
-                            <td>Window 3 - Clinic</td>
-                            <td>107</td>
-                            <td>12 mins</td>
-                            <td><span class="status-good">Optimal</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="panel">
+                <div class="panel-header">
+                    <h3>Transaction Records</h3>
+                    <span class="record-count" id="recordCount">0 records</span>
+                </div>
+                <div class="table-container">
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th>Queue #</th>
+                                <th>Name</th>
+                                <th>Service</th>
+                                <th>Category</th>
+                                <th>Queue Type</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportTableBody">
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
     </div>
 
-    <div id="export-modal" class="modal-overlay">
-        <div class="modal-box">
-            <h3>Export System Report</h3>
-            <p>Select the format and date range for your report download.</p>
-            
-            <form action="#" class="modal-form">
-                <label>Date Range</label>
-                <select required>
-                    <option>Today</option>
-                    <option>This Week</option>
-                    <option>This Month</option>
-                </select>
-
-                <label>Format</label>
-                <select required>
-                    <option>PDF Document (.pdf)</option>
-                    <option>Excel Spreadsheet (.xlsx)</option>
-                    <option>CSV File (.csv)</option>
-                </select>
-                
-                <div class="modal-actions" style="margin-top: 20px;">
-                    <a href="#" class="btn btn-cancel">Cancel</a>
-                    <button type="submit" class="btn btn-confirm">Download</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <div id="logout-modal" class="modal-overlay">
         <div class="modal-box">
@@ -131,6 +159,8 @@
             </div>
         </div>
     </div>
+
+    <script src="../../assets/js/Admin-Reports.js"></script>
 
 </body>
 </html>

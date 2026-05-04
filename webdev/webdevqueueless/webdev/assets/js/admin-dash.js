@@ -1,84 +1,168 @@
-// 🔔 Notify phone
 function triggerPhoneNotif(student, type) {
-    const payload = {
-        type,
-        id: student.id,
-        name: student.name,
-        phone: student.phone || "N/A",
-        purpose: student.purpose,
+    var payload = {
+        type:      type,
+        id:        student.id,
+        name:      student.name,
+        phone:     student.phone || "N/A",
+        purpose:   student.purpose,
         timestamp: Date.now()
     };
     localStorage.setItem("phoneNotif", JSON.stringify(payload));
 }
 
-// 🔥 LOAD ALL QUEUES (MASTER SYSTEM)
-function loadQueues() {
-    let queue = JSON.parse(localStorage.getItem("queueList")) || [];
+function updateReportStatus(queueId, newStatus) {
+    var data = localStorage.getItem("reportTransactions");
+    if (!data) {
+        return;
+    }
 
+    var records = [];
+    try {
+        records = JSON.parse(data);
+    } catch (e) {
+        return;
+    }
+
+        // Find the matching record by queueId and update its status //
+    var found = false;
+    records.forEach(function(record) {
+        if (record.queueId === queueId) {
+            record.status = newStatus;
+            found = true;
+        }
+    });
+
+    if (found) {
+        localStorage.setItem("reportTransactions", JSON.stringify(records));
+    }
+}
+
+function removeFromQueueList(queueId) {
+    var queueList = JSON.parse(localStorage.getItem("queueList")) || [];
+    var updated = queueList.filter(function(q) {
+        return q.id !== queueId;
+    });
+    localStorage.setItem("queueList", JSON.stringify(updated));
+}
+
+
+//load all queues//
+function loadQueues() {
+    var queue = JSON.parse(localStorage.getItem("queueList")) || [];
     loadPriorityQueue(queue);
     loadRegularQueue(queue);
 }
 
-// 🔥 PRIORITY TABLE
-function loadPriorityQueue(queue) {
-    let priorityQueue = queue.filter(q => q.type === "priority");
-    let table = document.getElementById("priorityTableBody");
 
+// priority tavle //
+function loadPriorityQueue(queue) {
+    var priorityQueue = queue.filter(function(q) {
+        return q.type === "priority";
+    });
+    var table = document.getElementById("priorityTableBody");
     table.innerHTML = "";
 
     if (priorityQueue.length === 0) {
-        table.innerHTML = `<tr><td colspan="6" style="text-align:center;">No priority queue</td></tr>`;
+        table.innerHTML =
+            '<tr><td colspan="6" style="text-align:center;color:#9ca3af;padding:20px;">No priority queue entries</td></tr>';
         return;
     }
 
-    priorityQueue.forEach(q => {
-        let row = createRow(q, "priority");
+    priorityQueue.forEach(function(q) {
+        var row = createRow(q, "priority");
         table.appendChild(row);
     });
 }
 
-// 🔥 REGULAR TABLE
+//regular table//
 function loadRegularQueue(queue) {
-    let regularQueue = queue.filter(q => q.type === "regular");
-    let table = document.getElementById("regularTableBody");
-
+    var regularQueue = queue.filter(function(q) {
+        return q.type === "regular";
+    });
+    var table = document.getElementById("regularTableBody");
     table.innerHTML = "";
 
     if (regularQueue.length === 0) {
-        table.innerHTML = `<tr><td colspan="6" style="text-align:center;">No regular queue</td></tr>`;
+        table.innerHTML =
+            '<tr><td colspan="6" style="text-align:center;color:#9ca3af;padding:20px;">No regular queue entries</td></tr>';
         return;
     }
 
-    regularQueue.forEach(q => {
-        let row = createRow(q, "regular");
+    regularQueue.forEach(function(q) {
+        var row = createRow(q, "regular");
         table.appendChild(row);
     });
 }
 
-// 🔥 CREATE ROW (REUSABLE)
-function createRow(q, type) {
-    let row = document.createElement("tr");
+function loadRegularQueue(queue) {
+    var regularQueue = queue.filter(function(q) {
+        return q.type === "regular";
+    });
+    var table = document.getElementById("regularTableBody");
+    table.innerHTML = "";
 
-    let statusClass = q.status === "serving" ? "serving" : "waiting";
+    if (regularQueue.length === 0) {
+        table.innerHTML =
+            '<tr><td colspan="6" style="text-align:center;color:#9ca3af;padding:20px;">No regular queue entries</td></tr>';
+        return;
+    }
+
+    regularQueue.forEach(function(q) {
+        var row = createRow(q, "regular");
+        table.appendChild(row);
+    });
+}
+
+//priority rows//
+ function createRow(q, type) {
+    var row = document.createElement("tr");
+    var statusClass = (q.status === "serving") ? "serving" : "waiting";
 
     if (type === "priority") {
         row.style.background = "#fff8e1";
     }
 
-    row.innerHTML = `
-        <td><strong>${q.id}</strong></td>
-        <td>${q.name}</td>
-        <td>${q.purpose}</td>
-        <td>${q.time}</td>
-        <td><span class="pill ${statusClass}">${q.status}</span></td>
-        <td>—</td>
-    `;
+    row.innerHTML = ...
+
+    row.innerHTML =
+        '<td><strong>' + q.id + '</strong></td>' +
+        '<td>' + q.name + '</td>' +
+        '<td>' + q.purpose + '</td>' +
+        '<td>' + q.time + '</td>' +
+        '<td><span class="pill ' + statusClass + '">' + q.status + '</span></td>' +
+        '<td class="action-cell">' +
+        '  <button class="btn-action btn-done-sm" data-id="' + q.id + '">✔ Done</button>' +
+        '  <button class="btn-action btn-skip-sm" data-id="' + q.id + '">✖ Skip</button>' +
+        '</td>';
+
+var doneBtn = row.querySelector(".btn-done-sm");
+    doneBtn.addEventListener("click", function() {
+        var id = this.getAttribute("data-id");
+
+        updateReportStatus(id, "served");
+
+        removeFromQueueList(id);
+
+         loadQueues();
+    });
+
+    //skip button//
+    var skipBtn = row.querySelector(".btn-skip-sm");
+    skipBtn.addEventListener("click", function() {
+        var id = this.getAttribute("data-id");
+
+        updateReportStatus(id, "skipped");
+
+        removeFromQueueList(id);
+
+        loadQueues();
+    });
 
     return row;
-}
+ }
 
-// 🔥 AUTO LOAD
-window.addEventListener("DOMContentLoaded", () => {
+//live update//
+window.addEventListener("DOMContentLoaded", function() {
     loadQueues();
     setInterval(loadQueues, 3000);
 });
