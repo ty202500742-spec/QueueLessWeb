@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Queueless | WMSU Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/nonSlogin.css">
+</head>
+
+<body>
+
+    ```
+    <!-- Background -->
+    <img src="../../assets/images/wmsu.jpg" alt="WMSU Background"
+        style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0; z-index:-1;">
+
+    <div class="card">
+
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="../../assets/images/queueless.png" alt="Queueless Logo" class="logo">
+        </div>
+
+        <!-- FORM -->
+        <div class="form-container">
+            <div class="form-title">
+                <h2>Login</h2>
+                <p class="sub">Enter your credentials</p>
+            </div>
+
+            <form action="../student-landing-page/nonS-main.html" method="get">
+
+                <label>Full Name</label>
+                <div class="grid-3"> <input type="text" name="firstName" placeholder="First Name" required> <input
+                        type="text" name="middleName" placeholder="Middle"> <input type="text" name="lastName"
+                        placeholder="Last Name" required> </div>
+                <div class="grid-2">
+                    <div> <label>Birthday</label> <input type="date" name="birthday" required> </div>
+                    <div> <label>Gender</label>
+                        <div class="gender-min"> <label><input type="radio" name="gender" value="male" required>
+                                Male</label> 
+                                <label><input type="radio" name="gender" value="female"> Female</label>
+                            <label><input type="radio" name="gender" value="other"> Other</label> </div>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div> <label>Email</label> <input type="email" name="email" placeholder="email@gmail.com" required>
+                    </div>
+                    <div> <label>Phone</label> <input type="text" name="phone" placeholder="0912..."> </div>
+                </div>
+                <div class="grid-2"> <input type="password" name="password" placeholder="Password" required> <input
+                        type="password" name="confirmPassword" placeholder="Confirm Password" required> </div> <button
+                    type="submit" class="btn">Login</button>
+
+            </form>
+        </div>
+
+    </div>
+    ```
+
+</body>
+
+</html>
