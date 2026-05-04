@@ -861,7 +861,7 @@ footer {
   .bar {
     width: 20px; 
     height: 2px;
-    background: #111827;
+   background: #eef0f4;
     border-radius: 2px;
     transition: all 0.25s;
   }
