@@ -1,0 +1,35 @@
+/* The cell that holds the two buttons */
+.action-cell {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* Base style for both action buttons */
+.btn-action {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+}
+
+.btn-action:hover {
+    opacity: 0.85;
+    transform: scale(1.04);
+}
+
+/* Done */
+.btn-done-sm {
+    background: #22c55e;
+    color: #fff;
+}
+
+/* Skip */
+.btn-skip-sm {
+    background: #f59e0b;
+    color: #fff;
+}

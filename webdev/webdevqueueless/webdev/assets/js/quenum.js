@@ -4,7 +4,8 @@ function loadQueuePage() {
   let userService = localStorage.getItem("queue_userService") || "Unknown Service";
 
   // For this page, we only care about the regular queue since priority users go to a different page
-  let queue = JSON.parse(localStorage.getItem("regularQueue")) || [];
+  let allQueue = JSON.parse(localStorage.getItem("queueList")) || [];
+  let queue = allQueue.filter(q => q.type === "regular");
 
   let queueListEl = document.getElementById("queueList");
   let currentNumberEl = document.getElementById("currentNumber");

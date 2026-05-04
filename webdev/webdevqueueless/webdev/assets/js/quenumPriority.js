@@ -4,7 +4,8 @@ function loadQueuePage() {
   let userService = localStorage.getItem("queue_userService") || "Unknown Service";
 
   
- let queue = JSON.parse(localStorage.getItem("priorityQueue")) || [];
+  let allQueue = JSON.parse(localStorage.getItem("queueList")) || [];
+  let queue = allQueue.filter(q => q.type === "priority");
 
   let queueListEl = document.getElementById("queueList");
   let currentNumberEl = document.getElementById("currentNumber");
