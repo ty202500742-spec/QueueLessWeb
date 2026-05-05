@@ -121,9 +121,7 @@ function loadRegularQueue(queue) {
     if (type === "priority") {
         row.style.background = "#fff8e1";
     }
-
-    row.innerHTML = ...
-
+    
     row.innerHTML =
         '<td><strong>' + q.id + '</strong></td>' +
         '<td>' + q.name + '</td>' +
