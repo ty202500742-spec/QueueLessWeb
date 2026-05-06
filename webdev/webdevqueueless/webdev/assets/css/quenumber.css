@@ -510,3 +510,12 @@ footer {
     border-radius: 6px;
     margin-top: 20px;
 }
+
+.queue-typepri {
+  color: red  ;
+  font-weight: 600;
+}
+.queue-typereg {
+  color: #8B0000;
+  font-weight: 600;
+}

@@ -97,3 +97,7 @@
             document.getElementById("lsDot").style.background = "#eab308";
             document.getElementById("lsLabel").textContent    = "Standby — open Admin Dashboard in another tab";
         });
+
+        window.addEventListener("phoneNotifEvent", function (e) {
+    showNotification(e.detail);
+});

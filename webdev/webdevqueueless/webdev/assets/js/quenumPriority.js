@@ -55,9 +55,9 @@ function loadQueuePage() {
     statusMessageEl.textContent =
       `You are now being served for ${userService}! Please proceed to the window.`;
   } else {
-    statusMessageEl.textContent =
-      `You are in queue for ${userService}.
-      (${queueType}). ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
+    statusMessageEl.innerHTML =
+  `You are in queue for <strong>${userService}</strong>.<br>
+  (<span class="queue-typepri">${queueType}</span>). ${peopleAhead} people ahead. Est. wait: ${estWait} min.`;
   }
 }
 
@@ -80,7 +80,7 @@ function cancelQueue() {
     localStorage.removeItem("queue_userId");
 
     alert("Your queue has been cancelled.");
-    window.location.href = "main.html";
+    window.location.href = "index.html";
   }
 }
 
@@ -115,7 +115,7 @@ function historygo() {
 }
 
 function dashboardgo() {
-  window.location.href = 'main.html';
+  window.location.href = 'index.html';
 }
 
 function profilego() {
