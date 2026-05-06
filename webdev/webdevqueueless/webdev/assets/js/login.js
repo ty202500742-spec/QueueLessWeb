@@ -6,16 +6,16 @@ function handleLogin(e) {
 
     // ADMIN LOGIN
     if (email === "admin@wmsu.edu.ph" && password === "admin123") {
-        window.location.href = "../ADMIN-DASHBOARD/Admin-Dashboard.html";
+        window.location.href = "../ADMIN-DASHBOARD/admin-dashboard.html";
     }
 
     // STUDENT LOGIN
-    else if (email.endsWith("@wmsu.edu.ph")) {
-        window.location.href = "../student-landing-page/main.html";
+    else if (email === "registrar@wmsu.edu.ph" && password === "regist123") {
+        window.location.href = "../REGISTRAR-DASHBOARD/registrar-dashboard.html";
     }
 
     // NON-STUDENT LOGIN
-    else {
-        window.location.href = "../student-landing-page/nonS-main.html";
+    else if (email === "cashier@wmsu.edu.ph" && password === "cash123") {
+        window.location.href = "../CASHIER-DASHBOARD/cashier-dashboard.html";
     }
 }
