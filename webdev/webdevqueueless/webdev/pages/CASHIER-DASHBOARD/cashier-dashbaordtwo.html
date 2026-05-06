@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Registrar — Queueless</title>
-<link rel="stylesheet" href="../../assets/css/Registrar-dash.css"/>
+<title>Cashier — Queueless</title>
+ <link rel="stylesheet" href="../../assets/css/Cashier-dash.css">
+
 </head>
 <body>
 
@@ -12,7 +13,7 @@
   <div class="topbar-left">
     <div class="logo-mark">Q</div>
     <div>
-      <div class="office-label">Registrar Window</div>
+      <div class="office-label">Cashier Window</div>
       <div class="office-sub">Window 2 — Staff Portal</div>
     </div>
   </div>
@@ -21,49 +22,47 @@
       <span class="status-dot"></span>
       <span>Open</span>
     </div>
-    <span class="staff-name">Ms. Cruz</span>
+    <span class="staff-name">Mr. Reyes</span>
     <span class="clock" id="clock">--:-- --</span>
   </div>
 </div>
 
 <div class="layout">
-  <!-- LEFT: main content -->
   <div class="left-col">
 
-    <!-- Current ticket hero -->
+    <!-- Current ticket -->
     <div class="current-ticket" id="currentTicket">
       <div class="ct-label">Now serving</div>
-      <div class="ct-number" id="ctNumber">R-002</div>
+      <div class="ct-number" id="ctNumber">C-088</div>
       <div class="ct-meta">
         <div class="ct-meta-item">
           <div class="ct-meta-key">Name</div>
-          <div class="ct-meta-val" id="ctName">Juan dela Cruz</div>
+          <div class="ct-meta-val" id="ctName">Liza Bautista</div>
         </div>
         <div class="ct-meta-item">
           <div class="ct-meta-key">Purpose</div>
-          <div class="ct-meta-val" id="ctPurpose">Certificate of Registration</div>
+          <div class="ct-meta-val" id="ctPurpose">Tuition Fee</div>
         </div>
         <div class="ct-meta-item">
           <div class="ct-meta-key">Waiting since</div>
-          <div class="ct-meta-val" id="ctWait">12:43 PM</div>
+          <div class="ct-meta-val" id="ctWait">12:40 PM</div>
         </div>
       </div>
+      
       <div class="ct-actions">
-        <button class="btn-done" onclick="markDone()">Mark as Done</button>
+        <button class="btn-done" onclick="markDone()">Confirm &amp; Done</button>
         <button class="btn-skip" onclick="callNext()">Call Next</button>
         <button class="btn-no-show" onclick="noShow()">No-show</button>
       </div>
     </div>
 
-    <!-- Empty state (hidden by default) -->
     <div class="empty-hero" id="emptyHero">
       <div class="empty-hero-title">No active ticket</div>
       <div class="empty-hero-sub">Queue is ready. Call the next student when you're set.</div>
       <button class="btn-next" onclick="callNext()">Call Next Student ↓</button>
     </div>
 
-    <!-- Queue -->
-    <div class="section-title">Up next — Registrar queue</div>
+    <div class="section-title">Up next — Cashier queue</div>
     <div class="queue-card">
       <table class="queue-table">
         <thead>
@@ -75,82 +74,105 @@
             <th>Waiting</th>
           </tr>
         </thead>
-      <tbody id="queueBody"></tbody>
-      
+        <tbody id="queueBody">
+          <tr>
+            <td class="pos-num">1</td>
+            <td class="q-num">C-089</td>
+            <td>Rico Flores</td>
+            <td><span class="purpose-tag">Miscellaneous</span></td>
+            <td class="wait-time">12:43 PM</td>
+          </tr>
+          <tr>
+            <td class="pos-num">2</td>
+            <td class="q-num">C-090</td>
+            <td>Grace Villanueva</td>
+            <td><span class="purpose-tag">ID Fee</span></td>
+            <td class="wait-time">12:45 PM</td>
+          </tr>
+          <tr>
+            <td class="pos-num">3</td>
+            <td class="q-num">C-091</td>
+            <td>Ramon Uy</td>
+            <td><span class="purpose-tag">Tuition Fee</span></td>
+            <td class="wait-time">12:50 PM</td>
+          </tr>
+          <tr>
+            <td class="pos-num">4</td>
+            <td class="q-num">C-092</td>
+            <td>Donna Santiago</td>
+            <td><span class="purpose-tag">Lab Fee</span></td>
+            <td class="wait-time">12:54 PM</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
-
-  <!-- RIGHT: stats + activity -->
+   
+  <!-- RIGHT COL -->
   <div class="right-col">
     <div class="stat-row">
       <div class="stat-box">
         <div class="stat-label">Served today</div>
-        <div class="stat-value" id="servedCount">14</div>
-        <div class="stat-sub good">↑ 3 vs yesterday</div>
+        <div class="stat-value" id="servedCount">21</div>
+        <div class="stat-sub good">↑ 5 vs yesterday</div>
       </div>
       <div class="stat-box">
         <div class="stat-label">In queue</div>
-        <div class="stat-value" id="queueCount">6</div>
+        <div class="stat-value" id="queueCount">5</div>
         <div class="stat-sub">right now</div>
       </div>
       <div class="stat-box">
         <div class="stat-label">Avg. time</div>
-        <div class="stat-value">6<span style="font-size:16px;font-weight:400"> min</span></div>
-        <div class="stat-sub good">↓ 1 min faster</div>
+        <div class="stat-value">9<span style="font-size:16px;font-weight:400"> min</span></div>
+        <div class="stat-sub bad">↑ 2 min slower</div>
       </div>
       <div class="stat-box">
         <div class="stat-label">No-shows</div>
-        <div class="stat-value">2</div>
-        <div class="stat-sub bad">↑ 1 today</div>
+        <div class="stat-value">1</div>
+        <div class="stat-sub">today</div>
       </div>
     </div>
 
+    
+
     <div class="tools-card">
       <div class="tools-header">Quick actions</div>
-      <button class="tool-btn" onclick="showToast('Ticket printed!')">
-        <span class="tool-icon">🖨️</span> Print current ticket
+      <button class="tool-btn" onclick="showToast('Receipt printed!')">
+        <span class="tool-icon">🧾</span> Print OR / receipt
       </button>
-      <button class="tool-btn" onclick="showToast('Student flagged for follow-up.')">
-        <span class="tool-icon">🚩</span> Flag student record
+      <button class="tool-btn" onclick="showToast('Transaction voided.')">
+        <span class="tool-icon">❌</span> Void last transaction
       </button>
       <button class="tool-btn" onclick="showToast('Queue paused. Toggle again to resume.')">
         <span class="tool-icon">⏸️</span> Pause my queue
       </button>
-      <button class="tool-btn" onclick="showToast('Request for assistance sent.')">
+      <button class="tool-btn" onclick="showToast('Supervisor notified.')">
         <span class="tool-icon">📣</span> Request supervisor
       </button>
     </div>
 
     <div class="activity-card">
       <div class="activity-header">My activity today</div>
-      <div class="activity-list" id="actFeed">
+      <div id="actFeed">
         <div class="activity-item">
           <div class="a-dot-wrap"><div class="a-dot green"></div></div>
           <div>
-            <div class="a-text">Served <b>R-002</b> — Juan dela Cruz</div>
+            <div class="a-text">Collected <b>₱ 100</b> from <b>C-088</b></div>
             <div class="a-time">just now</div>
           </div>
         </div>
         <div class="activity-item">
           <div class="a-dot-wrap"><div class="a-dot green"></div></div>
           <div>
-            <div class="a-text">Served <b>R-001</b> — Maria Santos</div>
-            <div class="a-time">4 min ago</div>
+            <div class="a-text">Collected <b>₱ 200</b> from <b>C-087</b></div>
+            <div class="a-time">6 min ago</div>
           </div>
         </div>
         <div class="activity-item">
           <div class="a-dot-wrap"><div class="a-dot amber"></div></div>
           <div>
-            <div class="a-text">No-show — <b>R-000</b></div>
-            <div class="a-time">10 min ago</div>
-          </div>
-        </div>
-        <div class="activity-item">
-          <div class="a-dot-wrap"><div class="a-dot green"></div></div>
-          <div>
-            <div class="a-text">Served <b>R-998</b> — Leah Santos</div>
-            <div class="a-time">18 min ago</div>
+            <div class="a-text">No-show — <b>C-086</b></div>
+            <div class="a-time">12 min ago</div>
           </div>
         </div>
       </div>
@@ -159,6 +181,7 @@
 </div>
 
 <div class="toast" id="toast"></div>
-  <script src="../../assets/js/registrar-dash.js"></script>
+
+
 </body>
 </html>

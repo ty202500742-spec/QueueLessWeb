@@ -215,3 +215,70 @@ window.addEventListener("DOMContentLoaded", function () {
     var queueBtn = document.getElementById("queueBtn");
     if (queueBtn) queueBtn.onclick = function () { openModal("queueModal"); };
 });
+
+const pwdRadio = document.getElementById("pwd");
+const seniorRadio = document.getElementById("senior");
+const vipRadio = document.getElementById("vip");
+const othersRadio = document.getElementById("others");
+const naRadio = document.getElementById("not");
+
+const pwdInput = document.getElementById("pwdDetails");
+const seniorInput = document.getElementById("seniorDetails");
+const otherInput = document.getElementById("otherPriority");
+
+function resetInputs() {
+    pwdInput.disabled = true;
+    seniorInput.disabled = true;
+    otherInput.disabled = true;
+
+    pwdInput.value = "";
+    seniorInput.value = "";
+    otherInput.value = "";
+}
+
+// PWD
+pwdRadio.addEventListener("change", () => {
+    resetInputs();
+    pwdInput.disabled = false;
+});
+
+// SENIOR
+seniorRadio.addEventListener("change", () => {
+    resetInputs();
+    seniorInput.disabled = false;
+});
+
+// VIP
+vipRadio.addEventListener("change", () => {
+    resetInputs();
+});
+
+// OTHERS
+othersRadio.addEventListener("change", () => {
+    resetInputs();
+    otherInput.disabled = false;
+});
+
+// N/A
+naRadio.addEventListener("change", () => {
+    resetInputs();
+});
+
+function validatePriority() {
+    if (pwdRadio.checked && pwdInput.value.trim() === "") {
+        alert("Please enter PWD ID number");
+        return false;
+    }
+
+    if (seniorRadio.checked && seniorInput.value.trim() === "") {
+        alert("Please enter Senior ID number");
+        return false;
+    }
+
+    if (othersRadio.checked && otherInput.value.trim() === "") {
+        alert("Please specify other priority");
+        return false;
+    }
+
+    return true;
+}

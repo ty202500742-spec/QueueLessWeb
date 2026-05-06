@@ -74,7 +74,7 @@ body {
     border-radius: 8px;
     color: #6b7280;
   }
-  .close-btn:hover { background: #f3f4f6; }
+  .close-btn:hover { background: #ffffff; }
  
   /* Profile */
   .profile-section {
@@ -279,7 +279,7 @@ body {
     
   }
   .hamburger:hover {
-     background: #f3f4f6;
+     background: #c20000;
      }
   .bar {
     width: 20px; 
