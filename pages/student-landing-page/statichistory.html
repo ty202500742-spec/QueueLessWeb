@@ -107,30 +107,97 @@
 
      <div class="main-layout">
 
-    <aside class="history-panel">
+        <aside class="history-panel">
 
-        <div class="history-header">
-            <h3>Queue History</h3>
+            <div class="history-header">
+                <h3> Queue History</h3>
+                <span class="history-badge">6</span>
+            </div>
+
+            <div class="history-filter">
+                <label for="f-all" class="filter-lbl lbl-all">All</label>
+                <label for="f-done" class="filter-lbl lbl-done">Done</label>
+                <label for="f-wait" class="filter-lbl lbl-wait">Waiting</label>
+                <label for="f-miss" class="filter-lbl lbl-miss">Missed</label>
+            </div>
+
+            <div class="history-list">
+
+                <div class="history-item is-active">
+                    <div class="h-icon" style="background:#dcfce7;">💳</div>
+                    <div class="h-info">
+                        <div class="h-title">Payments</div>
+                        <div class="h-sub">Window 2 <span class="h-num">Q-047</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status active">Active</span>
+                        <div class="h-time">Now · In Progress</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-waiting">
+                    <div class="h-icon" style="background:#fef9c3;">📄</div>
+                    <div class="h-info">
+                        <div class="h-title">Documents & Certs</div>
+                        <div class="h-sub">Window 3 <span class="h-num">Q-062</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status waiting">Waiting</span>
+                        <div class="h-time">Today, 10:45 AM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-done">
+                    <div class="h-icon" style="background:#dbeafe;">🎓</div>
+                    <div class="h-info">
+                        <div class="h-title">Enrollment Assistance</div>
+                        <div class="h-sub">Window 1 <span class="h-num">Q-031</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status done">Served</span>
+                        <div class="h-time">Today, 9:14 AM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-done">
+                    <div class="h-icon" style="background:#fce7f3;">📝</div>
+                    <div class="h-info">
+                        <div class="h-title">Aptitude Tests</div>
+                        <div class="h-sub">Window 4 <span class="h-num">Q-019</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status done">Served</span>
+                        <div class="h-time">Today, 8:50 AM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-missed">
+                    <div class="h-icon" style="background:#f3e8ff;">🪪</div>
+                    <div class="h-info">
+                        <div class="h-title">ID & Scholarship</div>
+                        <div class="h-sub">Window 5 <span class="h-num">Q-088</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status missed">Missed</span>
+                        <div class="h-time">Yesterday, 2:30 PM</div>
+                    </div>
+                </div>
+
+                <div class="history-item is-done">
+                    <div class="h-icon" style="background:#ffedd5;">🔖</div>
+                    <div class="h-info">
+                        <div class="h-title">Other Services</div>
+                        <div class="h-sub">Window 6 <span class="h-num">Q-012</span></div>
+                    </div>
+                    <div class="h-right">
+                        <span class="h-status done">Served</span>
+                        <div class="h-time">Mar 24, 3:15 PM</div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
         </div>
-       
-        <!-- USER INPUT -->
-        <div class="history-login">
-            <input type="text" id="userNumber" placeholder="Enter your number">
-            <button onclick="loadHistory()">Load</button>
-        </div>
-
-        <!-- FILTERS (optional, kept from yours) -->
-        <div class="history-filter">
-            <label></label>
-           
-        </div>
-
-        <!-- DYNAMIC LIST -->
-       <div class="history-list" id="historyList"></div>
-    </aside>
-
-</div>
-
        
             <script src="../../assets/js/history.js"></script>
         </body>
