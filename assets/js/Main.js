@@ -21,7 +21,7 @@
     window.location.href = 'history.html';
   }
    function dashboardgo() {
-    window.location.href = 'main.html';
+    window.location.href = '../../index.html';
   }
 
   function profilego() {

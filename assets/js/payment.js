@@ -192,7 +192,7 @@ function closeSidebar() {
     document.getElementById("ham").classList.remove("active");
 }
 function historygo() { window.location.href = "history.html"; }
-function dashboardgo() { window.location.href = "main.html"; }
+function dashboardgo() { window.location.href = "../../index.html"; }
 function profilego() { window.location.href = "student-profile.html"; }
 
 function setRole(r) {

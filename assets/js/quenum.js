@@ -115,7 +115,7 @@ function historygo() {
 }
 
 function dashboardgo() {
-  window.location.href = 'index.html';
+  window.location.href = '../../index.html';
 }
 
 function profilego() {
