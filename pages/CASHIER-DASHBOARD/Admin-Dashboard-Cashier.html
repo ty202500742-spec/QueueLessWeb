@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cashier — Queueless</title>
+ <link rel="stylesheet" href="../../assets/css/Admin-Dashboard-CashReg.css">
+
+ </head>
+<body>
+
+<!-- SIDEBAR -->
+
+<nav class="sidebar">
+        <div class="logo-area">
+            <img src="../.././assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU"
+                class="sidebar-logo">
+        </div>
+        <p class="menu-label">Management</p>
+        <a href="Admin-non-students.html" class="menu-link">Priority List</a>
+        <a href="Admin-Students.html" class="menu-link">Students List</a>
+        <a href="Admin-reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="Admin-Settings.html" class="menu-link">Settings</a>
+
+        <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
+    </nav>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div>
+      <div class="topbar-title">Cashier Dashboard</div>
+      <div class="topbar-sub">Thu, May 7, 2026 — 12:56 PM</div>
+    </div>
+    <div class="topbar-right">
+      <div class="tb-pill"><div class="live-dot"></div> Live</div>
+      <div class="tb-pill"><i class="ti ti-bell" style="font-size:13px"></i> 3</div>
+      <div class="tb-pill"><i class="ti ti-printer" style="font-size:13px"></i> Print report</div>
+      <div class="admin-avatar">AD</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- KPIs -->
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="kpi-label">Served today</div>
+        <div class="kpi-val">87</div>
+        <div class="kpi-sub up"><i class="ti ti-trending-up" style="font-size:11px"></i> +12 vs yesterday</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">In queue now</div>
+        <div class="kpi-val">14</div>
+        <div class="kpi-sub neu">across 4 windows</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Avg. wait time</div>
+        <div class="kpi-val">9<span style="font-size:13px;font-weight:400"> min</span></div>
+        <div class="kpi-sub down"><i class="ti ti-trending-up" style="font-size:11px"></i> +2 min slower</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">No-shows</div>
+        <div class="kpi-val">4</div>
+        <div class="kpi-sub down">↑ 2 vs yesterday</div>
+      </div>
+    </div>
+
+    <!-- WINDOWS + STAFF -->
+    <div class="section-row">
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title"><i class="ti ti-building-bank" style="font-size:14px;margin-right:5px;vertical-align:-2px"></i>Window status</div>
+          <div class="card-action">Manage <i class="ti ti-chevron-right" style="font-size:12px"></i></div>
+        </div>
+        <div class="windows-grid">
+
+          <div class="window-card busy">
+            <div class="win-top"><div class="win-name">Window 1</div><span class="win-status status-busy">Serving</span></div>
+            <div class="win-staff">Mr. Reyes</div>
+            <div class="win-ticket">C-088</div>
+            <div class="win-current">Liza Bautista — Tuition Fee</div>
+            <div class="win-meta">
+              <div class="win-meta-item">Queue: <span>5</span></div>
+              <div class="win-meta-item">Served: <span>21</span></div>
+            </div>
+          </div>
+
+          <div class="window-card busy">
+            <div class="win-top"><div class="win-name">Window 2</div><span class="win-status status-busy">Serving</span></div>
+            <div class="win-staff">Ms. Cruz</div>
+            <div class="win-ticket">B-045</div>
+            <div class="win-current">Carlo Mendoza — ID Fee</div>
+            <div class="win-meta">
+              <div class="win-meta-item">Queue: <span>4</span></div>
+              <div class="win-meta-item">Served: <span>18</span></div>
+            </div>
+          </div>
+
+          <div class="window-card open">
+            <div class="win-top"><div class="win-name">Window 3</div><span class="win-status status-open">Available</span></div>
+            <div class="win-staff">Mr. Santos</div>
+            <div class="win-ticket" style="color:#16a34a;font-size:13px">Idle</div>
+            <div class="win-current" style="color:#6b7280">Waiting for next ticket</div>
+            <div class="win-meta">
+              <div class="win-meta-item">Queue: <span>3</span></div>
+              <div class="win-meta-item">Served: <span>24</span></div>
+            </div>
+          </div>
+
+          <div class="window-card closed">
+            <div class="win-top"><div class="win-name">Window 4</div><span class="win-status status-closed">Closed</span></div>
+            <div class="win-staff" style="color:#9ca3af">Unassigned</div>
+            <div class="win-ticket" style="font-size:13px;color:#9ca3af">—</div>
+            <div class="win-current" style="color:#9ca3af">Not active today</div>
+            <div class="win-meta">
+              <div class="win-meta-item">Queue: <span>2</span></div>
+              <div class="win-meta-item">Served: <span>0</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title"><i class="ti ti-users" style="font-size:14px;margin-right:5px;vertical-align:-2px"></i>Staff activity</div>
+          <div class="card-action">Full report</div>
+        </div>
+        <div>
+          <div class="staff-row">
+            <div class="online-dot dot-on"></div>
+            <div class="staff-av av-1">MR</div>
+            <div class="staff-info"><div class="staff-name">Mr. Reyes</div><div class="staff-win">Window 1 · Avg 8 min</div></div>
+            <div class="staff-stats"><div class="staff-count">21</div><div class="staff-lbl">served</div></div>
+          </div>
+          <div class="staff-row">
+            <div class="online-dot dot-on"></div>
+            <div class="staff-av av-2">MC</div>
+            <div class="staff-info"><div class="staff-name">Ms. Cruz</div><div class="staff-win">Window 2 · Avg 10 min</div></div>
+            <div class="staff-stats"><div class="staff-count">18</div><div class="staff-lbl">served</div></div>
+          </div>
+          <div class="staff-row">
+            <div class="online-dot dot-on"></div>
+            <div class="staff-av av-3">JS</div>
+            <div class="staff-info"><div class="staff-name">Mr. Santos</div><div class="staff-win">Window 3 · Avg 7 min</div></div>
+            <div class="staff-stats"><div class="staff-count">24</div><div class="staff-lbl">served</div></div>
+          </div>
+          <div class="staff-row">
+            <div class="online-dot dot-on"></div>
+            <div class="staff-av av-4">AL</div>
+            <div class="staff-info"><div class="staff-name">Ms. Lim</div><div class="staff-win">Supervisor · On floor</div></div>
+            <div class="staff-stats"><div class="staff-count">—</div><div class="staff-lbl">overseeing</div></div>
+          </div>
+          <div class="staff-row">
+            <div class="online-dot dot-off"></div>
+            <div class="staff-av av-5" style="opacity:0.5">JG</div>
+            <div class="staff-info"><div class="staff-name" style="color:#9ca3af">Mr. Garcia</div><div class="staff-win">Window 4 · Off shift</div></div>
+            <div class="staff-stats"><div class="staff-count" style="color:#9ca3af">0</div><div class="staff-lbl">served</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FULL QUEUE TABLE -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title"><i class="ti ti-list" style="font-size:14px;margin-right:5px;vertical-align:-2px"></i>Full queue — all windows</div>
+        <div class="card-action">Manage queue</div>
+      </div>
+      <table class="queue-table">
+        <colgroup>
+          <col style="width:50px"><col style="width:70px"><col style="width:70px">
+          <col style="width:160px"><col style="width:120px"><col style="width:85px">
+          <col style="width:85px"><col style="width:130px">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>#</th><th>Ticket</th><th>Window</th><th>Student</th>
+            <th>Purpose</th><th>Waiting</th><th>Wait time</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td><td style="font-weight:500">C-089</td><td>Win 1</td><td>Rico Flores</td>
+            <td><span class="purpose-tag pt-misc">Misc</span></td><td>12:43 PM</td>
+            <td style="color:#dc2626">13 min</td>
+            <td><div class="action-col"><button class="tbl-btn">Reassign</button><button class="tbl-btn danger">Skip</button></div></td>
+          </tr>
+          <tr>
+            <td>2</td><td style="font-weight:500">C-090</td><td>Win 1</td><td>Grace Villanueva</td>
+            <td><span class="purpose-tag pt-id">ID Fee</span></td><td>12:45 PM</td><td>11 min</td>
+            <td><div class="action-col"><button class="tbl-btn">Reassign</button><button class="tbl-btn danger">Skip</button></div></td>
+          </tr>
+          <tr>
+            <td>3</td><td style="font-weight:500">B-046</td><td>Win 2</td><td>Ana Reyes</td>
+            <td><span class="purpose-tag pt-tuition">Tuition</span></td><td>12:47 PM</td><td>9 min</td>
+            <td><div class="action-col"><button class="tbl-btn">Reassign</button><button class="tbl-btn danger">Skip</button></div></td>
+          </tr>
+          <tr>
+            <td>4</td><td style="font-weight:500">C-091</td><td>Win 1</td><td>Ramon Uy</td>
+            <td><span class="purpose-tag pt-tuition">Tuition</span></td><td>12:50 PM</td><td>6 min</td>
+            <td><div class="action-col"><button class="tbl-btn">Reassign</button><button class="tbl-btn danger">Skip</button></div></td>
+          </tr>
+          <tr>
+            <td>5</td><td style="font-weight:500">A-031</td><td>Win 3</td><td>Maria Santos</td>
+            <td><span class="purpose-tag pt-enroll">Enrollment</span></td><td>12:51 PM</td><td>5 min</td>
+            <td><div class="action-col"><button class="tbl-btn">Reassign</button><button class="tbl-btn danger">Skip</button></div></td>
+          </tr>
+          <tr>
+            <td>6</td><td style="font-weight:500">C-092</td><td>Win 1</td><td>Donna Santiago</td>
+            <td><span class="purpose-tag pt-lab">Lab Fee</span></td><td>12:54 PM</td><td>2 min</td>
+            <td><div class="action-col"><button class="tbl-btn">Reassign</button><button class="tbl-btn danger">Skip</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CHART + ALERTS -->
+    <div class="section-row">
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title"><i class="ti ti-chart-line" style="font-size:14px;margin-right:5px;vertical-align:-2px"></i>Hourly throughput</div>
+        </div>
+        <div class="chart-area">
+          <div style="display:flex;gap:16px;margin-bottom:8px;font-size:11px;color:#6b7280;">
+            <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:3px;background:#7a1a1a;border-radius:2px;display:inline-block"></span>Tickets served</span>
+            <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:3px;border:1.5px dashed #7a1a1a;display:inline-block"></span>Target (15/hr)</span>
+          </div>
+          <div style="position:relative;width:100%;height:150px">
+            <canvas id="throughput" role="img" aria-label="Hourly tickets served vs target">8AM=4, 9AM=14, 10AM=19, 11AM=22, 12PM=18, 1PM=10</canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title"><i class="ti ti-bell" style="font-size:14px;margin-right:5px;vertical-align:-2px"></i>Alerts &amp; flags</div>
+          <div class="card-action"><i class="ti ti-settings" style="font-size:12px"></i> Configure</div>
+        </div>
+        <div class="alert-row">
+          <div class="alert alert-danger">
+            <i class="ti ti-alert-circle"></i>
+            <div>
+              <div class="alert-text">Rico Flores (C-089) has been waiting 13 min — exceeds SLA threshold.</div>
+              <div class="alert-time">12:56 PM · Window 1</div>
+            </div>
+          </div>
+          <div class="alert alert-warn">
+            <i class="ti ti-clock"></i>
+            <div>
+              <div class="alert-text">Window 4 is closed. Queue backlog growing — consider opening it.</div>
+              <div class="alert-time">12:48 PM · System</div>
+            </div>
+          </div>
+          <div class="alert alert-info">
+            <i class="ti ti-info-circle"></i>
+            <div>
+              <div class="alert-text">Mr. Santos (Window 3) requested supervisor assistance.</div>
+              <div class="alert-time">12:52 PM · Window 3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  <script src="../../assets/js/cashier-dash.js"></script>
+</body>
+</html>

@@ -47,3 +47,20 @@
       btnR.classList.remove('selected', 'reg', 'cash');
     }
 }
+function loadHistory() {
+
+    const number =
+        document.getElementById("userNumber").value.trim();
+
+    if (number === "") {
+        alert("Please enter your phone number.");
+        return;
+    }
+
+    // show history panel
+    document.getElementById("historyList").style.display = "block";
+
+    // OPTIONAL:
+    // hide login after load
+    document.querySelector(".history-login").style.display = "none";
+}

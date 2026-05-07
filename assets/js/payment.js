@@ -98,13 +98,13 @@ function addQueue() {
 
     var priorityChoice = document.querySelector('input[name="priority"]:checked');
 
-if (!priorityChoice) {
-    alert("Please select a priority type.");
-    return;
-}
+    if (!priorityChoice) {
+        alert("Please select a priority type.");
+        return;
+    }
 
-// N/A = regular queue
-var isPriority = (priorityChoice.value !== "na");
+    // N/A = regular queue
+    var isPriority = (priorityChoice.value !== "na");
 
     var category = "Regular";
     if (isPriority) {
@@ -117,12 +117,12 @@ var isPriority = (priorityChoice.value !== "na");
     var counter = parseInt(localStorage.getItem("queueCounter") || "0") + 1;
     localStorage.setItem("queueCounter", counter);
     var qNum = (isPriority ? "PR-" : "Q-") + String(counter).padStart(3, "0");
-    
+
     queueList.push({
-        id: qNum, 
-        name: userName, 
+        id: qNum,
+        name: userName,
         phone: userPhone,
-        purpose: selectedService, 
+        purpose: selectedService,
         status: "waiting",
         time: new Date().toLocaleTimeString(),
         type: isPriority ? "priority" : "regular",
@@ -134,6 +134,22 @@ var isPriority = (priorityChoice.value !== "na");
         return 0;
     });
     localStorage.setItem("queueList", JSON.stringify(queueList));
+    // SAVE TO HISTORY
+    var historyList = JSON.parse(localStorage.getItem("queueHistory")) || [];
+
+    historyList.push({
+        id: qNum,
+        name: userName,
+        phone: userPhone,
+        service: selectedService,
+        status: "waiting",
+        type: isPriority ? "priority" : "regular",
+        window: getWindowFromService(selectedService),
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString()
+    });
+
+    localStorage.setItem("queueHistory", JSON.stringify(historyList));
 
     localStorage.setItem("queue_userService", selectedService);
     localStorage.setItem("queue_userName", userName);

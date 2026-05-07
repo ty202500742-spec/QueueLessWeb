@@ -13,6 +13,18 @@ function triggerPhoneNotif(student, type) {
     localStorage.setItem("phoneNotif", JSON.stringify(payload));
 }
 
+function tick() {
+    const now = new Date();
+    let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+    const ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+
+    document.getElementById("clock").textContent =
+        `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")} ${ampm}`;
+}
+tick();
+setInterval(tick, 1000);
+
 
 // ─────────────────────────────
 // UPDATE REPORT STATUS (still used, but NO buttons anymore)

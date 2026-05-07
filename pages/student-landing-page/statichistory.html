@@ -121,7 +121,12 @@
                 <label for="f-miss" class="filter-lbl lbl-miss">Missed</label>
             </div>
 
-            <div class="history-list">
+            <div class="history-login">
+    <input type="text" id="userNumber" placeholder="Enter your phone number">
+    <button onclick="loadHistory()">Load History</button>
+</div>
+
+<div class="history-list" id="historyList" style="display:none;">
 
                 <div class="history-item is-active">
                     <div class="h-icon" style="background:#dcfce7;">💳</div>
