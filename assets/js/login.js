@@ -5,7 +5,7 @@ function handleLogin(e) {
     let password = document.querySelector('input[name="password"]').value;
 
     // ADMIN LOGIN
-    if (email === "admin@wmsu.edu.ph" && password === "admin123") {
+    if (email === "admin@wmsu.edu.ph" && password === "Admin123") {
         window.location.href = "../ADMIN-DASHBOARD/Admin-Dashboard.html";
     }
 
