@@ -2,20 +2,17 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="assets/css/main.css">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../assets/css/quenumber.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queueuless | Queue</title>
+    <title>Queueuless | Main</title>
+
 
 </head>
 
 <body>
 
-     <nav>
-
-
-
-
+        <nav>
         <!-- ========== HAMBURGER BUTTON (place this in your topbar) ========== -->
         <button class="hamburger" id="ham" onclick="toggleSidebar()" aria-label="Open menu">
             <div class="bar"></div>
@@ -23,12 +20,12 @@
             <div class="bar"></div>
         </button>
         <ul class="nav-links">
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="service-selection.html" >Services</a></li>
-            <li><a href="Que-number.html" class="checked">Que-Number</a></li>
+            <li><a href="index.html" class="checked">Home</a></li>
+            <li><a href="pages/student-landing-page/service-selection.html" >Services</a></li>
+            <li><a href="pages/student-landing-page/Que-number.html" >Que-Number</a></li>
         </ul>
-        <a href="../../index.html" class="nav-logo-link">
-            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
+        <a href="index.html" class="nav-logo-link">
+            <img src="assets/images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
         </a>
         <!-- ========== OVERLAY ========== -->
         <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
@@ -98,7 +95,7 @@
                                 stroke="#6b7280" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </div>
-                     <a href="../Login-pages/login.html" style="text-decoration: none; color: rgb(95, 0, 0);"> Log in as admin</a>
+                    <a href="pages/Login-pages/login.html" style="text-decoration: none; color: rgb(95, 0, 0);"> Log in as admin</a>
                 </div>
             </div>
 
@@ -107,29 +104,87 @@
 
     </nav>
 
-    <div class="bodd1">
-        <div class="bodd2">
-            <div class="queue-container">
-                <h1>Now in Queue for</h1>
+    <div class="hero">
+        <div class="hero4">
+            <h1>Welcome!</h1>
+            <p>Simplifying Journeys, Enhancing Experiences</p>
 
-                <div id="currentNumber" class="current-number">---</div>
-                <div id="statusMessage" class="status-message">Loading your position...</div>
+            <div class="butt">
+              <a href='pages/student-landing-page/service-selection.html' class="b1">Get Queue Number</a>
+               <a href='pages/student-landing-page/Que-number.html' class="b2">My Queue Number</a>
+            </div>
+        </div>
 
-                <ul id="queueList" class="queue-list">
-                    <!-- Queue items will be added here dynamically -->
-                </ul>
+        <div class="stats">
+            <div class="stat">
+                <div class="n">75%</div>
+                <div class="l">Less Waiting</div>
+            </div>
+            <div class="stat">
+                <div class="n">2,500+</div>
+                <div class="l">Students Daily</div>
+            </div>
+            <div class="stat">
+                <div class="n">8</div>
+                <div class="l">Windows Open</div>
+            </div>
+        </div>
 
-                <a href="#" class="cancel-btn" onclick="cancelQueue()">Cancel Queue</a>
+        <div class="steps">
+            <h2>HOW IT WORKS:</h2>
+            <div class="sg">
+                <div class="step">
+                    <div class="nb">1</div>
+                    <h3>Choose Service</h3>
+                    <p>Pick the service you need.</p>
+                </div>
+                <div class="step">
+                    <div class="nb">2</div>
+                    <h3>Go to Window</h3>
+                    <p>Choose your preferred window.</p>
+                </div>
+                <div class="step">
+                    <div class="nb">3</div>
+                    <h3>Get Number</h3>
+                    <p>Get your queue number.</p>
+                </div>
+                <div class="step">
+                    <div class="nb">4</div>
+                    <h3>Track Position</h3>
+                    <p>Monitor your position live.</p>
+                </div>
+                <div class="step">
+                    <div class="nb">5</div>
+                    <h3>Receive Notification</h3>
+                    <p>System will notify your position.</p>
+                </div>
+                <div class="step">
+                    <div class="nb">6</div>
+                    <h3>Receive Update</h3>
+                    <p>System will update you on your queue status.</p>
+                </div>
+                <div class="step">
+                    <div class="nb">7</div>
+                    <h3>Confirm your queue</h3>
+                    <p>Every 5 mins, system will ask you if you're still queueing.</p>
+                </div>
+                <div class="step">
+                    <div class="nb">8</div>
+                    <h3>Wait for your turn</h3>
+                    <p>Wait until it's your turn to be served.</p>
+                </div>
             </div>
         </div>
     </div>
 
+
     <footer>
-        © 2026 Queueuless | Western Mindanao State University
+        © 2026 Queueless | Western Mindanao State University
     </footer>
 
-    <script src="../../assets/js/quenum.js"></script>
-</body>
 
+       <script src="assets/js/Main.js"></script> 
+        
+</body>
 
 </html>

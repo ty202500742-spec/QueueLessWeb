@@ -545,3 +545,64 @@
   .toast.show {
     opacity: 1;
   }
+
+  /* =========================================
+   HCI ANIMATIONS & HOVER EFFECTS
+========================================= */
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.queue-table tbody tr {
+    animation: slideInRight 0.3s ease-out forwards;
+}
+
+.current-ticket {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.current-ticket:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(139, 0, 0, 0.25);
+}
+
+.stat-box {
+    transition: transform 0.2s ease;
+}
+.stat-box:hover {
+    transform: scale(1.03);
+    border-color: #8B0000;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (WebDev)
+========================================= */
+@media screen and (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr; /* Stacks the right panel under the main panel */
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .topbar {
+        padding: 0 15px;
+    }
+    
+    .topbar-right .clock {
+        display: none; /* Hide clock on mobile to save space */
+    }
+    
+    .ct-number {
+        font-size: 40px; /* Scale down the serving number */
+    }
+    
+    .queue-table th, .queue-table td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+    
+    .queue-card {
+        overflow-x: auto; /* Allows table to scroll horizontally if needed */
+    }
+}

@@ -11,12 +11,24 @@
 
 <div class="topbar">
   <div class="topbar-left">
-    <div class="logo-mark">Q</div>
+    <img src="../../assets/images/UEUELESS.png" alt="Queueless Logo" style="height: 30px; object-fit: contain;">
     <div>
-      <div class="office-label">Cashier Window</div>
-      <div class="office-sub">Window 1 — Staff Portal</div>
+      <div class="office-label">Cashier Dashboard</div>
+      <div class="office-sub">
+        <select id="windowFilter" onchange="renderQueue()" style="background:transparent; color:white; border:1px solid rgba(255,255,255,0.4); border-radius:4px; padding:2px; font-size:11px; cursor:pointer;">
+            <option value="all" style="color:black;">All Cashier Windows</option>
+            <option value="Cashier Window 1" style="color:black;">Window 1 (Payments/TES)</option>
+            <option value="Cashier Window 2" style="color:black;">Window 2-3 (Checks)</option>
+            <option value="Cashier Window 4" style="color:black;">Window 4 (Collection Priority)</option>
+            <option value="Cashier Window 5" style="color:black;">Window 5 (Collection Regular)</option>
+            <option value="Cashier Window 6" style="color:black;">Window 6 (TES Scholars)</option>
+            <option value="Cashier Window 7" style="color:black;">Window 7 (Petty Cash)</option>
+            <option value="Cashier Window 8" style="color:black;">Window 8-9 (Assessment)</option>
+        </select>
+      </div>
     </div>
   </div>
+  
   <div class="topbar-right">
     <div class="status-pill">
       <span class="status-dot"></span>
