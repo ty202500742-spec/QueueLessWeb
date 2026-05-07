@@ -158,73 +158,70 @@ body {
 .btn-cancel { background: #eee; color: #333; }
 .btn-confirm { background: #8B0000; color: white; }
 
+/* =========================================
+   MOBILE RESPONSIVENESS (WebDev Requirement)
+========================================= */
 @media (max-width: 900px) {
-    .wrapper, body {
+    .wrapper {
         flex-direction: column;
-        display: flex;
     }
     
-    /* Change Sidebar from fixed side to relative top */
     .sidebar {
         width: 100%;
         height: auto;
         position: relative;
-        padding: 15px;
-        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
+        padding: 10px;
+        z-index: 10;
     }
 
     .logo-area {
         width: 100%;
-        margin-bottom: 10px;
-        padding-bottom: 10px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
     }
 
     .sidebar-logo {
-        max-height: 50px; /* Smaller logo on mobile */
+        max-height: 45px; /* Smaller logo for mobile */
     }
 
     .menu-label {
-        display: none; /* Hide labels to save space */
+        display: none; /* Hide labels to save space on mobile */
     }
 
     .menu-link {
-        margin-bottom: 0;
-        padding: 8px 12px;
-        font-size: 13px;
-        flex: 1 1 auto;
+        flex: 1 1 30%; /* Align menu buttons in a row */
         text-align: center;
+        font-size: 12px;
+        padding: 8px 5px;
+        margin: 2px;
     }
 
     .logout-link {
-        margin-top: 0;
-        width: 100%;
+        flex: 1 1 100%;
+        margin-top: 5px;
     }
 
-    /* Reset Main Content */
     .main-content {
         margin-left: 0;
         width: 100%;
     }
 
     .topbar {
-        padding: 15px;
-        height: auto;
         flex-direction: column;
+        height: auto;
+        padding: 15px;
         gap: 10px;
-        text-align: center;
     }
 
     .page-wrapper {
         padding: 15px;
     }
-    
-    .modal-box {
-        margin: 20px;
-        max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    .menu-link {
+        flex: 1 1 45%; /* Switch to 2 columns of buttons on very small screens */
     }
 }

@@ -111,7 +111,7 @@ function closeSidebar() {
 }
 
 function historygo() {
-  window.location.href = 'history.html';
+  window.location.href = 'statichistory.html';
 }
 
 function dashboardgo() {

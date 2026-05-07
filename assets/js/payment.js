@@ -93,12 +93,18 @@ function addQueue() {
 
     if (!userName) { alert("Please enter your name."); return; }
     if (!userPhone) { alert("Please enter your phone number."); return; }
+    if (!validatePriority()) return;
     if (!terms) { alert("You must accept the Terms & Conditions!"); return; }
 
     var priorityChoice = document.querySelector('input[name="priority"]:checked');
-    if (!priorityChoice) { alert("Please select Yes or No for VIP/PWD."); return; }
 
-    var isPriority = (priorityChoice.value === "yes");
+if (!priorityChoice) {
+    alert("Please select a priority type.");
+    return;
+}
+
+// N/A = regular queue
+var isPriority = (priorityChoice.value !== "na");
 
     var category = "Regular";
     if (isPriority) {
@@ -111,7 +117,7 @@ function addQueue() {
     var counter = parseInt(localStorage.getItem("queueCounter") || "0") + 1;
     localStorage.setItem("queueCounter", counter);
     var qNum = (isPriority ? "PR-" : "Q-") + String(counter).padStart(3, "0");
-
+    
     queueList.push({
         id: qNum, 
         name: userName, 
@@ -191,7 +197,7 @@ function closeSidebar() {
     document.getElementById("overlay").classList.remove("active");
     document.getElementById("ham").classList.remove("active");
 }
-function historygo() { window.location.href = "history.html"; }
+function historygo() { window.location.href = "statichistory.html"; }
 function dashboardgo() { window.location.href = "../../index.html"; }
 function profilego() { window.location.href = "student-profile.html"; }
 
@@ -265,18 +271,33 @@ naRadio.addEventListener("change", () => {
 });
 
 function validatePriority() {
-    if (pwdRadio.checked && pwdInput.value.trim() === "") {
-        alert("Please enter PWD ID number");
+
+    const idInput = document.getElementById("jq-idnum");
+
+    const priorityChoice = document.querySelector('input[name="priority"]:checked');
+
+    if (!priorityChoice) return false;
+
+    // N/A = skip validation completely
+    if (priorityChoice.value === "na") {
+        idInput.required = false;
+        idInput.value = "";
+        return true;
+    }
+
+    // everything else requires ID
+    idInput.required = true;
+
+    if (idInput.value.trim() === "") {
+        alert("Please enter your verification ID");
+        idInput.focus();
         return false;
     }
 
-    if (seniorRadio.checked && seniorInput.value.trim() === "") {
-        alert("Please enter Senior ID number");
-        return false;
-    }
-
-    if (othersRadio.checked && otherInput.value.trim() === "") {
+    // only check "other" extra field if needed
+    if (priorityChoice.value === "others" && otherInput.value.trim() === "") {
         alert("Please specify other priority");
+        otherInput.focus();
         return false;
     }
 
