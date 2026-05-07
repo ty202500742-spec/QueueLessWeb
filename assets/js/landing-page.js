@@ -27,3 +27,6 @@ let isOpen = false;
   function profilego() {
     window.location.href = 'student-profile.html';
   }
+  function Phonego() {
+    window.location.href = 'pages/simulation/phone.html';
+  }
