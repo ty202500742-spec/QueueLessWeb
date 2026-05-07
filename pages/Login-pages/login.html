@@ -1,37 +1,28 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-    <title>Queueless | WMSU Login</title>
+    <title>Queueless | Admin Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/login.css">
 </head>
-
 <body>
 
-
-
 <img src="../../assets/images/wmsu.jpg" alt="WMSU Background"
-    style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0; z-index:-1;">
+    style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0; z-index:-1; filter: brightness(0.6);">
 
 <div class="card">
-
-    <!-- Logo -->
     <div class="logo-container">
-        <img src="../../assets/images/queueless.png" alt="Queueless Logo" class="logo">
+        <img src="../../assets/images/UEUELESS.png" alt="Queueless Logo" class="logo" style="max-width: 150px;">
     </div>
 
-    <!-- FORM -->
     <div class="form-container">
         <div class="form-title">
-            <h2>Login</h2>
-            <p class="sub">Enter your WMSU credentials</p>
+            <h2>Staff Login</h2>
+            <p class="sub">Enter your WMSU administrative credentials</p>
         </div>
 
         <form onsubmit="handleLogin(event)">
-
             <label>Email</label>
             <input type="email" name="email" placeholder="admin@wmsu.edu.ph" required>
 
@@ -39,16 +30,10 @@
             <input type="password" name="password" placeholder="Password" required>
 
             <button type="submit" class="btn">Login</button>
-
-            
-
         </form>
     </div>
-
 </div>
 
 <script src="../../assets/js/login.js"></script>
-
 </body>
-
 </html>

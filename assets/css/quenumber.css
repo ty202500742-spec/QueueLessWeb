@@ -519,3 +519,75 @@ footer {
   color: #8B0000;
   font-weight: 600;
 }
+
+/* =========================================
+   ANIMATIONS & HCI UI UPGRADES
+========================================= */
+@keyframes popInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.queue-container {
+    animation: popInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    background: #ffffff;
+    border-top: 6px solid #8B0000; /* WMSU Accent */
+    transition: box-shadow 0.3s ease;
+}
+
+.queue-container:hover {
+    box-shadow: 0 15px 35px rgba(139, 0, 0, 0.15);
+}
+
+.current-number {
+    animation: pulseText 2s infinite;
+}
+
+@keyframes pulseText {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); color: #a80000; }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+@media screen and (max-width: 600px) {
+    .bodd2 {
+        padding: 20px 10px;
+        align-items: flex-start; /* Prevents cut-off on small screens */
+        padding-top: 80px; /* Accounts for fixed navbar */
+    }
+
+    .queue-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 25px 15px;
+        margin: 0 auto;
+    }
+
+    .current-number {
+        font-size: 48px; /* Slightly smaller for mobile */
+    }
+
+    .queue-list li {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .grid-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .optionchoice {
+        width: 100%;
+        padding: 12px;
+    }
+}

@@ -10,12 +10,20 @@
 
 <div class="topbar">
   <div class="topbar-left">
-    <div class="logo-mark">Q</div>
+    <img src="../../assets/images/UEUELESS.png" alt="Queueless Logo" style="height: 30px; object-fit: contain;">
     <div>
-      <div class="office-label">Registrar Window</div>
-      <div class="office-sub">Window 2 — Staff Portal</div>
+      <div class="office-label">Registrar Dashboard</div>
+      <div class="office-sub">
+        <select id="windowFilter" onchange="renderQueue()" style="background:transparent; color:white; border:1px solid rgba(255,255,255,0.4); border-radius:4px; padding:2px; font-size:11px; cursor:pointer;">
+            <option value="all" style="color:black;">All Registrar Windows</option>
+            <option value="Registrar Window 1" style="color:black;">Window 1 (Clearance)</option>
+            <option value="Registrar Window 2" style="color:black;">Window 2-4 (Documents)</option>
+            <option value="Registrar Window 5" style="color:black;">Window 5-6 (Releasing)</option>
+        </select>
+      </div>
     </div>
   </div>
+  
   <div class="topbar-right">
     <div class="status-pill">
       <span class="status-dot"></span>

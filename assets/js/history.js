@@ -18,7 +18,7 @@
     document.getElementById('ham').classList.remove('active');
   }
   function historygo() {
-    window.location.href = 'history.html';
+    window.location.href = 'statichistory.html';
   }
    function dashboardgo() {
     window.location.href = '../../index.html';
