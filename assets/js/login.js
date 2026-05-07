@@ -6,7 +6,7 @@ function handleLogin(e) {
 
     // ADMIN LOGIN
     if (email === "admin@wmsu.edu.ph" && password === "admin123") {
-        window.location.href = "../ADMIN-DASHBOARD/admin-Dashboard.html";
+        window.location.href = "../ADMIN-DASHBOARD/Admin-Dashboard.html";
     }
 
     // STUDENT LOGIN
