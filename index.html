@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="assets/css/landing-page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Queueuless | Main</title>
-
-
 </head>
-
 <body>
    <nav>
-
-        <!-- ========== HAMBURGER BUTTON (place this in your topbar) ========== -->
-        <button class="hamburger" id="ham" onclick="toggleSidebar()" aria-label="Open menu">
+        <button class="hamburger" id="ham" aria-label="Open menu">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
@@ -27,175 +21,70 @@
         <a href="index.html" class="nav-logo-link">
             <img src="assets/images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
         </a>
-        <!-- ========== OVERLAY ========== -->
-        <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-
-        <!-- ========== SIDEBAR ========== -->
+        <div class="overlay" id="overlay"></div>
         <div class="sidebar" id="sidebar">
-
-            <!-- Header -->
             <div class="sb-header">
                 <span class="sb-title">Menu</span>
-                <button class="close-btn" onclick="closeSidebar()" aria-label="Close">
+                <button class="close-btn" aria-label="Close">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.5"
-                            stroke-linecap="round" />
+                        <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                     </svg>
                 </button>
             </div>
-
-            <!-- Profile -->
             <div class="profile-section">
-                <div class="avatar">Q-001</div>
-                <div class="profile-name">Queued for registrar</div>
-                <div class="profile-email">James Pitir</div>
-             
-                    
-                   
-                </span>
+                <div class="avatar">Q</div>
+                <div class="profile-name">Queueless</div>
+                <div class="profile-email">WMSU Queue System</div>
             </div>
-
-            <!-- Navigation -->
             <div class="section-label">Navigation</div>
-
-            <div class="nav-item active" onclick="dashboardgo()">
-                <div class="nav-icon blue">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <rect x="2" y="2" width="5" height="5" rx="1" fill="#185FA5" />
-                        <rect x="9" y="2" width="5" height="5" rx="1" fill="#185FA5" />
-                        <rect x="2" y="9" width="5" height="5" rx="1" fill="#185FA5" />
-                        <rect x="9" y="9" width="5" height="5" rx="1" fill="#185FA5" />
-                    </svg>
-                </div>
-                Dashboard
-            </div>
-
-            <div class="nav-item" onclick="historygo()">
-                <div class="nav-icon amber">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <circle cx="8" cy="8" r="6" stroke="#BA7517" stroke-width="1.4" />
-                        <path d="M8 5v3l2 2" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" />
-                    </svg>
-                </div>
-                History
-                <span class="history-badge">12</span>
-            </div>
-
-            
-            <div class="nav-item" onclick="Phonego()">
-                <div class="nav-icon blue">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <rect x="2" y="2" width="5" height="5" rx="1" fill="#185FA5" />
-                        <rect x="9" y="2" width="5" height="5" rx="1" fill="#185FA5" />
-                        <rect x="2" y="9" width="5" height="5" rx="1" fill="#185FA5" />
-                        <rect x="9" y="9" width="5" height="5" rx="1" fill="#185FA5" />
-                    </svg>
-                </div>
-                Phone simulator
-            </div>
-    
-            <!-- Footer / Logout -->
+            <a href="index.html" class="nav-item active">Dashboard</a>
+            <a href="pages/student-landing-page/statichistory.html" class="nav-item">History</a>
+            <a href="pages/simulation/phone.html" class="nav-item">Phone Simulator</a>
             <div class="sb-footer">
-                <div class="nav-item logout">
-                    <div class="nav-icon gray">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 14H3a1 1 0 01-1-1V3a1 1 0 011-1h3M10.5 11.5l3-3.5-3-3.5M13.5 8H6"
-                                stroke="#6b7280" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                     <a href="pages/Login-pages/login.html" style="text-decoration: none; color: rgb(95, 0, 0);"> Log in as admin</a>
-                </div>
+                <a href="pages/Login-pages/login.html" class="nav-item logout">Log in as admin</a>
             </div>
-
         </div>
-
    </nav>
-    
 
 <section class="hero">
   <div class="hero-badge">Queue Management System — WMSU</div>
   <h1>NO MORE LONG LINES.<br><em>Just queue smarter.</em></h1>
   <p>Queueless helps WMSU students skip the wait — join a queue digitally, track your position live, and arrive only when it's your turn.</p>
   <div class="hero-actions">
-     
     <a href="pages/student-landing-page/service-selection.html" class="btn-white">Get your queue number</a>
-    <a href="#steps"  class="btn-ghost">See how it works</a>
+    <a href="#steps" class="btn-ghost">See how it works</a>
   </div>
 </section>
- 
 
 <div class="stats">
   <div class="stats-grid">
-    <div class="stat-card">
-      <p class="stat-num">75%</p>
-      <p class="stat-label">Less waiting time</p>
-    </div>
-    <div class="stat-card">
-      <p class="stat-num">2,500+</p>
-      <p class="stat-label">Students served daily</p>
-    </div>
-    <div class="stat-card">
-      <p class="stat-num">8</p>
-      <p class="stat-label">Service windows open</p>
-    </div>
+    <div class="stat-card"><p class="stat-num">75%</p><p class="stat-label">Less waiting time</p></div>
+    <div class="stat-card"><p class="stat-num">2,500+</p><p class="stat-label">Students served daily</p></div>
+    <div class="stat-card"><p class="stat-num">8</p><p class="stat-label">Service windows open</p></div>
   </div>
 </div>
- 
 
 <section class="steps" id="steps">
   <div class="section-header">
     <h2>Simple, Fast, Effortless!</h2>
-    <p>Eight easy steps stand between you and a stress-free transaction at WMSU:</p>
+    <p>Eight easy steps stand between you and a stress‑free transaction at WMSU.</p>
   </div>
   <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <p class="step-name">Choose a Service</p>
-      <p class="step-desc">Pick the service you need.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <p class="step-name">Go to Window</p>
-      <p class="step-desc">Choose your preferred Window.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <p class="step-name">Get Queue</p>
-      <p class="step-desc">Get your Queue Number.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">4</div>
-      <p class="step-name">Track Position</p>
-      <p class="step-desc">Monitor your position live.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">5</div>
-      <p class="step-name">Receive Notification</p>
-      <p class="step-desc">System will notify your position.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">6</div>
-      <p class="step-name">Received Update</p>
-      <p class="step-desc">System will update you on your queue status.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">7</div>
-      <p class="step-name">Confirm your queue</p>
-      <p class="step-desc">Every 5 mins, system will ask you if you're still queueing.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">8</div>
-      <p class="step-name">Wait for your turn</p>
-      <p class="step-desc">Wait until it's your turn to be served.</p>
-    </div>
-
+    <div class="step-card"><div class="step-num">1</div><p class="step-name">Choose a Service</p><p class="step-desc">Pick the service you need.</p></div>
+    <div class="step-card"><div class="step-num">2</div><p class="step-name">Go to Window</p><p class="step-desc">Choose your preferred Window.</p></div>
+    <div class="step-card"><div class="step-num">3</div><p class="step-name">Get Queue</p><p class="step-desc">Get your Queue Number.</p></div>
+    <div class="step-card"><div class="step-num">4</div><p class="step-name">Track Position</p><p class="step-desc">Monitor your position live.</p></div>
+    <div class="step-card"><div class="step-num">5</div><p class="step-name">Receive Notification</p><p class="step-desc">System will notify you.</p></div>
+    <div class="step-card"><div class="step-num">6</div><p class="step-name">Received Update</p><p class="step-desc">Stay updated on queue status.</p></div>
+    <div class="step-card"><div class="step-num">7</div><p class="step-name">Confirm your queue</p><p class="step-desc">Confirm you're still queueing.</p></div>
+    <div class="step-card"><div class="step-num">8</div><p class="step-name">Wait for your turn</p><p class="step-desc">Wait until it's your turn.</p></div>
   </div>
 </section>
- 
+
 <section class="about" id="about">
   <div class="about-inner">
     <div class="about-visual">
-      <img src="assets/images/UEUELESS.png" class="about-logo">
+      <img src="assets/images/UEUELESS.png" class="about-logo" alt="QueueLess">
       <h3>Built for WMSU</h3>
       <p>Designed specifically for the needs of Western Mindanao State University students and staff.</p>
       <div class="about-tag-list">
@@ -209,46 +98,23 @@
     <div class="about-text">
       <div class="section-header">
         <span class="section-tag">About us</span>
-          <h2>We exist to end the waiting game.</h2>
+        <h2>We exist to end the waiting game.</h2>
       </div>
-      <p class="about-body">
-        Long queues at university offices wastes hours of student's time every day. <strong>QUEUELESS</strong> changes that by moving the waiting experience online — you join a queue from your phone, track your position live, and only show up when it's truly your turn.
-      </p>
-       <p class="about-body"><strong>QUEUELESS</strong> is a digital queue management system created for WMSU — eliminating long lines so students can spend time on what actually matters.</p>
+      <p class="about-body">Long queues at university offices waste hours of student time every day. <strong>QUEUELESS</strong> changes that by moving the waiting experience online — join a queue from your phone, track your position live, and only show up when it's truly your turn.</p>
       <div class="about-values">
-        <div class="about-value">
-          <div class="about-value-dot"></div>
-          <div class="about-value-text">
-            <strong>Designed for students</strong>
-            <span>Built around the real daily frustrations of WMSU students at the registrar, cashier, and admin offices.</span>
-          </div>
-        </div>
-        <div class="about-value">
-          <div class="about-value-dot"></div>
-          <div class="about-value-text">
-            <strong>Real-time position tracking</strong>
-            <span>Always know exactly where you are in the queue with live updates and notifications.</span>
-          </div>
-        </div>
-        <div class="about-value">
-          <div class="about-value-dot"></div>
-          <div class="about-value-text">
-            <strong>No app download needed</strong>
-            <span>Works directly in your browser — no installation, no hassle.</span>
-          </div>
-        </div>
+        <div class="about-value"><div class="about-value-dot"></div><div class="about-value-text"><strong>Designed for students</strong><span>Built around the real frustrations of WMSU students.</span></div></div>
+        <div class="about-value"><div class="about-value-dot"></div><div class="about-value-text"><strong>Real‑time position tracking</strong><span>Always know exactly where you are in the queue.</span></div></div>
+        <div class="about-value"><div class="about-value-dot"></div><div class="about-value-text"><strong>No app download needed</strong><span>Works directly in your browser.</span></div></div>
       </div>
     </div>
   </div>
 </section>
- 
 
 <footer>
   <span class="footer-brand">Queueless — WMSU</span>
   <span class="footer-copy">© 2025 Queueless. Queue Management System for Western Mindanao State University.</span>
 </footer>
-    <script src="assets/js/landing-page.js"></script>
-</body>
-</body>
 
+<script src="assets/js/landing-page.js"></script>
+</body>
 </html>

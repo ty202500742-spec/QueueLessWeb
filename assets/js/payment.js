@@ -1,170 +1,114 @@
 var selectedService = "";
+var selectedWindow = "";
 
-function chooseService(purpose) {
+function chooseService(purpose, windowName) {
     selectedService = purpose;
-    for (var i = 1; i <= 8; i++) {
-        var box = document.getElementById("confirmBox" + i);
-        if (box) box.style.display = "block";
-    }
-    var requirements = "";
-    switch (purpose) {
-        case "Enrollment": case "EAT": case "NAT": case "Interview":
-            requirements = "CET Results"; break;
-        case "Shifting": case "Readmission": case "Miscellaneous":
-        case "Certificate": case "Diploma":
-            requirements = "School ID or COR"; break;
-        case "Tuition Fee": case "TOR": case "ID Request": case "ID Replacement":
-            requirements = "COR and Required Amount"; break;
-        case "Other fees":
-            requirements = "School ID"; break;
-        case "Scholarship":
-            requirements = "Form 138 or any grade report"; break;
-        default:
-            requirements = "Check office for Requirements";
-    }
-    for (var j = 1; j <= 8; j++) {
-        var selectedEl = document.getElementById("selectedText" + j);
-        var reqEl = document.getElementById("requirementText" + j);
-        if (selectedEl) selectedEl.innerHTML = "<strong>You selected:</strong> " + purpose;
-        if (reqEl) reqEl.innerHTML = "<strong>Requirements:</strong> " + requirements;
-    }
-}
-
-function getWindowFromService(service) {
-    // Registrar windows mapping
-    if (["Enrollment","Shifting","Readmission"].includes(service)) 
-        return "Window 1 - School to School & Faculty Clearance";
-    if (["TOR","Certificate","Diploma"].includes(service)) 
-        return "Window 2 - Request of Documents";
-    if (["EAT","NAT","Interview"].includes(service)) 
-        return "Window 5 - Releasing";
-    if (["ID Request","ID Replacement","Scholarship"].includes(service)) 
-        return "Window 6 - Releasing";
-    if (["General Inquiry","administrative concerns"].includes(service)) 
-        return "Window 4 - Request of Documents"; // fallback
-
-    // Cashier windows mapping
-    if (service === "Tuition Fee") 
-        return "Window 1 - Releasing of Payments / TES";
-    if (service === "Miscellaneous") 
-        return "Window 4 - Collection (Priority)";
-    if (service === "Other fees") 
-        return "Window 5 - Collection";
-    if (service === "Lab Fee") 
-        return "Window 8 - Assessment";
-    if (service === "ID Fee") 
-        return "Window 7 - Releasing of Petty Cash";
-
-    return "Window 1 - School to School & Faculty Clearance"; // default
+    selectedWindow = windowName;
+    var el = document.getElementById("modalServicePreview");
+    if (el) el.textContent = purpose + " (" + windowName + ")";
+    openInfoModal();
 }
 
 function openInfoModal() {
-    if (!selectedService) {
-        alert("Please select a service first.");
-        return;
-    }
-
-    if (history.pushState) {
-        history.pushState("", document.title,
-            window.location.pathname + window.location.search);
-    }
-
-    var preview = document.getElementById("modalServicePreview");
-    if (preview) preview.textContent = selectedService;
-
+    if (!selectedService) { alert("Please select a service first."); return; }
     var modal = document.getElementById("infoModal");
     modal.style.display = "flex";
-    modal.style.alignItems = "center";
-    modal.style.justifyContent = "center";
-    modal.style.position = "fixed";
-    modal.style.top = "0";
-    modal.style.left = "0";
-    modal.style.width = "100%";
-    modal.style.height = "100%";
-    modal.style.background = "rgba(0,0,0,0.55)";
-    modal.style.zIndex = "9999";
+    modal.style.opacity = "1";
+    modal.style.visibility = "visible";
+}
+
+function closeInfoModal() {
+    var modal = document.getElementById("infoModal");
+    modal.style.display = "none";
+    modal.style.opacity = "0";
+    modal.style.visibility = "hidden";
 }
 
 function addQueue() {
-    var userName = document.getElementById("name").value.trim();
-    var userPhone = document.getElementById("phone").value.trim();
+    var firstName = document.getElementById("q-firstname").value.trim();
+    var middleName = document.getElementById("q-middlename").value.trim();
+    var lastName = document.getElementById("q-lastname").value.trim();
+    var suffix = document.getElementById("q-suffix").value.trim();
+    var phone = document.getElementById("q-phone").value.trim();
     var terms = document.getElementById("terms").checked;
 
-    if (!userName) { alert("Please enter your name."); return; }
-    if (!userPhone) { alert("Please enter your phone number."); return; }
-    if (!validatePriority()) return;
+    if (!firstName || !lastName) { alert("Please enter your first and last name."); return; }
+    if (!phone) { alert("Please enter your phone number."); return; }
     if (!terms) { alert("You must accept the Terms & Conditions!"); return; }
 
+    var fullName = firstName + (middleName ? " " + middleName : "") + " " + lastName + (suffix ? " " + suffix : "");
+
+    // Priority check
     var priorityChoice = document.querySelector('input[name="priority"]:checked');
-
-    if (!priorityChoice) {
-        alert("Please select a priority type.");
-        return;
-    }
-
-    // N/A = regular queue
-    var isPriority = (priorityChoice.value !== "na");
-
+    var isPriority = false;
     var category = "Regular";
-    if (isPriority) {
-        var otherField = document.getElementById("otherPriority");
-        var otherValue = otherField ? otherField.value.trim() : "";
-        category = otherValue || "Priority";
+    if (priorityChoice) {
+        isPriority = (priorityChoice.value !== "na");
+        if (isPriority) category = priorityChoice.value;
     }
 
-    var queueList = JSON.parse(localStorage.getItem("queueList")) || [];
+    // Validate priority ID if needed
+    if (isPriority && ["PWD","Senior Citizen","VIP"].includes(category)) {
+        var idNum = document.getElementById("jq-idnum").value.trim();
+        if (!idNum) { alert("Please enter your verification ID for priority queue."); return; }
+    }
+
+    var queueList = JSON.parse(localStorage.getItem("queueList") || "[]");
     var counter = parseInt(localStorage.getItem("queueCounter") || "0") + 1;
     localStorage.setItem("queueCounter", counter);
     var qNum = (isPriority ? "PR-" : "Q-") + String(counter).padStart(3, "0");
 
     queueList.push({
         id: qNum,
-        name: userName,
-        phone: userPhone,
+        name: fullName,
+        firstName: firstName,
+        middleName: middleName,
+        lastName: lastName,
+        suffix: suffix,
+        phone: phone,
         purpose: selectedService,
         status: "waiting",
         time: new Date().toLocaleTimeString(),
         type: isPriority ? "priority" : "regular",
-        window: getWindowFromService(selectedService)
+        window: selectedWindow,
+        category: category
     });
-    queueList.sort(function (a, b) {
+
+    queueList.sort(function(a, b) {
         if (a.type === "priority" && b.type !== "priority") return -1;
         if (a.type !== "priority" && b.type === "priority") return 1;
         return 0;
     });
     localStorage.setItem("queueList", JSON.stringify(queueList));
-    // SAVE TO HISTORY
-    var historyList = JSON.parse(localStorage.getItem("queueHistory")) || [];
 
+    // Save to history
+    var historyList = JSON.parse(localStorage.getItem("queueHistory") || "[]");
     historyList.push({
-        id: qNum,
-        name: userName,
-        phone: userPhone,
-        service: selectedService,
-        status: "waiting",
-        type: isPriority ? "priority" : "regular",
-        window: getWindowFromService(selectedService),
-        date: new Date().toLocaleDateString(),
+        id: qNum, name: fullName, phone: phone, service: selectedService,
+        status: "waiting", type: isPriority ? "priority" : "regular",
+        window: selectedWindow, date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString()
     });
-
     localStorage.setItem("queueHistory", JSON.stringify(historyList));
 
     localStorage.setItem("queue_userService", selectedService);
-    localStorage.setItem("queue_userName", userName);
+    localStorage.setItem("queue_userName", fullName);
     localStorage.setItem("queue_userType", isPriority ? "priority" : "regular");
     localStorage.setItem("queue_userId", qNum);
+    localStorage.setItem("queue_userWindow", selectedWindow);
 
-    saveReportTransaction(qNum, userName, selectedService, category, isPriority);
+    saveReportTransaction(qNum, fullName, selectedService, selectedWindow, category, isPriority);
 
-    document.getElementById("name").value = "";
-    document.getElementById("phone").value = "";
-    document.querySelectorAll('input[name="priority"]').forEach(function (r) { r.checked = false; });
+    // Clear form
+    ["q-firstname","q-middlename","q-lastname","q-suffix","q-phone","jq-idnum"].forEach(function(id) {
+        var el = document.getElementById(id); if (el) el.value = "";
+    });
     document.getElementById("terms").checked = false;
-    var of2 = document.getElementById("otherPriority");
-    if (of2) of2.value = "";
+    var radios = document.querySelectorAll('input[name="priority"]');
+    radios.forEach(function(r) { r.checked = false; });
+    document.getElementById("jq-idfield").style.display = "none";
 
-    closeModal("infoModal");
+    closeInfoModal();
 
     if (isPriority) {
         window.location.href = "Que-numberPriority.html";
@@ -173,31 +117,31 @@ function addQueue() {
     }
 }
 
-function saveReportTransaction(queueId, name, service, category, isPriority) {
+function saveReportTransaction(queueId, name, service, windowName, category, isPriority) {
     var now = new Date();
-    var year = now.getFullYear();
-    var month = now.getMonth() + 1;
-    var semester = (month >= 8 && month <= 12) ? "1st Semester"
-        : (month >= 1 && month <= 5) ? "2nd Semester"
-            : "Summer";
-    var dateStr = year + "-" + String(month).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
-
-    var existing = [];
-    try { existing = JSON.parse(localStorage.getItem("reportTransactions")) || []; }
-    catch (e) { existing = []; }
-
+    var existing = JSON.parse(localStorage.getItem("reportTransactions") || "[]");
     existing.push({
-        queueId: queueId, name: name, service: service,
+        queueId: queueId, name: name, service: service, window: windowName,
         category: category, queueType: isPriority ? "priority" : "regular",
-        status: "waiting", date: dateStr,
-        time: now.toLocaleTimeString(), year: year, month: month, semester: semester
+        status: "waiting", date: now.toISOString().split("T")[0],
+        time: now.toLocaleTimeString(), year: now.getFullYear(),
+        month: now.getMonth() + 1,
+        semester: (now.getMonth() + 1 >= 8 && now.getMonth() + 1 <= 12) ? "1st Semester" : ((now.getMonth() + 1 >= 1 && now.getMonth() + 1 <= 5) ? "2nd Semester" : "Summer")
     });
     localStorage.setItem("reportTransactions", JSON.stringify(existing));
 }
 
-function openModal(id) { document.getElementById(id).style.display = "block"; }
-function closeModal(id) { document.getElementById(id).style.display = "none"; }
+function handlePriorityChange() {
+    var selected = document.querySelector('input[name="priority"]:checked');
+    var idField = document.getElementById("jq-idfield");
+    if (selected && ["PWD","Senior Citizen","VIP"].includes(selected.value)) {
+        idField.style.display = "block";
+    } else {
+        idField.style.display = "none";
+    }
+}
 
+// Sidebar
 var isOpen = false;
 function toggleSidebar() { isOpen ? closeSidebar() : openSidebar(); }
 function openSidebar() {
@@ -212,109 +156,25 @@ function closeSidebar() {
     document.getElementById("overlay").classList.remove("active");
     document.getElementById("ham").classList.remove("active");
 }
-function historygo() { window.location.href = "statichistory.html"; }
-function dashboardgo() { window.location.href = "../../index.html"; }
-function profilego() { window.location.href = "student-profile.html"; }
 
-function setRole(r) {
-    var pill = document.getElementById("role-pill");
-    var label = document.getElementById("role-label");
-    var btnR = document.getElementById("btn-reg");
-    var btnC = document.getElementById("btn-cash");
-    if (r === "registrar") {
-        pill.className = "role-pill registrar"; label.textContent = "Registrar";
-        btnR.classList.add("selected", "reg"); btnR.classList.remove("cash");
-        btnC.classList.remove("selected", "cash", "reg");
-    } else {
-        pill.className = "role-pill cashier"; label.textContent = "Cashier";
-        btnC.classList.add("selected", "cash"); btnC.classList.remove("reg");
-        btnR.classList.remove("selected", "reg", "cash");
-    }
+function getWindowFromService(service) {
+    if (["Enrollment","Shifting","Readmission"].includes(service)) return "Window 1 - School to School & Faculty Clearance";
+    if (["TOR","Certificate","Diploma"].includes(service)) return "Window 2 - Request of Documents";
+    if (["EAT","NAT","Interview"].includes(service)) return "Window 5 - Releasing";
+    if (["ID Request","ID Replacement","Scholarship"].includes(service)) return "Window 6 - Releasing";
+    if (service === "Tuition Fee") return "Window 1 - Releasing of Payments / TES";
+    if (service === "Miscellaneous") return "Window 4 - Collection (Priority)";
+    if (service === "Other fees") return "Window 5 - Collection";
+    if (service === "Lab Fee") return "Window 8 - Assessment";
+    if (service === "ID Fee") return "Window 7 - Releasing of Petty Cash";
+    return "Window 1 - School to School & Faculty Clearance";
 }
 
-window.addEventListener("DOMContentLoaded", function () {
-    var queueBtn = document.getElementById("queueBtn");
-    if (queueBtn) queueBtn.onclick = function () { openModal("queueModal"); };
+// Event listeners
+window.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("ham").addEventListener("click", toggleSidebar);
+    document.getElementById("overlay").addEventListener("click", closeSidebar);
+    document.querySelector(".close-btn").addEventListener("click", closeSidebar);
+    var radios = document.querySelectorAll('input[name="priority"]');
+    radios.forEach(function(r) { r.addEventListener("change", handlePriorityChange); });
 });
-
-const pwdRadio = document.getElementById("pwd");
-const seniorRadio = document.getElementById("senior");
-const vipRadio = document.getElementById("vip");
-const othersRadio = document.getElementById("others");
-const naRadio = document.getElementById("not");
-
-const pwdInput = document.getElementById("pwdDetails");
-const seniorInput = document.getElementById("seniorDetails");
-const otherInput = document.getElementById("otherPriority");
-
-function resetInputs() {
-    pwdInput.disabled = true;
-    seniorInput.disabled = true;
-    otherInput.disabled = true;
-
-    pwdInput.value = "";
-    seniorInput.value = "";
-    otherInput.value = "";
-}
-
-// PWD
-pwdRadio.addEventListener("change", () => {
-    resetInputs();
-    pwdInput.disabled = false;
-});
-
-// SENIOR
-seniorRadio.addEventListener("change", () => {
-    resetInputs();
-    seniorInput.disabled = false;
-});
-
-// VIP
-vipRadio.addEventListener("change", () => {
-    resetInputs();
-});
-
-// OTHERS
-othersRadio.addEventListener("change", () => {
-    resetInputs();
-    otherInput.disabled = false;
-});
-
-// N/A
-naRadio.addEventListener("change", () => {
-    resetInputs();
-});
-
-function validatePriority() {
-
-    const idInput = document.getElementById("jq-idnum");
-
-    const priorityChoice = document.querySelector('input[name="priority"]:checked');
-
-    if (!priorityChoice) return false;
-
-    // N/A = skip validation completely
-    if (priorityChoice.value === "na") {
-        idInput.required = false;
-        idInput.value = "";
-        return true;
-    }
-
-    // everything else requires ID
-    idInput.required = true;
-
-    if (idInput.value.trim() === "") {
-        alert("Please enter your verification ID");
-        idInput.focus();
-        return false;
-    }
-
-    // only check "other" extra field if needed
-    if (priorityChoice.value === "others" && otherInput.value.trim() === "") {
-        alert("Please specify other priority");
-        otherInput.focus();
-        return false;
-    }
-
-    return true;
-}

@@ -272,7 +272,6 @@
 
 </div>
 
-
   <!-- ===== POPUP 1 — Enrollment Assistance ===== -->
 <div id="popup1" class="popup">
     <div class="popup-card">
@@ -447,45 +446,45 @@
 </div>
 
 
-<div id="infoModal" class="modalinfo" style="display:none;">
-    <div class="modalinfo-content">
-        <span class="closeinfo" onclick="closeModal('infoModal')">&times;</span>
-        <h2>Enter Your Information</h2>
+<div id="infoModal" class="modalinfo" style="display:none; opacity:0; visibility:hidden;">
+    <div class="modalinfo-content" style="max-width:480px; padding:28px; border-radius:14px; background:#fff; box-shadow:0 10px 40px rgba(0,0,0,0.25);">
+        <span class="closeinfo" id="closeInfoModal" style="float:right; cursor:pointer; font-size:22px; color:#888;">&times;</span>
+        <h2 style="color:#8B0000; margin-bottom:6px;">Enter Your Information</h2>
+        <p style="margin-bottom:16px; color:#666;">Queuing for: <strong id="modalServicePreview"></strong></p>
 
-        <!-- Shows which service they picked -->
-        <p style="margin-bottom:12px;">
-            Queuing for: <strong id="modalServicePreview"></strong>
-        </p>
-      
-        <input type="text"   id="name"  placeholder="Full Name (required)"    required><br><br>
-        <input type="tel"    id="phone" placeholder="Phone Number (required)"  required
-               pattern="[0-9+\-\s]+" title="Enter a valid phone number"><br><br>
-
-        <div class="priority-box">
-            <span class="priority-title">Are you applicable for any of the following?</span>
-            <ul class="priority-list">
-                <li><input type="radio" name="priority" id="pwd" value="yes">PWD (Person with Disability)</li>
-                <li><input type="radio" name="priority" id="senior" value="yes">Senior Citizen</li>
-                <li><input type="radio" name="priority" id="vip" value="yes">VIP</li>
-                <li>
-                    <input type="radio" name="priority" value="yes">Others
-                    <input type="text" id="otherPriority" placeholder="Please specify if others"><br><br>
-                </li>
-                <li><input type="radio" name="priority" id="not" value="na">N/A</li>
-            </ul>
-           <div id="jq-idfield"  class="form-group-sm">
-      <label>Verification ID Number * <span style="font-size:11px;color:var(--danger)">(Required for priority)</span></label>
-      <div class="verification-note" id="jq-id-error">Please enter a valid ID number to join the priority lane.</div>
-      <input type="text" id="jq-idnum" placeholder="e.g. PWD-12345 or SC-9901">
-    </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+            <div><label style="font-weight:600; display:block;">First Name *</label><input type="text" id="q-firstname" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Juan"></div>
+            <div><label style="font-weight:600; display:block;">Middle Name</label><input type="text" id="q-middlename" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Santos"></div>
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px;">
+            <div><label style="font-weight:600; display:block;">Last Name *</label><input type="text" id="q-lastname" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Dela Cruz"></div>
+            <div><label style="font-weight:600; display:block;">Suffix (optional)</label><input type="text" id="q-suffix" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Jr., III"></div>
+        </div>
+        <div style="margin-top:10px;">
+            <label style="font-weight:600; display:block;">Phone Number *</label>
+            <input type="tel" id="q-phone" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="09XXXXXXXXX">
         </div>
 
-        <label>
-            <input type="checkbox" id="terms" required>
-           I consent to the collection and use of my personal data
-        </label><br><br>
+        <div class="priority-box" style="margin-top:14px;">
+            <span style="font-weight:700; display:block; margin-bottom:8px;">Priority Lane (optional)</span>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <label><input type="radio" name="priority" value="PWD"> PWD</label>
+                <label><input type="radio" name="priority" value="Senior Citizen"> Senior Citizen</label>
+                <label><input type="radio" name="priority" value="VIP"> VIP</label>
+                <label><input type="radio" name="priority" value="na" checked> N/A</label>
+            </div>
+            <div id="jq-idfield" style="display:none; margin-top:10px;">
+                <label style="font-weight:600; color:#8B0000;">Verification ID Number *</label>
+                <input type="text" id="jq-idnum" style="width:100%; padding:10px; border:1px solid #8B0000; border-radius:6px; background:#fff8f8;" placeholder="e.g. PWD-12345 or SC-9901">
+                <small style="color:#dc2626; font-weight:600;">Required — must present valid ID at the window.</small>
+            </div>
+        </div>
 
-        <button onclick="addQueue()">Join Queue</button>
+        <label style="display:flex; gap:8px; margin-top:14px; font-size:13px;">
+            <input type="checkbox" id="terms"> I consent to the collection and use of my personal data
+        </label>
+
+        <button id="joinQueueBtn" style="width:100%; margin-top:16px; padding:12px; background:#8B0000; color:white; border:none; border-radius:8px; font-weight:700; font-size:14px; cursor:pointer;">Join Queue</button>
     </div>
 </div>
 

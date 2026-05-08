@@ -1,66 +1,70 @@
- let isOpen = false;
+function loadHistoryFromStorage() {
+    var history = JSON.parse(localStorage.getItem("queueHistory") || "[]");
+    var list = document.getElementById("historyList");
+    if (!list) return;
+    list.innerHTML = "";
 
-  function toggleSidebar() {
-    isOpen ? closeSidebar() : openSidebar();
-  }
-
-  function openSidebar() {
-    isOpen = true;
-    document.getElementById('sidebar').classList.add('open');
-    document.getElementById('overlay').classList.add('active');
-    document.getElementById('ham').classList.add('active');
-  }
-
-  function closeSidebar() {
-    isOpen = false;
-    document.getElementById('sidebar').classList.remove('open');
-    document.getElementById('overlay').classList.remove('active');
-    document.getElementById('ham').classList.remove('active');
-  }
-  function historygo() {
-    window.location.href = 'statichistory.html';
-  }
-   function dashboardgo() {
-    window.location.href = '../../index.html';
-  }
-
-  function profilego() {
-    window.location.href = 'student-profile.html';
-  }
-  function setRole(r) {
-    const pill  = document.getElementById('role-pill');
-    const label = document.getElementById('role-label');
-    const btnR  = document.getElementById('btn-reg');
-    const btnC  = document.getElementById('btn-cash');
-
-    if (r === 'registrar') {
-      pill.className = 'role-pill registrar';
-      label.textContent = 'Registrar';
-      btnR.classList.add('selected', 'reg');
-      btnR.classList.remove('cash');
-      btnC.classList.remove('selected', 'cash', 'reg');
-    } else {
-      pill.className = 'role-pill cashier';
-      label.textContent = 'Cashier';
-      btnC.classList.add('selected', 'cash');
-      btnC.classList.remove('reg');
-      btnR.classList.remove('selected', 'reg', 'cash');
-    }
-}
-function loadHistory() {
-
-    const number =
-        document.getElementById("userNumber").value.trim();
-
-    if (number === "") {
-        alert("Please enter your phone number.");
+    if (history.length === 0) {
+        list.innerHTML = '<div class="history-item" style="text-align:center;padding:20px;color:#999;">No queue history found.</div>';
         return;
     }
 
-    // show history panel
-    document.getElementById("historyList").style.display = "block";
+    // Show most recent first
+    history.slice().reverse().forEach(function(entry) {
+        var statusClass = "";
+        if (entry.status === "served") statusClass = "is-done";
+        else if (entry.status === "waiting") statusClass = "is-waiting";
+        else if (entry.status === "skipped") statusClass = "is-missed";
+        else statusClass = "is-active";
 
-    // OPTIONAL:
-    // hide login after load
-    document.querySelector(".history-login").style.display = "none";
+        var iconBg = entry.type === "priority" ? "#fef3c7" : "#dcfce7";
+        var iconEmoji = entry.window && entry.window.includes("Cashier") ? "💳" : "📄";
+
+        var div = document.createElement("div");
+        div.className = "history-item " + statusClass;
+        div.innerHTML =
+            '<div class="h-icon" style="background:' + iconBg + ';">' + iconEmoji + '</div>' +
+            '<div class="h-info">' +
+                '<div class="h-title">' + entry.service + '</div>' +
+                '<div class="h-sub">' + (entry.window || "—") + ' <span class="h-num">' + entry.id + '</span></div>' +
+            '</div>' +
+            '<div class="h-right">' +
+                '<span class="h-status ' + (entry.status === "served" ? "done" : entry.status === "waiting" ? "waiting" : "missed") + '">' + entry.status + '</span>' +
+                '<div class="h-time">' + (entry.date || "") + ' · ' + (entry.time || "") + '</div>' +
+            '</div>';
+        list.appendChild(div);
+    });
+
+    document.getElementById("historyList").style.display = "block";
+    var badge = document.querySelector(".history-badge");
+    if (badge) badge.textContent = history.length;
 }
+
+function clearHistory() {
+    if (confirm("Clear all queue history?")) {
+        localStorage.removeItem("queueHistory");
+        loadHistoryFromStorage();
+    }
+}
+
+var isOpen = false;
+function toggleSidebar() { isOpen ? closeSidebar() : openSidebar(); }
+function openSidebar() {
+    isOpen = true;
+    document.getElementById("sidebar").classList.add("open");
+    document.getElementById("overlay").classList.add("active");
+    document.getElementById("ham").classList.add("active");
+}
+function closeSidebar() {
+    isOpen = false;
+    document.getElementById("sidebar").classList.remove("open");
+    document.getElementById("overlay").classList.remove("active");
+    document.getElementById("ham").classList.remove("active");
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+    loadHistoryFromStorage();
+    document.getElementById("ham").addEventListener("click", toggleSidebar);
+    document.getElementById("overlay").addEventListener("click", closeSidebar);
+    document.querySelector(".close-btn").addEventListener("click", closeSidebar);
+});
