@@ -1,6 +1,4 @@
-// ─────────────────────────────
-// CLOCK – updates both global and window clocks
-// ─────────────────────────────
+
 function tick() {
     const now = new Date();
     let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
@@ -19,9 +17,6 @@ function tick() {
 tick();
 setInterval(tick, 1000);
 
-// ─────────────────────────────
-// PHONE NOTIFICATION
-// ─────────────────────────────
 function sendPhoneNotification(student, type, customMsg = null) {
     const payload = {
         type,
@@ -36,17 +31,12 @@ function sendPhoneNotification(student, type, customMsg = null) {
     window.dispatchEvent(new CustomEvent("phoneNotifEvent", { detail: payload }));
 }
 
-// ─────────────────────────────
-// GET REGISTRAR QUEUE ONLY
-// ─────────────────────────────
+
 function getRegistrarQueue() {
     const all = JSON.parse(localStorage.getItem("queueList")) || [];
     return all.filter(q => q.window === "registrar");
 }
 
-// ─────────────────────────────
-// RENDER QUEUE
-// ─────────────────────────────
 function renderQueue() {
     const queue = getRegistrarQueue();
     const tbody = document.getElementById("queueBody");
@@ -66,9 +56,7 @@ function renderQueue() {
 
 let current = null;
 
-// ─────────────────────────────
-// CALL NEXT
-// ─────────────────────────────
+
 function callNext() {
     const queue = getRegistrarQueue();
     if (queue.length === 0) {
@@ -86,9 +74,7 @@ function callNext() {
     sendPhoneNotification(current, "serving");
 }
 
-// ─────────────────────────────
-// MARK DONE
-// ─────────────────────────────
+
 function markDone() {
     if (!current) return;
 
@@ -102,9 +88,7 @@ function markDone() {
     renderQueue();
 }
 
-// ─────────────────────────────
-// NO SHOW
-// ─────────────────────────────
+
 function noShow() {
     if (!current) return;
 
@@ -118,16 +102,11 @@ function noShow() {
     renderQueue();
 }
 
-// ─────────────────────────────
-// INIT
-// ─────────────────────────────
+
 window.addEventListener("DOMContentLoaded", function () {
     renderQueue();
 });
 
-// ─────────────────────────────
-// TOAST (optional)
-// ─────────────────────────────
 function showToast(msg) {
     const t = document.getElementById("toast");
     if (!t) return;

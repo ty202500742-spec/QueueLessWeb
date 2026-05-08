@@ -610,7 +610,6 @@ footer {
     border-color: var(--accent);
 }
 
-/* Active label highlight via :checked sibling */
 #f-all:checked~.main-layout .lbl-all,
 #f-done:checked~.main-layout .lbl-done,
 #f-wait:checked~.main-layout .lbl-wait,
@@ -653,7 +652,7 @@ footer {
     background: #f8fafc;
 }
 
-/* Filter: hide non-matching items when a filter radio is checked */
+
 #f-done:checked~.main-layout .history-item:not(.is-done) {
     display: none;
 }
@@ -764,7 +763,7 @@ footer {
     }
 }
 
-/* ── FILTER RADIOS (hidden) ── */
+
 .filter-radio {
     display: none;
 }
@@ -922,7 +921,7 @@ footer {
 }
 
 .modalinfo {
-  display: none; /* hidden by default */
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;
@@ -1059,20 +1058,20 @@ footer {
     border-radius: 2px;
 }
 
-/* ========== MODAL STYLES ========== */
+
 .modal-overlay {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 9999;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(3px); /* Optional: blurs the background */
+    backdrop-filter: blur(3px); 
 }
 
 .modal-overlay.active {
-    display: flex; /* Shows the modal when 'active' class is added */
+    display: flex;
 }
 
 .modal-box {
@@ -1099,7 +1098,7 @@ footer {
 
 .modal-header h3 {
     margin: 0;
-    color: #8B0000; /* WMSU Crimson */
+    color: #8B0000; 
 }
 
 .close-btn {

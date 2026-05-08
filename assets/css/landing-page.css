@@ -753,9 +753,7 @@ footer {
 }
 .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
  
-/* =========================================
-   ANIMATIONS (HCI Requirement)
-========================================= */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -787,9 +785,7 @@ footer {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* =========================================
-   MOBILE RESPONSIVENESS (WebDev Requirement)
-========================================= */
+
 @media screen and (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -804,7 +800,7 @@ footer {
     }
 
     .hero h1 {
-        font-size: 2.5rem; /* Smaller text for mobile */
+        font-size: 2.5rem;
     }
 
     .hero-actions {
@@ -820,7 +816,7 @@ footer {
     }
 
     .stats-grid {
-        flex-direction: column; /* Stack stats vertically */
+        flex-direction: column; 
         gap: 20px;
     }
 

@@ -1,4 +1,4 @@
-// ── Clock 
+//  Clock 
         function updateClock() {
             const d = new Date();
             let h = d.getHours(), m = d.getMinutes();
@@ -60,7 +60,7 @@
 
             // vibrate the phone frame
             frame.classList.remove("buzz");
-            void frame.offsetWidth; // reflow to restart animation
+            void frame.offsetWidth;
             frame.classList.add("buzz");
             setTimeout(() => frame.classList.remove("buzz"), 400);
 
@@ -72,7 +72,6 @@
         }
 
         // ── Listen for admin-dash.js writing to "phoneNotif" 
-        // The storage event fires on OTHER tabs/windows that share the same origin.
         window.addEventListener("storage", function (e) {
             if (e.key !== "phoneNotif") return;
             if (!e.newValue) return;
@@ -85,14 +84,13 @@
             }
         });
 
-        // ── Clear button ───
+        // Clear button 
         document.getElementById("clearBtn").addEventListener("click", () => {
             document.getElementById("notifArea").innerHTML = "";
             document.getElementById("connDot").classList.add("idle");
             document.getElementById("connLabel").textContent = "Waiting for admin action...";
         });
 
-        // ── Mark as connected once page is ready ──────
         window.addEventListener("DOMContentLoaded", () => {
             document.getElementById("lsDot").style.background = "#eab308";
             document.getElementById("lsLabel").textContent    = "Standby — open Admin Dashboard in another tab";

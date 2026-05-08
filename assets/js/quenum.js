@@ -19,7 +19,7 @@ function loadQueuePage() {
     return;
   }
 
-  // Find the user by their unique queue ID (most reliable)
+  // Find the user by their unique queue ID
   let userIndex = queue.findIndex(q => q.id === userId);
 
   // Fallback: match by name if ID not found

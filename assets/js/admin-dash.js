@@ -1,6 +1,5 @@
-// ─────────────────────────────
+
 // PHONE NOTIFICATION
-// ─────────────────────────────
 function triggerPhoneNotif(student, type) {
     var payload = {
         type: type,
@@ -13,9 +12,7 @@ function triggerPhoneNotif(student, type) {
     localStorage.setItem("phoneNotif", JSON.stringify(payload));
 }
 
-// ─────────────────────────────
-// CLOCK
-// ─────────────────────────────
+//clock
 function tick() {
     const now = new Date();
     let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
@@ -28,9 +25,7 @@ function tick() {
 tick();
 setInterval(tick, 1000);
 
-// ─────────────────────────────
 // QUEUE HELPERS
-// ─────────────────────────────
 function getQueueList() {
     return JSON.parse(localStorage.getItem("queueList") || "[]");
 }
@@ -38,9 +33,7 @@ function saveQueueList(list) {
     localStorage.setItem("queueList", JSON.stringify(list));
 }
 
-// ─────────────────────────────
 // REPORT HELPERS
-// ─────────────────────────────
 function saveAdminReport(queueId, name, service, windowName, category, queueType, status) {
     var reports = JSON.parse(localStorage.getItem("reportTransactions") || "[]");
     var now = new Date();
@@ -65,9 +58,6 @@ function recordExists(entry) {
     return reports.some(function(r) { return r.queueId === entry.id; });
 }
 
-// ─────────────────────────────
-// QUEUE ACTIONS
-// ─────────────────────────────
 function adminServe(id) {
     var q = getQueueList();
     var idx = q.findIndex(function(x) { return x.id === id; });
@@ -137,9 +127,6 @@ function adminManualAdd(name, phone, windowName, service, category) {
     return qNum;
 }
 
-// ─────────────────────────────
-// ACTIVITY FEED
-// ─────────────────────────────
 function addAdminFeed(msg, color) {
     var feed = document.getElementById("adminFeed");
     if (!feed) return;
@@ -150,9 +137,7 @@ function addAdminFeed(msg, color) {
     if (feed.children.length > 15) feed.removeChild(feed.lastChild);
 }
 
-// ─────────────────────────────
-// STATS
-// ─────────────────────────────
+
 function updateAdminStats() {
     var q = getQueueList();
     var reports = JSON.parse(localStorage.getItem("reportTransactions") || "[]");
@@ -164,9 +149,7 @@ function updateAdminStats() {
     if (elPri) elPri.textContent = q.filter(function(x) { return ["PWD","Senior Citizen","VIP"].includes(x.category); }).length;
 }
 
-// ─────────────────────────────
-// TABLE RENDERING
-// ─────────────────────────────
+
 function loadQueues() {
     var queue = getQueueList();
     loadPriorityQueue(queue);
@@ -219,9 +202,6 @@ function createRow(q, type) {
     return row;
 }
 
-// ─────────────────────────────
-// INIT
-// ─────────────────────────────
 window.addEventListener("DOMContentLoaded", function () {
     loadQueues();
     setInterval(loadQueues, 3000);

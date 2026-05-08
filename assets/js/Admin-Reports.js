@@ -13,7 +13,7 @@ function getSemester(monthNumber) {
     return "Summer";
 }
 
-// Loads all transactions from localStorage //
+// Loads all transactions from localStorage
 function getAllTransactions() {
     var data = localStorage.getItem("reportTransactions");
     if (!data) {
@@ -30,34 +30,34 @@ function getFilteredTransactions() {
 
     var result = all.filter(function(tx) {
 
-        // year filter//
+        // year filter
         if (activeFilters.year !== "all") {
             if (String(tx.year) !== String(activeFilters.year)) {
                 return false;
             }
         }
-        // semester filter//
+        // semester filter
         if (activeFilters.semester !== "all") {
             if (tx.semester !== activeFilters.semester) {
                 return false;
             }
         }
 
-        // month filter//
+        // month filter 
         if (activeFilters.month !== "all") {
             if (String(tx.month) !== String(activeFilters.month)) {
                 return false;
             }
         }
 
-        // service filter//
+        // service filter   
          if (activeFilters.service !== "all") {
             if (tx.service !== activeFilters.service) {
                 return false;
             }
         }
 
-        // category filter//
+        // category filter  
         if (activeFilters.category !== "all") {
             if (tx.category !== activeFilters.category) {
                 return false;
@@ -88,16 +88,16 @@ function renderTable(records) {
     var sorted = records.slice().reverse();
     sorted.forEach(function(tx) {
 
-        //picks the right css class for status baddge//
+        //picks the right css class for status baddge   
          var badgeClass = "badge-waiting";
         if (tx.status === "served")  badgeClass = "badge-served";
         if (tx.status === "skipped") badgeClass = "badge-skipped";
 
-        //picks the right css class for the queue type badge//
+        //picks the right css class for the queue type badge    
         var typeClass = tx.queueType === "priority" ? "type-priority" : "type-regular";
         var typeLabel = tx.queueType === "priority" ? "⭐ Priority" : "Regular";
 
-        //status for dsplay//
+        //status for dsplay 
         var statusLabel = tx.status.charAt(0).toUpperCase() + tx.status.slice(1);
         var row = document.createElement("tr");
         row.innerHTML =

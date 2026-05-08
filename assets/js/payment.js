@@ -56,7 +56,7 @@ function getWindowFromService(service) {
     if (cashierServices.includes(service)) return "cashier";
     if (registrarServices.includes(service)) return "registrar";
 
-    return "cashier"; // default fallback
+    return "cashier"; 
 }
 
 function openInfoModal() {

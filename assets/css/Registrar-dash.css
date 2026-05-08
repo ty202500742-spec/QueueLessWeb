@@ -484,7 +484,7 @@
     font-size: 15px;
   }
 
-  /* EMPTY STATE */
+
   .empty-hero {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -550,9 +550,6 @@
     opacity: 1;
   }
 
-  /* =========================================
-   HCI ANIMATIONS & HOVER EFFECTS
-========================================= */
 @keyframes slideInRight {
     from { opacity: 0; transform: translateX(-20px); }
     to { opacity: 1; transform: translateX(0); }
@@ -579,12 +576,10 @@
     border-color: #8B0000;
 }
 
-/* =========================================
-   MOBILE RESPONSIVENESS (WebDev)
-========================================= */
+
 @media screen and (max-width: 900px) {
     .layout {
-        grid-template-columns: 1fr; /* Stacks the right panel under the main panel */
+        grid-template-columns: 1fr; 
         padding: 15px;
         gap: 15px;
     }
@@ -594,11 +589,11 @@
     }
     
     .topbar-right .clock {
-        display: none; /* Hide clock on mobile to save space */
+        display: none; 
     }
     
     .ct-number {
-        font-size: 40px; /* Scale down the serving number */
+        font-size: 40px;
     }
     
     .queue-table th, .queue-table td {
@@ -607,6 +602,6 @@
     }
     
     .queue-card {
-        overflow-x: auto; /* Allows table to scroll horizontally if needed */
+        overflow-x: auto; 
     }
 }

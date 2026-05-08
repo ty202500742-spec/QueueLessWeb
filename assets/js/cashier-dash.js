@@ -1,6 +1,4 @@
-// ─────────────────────────────
-// PHONE NOTIFICATION
-// ─────────────────────────────
+
 function sendPhoneNotification(student, type, messageOverride = null) {
     const payload = {
         type,
@@ -16,9 +14,7 @@ function sendPhoneNotification(student, type, messageOverride = null) {
 
 let currentServing = null;
 
-// ─────────────────────────────
-// CLOCK – updates both global and window clocks
-// ─────────────────────────────
+
 function tick() {
     const now = new Date();
     let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
@@ -30,24 +26,20 @@ function tick() {
     const globalClock = document.getElementById("clock");
     if (globalClock) globalClock.textContent = timeStr;
 
-    // Window‑specific clock (if present)
+    // Window‑specific clock
     const windowClock = document.getElementById("windowClock");
     if (windowClock) windowClock.textContent = timeStr;
 }
 tick();
 setInterval(tick, 1000);
 
-// ─────────────────────────────
-// QUEUE
-// ─────────────────────────────
+
 function getCashierQueue() {
     const all = JSON.parse(localStorage.getItem("queueList")) || [];
     return all.filter(q => q.window === "cashier");
 }
 
-// ─────────────────────────────
-// RENDER
-// ─────────────────────────────
+
 function renderQueue() {
     const queue = getCashierQueue();
     const tbody = document.getElementById("queueBody");
@@ -65,9 +57,6 @@ function renderQueue() {
     document.getElementById("queueCount").textContent = queue.length;
 }
 
-// ─────────────────────────────
-// CALL NEXT
-// ─────────────────────────────
 function callNext() {
     const all = JSON.parse(localStorage.getItem("queueList")) || [];
     const queue = all.filter(q => q.window === "cashier");
@@ -91,9 +80,7 @@ function callNext() {
     sendPhoneNotification(currentServing, "serving");
 }
 
-// ─────────────────────────────
-// MARK DONE
-// ─────────────────────────────
+
 function markDone() {
     if (!currentServing) return;
 
@@ -107,9 +94,6 @@ function markDone() {
     renderQueue();
 }
 
-// ─────────────────────────────
-// NO SHOW
-// ─────────────────────────────
 function noShow() {
     if (!currentServing) return;
 
@@ -125,9 +109,6 @@ function noShow() {
     callNext();
 }
 
-// ─────────────────────────────
-// INIT
-// ─────────────────────────────
 window.addEventListener("DOMContentLoaded", function () {
     renderQueue();
 });

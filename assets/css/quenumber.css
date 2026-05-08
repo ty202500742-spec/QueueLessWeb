@@ -520,9 +520,7 @@ footer {
   font-weight: 600;
 }
 
-/* =========================================
-   ANIMATIONS & HCI UI UPGRADES
-========================================= */
+
 @keyframes popInScale {
     0% {
         opacity: 0;
@@ -554,14 +552,11 @@ footer {
     50% { transform: scale(1.05); color: #a80000; }
 }
 
-/* =========================================
-   MOBILE RESPONSIVENESS
-========================================= */
 @media screen and (max-width: 600px) {
     .bodd2 {
         padding: 20px 10px;
-        align-items: flex-start; /* Prevents cut-off on small screens */
-        padding-top: 80px; /* Accounts for fixed navbar */
+        align-items: flex-start;
+        padding-top: 80px; 
     }
 
     .queue-container {
@@ -572,7 +567,7 @@ footer {
     }
 
     .current-number {
-        font-size: 48px; /* Slightly smaller for mobile */
+        font-size: 48px;
     }
 
     .queue-list li {
