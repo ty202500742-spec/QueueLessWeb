@@ -1,158 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Registrar — Queueless</title>
-<link rel="stylesheet" href="../../assets/css/Registrar-dash.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar — Queueless</title>
+    <link rel="stylesheet" href="../../assets/css/Admin-Global.css" />
+    <link rel="stylesheet" href="../../assets/css/Registrar-dash.css" />
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-left">
-    <img src="../../assets/images/UEUELESS.png" alt="Queueless Logo" style="height: 30px; object-fit: contain;">
-    <div>
-      <div class="office-label">Registrar Dashboard</div>
-      <div class="office-sub">
-        <select id="windowFilter" onchange="renderQueue()" style="background:transparent; color:white; border:1px solid rgba(255,255,255,0.4); border-radius:4px; padding:2px; font-size:11px; cursor:pointer;">
-            <option value="all" style="color:black;">All Registrar Windows</option>
-            <option value="Registrar Window 1" style="color:black;">Window 1 (Clearance)</option>
-            <option value="Registrar Window 2" style="color:black;">Window 2-4 (Documents)</option>
-            <option value="Registrar Window 5" style="color:black;">Window 5-6 (Releasing)</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  
-  <div class="topbar-right">
-    <div class="status-pill">
-      <span class="status-dot"></span>
-      <span>Open</span>
-    </div>
-    <span class="staff-name">Ms. Cruz</span>
-    <span class="clock" id="clock">--:-- --</span>
-  </div>
-</div>
-
-<div class="layout">
-  <!-- LEFT: main content -->
-  <div class="left-col">
-
-    <!-- Current ticket hero -->
-    <div class="current-ticket" id="currentTicket">
-      <div class="ct-label">Now serving</div>
-      <div class="ct-number" id="ctNumber">R-002</div>
-      <div class="ct-meta">
-        <div class="ct-meta-item">
-          <div class="ct-meta-key">Name</div>
-          <div class="ct-meta-val" id="ctName">Juan dela Cruz</div>
+    <!-- ========== ADMIN SIDEBAR ========== -->
+    <nav class="sidebar">
+        <div class="logo-area">
+            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo"
+                 title="QueueLess | WMSU" class="sidebar-logo" />
         </div>
-        <div class="ct-meta-item">
-          <div class="ct-meta-key">Purpose</div>
-          <div class="ct-meta-val" id="ctPurpose">Certificate of Registration</div>
+
+        <p class="menu-label">Overview</p>
+        <a href="../ADMIN-DASHBOARD/Admin-Dashboard.html" class="menu-link">Dashboard</a>
+
+        <p class="menu-label">Windows</p>
+        <a href="registrar-dashboard.html" class="menu-link active">Registrar</a>
+        <a href="../CASHIER-DASHBOARD/cashier-dashboard.html" class="menu-link">Cashier</a>
+
+        <p class="menu-label">Management</p>
+        <a href="../ADMIN-DASHBOARD/Admin-Priority.html" class="menu-link">Priority List</a>
+        <a href="../ADMIN-DASHBOARD/Admin-Students.html" class="menu-link">Students List</a>
+        <a href="../ADMIN-DASHBOARD/Admin-reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="../ADMIN-DASHBOARD/Admin-Settings.html" class="menu-link">Settings</a>
+
+        <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div class="main-content">
+        <!-- Global topbar (admin style) -->
+        <div class="topbar">
+            <h2>Registrar Dashboard</h2>
+            <div class="topbar-badge">Open</div>
+            <span class="clock" id="clock">--:-- --</span>
         </div>
-        <div class="ct-meta-item">
-          <div class="ct-meta-key">Waiting since</div>
-          <div class="ct-meta-val" id="ctWait">12:43 PM</div>
+
+        <div class="page-wrapper">
+            <!-- Window‑specific topbar (renamed to .window-topbar) -->
+            <div class="window-topbar">
+                <div class="window-topbar-left">
+                    <div>
+                        <div class="office-sub">
+                            <select id="windowFilter" onchange="renderQueue()"
+                                    style="background:transparent; color:white; border:1px solid rgba(255,255,255,0.4);
+                                           border-radius:4px; padding:2px; font-size:11px; cursor:pointer;">
+                                <option value="all" style="color:black;">All Registrar Windows</option>
+                                <option value="Registrar Window 1" style="color:black;">Window 1 (Clearance)</option>
+                                <option value="Registrar Window 2" style="color:black;">Window 2-4 (Documents)</option>
+                                <option value="Registrar Window 5" style="color:black;">Window 5-6 (Releasing)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layout">
+                <!-- LEFT COLUMN -->
+                <div class="left-col">
+                    <!-- Current ticket -->
+                    <div class="current-ticket" id="currentTicket">
+                        <div class="ct-label">Now serving</div>
+                        <div class="ct-number" id="ctNumber">R-002</div>
+                        <div class="ct-meta">
+                            <div class="ct-meta-item">
+                                <div class="ct-meta-key">Name</div>
+                                <div class="ct-meta-val" id="ctName">Juan dela Cruz</div>
+                            </div>
+                            <div class="ct-meta-item">
+                                <div class="ct-meta-key">Purpose</div>
+                                <div class="ct-meta-val" id="ctPurpose">Certificate of Registration</div>
+                            </div>
+                            <div class="ct-meta-item">
+                                <div class="ct-meta-key">Waiting since</div>
+                                <div class="ct-meta-val" id="ctWait">12:43 PM</div>
+                            </div>
+                        </div>
+                        <div class="ct-actions">
+                            <button class="btn-done" onclick="markDone()">Mark as Done</button>
+                            <button class="btn-skip" onclick="callNext()">Call Next</button>
+                            <button class="btn-no-show" onclick="noShow()">No-show</button>
+                        </div>
+                    </div>
+
+                    <!-- Empty state (hidden by default) -->
+                    <div class="empty-hero" id="emptyHero">
+                        <div class="empty-hero-title">No active ticket</div>
+                        <div class="empty-hero-sub">Queue is ready. Call the next student when you're set.</div>
+                        <button class="btn-next" onclick="callNext()">Call Next Student ↓</button>
+                    </div>
+
+                    <div class="section-title">Up next — Registrar queue</div>
+                    <div class="queue-card">
+                        <table class="queue-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Ticket</th>
+                                    <th>Name</th>
+                                    <th>Purpose</th>
+                                    <th>Waiting</th>
+                                </tr>
+                            </thead>
+                            <tbody id="queueBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="right-col">
+                    <div class="stat-row">
+                        <div class="stat-box">
+                            <div class="stat-label">Served today</div>
+                            <div class="stat-value" id="servedCount">14</div>
+                            <div class="stat-sub good">↑ 3 vs yesterday</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">In queue</div>
+                            <div class="stat-value" id="queueCount">6</div>
+                            <div class="stat-sub">right now</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Avg. time</div>
+                            <div class="stat-value">6<span style="font-size:16px;font-weight:400"> min</span></div>
+                            <div class="stat-sub good">↓ 1 min faster</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">No-shows</div>
+                            <div class="stat-value">2</div>
+                            <div class="stat-sub bad">↑ 1 today</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">My activity today</div>
+                        <div class="activity-list" id="actFeed">
+                            <div class="activity-item">
+                                <div class="a-dot-wrap"><div class="a-dot green"></div></div>
+                                <div>
+                                    <div class="a-text">Served <b>R-002</b> — Juan dela Cruz</div>
+                                    <div class="a-time">just now</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="a-dot-wrap"><div class="a-dot green"></div></div>
+                                <div>
+                                    <div class="a-text">Served <b>R-001</b> — Maria Santos</div>
+                                    <div class="a-time">4 min ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="a-dot-wrap"><div class="a-dot amber"></div></div>
+                                <div>
+                                    <div class="a-text">No-show — <b>R-000</b></div>
+                                    <div class="a-time">10 min ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="a-dot-wrap"><div class="a-dot green"></div></div>
+                                <div>
+                                    <div class="a-text">Served <b>R-998</b> — Leah Santos</div>
+                                    <div class="a-time">18 min ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="ct-actions">
-        <button class="btn-done" onclick="markDone()">Mark as Done</button>
-        <button class="btn-skip" onclick="callNext()">Call Next</button>
-        <button class="btn-no-show" onclick="noShow()">No-show</button>
-      </div>
     </div>
 
-    <!-- Empty state (hidden by default) -->
-    <div class="empty-hero" id="emptyHero">
-      <div class="empty-hero-title">No active ticket</div>
-      <div class="empty-hero-sub">Queue is ready. Call the next student when you're set.</div>
-      <button class="btn-next" onclick="callNext()">Call Next Student ↓</button>
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Logout modal (same as admin) -->
+    <div id="logout-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to securely log out?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="../../pages/Login-pages/login.html" class="btn btn-confirm">Logout</a>
+            </div>
+        </div>
     </div>
 
-    <!-- Queue -->
-    <div class="section-title">Up next — Registrar queue</div>
-    <div class="queue-card">
-      <table class="queue-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Ticket</th>
-            <th>Name</th>
-            <th>Purpose</th>
-            <th>Waiting</th>
-          </tr>
-        </thead>
-      <tbody id="queueBody"></tbody>
-      
-      </table>
-    </div>
-  </div>
-
-  <!-- RIGHT: stats + activity -->
-  <div class="right-col">
-    <div class="stat-row">
-      <div class="stat-box">
-        <div class="stat-label">Served today</div>
-        <div class="stat-value" id="servedCount">14</div>
-        <div class="stat-sub good">↑ 3 vs yesterday</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">In queue</div>
-        <div class="stat-value" id="queueCount">6</div>
-        <div class="stat-sub">right now</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">Avg. time</div>
-        <div class="stat-value">6<span style="font-size:16px;font-weight:400"> min</span></div>
-        <div class="stat-sub good">↓ 1 min faster</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">No-shows</div>
-        <div class="stat-value">2</div>
-        <div class="stat-sub bad">↑ 1 today</div>
-      </div>
-    </div>
-
-    
-
-    <div class="activity-card">
-      <div class="activity-header">My activity today</div>
-      <div class="activity-list" id="actFeed">
-        <div class="activity-item">
-          <div class="a-dot-wrap"><div class="a-dot green"></div></div>
-          <div>
-            <div class="a-text">Served <b>R-002</b> — Juan dela Cruz</div>
-            <div class="a-time">just now</div>
-          </div>
-        </div>
-        <div class="activity-item">
-          <div class="a-dot-wrap"><div class="a-dot green"></div></div>
-          <div>
-            <div class="a-text">Served <b>R-001</b> — Maria Santos</div>
-            <div class="a-time">4 min ago</div>
-          </div>
-        </div>
-        <div class="activity-item">
-          <div class="a-dot-wrap"><div class="a-dot amber"></div></div>
-          <div>
-            <div class="a-text">No-show — <b>R-000</b></div>
-            <div class="a-time">10 min ago</div>
-          </div>
-        </div>
-        <div class="activity-item">
-          <div class="a-dot-wrap"><div class="a-dot green"></div></div>
-          <div>
-            <div class="a-text">Served <b>R-998</b> — Leah Santos</div>
-            <div class="a-time">18 min ago</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-  <script src="../../assets/js/registrar-dash.js"></script>
+    <script src="../../assets/js/registrar-dash.js"></script>
 </body>
 </html>

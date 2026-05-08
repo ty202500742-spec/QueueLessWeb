@@ -1,0 +1,30 @@
+/* Staff Account Management specific styles */
+
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.staff-table th,
+.staff-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.staff-table th {
+  background: #f9f9f9;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Modal display fix */
+#create-modal {
+  display: none;
+}
+
+#create-modal.open {
+  display: flex;
+}

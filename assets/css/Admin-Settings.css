@@ -8,21 +8,22 @@
 
 .panel {
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     overflow: hidden;
+    border: 1px solid #f0f0f0;
 }
 
 .panel-header {
-    background: #f8f9fa;
-    padding: 15px 25px;
+    background: #fafafa;
+    padding: 16px 24px;
     border-bottom: 1px solid #eee;
 }
 
 .panel-title {
     font-size: 16px;
-    font-weight: bold;
-    color: #333;
+    font-weight: 700;
+    color: #222;
 }
 
 .text-red {
@@ -30,14 +31,14 @@
 }
 
 .panel-body {
-    padding: 25px;
+    padding: 24px;
 }
 
 .toggle-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 16px 0;
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -94,40 +95,52 @@
 }
 
 input:checked + .slider {
-    background-color: #8B0000; /* WMSU Crimson */
+    background-color: #8B0000;
 }
 
 input:checked + .slider:before {
     transform: translateX(22px);
 }
 
+/* ---- Danger Zone Styling ---- */
 .danger-buttons {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
 .btn-danger {
     display: block;
+    width: 100%;
     text-align: center;
-    text-decoration: none;
-    background: #fef2f2;
-    color: #dc2626;
-    border: 1px solid #fecaca;
-    padding: 12px 20px;
+    background: #b91c1c;
+    color: white;
+    border: none;
+    padding: 13px 20px;
     font-size: 14px;
     font-weight: 600;
-    border-radius: 6px;
-    transition: background 0.2s;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(185,28,28,0.25);
+    text-decoration: none;
 }
 
 .btn-danger:hover {
-    background: #fee2e2;
+    background: #a11414;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(185,28,28,0.35);
+}
+
+.btn-danger:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(185,28,28,0.2);
 }
 
 .modal-actions .btn-danger {
     background: #dc2626;
     color: white;
+    box-shadow: none;
 }
 
 @media (max-width: 600px) {
@@ -138,5 +151,9 @@ input:checked + .slider:before {
     }
     .toggle {
         align-self: flex-start;
+    }
+    .btn-danger {
+        font-size: 13px;
+        padding: 12px 16px;
     }
 }

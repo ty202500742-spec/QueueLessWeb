@@ -1,185 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Cashier — Queueless</title>
- <link rel="stylesheet" href="../../assets/css/Cashier-dash.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cashier — Queueless</title>
+    <link rel="stylesheet" href="../../assets/css/Admin-Global.css" />
+    <link rel="stylesheet" href="../../assets/css/Cashier-dash.css" />
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-left">
-    <img src="../../assets/images/UEUELESS.png" alt="Queueless Logo" style="height: 30px; object-fit: contain;">
-    <div>
-      <div class="office-label">Cashier Dashboard</div>
-      <div class="office-sub">
-        <select id="windowFilter" onchange="renderQueue()" style="background:transparent; color:white; border:1px solid rgba(255,255,255,0.4); border-radius:4px; padding:2px; font-size:11px; cursor:pointer;">
-            <option value="all" style="color:black;">All Cashier Windows</option>
-            <option value="Cashier Window 1" style="color:black;">Window 1 (Payments/TES)</option>
-            <option value="Cashier Window 2" style="color:black;">Window 2-3 (Checks)</option>
-            <option value="Cashier Window 4" style="color:black;">Window 4 (Collection Priority)</option>
-            <option value="Cashier Window 5" style="color:black;">Window 5 (Collection Regular)</option>
-            <option value="Cashier Window 6" style="color:black;">Window 6 (TES Scholars)</option>
-            <option value="Cashier Window 7" style="color:black;">Window 7 (Petty Cash)</option>
-            <option value="Cashier Window 8" style="color:black;">Window 8-9 (Assessment)</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  
-  <div class="topbar-right">
-    <div class="status-pill">
-      <span class="status-dot"></span>
-      <span>Open</span>
-    </div>
-    <span class="staff-name">Mr. Reyes</span>
-    <span class="clock" id="clock">--:-- --</span>
-  </div>
-</div>
-
-<div class="layout">
-  <div class="left-col">
-
-    <!-- Current ticket -->
-    <div class="current-ticket" id="currentTicket">
-      <div class="ct-label">Now serving</div>
-      <div class="ct-number" id="ctNumber">C-088</div>
-      <div class="ct-meta">
-        <div class="ct-meta-item">
-          <div class="ct-meta-key">Name</div>
-          <div class="ct-meta-val" id="ctName">Liza Bautista</div>
+    <!-- ========== ADMIN SIDEBAR ========== -->
+    <nav class="sidebar">
+        <div class="logo-area">
+            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo"
+                 title="QueueLess | WMSU" class="sidebar-logo" />
         </div>
-        <div class="ct-meta-item">
-          <div class="ct-meta-key">Purpose</div>
-          <div class="ct-meta-val" id="ctPurpose">Tuition Fee</div>
+
+        <p class="menu-label">Overview</p>
+        <a href="../ADMIN-DASHBOARD/Admin-Dashboard.html" class="menu-link">Dashboard</a>
+
+        <p class="menu-label">Windows</p>
+        <a href="../REGISTRAR-DASHBOARD/registrar-dashboard.html" class="menu-link">Registrar</a>
+        <a href="cashier-dashboard.html" class="menu-link active">Cashier</a>
+
+        <p class="menu-label">Management</p>
+        <a href="../ADMIN-DASHBOARD/Admin-Priority.html" class="menu-link">Priority List</a>
+        <a href="../ADMIN-DASHBOARD/Admin-Students.html" class="menu-link">Students List</a>
+        <a href="../ADMIN-DASHBOARD/Admin-reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="../ADMIN-DASHBOARD/Admin-Settings.html" class="menu-link">Settings</a>
+
+        <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div class="main-content">
+        <!-- Global topbar (admin style) -->
+        <div class="topbar">
+            <h2>Cashier Dashboard</h2>
+            <div class="topbar-badge">Open</div>
+            <span class="clock" id="clock">--:-- --</span>
         </div>
-        <div class="ct-meta-item">
-          <div class="ct-meta-key">Waiting since</div>
-          <div class="ct-meta-val" id="ctWait">12:40 PM</div>
+
+        <div class="page-wrapper">
+            <!-- Window‑specific topbar (renamed to .window-topbar) -->
+            <div class="window-topbar">
+                <div class="window-topbar-left">
+                    <div>
+                        <div class="office-sub">
+                            <select id="windowFilter" onchange="renderQueue()"
+                                    style="background:transparent; color:white; border:1px solid rgba(255,255,255,0.4);
+                                           border-radius:4px; padding:2px; font-size:11px; cursor:pointer;">
+                                <option value="all" style="color:black;">All Cashier Windows</option>
+                                <option value="Cashier Window 1" style="color:black;">Window 1 (Payments/TES)</option>
+                                <option value="Cashier Window 2" style="color:black;">Window 2-3 (Checks)</option>
+                                <option value="Cashier Window 4" style="color:black;">Window 4 (Collection Priority)</option>
+                                <option value="Cashier Window 5" style="color:black;">Window 5 (Collection Regular)</option>
+                                <option value="Cashier Window 6" style="color:black;">Window 6 (TES Scholars)</option>
+                                <option value="Cashier Window 7" style="color:black;">Window 7 (Petty Cash)</option>
+                                <option value="Cashier Window 8" style="color:black;">Window 8-9 (Assessment)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layout">
+                <!-- LEFT COLUMN -->
+                <div class="left-col">
+                    <!-- Current ticket -->
+                    <div class="current-ticket" id="currentTicket">
+                        <div class="ct-label">Now serving</div>
+                        <div class="ct-number" id="ctNumber">C-088</div>
+                        <div class="ct-meta">
+                            <div class="ct-meta-item">
+                                <div class="ct-meta-key">Name</div>
+                                <div class="ct-meta-val" id="ctName">Liza Bautista</div>
+                            </div>
+                            <div class="ct-meta-item">
+                                <div class="ct-meta-key">Purpose</div>
+                                <div class="ct-meta-val" id="ctPurpose">Tuition Fee</div>
+                            </div>
+                            <div class="ct-meta-item">
+                                <div class="ct-meta-key">Waiting since</div>
+                                <div class="ct-meta-val" id="ctWait">12:40 PM</div>
+                            </div>
+                        </div>
+                        <div class="ct-actions">
+                            <button class="btn-done" onclick="markDone()">Confirm &amp; Done</button>
+                            <button class="btn-skip" onclick="callNext()">Call Next</button>
+                            <button class="btn-no-show" onclick="noShow()">No-show</button>
+                        </div>
+                    </div>
+
+                    <!-- Empty state (hidden by default) -->
+                    <div class="empty-hero" id="emptyHero">
+                        <div class="empty-hero-title">No active ticket</div>
+                        <div class="empty-hero-sub">Queue is ready. Call the next student when you're set.</div>
+                        <button class="btn-next" onclick="callNext()">Call Next Student ↓</button>
+                    </div>
+
+                    <div class="section-title">Up next — Cashier queue</div>
+                    <div class="queue-card">
+                        <table class="queue-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Ticket</th>
+                                    <th>Name</th>
+                                    <th>Purpose</th>
+                                    <th>Waiting</th>
+                                </tr>
+                            </thead>
+                            <tbody id="queueBody">
+                                <tr>
+                                    <td class="pos-num">1</td>
+                                    <td class="q-num">C-089</td>
+                                    <td>Rico Flores</td>
+                                    <td><span class="purpose-tag">Miscellaneous</span></td>
+                                    <td class="wait-time">12:43 PM</td>
+                                </tr>
+                                <tr>
+                                    <td class="pos-num">2</td>
+                                    <td class="q-num">C-090</td>
+                                    <td>Grace Villanueva</td>
+                                    <td><span class="purpose-tag">ID Fee</span></td>
+                                    <td class="wait-time">12:45 PM</td>
+                                </tr>
+                                <tr>
+                                    <td class="pos-num">3</td>
+                                    <td class="q-num">C-091</td>
+                                    <td>Ramon Uy</td>
+                                    <td><span class="purpose-tag">Tuition Fee</span></td>
+                                    <td class="wait-time">12:50 PM</td>
+                                </tr>
+                                <tr>
+                                    <td class="pos-num">4</td>
+                                    <td class="q-num">C-092</td>
+                                    <td>Donna Santiago</td>
+                                    <td><span class="purpose-tag">Lab Fee</span></td>
+                                    <td class="wait-time">12:54 PM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="right-col">
+                    <div class="stat-row">
+                        <div class="stat-box">
+                            <div class="stat-label">Served today</div>
+                            <div class="stat-value" id="servedCount">21</div>
+                            <div class="stat-sub good">↑ 5 vs yesterday</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">In queue</div>
+                            <div class="stat-value" id="queueCount">5</div>
+                            <div class="stat-sub">right now</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Avg. time</div>
+                            <div class="stat-value">9<span style="font-size:16px;font-weight:400"> min</span></div>
+                            <div class="stat-sub bad">↑ 2 min slower</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">No-shows</div>
+                            <div class="stat-value">1</div>
+                            <div class="stat-sub">today</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">My activity today</div>
+                        <div id="actFeed">
+                            <div class="activity-item">
+                                <div class="a-dot-wrap"><div class="a-dot green"></div></div>
+                                <div>
+                                    <div class="a-text">Collected <b>₱ 100</b> from <b>C-088</b></div>
+                                    <div class="a-time">just now</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="a-dot-wrap"><div class="a-dot green"></div></div>
+                                <div>
+                                    <div class="a-text">Collected <b>₱ 200</b> from <b>C-087</b></div>
+                                    <div class="a-time">6 min ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="a-dot-wrap"><div class="a-dot amber"></div></div>
+                                <div>
+                                    <div class="a-text">No-show — <b>C-086</b></div>
+                                    <div class="a-time">12 min ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <div class="ct-actions">
-        <button class="btn-done" onclick="markDone()">Confirm &amp; Done</button>
-        <button class="btn-skip" onclick="callNext()">Call Next</button>
-        <button class="btn-no-show" onclick="noShow()">No-show</button>
-      </div>
     </div>
 
-    <div class="empty-hero" id="emptyHero">
-      <div class="empty-hero-title">No active ticket</div>
-      <div class="empty-hero-sub">Queue is ready. Call the next student when you're set.</div>
-      <button class="btn-next" onclick="callNext()">Call Next Student ↓</button>
-    </div>
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
 
-    <div class="section-title">Up next — Cashier queue</div>
-    <div class="queue-card">
-      <table class="queue-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Ticket</th>
-            <th>Name</th>
-            <th>Purpose</th>
-            <th>Waiting</th>
-          </tr>
-        </thead>
-        <tbody id="queueBody">
-          <tr>
-            <td class="pos-num">1</td>
-            <td class="q-num">C-089</td>
-            <td>Rico Flores</td>
-            <td><span class="purpose-tag">Miscellaneous</span></td>
-            <td class="wait-time">12:43 PM</td>
-          </tr>
-          <tr>
-            <td class="pos-num">2</td>
-            <td class="q-num">C-090</td>
-            <td>Grace Villanueva</td>
-            <td><span class="purpose-tag">ID Fee</span></td>
-            <td class="wait-time">12:45 PM</td>
-          </tr>
-          <tr>
-            <td class="pos-num">3</td>
-            <td class="q-num">C-091</td>
-            <td>Ramon Uy</td>
-            <td><span class="purpose-tag">Tuition Fee</span></td>
-            <td class="wait-time">12:50 PM</td>
-          </tr>
-          <tr>
-            <td class="pos-num">4</td>
-            <td class="q-num">C-092</td>
-            <td>Donna Santiago</td>
-            <td><span class="purpose-tag">Lab Fee</span></td>
-            <td class="wait-time">12:54 PM</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-   
-  <!-- RIGHT COL -->
-  <div class="right-col">
-    <div class="stat-row">
-      <div class="stat-box">
-        <div class="stat-label">Served today</div>
-        <div class="stat-value" id="servedCount">21</div>
-        <div class="stat-sub good">↑ 5 vs yesterday</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">In queue</div>
-        <div class="stat-value" id="queueCount">5</div>
-        <div class="stat-sub">right now</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">Avg. time</div>
-        <div class="stat-value">9<span style="font-size:16px;font-weight:400"> min</span></div>
-        <div class="stat-sub bad">↑ 2 min slower</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">No-shows</div>
-        <div class="stat-value">1</div>
-        <div class="stat-sub">today</div>
-      </div>
-    </div>
-
-    
-
-   
-
-    <div class="activity-card">
-      <div class="activity-header">My activity today</div>
-      <div id="actFeed">
-        <div class="activity-item">
-          <div class="a-dot-wrap"><div class="a-dot green"></div></div>
-          <div>
-            <div class="a-text">Collected <b>₱ 100</b> from <b>C-088</b></div>
-            <div class="a-time">just now</div>
-          </div>
+    <!-- Logout modal (same as admin) -->
+    <div id="logout-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to securely log out?</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="../../pages/Login-pages/login.html" class="btn btn-confirm">Logout</a>
+            </div>
         </div>
-        <div class="activity-item">
-          <div class="a-dot-wrap"><div class="a-dot green"></div></div>
-          <div>
-            <div class="a-text">Collected <b>₱ 200</b> from <b>C-087</b></div>
-            <div class="a-time">6 min ago</div>
-          </div>
-        </div>
-        <div class="activity-item">
-          <div class="a-dot-wrap"><div class="a-dot amber"></div></div>
-          <div>
-            <div class="a-text">No-show — <b>C-086</b></div>
-            <div class="a-time">12 min ago</div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
 
-<div class="toast" id="toast"></div>
-
-  <script src="../../assets/js/cashier-dash.js"></script>
+    <script src="../../assets/js/cashier-dash.js"></script>
 </body>
 </html>

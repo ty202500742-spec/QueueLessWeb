@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,163 +8,77 @@
     <link rel="stylesheet" href="../../assets/css/Admin-Dashboard.css">
     <link rel="stylesheet" href="../../assets/css/Admin-Dashboard-actions.css">
 </head>
-
 <body>
     <nav class="sidebar">
         <div class="logo-area">
-            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU"
-                class="sidebar-logo">
+            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" class="sidebar-logo">
         </div>
-
         <p class="menu-label">Overview</p>
         <a href="Admin-Dashboard.html" class="menu-link active">Dashboard</a>
-
         <p class="menu-label">Windows</p>
-        <a href="../REGISTRAR-DASHBOARD/registrar-dashboard.html" class="menu-link">Registrar</a>
-        <a href="../CASHIER-DASHBOARD/cashier-dashboard.html" class="menu-link">Cashier</a>
-
-
+        <a href="../REGISTRAR-DASHBOARD/Admin-Dashboard-Registrar.html" class="menu-link">Registrar</a>
+        <a href="../CASHIER-DASHBOARD/Admin-Dashboard-Cashier.html" class="menu-link">Cashier</a>
         <p class="menu-label">Management</p>
         <a href="Admin-Priority.html" class="menu-link">Priority List</a>
         <a href="Admin-Students.html" class="menu-link">Students List</a>
-        <a href="Admin-reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="Admin-Staff.html" class="menu-link">Staff Accounts</a>
+        <a href="Admin-reports.html" class="menu-link">Reports & Analytics</a>
         <a href="Admin-Settings.html" class="menu-link">Settings</a>
-
         <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
-       
     </nav>
 
     <div class="main-content">
         <div class="topbar">
             <h2>Dashboard Overview</h2>
-            <div class="topbar-badge">System Online</div>
-             <span class="clock" id="clock">--:-- --</span>
+            <div class="topbar-right">
+                <span class="topbar-badge">System Online</span>
+                <span class="clock" id="clock">--:-- --</span>
+            </div>
         </div>
 
         <div class="page-wrapper">
-
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-label">In Queue Now</div>
-                    <div class="val">14</div>
-                    <div class="stat-sub">↑ 3 from last hour</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Served Today</div>
-                    <div class="val">87</div>
-                    <div class="stat-sub">↑ 12% vs yesterday</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Avg. Wait Time </div>
-                    <div class="val">8 <span>min</span></div>
-                    <div class="stat-sub">↓ 2 min improvement</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Active Counters</div>
-                    <div class="val">5</div>
-                    <div class="stat-sub">3 offices open</div>
-                </div>
+                <div class="stat-card"><div class="stat-label">In Queue Now</div><div class="val" id="sa-inqueue">0</div><div class="stat-sub">all windows</div></div>
+                <div class="stat-card"><div class="stat-label">Served Today</div><div class="val" id="sa-served">0</div><div class="stat-sub">total transactions</div></div>
+                <div class="stat-card"><div class="stat-label">Priority Waiting</div><div class="val" id="sa-priority">0</div><div class="stat-sub">PWD/Senior/VIP</div></div>
+                <div class="stat-card"><div class="stat-label">Active Windows</div><div class="val">2</div><div class="stat-sub">Cashier + Registrar</div></div>
             </div>
 
             <div class="bottom-row">
-
-    <!-- PRIORITY QUEUE -->
-    <div class="panel main-panel">
-        <h3>Priority Queue</h3>
-        <div class="table-container">
-            <table class="queue-table">
-                <thead>
-                    <tr>
-                        <th>Q#</th>
-                        <th>Name</th>
-                        <th>Purpose</th>
-                        <th>Time</th>
-                        <th>Window</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="priorityTableBody"></tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- REGULAR QUEUE -->
-    <div class="panel main-panel">
-        <h3>Regular Queue</h3>
-        <div class="table-container">
-            <table class="queue-table">
-                <thead>
-                    <tr>
-                        <th>Q#</th>
-                        <th>Name</th>
-                        <th>Purpose</th>
-                        <th>Time</th>
-                        <th>Window</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="regularTableBody"></tbody>
-            </table>
-        </div>
-    </div>
-
-</div>
-
-                <div class="panel side-panel">
-                    <h3>Live Activity Feed</h3>
-                    <ul class="feed">
-                        <li class="feed-item">
-                            <div class="feed-dot green"></div>
-                            <div>Registrar served! <strong>#R-001</strong> <br><span class="feed-time">just now</span>
-                            </div>
-                        </li>
-                        <li class="feed-item">
-                            <div class="feed-dot blue"></div>
-                            <div>Alert: <strong>#C-088</strong> joined Cashier queue <br><span class="feed-time">1 min
-                                    ago</span></div>
-                        </li>
-                        <li class="feed-item">
-                            <div class="feed-dot red"></div>
-                            <div>Alert: Registrar queue exceeds 10 <br><span class="feed-time">3 min ago</span></div>
-                        </li>
-                        <li class="feed-item">
-                            <div class="feed-dot green"></div>
-                            <div>Clinic served! <strong>#M-030</strong> <br><span class="feed-time">4 min ago</span>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="main-panel">
+                    <div class="panel">
+                        <h3>Priority Queue</h3>
+                        <div class="table-container">
+                            <table class="queue-table">
+                                <thead><tr><th>Q#</th><th>Name</th><th>Purpose</th><th>Time</th><th>Window</th><th>Actions</th></tr></thead>
+                                <tbody id="priorityTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <h3>Regular Queue</h3>
+                        <div class="table-container">
+                            <table class="queue-table">
+                                <thead><tr><th>Q#</th><th>Name</th><th>Purpose</th><th>Time</th><th>Window</th><th>Actions</th></tr></thead>
+                                <tbody id="regularTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-
+                <div class="side-panel">
+                    <div class="panel">
+                        <h3>Live Activity Feed</h3>
+                        <ul class="feed" id="adminFeed">
+                            <li class="feed-item"><div class="feed-dot green"></div><div>System started<br><span class="feed-time">just now</span></div></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    
-
-
-    <div id="done-modal" class="modal-overlay">
-        <div class="modal-box">
-            <h3>Complete Transaction</h3>
-            <p>Mark this transaction as successfully completed?</p>
-            <div class="modal-actions">
-                <a href="#" class="btn btn-cancel">Cancel</a>
-                <a href="#" class="btn btn-done" style="background: #198754; color: white;">Complete</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="skip-modal" class="modal-overlay">
-        <div class="modal-box">
-            <h3>Mark as No Show</h3>
-            <p>Student is not present. They will be skipped and moved to the missed queue.</p>
-            <div class="modal-actions">
-                <a href="#" class="btn btn-cancel">Cancel</a>
-                <a href="#" class="btn btn-warning" style="background: #ffc107; color: black;">Confirm Skip</a>
-            </div>
-        </div>
-    </div>
-
- <div id="logout-modal" class="modal-overlay">
+    <!-- Logout Modal -->
+    <div id="logout-modal" class="modal-overlay">
         <div class="modal-box">
             <h3>Confirm Logout</h3>
             <p>Are you sure you want to securely log out?</p>
@@ -177,9 +90,6 @@
     </div>
 
     <script src="../../assets/js/admin-dash.js"></script>
-
-
+    <script src="../../assets/js/admin-dashboard-actions.js"></script> <!-- we'll create a tiny bridge JS file for the manual modal submit -->
 </body>
-
-
 </html>

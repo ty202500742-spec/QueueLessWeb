@@ -8,84 +8,33 @@
     <link rel="stylesheet" href="../../assets/css/Admin-Students.css">
 </head>
 <body>
-
     <nav class="sidebar">
         <div class="logo-area">
-            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" class="sidebar-logo">
         </div>
-
         <p class="menu-label">Overview</p>
         <a href="Admin-Dashboard.html" class="menu-link">Dashboard</a>
-        
-         <p class="menu-label">Windows</p>
-        <a href="/pages/REGISTRAR-DASHBOARD/registrar-dashboard.html" class="menu-link">Registrar</a>
-        <a href="/pages/CASHIER-DASHBOARD/cashier-dashboard.html" class="menu-link">Cashier</a>
-
+        <p class="menu-label">Windows</p>
+        <a href="../REGISTRAR-DASHBOARD/Admin-Dashboard-Registrar.html" class="menu-link">Registrar</a>
+        <a href="../CASHIER-DASHBOARD/Admin-Dashboard-Cashier.html" class="menu-link">Cashier</a>
         <p class="menu-label">Management</p>
         <a href="Admin-Priority.html" class="menu-link">Priority List</a>
         <a href="Admin-Students.html" class="menu-link active">Students List</a>
-        <a href="Admin-reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="Admin-Staff.html" class="menu-link">Staff Accounts</a>
+        <a href="Admin-reports.html" class="menu-link">Reports & Analytics</a>
         <a href="Admin-Settings.html" class="menu-link">Settings</a>
-
         <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
     </nav>
 
     <div class="main-content">
-        <div class="topbar">
-            <h2>Student Records</h2>
-            <a href="#add-student-modal" class="btn btn-confirm">+ Manual Registration</a>
-        </div>
-
+        <div class="topbar"><h2>Student Records</h2></div>
         <div class="page-wrapper">
             <div class="table-container">
                 <table class="student-table">
-                    <thead>
-                        <tr>
-                            <th>Student ID</th>
-                            <th>Name</th>
-                            <th>College</th>
-                            <th>Recent Queue Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2021-00123</td>
-                            <td>Alkaizer Jalaidi</td>
-                            <td>CCS</td>
-                            <td>Served (Window 1)</td>
-                        </tr>
-                        <tr>
-                            <td>2022-00456</td>
-                            <td>Maria Cristina Falls</td>
-                            <td>COE</td>
-                            <td>Waiting (#046)</td>
-                        </tr>
-                    </tbody>
+                    <thead><tr><th>Student ID</th><th>Name</th><th>College</th><th>Queue Status</th></tr></thead>
+                    <tbody id="studentsBody"></tbody>
                 </table>
             </div>
-        </div>
-    </div>
-
-    <div id="add-student-modal" class="modal-overlay">
-        <div class="modal-box">
-            <h3>Manual Queue Registration</h3>
-            <p>Add a student to a queue manually if they cannot access the portal.</p>
-            
-            <form action="#" class="modal-form">
-                <label>Student ID</label>
-                <input type="text" placeholder="e.g. 2021-00000" required>
-                
-                <label>Select Window</label>
-                <select required>
-                    <option>Window 1 - Registrar</option>
-                    <option>Window 2 - Cashier</option>
-                </select>
-                
-                <div class="modal-actions" style="margin-top: 20px;">
-                    <a href="#" class="btn btn-cancel">Cancel</a>
-                    <button type="submit" class="btn btn-confirm">Add to Queue</button>
-                </div>
-            </form>
         </div>
     </div>
 
@@ -100,5 +49,6 @@
         </div>
     </div>
 
+    <script src="../../assets/js/admin-students.js"></script>
 </body>
 </html>

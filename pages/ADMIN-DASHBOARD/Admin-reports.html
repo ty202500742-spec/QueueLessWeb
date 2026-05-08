@@ -11,41 +11,42 @@
 
     <nav class="sidebar">
         <div class="logo-area">
-            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" class="sidebar-logo">
         </div>
 
         <p class="menu-label">Overview</p>
         <a href="Admin-Dashboard.html" class="menu-link">Dashboard</a>
 
         <p class="menu-label">Windows</p>
-        <a href="../REGISTRAR-DASHBOARD/registrar-dashboard.html" class="menu-link">Registrar</a>
-        <a href="../CASHIER-DASHBOARD/cashier-dashboard.html" class="menu-link">Cashier</a>
+        <a href="../REGISTRAR-DASHBOARD/Admin-Dashboard-Registrar.html" class="menu-link">Registrar</a>
+        <a href="../CASHIER-DASHBOARD/Admin-Dashboard-Cashier.html" class="menu-link">Cashier</a>
 
         <p class="menu-label">Management</p>
         <a href="Admin-Priority.html" class="menu-link">Priority List</a>
         <a href="Admin-Students.html" class="menu-link">Students List</a>
-        <a href="Admin-reports.html" class="menu-link active">Reports and Analytics</a>
+        <a href="Admin-Staff.html" class="menu-link">Staff Accounts</a>
+        <a href="Admin-reports.html" class="menu-link active">Reports & Analytics</a>
         <a href="Admin-Settings.html" class="menu-link">Settings</a>
 
         <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
     </nav>
 
     <div class="main-content">
-
-
         <div class="topbar">
             <h2>System Reports & Analytics</h2>
-            <button class="btn btn-confirm" onclick="exportToCSV()">⬇ Export CSV</button>
+            <div class="topbar-right">
+                <button class="btn btn-confirm" onclick="exportToCSV()">⬇ Export CSV</button>
+            </div>
         </div>
 
         <div class="page-wrapper">
 
+            <!-- FILTERS -->
             <div class="filter-section">
 
                 <div class="filter-group">
                     <span class="filter-label">Year</span>
                     <div class="filter-btns" id="yearFilters">
-                    
                         <button class="filter-btn active" data-filter="year" data-value="all">All Years</button>
                     </div>
                 </div>
@@ -100,7 +101,7 @@
 
             </div>
 
-
+            <!-- STAT CARDS -->
             <div class="report-stats-row">
                 <div class="rstat-card total">
                     <div class="rstat-num" id="totalCount">0</div>
@@ -120,6 +121,7 @@
                 </div>
             </div>
 
+            <!-- TRANSACTION TABLE -->
             <div class="panel">
                 <div class="panel-header">
                     <h3>Transaction Records</h3>
@@ -139,8 +141,7 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody id="reportTableBody">
-                        </tbody>
+                        <tbody id="reportTableBody"></tbody>
                     </table>
                 </div>
             </div>
@@ -148,7 +149,7 @@
         </div>
     </div>
 
-
+    <!-- LOGOUT MODAL -->
     <div id="logout-modal" class="modal-overlay">
         <div class="modal-box">
             <h3>Confirm Logout</h3>
@@ -161,6 +162,5 @@
     </div>
 
     <script src="../../assets/js/Admin-Reports.js"></script>
-
 </body>
 </html>

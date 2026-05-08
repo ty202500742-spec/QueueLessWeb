@@ -11,26 +11,31 @@ function sendPhoneNotification(student, type, messageOverride = null) {
         timestamp: Date.now(),
         message: messageOverride
     };
-
     localStorage.setItem("phoneNotif", JSON.stringify(payload));
 }
 
 let currentServing = null;
+
 // ─────────────────────────────
-// CLOCK
+// CLOCK – updates both global and window clocks
 // ─────────────────────────────
 function tick() {
     const now = new Date();
     let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
     const ampm = h >= 12 ? "PM" : "AM";
     h = h % 12 || 12;
+    const timeStr = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm}`;
 
-    document.getElementById("clock").textContent =
-        `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm}`;
+    // Global admin topbar clock
+    const globalClock = document.getElementById("clock");
+    if (globalClock) globalClock.textContent = timeStr;
+
+    // Window‑specific clock (if present)
+    const windowClock = document.getElementById("windowClock");
+    if (windowClock) windowClock.textContent = timeStr;
 }
 tick();
 setInterval(tick, 1000);
-
 
 // ─────────────────────────────
 // QUEUE
@@ -39,7 +44,6 @@ function getCashierQueue() {
     const all = JSON.parse(localStorage.getItem("queueList")) || [];
     return all.filter(q => q.window === "cashier");
 }
-
 
 // ─────────────────────────────
 // RENDER
@@ -61,9 +65,8 @@ function renderQueue() {
     document.getElementById("queueCount").textContent = queue.length;
 }
 
-
 // ─────────────────────────────
-// CALL NEXT (FIXED CORE LOGIC)
+// CALL NEXT
 // ─────────────────────────────
 function callNext() {
     const all = JSON.parse(localStorage.getItem("queueList")) || [];
@@ -75,7 +78,7 @@ function callNext() {
         return;
     }
 
-    currentServing = queue[0]; // ✅ store active user
+    currentServing = queue[0];
 
     document.getElementById("ctNumber").textContent = currentServing.id;
     document.getElementById("ctName").textContent = currentServing.name;
@@ -88,26 +91,21 @@ function callNext() {
     sendPhoneNotification(currentServing, "serving");
 }
 
-
 // ─────────────────────────────
 // MARK DONE
+// ─────────────────────────────
 function markDone() {
     if (!currentServing) return;
 
     let all = JSON.parse(localStorage.getItem("queueList")) || [];
-
     all = all.filter(q => q.id !== currentServing.id);
-
     localStorage.setItem("queueList", JSON.stringify(all));
 
     sendPhoneNotification(currentServing, "done");
 
     currentServing = null;
-
     renderQueue();
-   
 }
-
 
 // ─────────────────────────────
 // NO SHOW
@@ -116,17 +114,13 @@ function noShow() {
     if (!currentServing) return;
 
     let all = JSON.parse(localStorage.getItem("queueList")) || [];
-
     all = all.filter(q => q.id !== currentServing.id);
-
-    all.push(currentServing); // move to back
-
+    all.push(currentServing);
     localStorage.setItem("queueList", JSON.stringify(all));
 
     sendPhoneNotification(currentServing, "skip");
 
     currentServing = null;
-
     renderQueue();
     callNext();
 }

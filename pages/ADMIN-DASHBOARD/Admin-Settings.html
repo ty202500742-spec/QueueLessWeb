@@ -8,126 +8,43 @@
     <link rel="stylesheet" href="../../assets/css/Admin-Settings.css">
 </head>
 <body>
-
     <nav class="sidebar">
         <div class="logo-area">
-            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" title="QueueLess | WMSU" class="sidebar-logo">
+            <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" class="sidebar-logo">
         </div>
-
         <p class="menu-label">Overview</p>
         <a href="Admin-Dashboard.html" class="menu-link">Dashboard</a>
-        
-         <p class="menu-label">Windows</p>
-        <a href="registrar-dashboard.html" class="menu-link">Registrar</a>
-        <a href="cashier-dashboard.html" class="menu-link">Cashier</a>
-
+        <p class="menu-label">Windows</p>
+        <a href="../REGISTRAR-DASHBOARD/Admin-Dashboard-Registrar.html" class="menu-link">Registrar</a>
+        <a href="../CASHIER-DASHBOARD/Admin-Dashboard-Cashier.html" class="menu-link">Cashier</a>
         <p class="menu-label">Management</p>
         <a href="Admin-Priority.html" class="menu-link">Priority List</a>
         <a href="Admin-Students.html" class="menu-link">Students List</a>
-        <a href="Admin-reports.html" class="menu-link">Reports and Analytics</a>
+        <a href="Admin-Staff.html" class="menu-link">Staff Accounts</a>
+        <a href="Admin-reports.html" class="menu-link">Reports & Analytics</a>
         <a href="Admin-Settings.html" class="menu-link active">Settings</a>
-
         <a href="#logout-modal" class="menu-link logout-link">Log Out</a>
     </nav>
 
     <div class="main-content">
-        <div class="topbar">
-            <h2>System Settings</h2>
-            <div class="topbar-badge">System Online ✅</div>
-        </div>
-
+        <div class="topbar"><h2>System Settings</h2></div>
         <div class="page-wrapper">
-            
             <div class="settings-grid">
-                
                 <div class="panel">
-                    <div class="panel-header">
-                        <div class="panel-title">System Configuration</div>
-                    </div>
+                    <div class="panel-header"><div class="panel-title">System Configuration</div></div>
                     <div class="panel-body">
-                        
-                        <div class="toggle-wrap">
-                            <div>
-                                <div class="t-label">Enable Voice Announcements</div>
-                                <div class="t-desc">Text-to-speech reading of queue numbers and windows.</div>
-                            </div>
-                            <label class="toggle">
-                                <input type="checkbox" checked>
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-
-                        <div class="toggle-wrap">
-                            <div>
-                                <div class="t-label">Maintenance Mode</div>
-                                <div class="t-desc">Pause all queues and display maintenance banner.</div>
-                            </div>
-                            <label class="toggle">
-                                <input type="checkbox">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-
-                        <div class="toggle-wrap">
-                            <div>
-                                <div class="t-label">Student Satisfaction Survey</div>
-                                <div class="t-desc">Prompt students to rate their experience after being served.</div>
-                            </div>
-                            <label class="toggle">
-                                <input type="checkbox" checked>
-                                <span class="slider"></span>
-                            </label>
-                        </div>
+                        <div class="toggle-wrap"><div><div class="t-label">Enable Voice Announcements</div><div class="t-desc">Text-to-speech of queue numbers.</div></div><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+                        <div class="toggle-wrap"><div><div class="t-label">Maintenance Mode</div><div class="t-desc">Pause all queues.</div></div><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
                     </div>
                 </div>
-
-                <div class="panel">
-                    <div class="panel-header">
-                        <div class="panel-title text-red">Important Actions</div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="danger-buttons">
-                            <a href="#reset-modal" class="btn btn-danger">Reset Today's Queue Data</a>
-                            <a href="#clear-modal" class="btn btn-danger">Clear All Student Records</a>
-                            <a href="#flush-modal" class="btn btn-danger">Flush Notification Log</a>
-                        </div>
+                <div class="panel-body">
+                    <div class="danger-buttons">
+                        <button class="btn-danger" onclick="resetQueueData()">Reset Today's Queue Data</button>
+                        <button class="btn-danger" onclick="clearStudentRecords()">Clear All Student Records</button>
+                        <button class="btn-danger" onclick="clearReports()">Clear All Report Transactions</button>
+                        <button class="btn-danger" onclick="fullSystemReset()">Full System Reset</button>
                     </div>
                 </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <div id="reset-modal" class="modal-overlay">
-        <div class="modal-box">
-            <h3>Reset Today's Queue?</h3>
-            <p>Are you sure you want to reset ALL queue data for today? This will clear active queues.</p>
-            <div class="modal-actions">
-                <a href="#" class="btn btn-cancel">Cancel</a>
-                <a href="#" class="btn btn-danger">Confirm Reset</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="clear-modal" class="modal-overlay">
-        <div class="modal-box">
-            <h3>Clear All Student Records?</h3>
-            <p>Are you sure you want to clear all student records? <strong>This action cannot be undone.</strong></p>
-            <div class="modal-actions">
-                <a href="#" class="btn btn-cancel">Cancel</a>
-                <a href="#" class="btn btn-danger">Delete All</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="flush-modal" class="modal-overlay">
-        <div class="modal-box">
-            <h3>Flush Notification Log?</h3>
-            <p>Clear all system alerts and notification history?</p>
-            <div class="modal-actions">
-                <a href="#" class="btn btn-cancel">Cancel</a>
-                <a href="#" class="btn btn-danger">Confirm Flush</a>
             </div>
         </div>
     </div>
@@ -142,6 +59,6 @@
             </div>
         </div>
     </div>
-
+        <script src="../../assets/js/admin-settings.js"></script>
 </body>
 </html>

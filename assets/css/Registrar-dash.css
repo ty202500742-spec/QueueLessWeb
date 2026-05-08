@@ -31,23 +31,23 @@
   }
 
   /* TOP BAR */
-  .topbar {
-    background: var(--brand);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 28px;
-    height: 56px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .topbar-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
+  .window-topbar {
+  background: #8B0000;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.window-topbar-left,
+.window-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
   .logo-mark {
     width: 32px;
@@ -110,15 +110,14 @@
 
   /* LAYOUT */
   .layout {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 20px;
-    padding: 24px 28px;
-    flex: 1;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-  }
+  display: flex;
+  gap: 24px;
+  flex: 1;
+  min-height: 0;
+}
+
+.left-col { flex: 2; display: flex; flex-direction: column; gap: 20px; }
+.right-col { flex: 1; display: flex; flex-direction: column; gap: 20px; }
 
   /* CURRENT TICKET HERO */
   .current-ticket {
