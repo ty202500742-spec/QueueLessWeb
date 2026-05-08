@@ -805,3 +805,28 @@ footer {
   .stats-grid { grid-template-columns: 1fr; }
   footer { flex-direction: column; text-align: center; }
 }
+
+/* Smooth page load */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero, .stats, .steps, .about {
+    animation: fadeInUp 0.6s ease-out;
+}
+/* Button hover scale */
+.btn-white, .btn-ghost {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-white:hover, .btn-ghost:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+/* Card hover */
+.stat-card, .step-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.stat-card:hover, .step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}

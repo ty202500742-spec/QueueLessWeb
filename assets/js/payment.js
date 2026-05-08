@@ -1,22 +1,34 @@
 var selectedService = "";
 var selectedWindow = "";
 
-function chooseService(purpose, windowName) {
+/* Only sets the selection – does NOT open modal */
+function selectService(purpose, windowName) {
     selectedService = purpose;
     selectedWindow = windowName;
-    var el = document.getElementById("modalServicePreview");
-    if (el) el.textContent = purpose + " (" + windowName + ")";
-    openInfoModal();
+    // Show the confirm box inside the clicked popup
+    var boxes = document.querySelectorAll(".confirmboxes");
+    boxes.forEach(function(box) { box.style.display = "none"; });
+    // Find the confirm box that belongs to the currently open popup (using its id)
+    var activePopup = document.querySelector(".popup:target");
+    if (activePopup) {
+        var confirmBox = activePopup.querySelector(".confirmboxes");
+        if (confirmBox) confirmBox.style.display = "block";
+        var selText = activePopup.querySelector(".selandreq");
+        if (selText) selText.innerHTML = "<strong>You selected:</strong> " + purpose;
+    }
 }
 
+/* Opens the info modal */
 function openInfoModal() {
     if (!selectedService) { alert("Please select a service first."); return; }
+    document.getElementById("modalServicePreview").textContent = selectedService + " (" + selectedWindow + ")";
     var modal = document.getElementById("infoModal");
     modal.style.display = "flex";
     modal.style.opacity = "1";
     modal.style.visibility = "visible";
 }
 
+/* Closes the info modal */
 function closeInfoModal() {
     var modal = document.getElementById("infoModal");
     modal.style.display = "none";
@@ -24,6 +36,7 @@ function closeInfoModal() {
     modal.style.visibility = "hidden";
 }
 
+/* Queue submission */
 function addQueue() {
     var firstName = document.getElementById("q-firstname").value.trim();
     var middleName = document.getElementById("q-middlename").value.trim();
@@ -38,16 +51,14 @@ function addQueue() {
 
     var fullName = firstName + (middleName ? " " + middleName : "") + " " + lastName + (suffix ? " " + suffix : "");
 
-    // Priority check
     var priorityChoice = document.querySelector('input[name="priority"]:checked');
     var isPriority = false;
     var category = "Regular";
-    if (priorityChoice) {
-        isPriority = (priorityChoice.value !== "na");
-        if (isPriority) category = priorityChoice.value;
+    if (priorityChoice && priorityChoice.value !== "na") {
+        isPriority = true;
+        category = priorityChoice.value;
     }
 
-    // Validate priority ID if needed
     if (isPriority && ["PWD","Senior Citizen","VIP"].includes(category)) {
         var idNum = document.getElementById("jq-idnum").value.trim();
         if (!idNum) { alert("Please enter your verification ID for priority queue."); return; }
@@ -81,7 +92,6 @@ function addQueue() {
     });
     localStorage.setItem("queueList", JSON.stringify(queueList));
 
-    // Save to history
     var historyList = JSON.parse(localStorage.getItem("queueHistory") || "[]");
     historyList.push({
         id: qNum, name: fullName, phone: phone, service: selectedService,
@@ -104,8 +114,7 @@ function addQueue() {
         var el = document.getElementById(id); if (el) el.value = "";
     });
     document.getElementById("terms").checked = false;
-    var radios = document.querySelectorAll('input[name="priority"]');
-    radios.forEach(function(r) { r.checked = false; });
+    document.querySelectorAll('input[name="priority"]').forEach(function(r) { r.checked = false; });
     document.getElementById("jq-idfield").style.display = "none";
 
     closeInfoModal();
@@ -141,7 +150,7 @@ function handlePriorityChange() {
     }
 }
 
-// Sidebar
+// Sidebar (mobile)
 var isOpen = false;
 function toggleSidebar() { isOpen ? closeSidebar() : openSidebar(); }
 function openSidebar() {
@@ -157,24 +166,24 @@ function closeSidebar() {
     document.getElementById("ham").classList.remove("active");
 }
 
-function getWindowFromService(service) {
-    if (["Enrollment","Shifting","Readmission"].includes(service)) return "Window 1 - School to School & Faculty Clearance";
-    if (["TOR","Certificate","Diploma"].includes(service)) return "Window 2 - Request of Documents";
-    if (["EAT","NAT","Interview"].includes(service)) return "Window 5 - Releasing";
-    if (["ID Request","ID Replacement","Scholarship"].includes(service)) return "Window 6 - Releasing";
-    if (service === "Tuition Fee") return "Window 1 - Releasing of Payments / TES";
-    if (service === "Miscellaneous") return "Window 4 - Collection (Priority)";
-    if (service === "Other fees") return "Window 5 - Collection";
-    if (service === "Lab Fee") return "Window 8 - Assessment";
-    if (service === "ID Fee") return "Window 7 - Releasing of Petty Cash";
-    return "Window 1 - School to School & Faculty Clearance";
-}
-
-// Event listeners
 window.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("ham").addEventListener("click", toggleSidebar);
-    document.getElementById("overlay").addEventListener("click", closeSidebar);
-    document.querySelector(".close-btn").addEventListener("click", closeSidebar);
+    // Hamburger
+    var ham = document.getElementById("ham");
+    if (ham) ham.addEventListener("click", toggleSidebar);
+    var overlay = document.getElementById("overlay");
+    if (overlay) overlay.addEventListener("click", closeSidebar);
+    var closeBtn = document.querySelector(".sidebar .close-btn");
+    if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+
+    // Priority radio toggle
     var radios = document.querySelectorAll('input[name="priority"]');
     radios.forEach(function(r) { r.addEventListener("change", handlePriorityChange); });
+
+    // Close info modal via X button
+    var closeInfo = document.getElementById("closeInfoModal");
+    if (closeInfo) closeInfo.addEventListener("click", closeInfoModal);
+
+    // Attach to "Join Queue" button
+    var joinBtn = document.getElementById("joinQueueBtn");
+    if (joinBtn) joinBtn.addEventListener("click", addQueue);
 });

@@ -552,6 +552,22 @@ footer {
     50% { transform: scale(1.05); color: #a80000; }
 }
 
+
+/* Animations */
+.queue-container {
+    animation: popInScale 0.6s ease;
+}
+@keyframes popInScale {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+.cancel-btn {
+    transition: background 0.3s, transform 0.2s;
+}
+.cancel-btn:hover {
+    transform: translateY(-2px);
+}
+
 @media screen and (max-width: 600px) {
     .bodd2 {
         padding: 20px 10px;

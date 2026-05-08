@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="../../assets/css/payment.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Queueuless | Payment</title>
 </head>
-
 <body>
-
-    <input type="radio" class="filter-radio" name="hfilter" id="f-all" checked>
-    <input type="radio" class="filter-radio" name="hfilter" id="f-done">
-    <input type="radio" class="filter-radio" name="hfilter" id="f-wait">
-    <input type="radio" class="filter-radio" name="hfilter" id="f-miss">
-
     <nav>
-        
-        <!-- ========== HAMBURGER BUTTON (place this in your topbar) ========== -->
-        <button class="hamburger" id="ham" onclick="toggleSidebar()" aria-label="Open menu">
+        <button class="hamburger" id="ham" aria-label="Open menu">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
@@ -31,77 +21,28 @@
         <a href="../../index.html" class="nav-logo-link">
             <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU" class="nav-logo-img">
         </a>
-        <!-- ========== OVERLAY ========== -->
-        <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-
-         <!-- ========== SIDEBAR ========== -->
+        <div class="overlay" id="overlay"></div>
         <div class="sidebar" id="sidebar">
-
-            <!-- Header -->
             <div class="sb-header">
                 <span class="sb-title">Menu</span>
-                <button class="close-btn" onclick="closeSidebar()" aria-label="Close">
+                <button class="close-btn" aria-label="Close">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.5"
-                            stroke-linecap="round" />
+                        <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                     </svg>
                 </button>
             </div>
-
-            <!-- Profile -->
             <div class="profile-section">
                 <div class="avatar">JD</div>
                 <div class="profile-name">Juan dela Cruz</div>
                 <div class="profile-email">juan@school.edu.ph</div>
-             
-                    
-                   
-                </span>
             </div>
-
-            <!-- Navigation -->
             <div class="section-label">Navigation</div>
-
-            <div class="nav-item active" onclick="dashboardgo()">
-                <div class="nav-icon blue">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <rect x="2" y="2" width="5" height="5" rx="1" fill="#185FA5" />
-                        <rect x="9" y="2" width="5" height="5" rx="1" fill="#185FA5" />
-                        <rect x="2" y="9" width="5" height="5" rx="1" fill="#185FA5" />
-                        <rect x="9" y="9" width="5" height="5" rx="1" fill="#185FA5" />
-                    </svg>
-                </div>
-                Dashboard
-            </div>
-
-            <div class="nav-item" onclick="historygo()">
-                <div class="nav-icon amber">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <circle cx="8" cy="8" r="6" stroke="#BA7517" stroke-width="1.4" />
-                        <path d="M8 5v3l2 2" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" />
-                    </svg>
-                </div>
-                History
-                <span class="history-badge">12</span>
-            </div>
-
-        
-            <!-- Footer / Logout -->
+            <a href="../../index.html" class="nav-item">Dashboard</a>
+            <a href="statichistory.html" class="nav-item">History</a>
             <div class="sb-footer">
-                <div class="nav-item logout">
-                    <div class="nav-icon gray">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 14H3a1 1 0 01-1-1V3a1 1 0 011-1h3M10.5 11.5l3-3.5-3-3.5M13.5 8H6"
-                                stroke="#6b7280" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                     <a href=".././Login-pages/login.html" style="text-decoration: none; color: rgb(95, 0, 0);"> Log in as admin</a>
-                </div>
+                <a href="../Login-pages/login.html" class="nav-item logout">Log in as admin</a>
             </div>
-
         </div>
-
-
     </nav>
 
     <div class="page-header">
@@ -109,390 +50,452 @@
         <p>Select a window to get your queue number.</p>
     </div>
 
-    <div class="stats-row">
-        <div class="stat-card green">
-            <div class="sv">40</div>
-            <div class="sl">Students Waiting</div>
-        </div>
-        <div class="stat-card blue">
-            <div class="sv">1</div>
-            <div class="sl">Your Active Queues</div>
-        </div>
-        <div class="stat-card purple">
-            <div class="sv">2,851</div>
-            <div class="sl">Served Today</div>
-        </div>
-    </div>
-
     <div class="main-layout">
-
-    <!-- REGISTRAR GROUP -->
-    <div class="window-section">
-        <h2 class="section-title"> Registrar Services</h2>
-
-        <div class="window-grid">
-
-         
-             <a href="#popup1" class="wcard">
-                <div class="card-top"><span class="win-label">Window 1</span></div>
-                <div class="win-icon" style="background:#dbeafe;">🎓</div>
-                <h3>School to School and Faculty Clearance</h3>
-                <p>New, continuing, shifting, and late enrollment services.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-             <a href="#popup2" class="wcard">
-                <div class="card-top"><span class="win-label">Window 2</span></div>
-                <div class="win-icon" style="background:#dbeafe;">🎓</div>
-                <h3>Request of Documents</h3>
-                <p>New, continuing, shifting, and late enrollment services.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-             <a href="#popup3" class="wcard">
-                <div class="card-top"><span class="win-label">Window 3</span></div>
-                <div class="win-icon" style="background:#dbeafe;">🎓</div>
-                <h3>Request of Documents</h3>
-                <p>New, continuing, shifting, and late enrollment services.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            <a href="#popup4" class="wcard">
-                <div class="card-top"><span class="win-label">Window 4</span></div>
-                <div class="win-icon" style="background:#fef9c3;">📄</div>
-                <h3>Documents</h3>
-                <p>Request TOR, Certificates, Diploma, and more.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            <a href="#popup4" class="wcard">
-                <div class="card-top"><span class="win-label">Window 5</span></div>
-                <div class="win-icon" style="background:#fce7f3;">📝</div>
-                <h3>Aptitude Tests</h3>
-                <p>Engineering and Nursing aptitude test registration.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            <a href="#popup5" class="wcard">
-                <div class="card-top"><span class="win-label">Window 6</span></div>
-                <div class="win-icon" style="background:#f3e8ff;">🪪</div>
-                <h3>ID & Scholarship</h3>
-                <p>ID processing and scholarship application.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-        </div>
-    </div>
-
-    <!-- CASHIER GROUP -->
-    <div class="window-section">
-        <h2 class="section-title"> Cashier Services</h2>
-
-        <div class="window-grid">
-
-            <a href="#popup2" class="wcard">
-                <div class="card-top"><span class="win-label">Window 1</span></div>
-                <div class="win-icon" style="background:#dcfce7;">💳</div>
-                <h3> Releasing of Payments</h3>
-                <p>Tuition, miscellaneous, and other fee payments.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            
-            <a href="#popup2" class="wcard">
-                <div class="card-top"><span class="win-label">Window 2</span></div>
-                <div class="win-icon" style="background:#dcfce7;">💳</div>
-                <h3> Releasing of Checks</h3>
-                <p>Tuition, miscellaneous, and other fee payments.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            
-            <a href="#popup2" class="wcard">
-                <div class="card-top"><span class="win-label">Window 3</span></div>
-                <div class="win-icon" style="background:#dcfce7;">💳</div>
-                <h3> Releasing of Checks</h3>
-                <p>Tuition, miscellaneous, and other fee payments.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            
-            <a href="#popup2" class="wcard">
-                <div class="card-top"><span class="win-label">Window 4</span></div>
-                <div class="win-icon" style="background:#dcfce7;">💳</div>
-                <h3>Collection</h3>
-                <p>Tuition, miscellaneous, and other fee payments.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            
-            <a href="#popup2" class="wcard">
-                <div class="card-top"><span class="win-label">Window 5</span></div>
-                <div class="win-icon" style="background:#dcfce7;">💳</div>
-                <h3>Collection</h3>
-                <p>Tuition, miscellaneous, and other fee payments.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            
-            <a href="#popup2" class="wcard">
-                <div class="card-top"><span class="win-label">Window 6</span></div>
-                <div class="win-icon" style="background:#dcfce7;">💳</div>
-                <h3>TES Scholars</h3>
-                <p>Tuition, miscellaneous, and other fee payments.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            <a href="#popup6" class="wcard">
-                <div class="card-top"><span class="win-label">Window 7</span></div>
-                <div class="win-icon" style="background:#ffedd5;">🔖</div>
-                <h3>Releasing of Petition Cash</h3>
-                <p>General inquiries and other administrative concerns.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            <a href="#popup7" class="wcard">
-                <div class="card-top"><span class="win-label">Window 8</span></div>
-                <div class="win-icon" style="background:#e0f2fe;">📋</div>
-                <h3>Assessments</h3>
-                <p>General inquiries and other administrative concerns.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-            <a href="#popup8" class="wcard">
-                <div class="card-top"><span class="win-label">Window 9</span></div>
-                <div class="win-icon" style="background:#ecfdf5;">🗂️</div>
-                <h3>Other Services</h3>
-                <p>General inquiries and other administrative concerns.</p>
-                <span class="get-btn"># Get Queue Number</span>
-            </a>
-
-        </div>
-    </div>
-
-</div>
-
-  <!-- ===== POPUP 1 — Enrollment Assistance ===== -->
-<div id="popup1" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-        <div class="card-top"><span class="win-label">Window 1</span></div>
-        <div class="win-icon" style="background:#dbeafe;">🎓</div>
-        <h2>Enrollment Assistance</h2><br>
-        <ul class="ulpop">
-            <li><button class="optionchoice" onclick="chooseService('Enrollment')">Enrollment</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Shifting')">Shifting</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Readmission')">Readmission</button></li>
-        </ul>
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        <div id="confirmBox1" class="confirmboxes">
-            <p class="selandreq" id="selectedText1"></p>
-            <p class="selandreq" id="requirementText1"></p>
-            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
-        </div>
-    </div>
-</div>
-
-<!-- ===== POPUP 2 — Payments ===== -->
-<div id="popup2" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-        <div class="card-top"><span class="win-label">Window 2</span></div>
-        <div class="win-icon" style="background:#dbeafe;">💳</div>
-        <h2>Payments</h2><br>
-        <ul class="ulpop">
-            <li><button class="optionchoice" onclick="chooseService('Tuition Fee')">Tuition Fee</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Miscellaneous')">Miscellaneous</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Other fees')">Other fees</button></li>
-        </ul>
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        <div id="confirmBox2" class="confirmboxes">
-            <p class="selandreq" id="selectedText2"></p>
-            <p class="selandreq" id="requirementText2"></p>
-            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
-        </div>
-    </div>
-</div>
-
-<!-- ===== POPUP 3 — Documents ===== -->
-<div id="popup3" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-        <div class="card-top"><span class="win-label">Window 3</span></div>
-        <div class="win-icon" style="background:#dbeafe;">💳</div>
-        <h2>Documents</h2><br>
-        <ul class="ulpop">
-            <li><button class="optionchoice" onclick="chooseService('TOR')">TOR</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Certificate')">Certificate</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Diploma')">Diploma</button></li>
-        </ul>
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        <div id="confirmBox3" class="confirmboxes">
-            <p class="selandreq" id="selectedText3"></p>
-            <p class="selandreq" id="requirementText3"></p>
-            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
-        </div>
-    </div>
-</div>
-
-<!-- ===== POPUP 4 — Aptitude Tests ===== -->
-<div id="popup4" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-        <div class="card-top"><span class="win-label">Window 4</span></div>
-        <div class="win-icon" style="background:#dbeafe;">📝</div>
-        <h2>Aptitude Tests</h2><br>
-        <ul class="ulpop">
-            <li><button class="optionchoice" onclick="chooseService('EAT')">EAT</button></li>
-            <li><button class="optionchoice" onclick="chooseService('NAT')">NAT</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Interview')">Interview</button></li>
-        </ul>
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        <div id="confirmBox4" class="confirmboxes">
-            <p class="selandreq" id="selectedText4"></p>
-            <p class="selandreq" id="requirementText4"></p>
-            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
-        </div>
-    </div>
-</div>
-
-<!-- ===== POPUP 5 — ID & Scholarships ===== -->
-<div id="popup5" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-        <div class="card-top"><span class="win-label">Window 5</span></div>
-        <div class="win-icon" style="background:#dbeafe;">🪪</div>
-        <h2>ID & Scholarships</h2><br>
-        <ul class="ulpop">
-            <li><button class="optionchoice" onclick="chooseService('ID Request')">ID Request</button></li>
-            <li><button class="optionchoice" onclick="chooseService('ID Replacement')">ID Replacement</button></li>
-            <li><button class="optionchoice" onclick="chooseService('Scholarship')">Scholarship</button></li>
-        </ul>
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        <div id="confirmBox5" class="confirmboxes">
-            <p class="selandreq" id="selectedText5"></p>
-            <p class="selandreq" id="requirementText5"></p>
-            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
-        </div>
-    </div>
-</div>
-
-<!-- ===== POPUP 6 — Other Services ===== -->
-<div id="popup6" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-        <div class="card-top"><span class="win-label">Window 6</span></div>
-        <div class="win-icon" style="background:#dbeafe;">🔖</div>
-        <h2>Other Services</h2><br>
-        <ul class="ulpop">
-            <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
-            <li><button class="optionchoice" onclick="chooseService('administrative concerns')">Administrative Concerns</button></li>
-        </ul>
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        <div id="confirmBox6" class="confirmboxes">
-            <p class="selandreq" id="selectedText6"></p>
-            <p class="selandreq" id="requirementText6"></p>
-            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
-        </div>
-    </div>
-</div>
-
-<!-- ===== POPUP 7 — Other Services ===== -->
-<div id="popup7" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-        <div class="card-top"><span class="win-label">Window 7</span></div>
-        <div class="win-icon" style="background:#dbeafe;">📋</div>
-        <h2>Other Services</h2><br>
-        <ul class="ulpop">
-            <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
-            <li><button class="optionchoice" onclick="chooseService('administrative concerns')">Administrative Concerns</button></li>
-        </ul>
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        <div id="confirmBox7" class="confirmboxes">
-            <p class="selandreq" id="selectedText7"></p>
-            <p class="selandreq" id="requirementText7"></p>
-            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
-        </div>
-    </div>
-</div>
-
-<!-- ===== POPUP 8 — Other Services ===== -->
-<div id="popup8" class="popup">
-    <div class="popup-card">
-        <a href="#" class="close-btn">&times;</a>
-        <div class="card-top"><span class="win-label">Window 8</span></div>
-        <div class="win-icon" style="background:#dbeafe;">🗂️</div>
-        <h2>Other Services</h2><br>
-        <ul class="ulpop">
-            <li><button class="optionchoice" onclick="chooseService('General Inquiry')">General Inquiry</button></li>
-            <li><button class="optionchoice" onclick="chooseService('administrative concerns')">Administrative Concerns</button></li>
-        </ul>
-        <h4>Schedule:</h4>
-        <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
-        <div id="confirmBox8" class="confirmboxes">
-            <p class="selandreq" id="selectedText8"></p>
-            <p class="selandreq" id="requirementText8"></p>
-            <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
-        </div>
-    </div>
-</div>
-
-
-<div id="infoModal" class="modalinfo" style="display:none; opacity:0; visibility:hidden;">
-    <div class="modalinfo-content" style="max-width:480px; padding:28px; border-radius:14px; background:#fff; box-shadow:0 10px 40px rgba(0,0,0,0.25);">
-        <span class="closeinfo" id="closeInfoModal" style="float:right; cursor:pointer; font-size:22px; color:#888;">&times;</span>
-        <h2 style="color:#8B0000; margin-bottom:6px;">Enter Your Information</h2>
-        <p style="margin-bottom:16px; color:#666;">Queuing for: <strong id="modalServicePreview"></strong></p>
-
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-            <div><label style="font-weight:600; display:block;">First Name *</label><input type="text" id="q-firstname" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Juan"></div>
-            <div><label style="font-weight:600; display:block;">Middle Name</label><input type="text" id="q-middlename" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Santos"></div>
-        </div>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px;">
-            <div><label style="font-weight:600; display:block;">Last Name *</label><input type="text" id="q-lastname" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Dela Cruz"></div>
-            <div><label style="font-weight:600; display:block;">Suffix (optional)</label><input type="text" id="q-suffix" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Jr., III"></div>
-        </div>
-        <div style="margin-top:10px;">
-            <label style="font-weight:600; display:block;">Phone Number *</label>
-            <input type="tel" id="q-phone" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="09XXXXXXXXX">
-        </div>
-
-        <div class="priority-box" style="margin-top:14px;">
-            <span style="font-weight:700; display:block; margin-bottom:8px;">Priority Lane (optional)</span>
-            <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                <label><input type="radio" name="priority" value="PWD"> PWD</label>
-                <label><input type="radio" name="priority" value="Senior Citizen"> Senior Citizen</label>
-                <label><input type="radio" name="priority" value="VIP"> VIP</label>
-                <label><input type="radio" name="priority" value="na" checked> N/A</label>
-            </div>
-            <div id="jq-idfield" style="display:none; margin-top:10px;">
-                <label style="font-weight:600; color:#8B0000;">Verification ID Number *</label>
-                <input type="text" id="jq-idnum" style="width:100%; padding:10px; border:1px solid #8B0000; border-radius:6px; background:#fff8f8;" placeholder="e.g. PWD-12345 or SC-9901">
-                <small style="color:#dc2626; font-weight:600;">Required — must present valid ID at the window.</small>
+        <!-- REGISTRAR GROUP -->
+        <div class="window-section">
+            <h2 class="section-title"> Registrar Services</h2>
+            <div class="window-grid">
+                <a href="#popup1" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 1</span></div>
+                    <div class="win-icon" style="background:#dbeafe;">🎓</div>
+                    <h3>School to School and Faculty Clearance</h3>
+                    <p>Enrollment, shifting, readmission.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup2" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 2</span></div>
+                    <div class="win-icon" style="background:#fef9c3;">📄</div>
+                    <h3>Request of Documents</h3>
+                    <p>TOR, Certificate, Diploma.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup3" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 3</span></div>
+                    <div class="win-icon" style="background:#fef9c3;">📄</div>
+                    <h3>Request of Documents</h3>
+                    <p>TOR, Certificate, Diploma.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup4" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 4</span></div>
+                    <div class="win-icon" style="background:#fef9c3;">📄</div>
+                    <h3>Request of Documents</h3>
+                    <p>TOR, Certificate, Diploma.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup5" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 5</span></div>
+                    <div class="win-icon" style="background:#fce7f3;">📝</div>
+                    <h3>Releasing</h3>
+                    <p>EAT, NAT, Interview results.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup6" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 6</span></div>
+                    <div class="win-icon" style="background:#f3e8ff;">🪪</div>
+                    <h3>Releasing</h3>
+                    <p>ID & Scholarship processing.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
             </div>
         </div>
 
-        <label style="display:flex; gap:8px; margin-top:14px; font-size:13px;">
-            <input type="checkbox" id="terms"> I consent to the collection and use of my personal data
-        </label>
-
-        <button id="joinQueueBtn" style="width:100%; margin-top:16px; padding:12px; background:#8B0000; color:white; border:none; border-radius:8px; font-weight:700; font-size:14px; cursor:pointer;">Join Queue</button>
+        <!-- CASHIER GROUP -->
+        <div class="window-section">
+            <h2 class="section-title"> Cashier Services</h2>
+            <div class="window-grid">
+                <a href="#popup7" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 1</span></div>
+                    <div class="win-icon" style="background:#dcfce7;">💳</div>
+                    <h3>Releasing of Payments / TES</h3>
+                    <p>Tuition, miscellaneous fees.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup8" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 2</span></div>
+                    <div class="win-icon" style="background:#dcfce7;">💳</div>
+                    <h3>Releasing of Checks</h3>
+                    <p>Check payments.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup8" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 3</span></div>
+                    <div class="win-icon" style="background:#dcfce7;">💳</div>
+                    <h3>Releasing of Checks</h3>
+                    <p>Check payments.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup9" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 4</span></div>
+                    <div class="win-icon" style="background:#fef9c3;">⭐</div>
+                    <h3>Collection (Priority)</h3>
+                    <p>Miscellaneous fees priority lane.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup10" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 5</span></div>
+                    <div class="win-icon" style="background:#dcfce7;">💳</div>
+                    <h3>Collection</h3>
+                    <p>Regular collection.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup11" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 6</span></div>
+                    <div class="win-icon" style="background:#dcfce7;">💳</div>
+                    <h3>TES Scholars</h3>
+                    <p>TES payments.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup12" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 7</span></div>
+                    <div class="win-icon" style="background:#ffedd5;">🔖</div>
+                    <h3>Releasing of Petty Cash</h3>
+                    <p>Petty cash requests.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup13" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 8</span></div>
+                    <div class="win-icon" style="background:#e0f2fe;">📋</div>
+                    <h3>Assessment</h3>
+                    <p>Lab fee assessment.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+                <a href="#popup14" class="wcard">
+                    <div class="card-top"><span class="win-label">Window 9</span></div>
+                    <div class="win-icon" style="background:#e0f2fe;">📋</div>
+                    <h3>Assessment</h3>
+                    <p>Lab fee assessment.</p>
+                    <span class="get-btn"># Get Queue Number</span>
+                </a>
+            </div>
+        </div>
     </div>
-</div>
+
+    <!-- ===== POPUPS ===== -->
+    <!-- Popup 1: Registrar Window 1 -->
+    <div id="popup1" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 1</span></div>
+            <div class="win-icon" style="background:#dbeafe;">🎓</div>
+            <h2>School to School & Faculty Clearance</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('Enrollment', 'Window 1 - School to School & Faculty Clearance')">Enrollment</button></li>
+                <li><button class="optionchoice" onclick="selectService('Shifting', 'Window 1 - School to School & Faculty Clearance')">Shifting</button></li>
+                <li><button class="optionchoice" onclick="selectService('Readmission', 'Window 1 - School to School & Faculty Clearance')">Readmission</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox1" class="confirmboxes">
+                <p class="selandreq" id="selectedText1"></p>
+                <p class="selandreq" id="requirementText1"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 2: Registrar Window 2 -->
+    <div id="popup2" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 2</span></div>
+            <div class="win-icon" style="background:#fef9c3;">📄</div>
+            <h2>Request of Documents</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('TOR', 'Window 2 - Request of Documents')">TOR</button></li>
+                <li><button class="optionchoice" onclick="selectService('Certificate', 'Window 2 - Request of Documents')">Certificate</button></li>
+                <li><button class="optionchoice" onclick="selectService('Diploma', 'Window 2 - Request of Documents')">Diploma</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox2" class="confirmboxes">
+                <p class="selandreq" id="selectedText2"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 3: Registrar Window 3 (same as Window 2) -->
+    <div id="popup3" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 3</span></div>
+            <div class="win-icon" style="background:#fef9c3;">📄</div>
+            <h2>Request of Documents</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('TOR', 'Window 3 - Request of Documents')">TOR</button></li>
+                <li><button class="optionchoice" onclick="selectService('Certificate', 'Window 3 - Request of Documents')">Certificate</button></li>
+                <li><button class="optionchoice" onclick="selectService('Diploma', 'Window 3 - Request of Documents')">Diploma</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox3" class="confirmboxes">
+                <p class="selandreq" id="selectedText3"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 4: Registrar Window 4 -->
+    <div id="popup4" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 4</span></div>
+            <div class="win-icon" style="background:#fef9c3;">📄</div>
+            <h2>Request of Documents</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('TOR', 'Window 4 - Request of Documents')">TOR</button></li>
+                <li><button class="optionchoice" onclick="selectService('Certificate', 'Window 4 - Request of Documents')">Certificate</button></li>
+                <li><button class="optionchoice" onclick="selectService('Diploma', 'Window 4 - Request of Documents')">Diploma</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox4" class="confirmboxes">
+                <p class="selandreq" id="selectedText4"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 5: Registrar Window 5 (Releasing) -->
+    <div id="popup5" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 5</span></div>
+            <div class="win-icon" style="background:#fce7f3;">📝</div>
+            <h2>Releasing</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('EAT', 'Window 5 - Releasing')">EAT</button></li>
+                <li><button class="optionchoice" onclick="selectService('NAT', 'Window 5 - Releasing')">NAT</button></li>
+                <li><button class="optionchoice" onclick="selectService('Interview', 'Window 5 - Releasing')">Interview</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox5" class="confirmboxes">
+                <p class="selandreq" id="selectedText5"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 6: Registrar Window 6 (Releasing) -->
+    <div id="popup6" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 6</span></div>
+            <div class="win-icon" style="background:#f3e8ff;">🪪</div>
+            <h2>Releasing</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('ID Request', 'Window 6 - Releasing')">ID Request</button></li>
+                <li><button class="optionchoice" onclick="selectService('ID Replacement', 'Window 6 - Releasing')">ID Replacement</button></li>
+                <li><button class="optionchoice" onclick="selectService('Scholarship', 'Window 6 - Releasing')">Scholarship</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox6" class="confirmboxes">
+                <p class="selandreq" id="selectedText6"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 7: Cashier Window 1 -->
+    <div id="popup7" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 1</span></div>
+            <div class="win-icon" style="background:#dcfce7;">💳</div>
+            <h2>Releasing of Payments / TES</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('Tuition Fee', 'Window 1 - Releasing of Payments / TES')">Tuition Fee</button></li>
+                <li><button class="optionchoice" onclick="selectService('Miscellaneous', 'Window 1 - Releasing of Payments / TES')">Miscellaneous</button></li>
+                <li><button class="optionchoice" onclick="selectService('Other fees', 'Window 1 - Releasing of Payments / TES')">Other fees</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox7" class="confirmboxes">
+                <p class="selandreq" id="selectedText7"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 8: Cashier Window 2/3 (Checks) -->
+    <div id="popup8" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 2 / 3</span></div>
+            <div class="win-icon" style="background:#dcfce7;">💳</div>
+            <h2>Releasing of Checks</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('Check Payment', 'Window 2 - Releasing of Checks')">Check Payment</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox8" class="confirmboxes">
+                <p class="selandreq" id="selectedText8"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 9: Cashier Window 4 (Collection Priority) -->
+    <div id="popup9" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 4</span></div>
+            <div class="win-icon" style="background:#fef9c3;">⭐</div>
+            <h2>Collection (Priority)</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('Miscellaneous', 'Window 4 - Collection (Priority)')">Miscellaneous</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox9" class="confirmboxes">
+                <p class="selandreq" id="selectedText9"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 10: Cashier Window 5 (Collection) -->
+    <div id="popup10" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 5</span></div>
+            <div class="win-icon" style="background:#dcfce7;">💳</div>
+            <h2>Collection</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('Other fees', 'Window 5 - Collection')">Other fees</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox10" class="confirmboxes">
+                <p class="selandreq" id="selectedText10"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 11: Cashier Window 6 (TES Scholars) -->
+    <div id="popup11" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 6</span></div>
+            <div class="win-icon" style="background:#dcfce7;">💳</div>
+            <h2>TES Scholars</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('TES Payment', 'Window 6 - TES Scholars')">TES Payment</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox11" class="confirmboxes">
+                <p class="selandreq" id="selectedText11"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 12: Cashier Window 7 (Petty Cash) -->
+    <div id="popup12" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 7</span></div>
+            <div class="win-icon" style="background:#ffedd5;">🔖</div>
+            <h2>Releasing of Petty Cash</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('Petty Cash', 'Window 7 - Releasing of Petty Cash')">Petty Cash</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox12" class="confirmboxes">
+                <p class="selandreq" id="selectedText12"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 13: Cashier Window 8 -->
+    <div id="popup13" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 8</span></div>
+            <div class="win-icon" style="background:#e0f2fe;">📋</div>
+            <h2>Assessment</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('Lab Fee', 'Window 8 - Assessment')">Lab Fee</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox13" class="confirmboxes">
+                <p class="selandreq" id="selectedText13"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 14: Cashier Window 9 -->
+    <div id="popup14" class="popup">
+        <div class="popup-card">
+            <a href="#" class="close-btn">&times;</a>
+            <div class="card-top"><span class="win-label">Window 9</span></div>
+            <div class="win-icon" style="background:#e0f2fe;">📋</div>
+            <h2>Assessment</h2>
+            <ul class="ulpop">
+                <li><button class="optionchoice" onclick="selectService('Lab Fee', 'Window 9 - Assessment')">Lab Fee</button></li>
+            </ul>
+            <h4>Office Hours:</h4>
+            <p class="schedpad">Mon-Fri | 8:00 AM - 5:00 PM</p>
+            <div id="confirmBox14" class="confirmboxes">
+                <p class="selandreq" id="selectedText14"></p>
+                <button class="proceed-btn" onclick="openInfoModal()">Confirm & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- INFO MODAL -->
+    <div id="infoModal" class="modalinfo" style="display:none; opacity:0; visibility:hidden;">
+        <div class="modalinfo-content" style="max-width:480px; padding:28px; border-radius:14px; background:#fff; box-shadow:0 10px 40px rgba(0,0,0,0.25);">
+            <span id="closeInfoModal" style="float:right; cursor:pointer; font-size:22px; color:#888;">&times;</span>
+            <h2 style="color:#8B0000; margin-bottom:6px;">Enter Your Information</h2>
+            <p style="margin-bottom:16px; color:#666;">Queuing for: <strong id="modalServicePreview"></strong></p>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                <div><label style="font-weight:600; display:block;">First Name *</label><input type="text" id="q-firstname" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Juan"></div>
+                <div><label style="font-weight:600; display:block;">Middle Name</label><input type="text" id="q-middlename" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Santos"></div>
+            </div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px;">
+                <div><label style="font-weight:600; display:block;">Last Name *</label><input type="text" id="q-lastname" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Dela Cruz"></div>
+                <div><label style="font-weight:600; display:block;">Suffix</label><input type="text" id="q-suffix" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="Jr., III"></div>
+            </div>
+            <div style="margin-top:10px;">
+                <label style="font-weight:600; display:block;">Phone Number *</label>
+                <input type="tel" id="q-phone" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" placeholder="09XXXXXXXXX">
+            </div>
+
+            <div class="priority-box" style="margin-top:14px;">
+                <span style="font-weight:700; display:block; margin-bottom:8px;">Priority Lane (optional)</span>
+                <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                    <label><input type="radio" name="priority" value="PWD"> PWD</label>
+                    <label><input type="radio" name="priority" value="Senior Citizen"> Senior Citizen</label>
+                    <label><input type="radio" name="priority" value="VIP"> VIP</label>
+                    <label><input type="radio" name="priority" value="na" checked> N/A</label>
+                </div>
+                <div id="jq-idfield" style="display:none; margin-top:10px;">
+                    <label style="font-weight:600; color:#8B0000;">Verification ID Number *</label>
+                    <input type="text" id="jq-idnum" style="width:100%; padding:10px; border:1px solid #8B0000; border-radius:6px; background:#fff8f8;" placeholder="e.g. PWD-12345 or SC-9901">
+                    <small style="color:#dc2626; font-weight:600;">Required — must present valid ID at the window.</small>
+                </div>
+            </div>
+
+            <label style="display:flex; gap:8px; margin-top:14px; font-size:13px;">
+                <input type="checkbox" id="terms"> I consent to the collection and use of my personal data
+            </label>
+
+            <button id="joinQueueBtn" style="width:100%; margin-top:16px; padding:12px; background:#8B0000; color:white; border:none; border-radius:8px; font-weight:700; font-size:14px; cursor:pointer;">Join Queue</button>
+        </div>
+    </div>
 
     <script src="../../assets/js/payment.js"></script>
-
-    <footer>
-        © 2026 Queueuless | Western Mindanao State University
-    </footer>
 </body>
-
 </html>
