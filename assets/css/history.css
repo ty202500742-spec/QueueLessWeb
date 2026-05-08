@@ -443,8 +443,9 @@ nav {
      }
   .nav-item.logout span { 
     font-size: 13px; 
-    color: #6b7280; 
-}
+    color: #8b0000; 
+     font-weight: 600;
+      }
  
   .nav-icon {
     width: 32px; 
