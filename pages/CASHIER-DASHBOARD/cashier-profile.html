@@ -3,39 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cashier Dashboard — Queueless</title>
+    <title>Cashier Profile — Queueless</title>
     <link rel="stylesheet" href="../../assets/css/Admin-Global.css">
-    <link rel="stylesheet" href="../../assets/css/Cashier-dash.css">
     <style>
-        .window-section { margin-bottom: 30px; }
-        .window-title { background: #8B0000; color: white; padding: 8px 15px; border-radius: 6px 6px 0 0; font-weight: bold; }
+        .profile-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .profile-card h2 { color: #8B0000; margin-bottom: 20px; }
+        .info-row { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .info-label { font-weight: bold; color: #555; }
+        .info-value { color: #111; }
     </style>
 </head>
 <body>
 
-    <!-- ========== SIDEBAR FOR STAFF ========== -->
     <nav class="sidebar">
         <div class="logo-area">
             <img src="../../assets/images/UEUELESS.png" alt="QueueLess | WMSU Logo" class="sidebar-logo">
         </div>
         <p class="menu-label">Queue</p>
-        <a href="cashier-dashboard.html" class="menu-link active">📋 Dashboard</a>
-        <a href="cashier-profile.html" class="menu-link">👤 Profile</a>
+        <a href="cashier-dashboard.html" class="menu-link">📋 Dashboard</a>
+        <a href="cashier-profile.html" class="menu-link active">👤 Profile</a>
         <a href="cashier-settings.html" class="menu-link">⚙️ Settings</a>
         <a href="#logout-modal" class="menu-link logout-link">🚪 Log Out</a>
     </nav>
 
     <div class="main-content">
-        <div class="topbar">
-            <h2>Cashier Dashboard</h2>
-            <div class="topbar-right">
-                <span id="currentUserName" class="topbar-name" style="margin-right:15px;"></span>
-                <span class="clock" id="clock">--:-- --</span>
-            </div>
-        </div>
-
-        <div class="page-wrapper" id="dashboardContent">
-            <!-- dynamically filled by JS -->
+        <div class="topbar"><h2>My Profile</h2></div>
+        <div class="page-wrapper">
+            <div class="profile-card" id="profileContent">Loading...</div>
         </div>
     </div>
 
@@ -50,6 +51,6 @@
         </div>
     </div>
 
-    <script src="../../assets/js/cashier-dash.js"></script>
+    <script src="../../assets/js/cashier-profile.js"></script>
 </body>
 </html>

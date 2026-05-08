@@ -24,3 +24,10 @@ function fullSystemReset() {
     });
     alert("Full reset complete. All data wiped.");
 }
+
+window.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("resetQueueBtn").addEventListener("click", resetQueueData);
+    document.getElementById("clearStudentsBtn").addEventListener("click", clearStudentRecords);
+    document.getElementById("clearReportsBtn").addEventListener("click", clearReports);
+    document.getElementById("fullResetBtn").addEventListener("click", fullSystemReset);
+});

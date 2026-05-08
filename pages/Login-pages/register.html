@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Staff Account</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/login.css">
+    <style>
+        .card { max-width: 600px; }
+        select, input { width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px; }
+        .form-group label { font-weight:600; display:block; margin-bottom:4px; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    </style>
+</head>
+<body>
+
+<img src="../../assets/images/wmsu.jpg" alt="WMSU Background"
+    style="width:100%; height:100%; object-fit:cover; position:fixed; top:0; left:0; z-index:-1; filter: brightness(0.6);">
+
+<div class="card">
+    <div class="logo-container">
+        <img src="../../assets/images/UEUELESS.png" alt="Queueless Logo" style="max-width: 150px;">
+    </div>
+    <h2>Staff Account Registration</h2>
+    <p class="sub">Complete the form to create your operator account</p>
+
+    <div class="row">
+        <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" id="reg-firstname" placeholder="Juan">
+        </div>
+        <div class="form-group">
+            <label>Middle Name *</label>
+            <input type="text" id="reg-middlename" placeholder="Santos">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" id="reg-lastname" placeholder="Dela Cruz">
+        </div>
+        <div class="form-group">
+            <label>Suffix (optional)</label>
+            <input type="text" id="reg-suffix" placeholder="Jr., III, etc.">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label>Contact Number *</label>
+            <input type="tel" id="reg-contact" placeholder="09XXXXXXXXX">
+        </div>
+        <div class="form-group">
+            <label>Department *</label>
+            <input type="text" id="reg-department" placeholder="e.g. Registrar's Office">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Email *</label>
+        <input type="email" id="reg-email" placeholder="you@wmsu.edu.ph">
+    </div>
+    <div class="form-group">
+        <label>Password *</label>
+        <input type="password" id="reg-password" placeholder="At least 6 characters">
+    </div>
+
+    <div class="form-group">
+        <label>Role / Office *</label>
+        <select id="reg-role">
+            <option value="">-- Select --</option>
+            <option value="registrar_staff">Registrar</option>
+            <option value="cashier_staff">Cashier</option>
+        </select>
+    </div>
+    <div class="form-group" id="window-select-group" style="display:none;">
+        <label>Window to Operate *</label>
+        <select id="reg-window"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Employee ID / Verification Number *</label>
+        <input type="text" id="reg-empid" placeholder="e.g. 2024-REG-001">
+        <small style="color:#dc2626;">Required for staff verification</small>
+    </div>
+
+    <button class="btn" id="registerBtn">Register</button>
+    <p style="text-align:center; margin-top:12px;">
+        <a href="login.html" style="color:#8B0000;">Back to login</a>
+    </p>
+</div>
+
+<script src="../../assets/js/register.js"></script>
+</body>
+</html>

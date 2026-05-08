@@ -28,3 +28,10 @@
 #create-modal.open {
   display: flex;
 }
+
+/* Action buttons spacing */
+.action-cell {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}

@@ -13,15 +13,6 @@
     border-top: 4px solid #8B0000;
 }
 
-.modal-overlay {
-    display: none; /* hidden by default */
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    justify-content: center;
-    align-items: center;
-}
-
 .stat-label {
     font-size: 13px;
     color: #888;
@@ -66,7 +57,7 @@
     padding: 20px 25px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-     margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .panel h3 {
@@ -75,23 +66,17 @@
     font-size: 16px;
     border-bottom: 2px solid #f0f0f0;
     padding-bottom: 12px;
-    
 }
 
 .table-container {
     overflow-x: auto;
-   
 }
 
 .queue-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
-    
 }
-
-
-/* show correct title */
 
 .queue-table th,
 .queue-table td {
@@ -168,8 +153,8 @@
    background:rgba(0,0,0,0.5); 
    justify-content:center; 
    align-items:center;
-
 }
+
 .btn-sm {
     text-decoration: none;
     padding: 6px 12px;
@@ -206,8 +191,6 @@
 .btn-sm.skip:hover {
     background: #ddd;
 }
-
-
 
 .feed {
     list-style: none;

@@ -31,32 +31,31 @@ function chooseService(purpose) {
 }
 
 function getWindowFromService(service) {
-    const cashierServices = [
-        "Tuition Fee",
-        "Miscellaneous",
-        "Other fees",
-        "Lab Fee",
-        "ID Request",
-        "ID Replacement"
-    ];
+    // Registrar windows mapping
+    if (["Enrollment","Shifting","Readmission"].includes(service)) 
+        return "Window 1 - School to School & Faculty Clearance";
+    if (["TOR","Certificate","Diploma"].includes(service)) 
+        return "Window 2 - Request of Documents";
+    if (["EAT","NAT","Interview"].includes(service)) 
+        return "Window 5 - Releasing";
+    if (["ID Request","ID Replacement","Scholarship"].includes(service)) 
+        return "Window 6 - Releasing";
+    if (["General Inquiry","administrative concerns"].includes(service)) 
+        return "Window 4 - Request of Documents"; // fallback
 
-    const registrarServices = [
-        "Enrollment",
-        "EAT",
-        "NAT",
-        "Interview",
-        "Shifting",
-        "Readmission",
-        "TOR",
-        "Certificate",
-        "Diploma",
-        "Scholarship"
-    ];
+    // Cashier windows mapping
+    if (service === "Tuition Fee") 
+        return "Window 1 - Releasing of Payments / TES";
+    if (service === "Miscellaneous") 
+        return "Window 4 - Collection (Priority)";
+    if (service === "Other fees") 
+        return "Window 5 - Collection";
+    if (service === "Lab Fee") 
+        return "Window 8 - Assessment";
+    if (service === "ID Fee") 
+        return "Window 7 - Releasing of Petty Cash";
 
-    if (cashierServices.includes(service)) return "cashier";
-    if (registrarServices.includes(service)) return "registrar";
-
-    return "cashier"; 
+    return "Window 1 - School to School & Faculty Clearance"; // default
 }
 
 function openInfoModal() {
