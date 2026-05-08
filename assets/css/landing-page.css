@@ -687,7 +687,7 @@ font-size: 60px;
 }
 .about-body {
   font-size: 20px; 
-  color: var(--gray);
+  color: var(--black);
    line-height: 1.8;
   margin-bottom: 1.5rem;
 }
@@ -727,7 +727,7 @@ font-size: 60px;
     }
 .about-value-text span {
      font-size: 20px;
-      color: var(--gray); 
+      color: var(--black); 
       line-height: 1.5;
      }
  .nav-links a.checked {
