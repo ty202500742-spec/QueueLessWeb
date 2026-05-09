@@ -30,23 +30,27 @@
             const frame = document.getElementById("phoneFrame");
             const card  = document.createElement("div");
 
-            const isServing = data.type === "serving";
+           const isServing = data.type === "serving";
+           const isSkipped = data.type === "skip";
 
-            card.className = "notif-card" + (isServing ? "" : " done-card");
+            card.className = "notif-card" + (isServing ? "" : isSkipped ? " skip-card" : " done-card");
 
-            const iconSvg = isServing
-                // bell icon
-                ? '<svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6V11c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>'
-                // checkmark icon
-                : '<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
+           const iconSvg = isServing
+    ? '<svg viewBox="0 0 24 24"><path d="M12 22c1.1..."/></svg>'  // bell
+    : isSkipped
+    ? '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>' // info/skip
+    : '<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83..."/></svg>'; // checkmark
 
-            const title = isServing ? "It\'s your turn!" : "Transaction complete";
-            const msg   = isServing
-                ? "Hi " + data.name.split(" ")[0] + ", please proceed to the window now. Your queue number is " + data.id + "."
-                : "Your " + data.purpose + " request has been processed successfully. Thank you!";
-
+           const title = isServing ? "It\'s your turn!"
+              : isSkipped ? "You were skipped"
+              : "Transaction complete";
+            const msg = isServing
+    ? "Hi " + data.name.split(" ")[0] + ", please proceed to the window now. Your queue number is " + data.id + "."
+    : isSkipped
+    ? "Hi " + data.name.split(" ")[0] + ", you were marked as no-show for queue " + data.id + ". You have been re-added to the end of the queue."
+    : "Your " + data.purpose + " request has been processed successfully. Thank you!";
             card.innerHTML =
-                '<div class="notif-icon ' + (isServing ? "serve" : "done") + '">' + iconSvg + '</div>' +
+                '<div class="notif-icon ' + (isServing ? "serve" : isSkipped ? "skip" : "done") + '">' + iconSvg + '</div>' +
                 '<div class="notif-body">' +
                     '<div class="notif-app">QueueLess</div>' +
                     '<div class="notif-title">' + title + '</div>' +
