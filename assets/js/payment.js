@@ -1,6 +1,28 @@
 var selectedService = "";
 var selectedWindow = "";
 
+
+var cashierWindows = [
+    "Window 1 - Releasing of Payments / TES",
+    "Window 2 - Releasing of Checks",
+    "Window 3 - Releasing of Checks",
+    "Window 4 - Collection (Priority)",
+    "Window 5 - Collection",
+    "Window 6 - TES Scholars",
+    "Window 7 - Releasing of Petty Cash",
+    "Window 8 - Assessment",
+    "Window 9 - Assessment"
+];
+
+var registrarWindows = [
+    "Window 1 - School to School & Faculty Clearance",
+    "Window 2 - Request of Documents",
+    "Window 3 - Request of Documents",
+    "Window 4 - Request of Documents",
+    "Window 5 - Releasing",
+    "Window 6 - Releasing"
+];
+
 /* Only sets the selection – does NOT open modal */
 function selectService(purpose, windowName) {
     selectedService = purpose;
@@ -64,10 +86,14 @@ function addQueue() {
         if (!idNum) { alert("Please enter your verification ID for priority queue."); return; }
     }
 
+    // ✅ Determine department AFTER queueList is declared
     var queueList = JSON.parse(localStorage.getItem("queueList") || "[]");
     var counter = parseInt(localStorage.getItem("queueCounter") || "0") + 1;
     localStorage.setItem("queueCounter", counter);
     var qNum = (isPriority ? "PR-" : "Q-") + String(counter).padStart(3, "0");
+
+    // ✅ Department check goes here, right before the push
+    var dept = cashierWindows.includes(selectedWindow) ? "cashier" : "registrar";
 
     queueList.push({
         id: qNum,
@@ -82,7 +108,8 @@ function addQueue() {
         time: new Date().toLocaleTimeString(),
         type: isPriority ? "priority" : "regular",
         window: selectedWindow,
-        category: category
+        category: category,
+        department: dept   // ✅ department field added here
     });
 
     queueList.sort(function(a, b) {
@@ -90,6 +117,7 @@ function addQueue() {
         if (a.type !== "priority" && b.type === "priority") return 1;
         return 0;
     });
+    console.log("Department assigned:", dept, "| Window:", selectedWindow);
     localStorage.setItem("queueList", JSON.stringify(queueList));
 
     var historyList = JSON.parse(localStorage.getItem("queueHistory") || "[]");
@@ -109,7 +137,6 @@ function addQueue() {
 
     saveReportTransaction(qNum, fullName, selectedService, selectedWindow, category, isPriority);
 
-    // Clear form
     ["q-firstname","q-middlename","q-lastname","q-suffix","q-phone","jq-idnum"].forEach(function(id) {
         var el = document.getElementById(id); if (el) el.value = "";
     });

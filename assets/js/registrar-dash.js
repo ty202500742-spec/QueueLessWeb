@@ -46,14 +46,49 @@ function notifyPhone(student, type) {
     localStorage.setItem("phoneNotif", JSON.stringify(payload));
 }
 
+var notifiedPositions = {};
+
+function checkPositionNotifications() {
+    var all = getQueue();
+    var myQueue = all.filter(function(q) {
+       return q.window === myWindow && q.department === "registrar";
+    });
+
+    var priority = myQueue.filter(function(q) { return q.type === "priority"; });
+    var regular  = myQueue.filter(function(q) { return q.type === "regular"; });
+    var sorted = priority.concat(regular);
+
+    sorted.forEach(function(q, i) {
+        var position = i + 1;
+        var key = q.id + "_pos_" + position;
+
+       if ((position === 1 || position === 2 || position === 3) && !notifiedPositions[key]) {
+            notifiedPositions[key] = true;
+            localStorage.setItem("phoneNotif", JSON.stringify({
+                type: "position_alert",
+                id: q.id,
+                name: q.name,
+                phone: q.phone || "N/A",
+                purpose: q.purpose,
+                position: position,
+                window: q.window,
+                timestamp: Date.now()
+            }));
+        }
+    });
+}
+
 // Current ticket being served (per window)
 var currentTicket = null;
 
 function renderDashboard() {
+    currentTicket = JSON.parse(localStorage.getItem("currentTicket_" + myWindow) || "null");
     var all = getQueue();
-    var myQueue = all.filter(function(q) { return q.window === myWindow; });
+   var myQueue = all.filter(function(q) { return q.window === myWindow && q.department === "registrar"; });
+   
+   checkPositionNotifications();
 
-    // Group by priority/regular
+   // Group by priority/regular
     var priority = myQueue.filter(function(q) { return q.type === "priority"; });
     var regular  = myQueue.filter(function(q) { return q.type === "regular"; });
 
@@ -111,7 +146,9 @@ function renderDashboard() {
 
 function callNext() {
     var all = getQueue();
-    var myQueue = all.filter(function(q) { return q.window === myWindow; });
+   var myQueue = all.filter(function(q) {
+    return q.window === myWindow && q.department === "registrar";
+});
     if (myQueue.length === 0) return alert("No students in queue.");
 
     // Priority first
@@ -123,6 +160,7 @@ function callNext() {
     saveQueue(updated);
 
     currentTicket = next;
+    localStorage.setItem("currentTicket_" + myWindow, JSON.stringify(currentTicket));
     notifyPhone(next, "serving");
     renderDashboard();
 }
@@ -149,6 +187,7 @@ function markDone() {
 
     notifyPhone(currentTicket, "done");
     currentTicket = null;
+    localStorage.removeItem("currentTicket_" + myWindow);
     renderDashboard();
 }
 
@@ -163,6 +202,7 @@ function noShow() {
 
     notifyPhone(currentTicket, "skip");
     currentTicket = null;
+    localStorage.removeItem("currentTicket_" + myWindow);
     renderDashboard();
 }
 

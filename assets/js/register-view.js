@@ -1,0 +1,98 @@
+// Clock
+function tick() {
+    var now = new Date();
+    var h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+    var ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+    document.getElementById("clock").textContent =
+        h + ":" + String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0") + " " + ampm;
+}
+tick();
+setInterval(tick, 1000);
+
+var registrarWindows = [
+    "Window 1 - School to School & Faculty Clearance",
+    "Window 2 - Request of Documents",
+    "Window 3 - Request of Documents",
+    "Window 4 - Request of Documents",
+    "Window 5 - Releasing",
+    "Window 6 - Releasing"
+];
+
+function getServingTicket() {
+    // Scan all currentTicket_ keys and find one that belongs to a registrar window
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key && key.startsWith("currentTicket_")) {
+            var windowName = key.replace("currentTicket_", "");
+            if (registrarWindows.includes(windowName)) {
+                var ticket = JSON.parse(localStorage.getItem(key) || "null");
+                if (ticket) return ticket;
+            }
+        }
+    }
+    return null;
+}
+
+function renderView() {
+    // ── Now Serving ──
+    var ticket = getServingTicket();
+    var currentTicketEl = document.getElementById("currentTicket");
+    var emptyHero = document.getElementById("emptyHero");
+
+    if (ticket) {
+        currentTicketEl.style.display = "block";
+        emptyHero.style.display = "none";
+        document.getElementById("ctNumber").textContent = ticket.id;
+        document.getElementById("ctName").textContent = ticket.name;
+        document.getElementById("ctPurpose").textContent = ticket.purpose;
+        document.getElementById("ctWait").textContent = ticket.time;
+    } else {
+        currentTicketEl.style.display = "none";
+        emptyHero.style.display = "block";
+        document.getElementById("ctNumber").textContent = "—";
+        document.getElementById("ctName").textContent = "—";
+        document.getElementById("ctPurpose").textContent = "—";
+        document.getElementById("ctWait").textContent = "—";
+    }
+
+    // ── Queue Table ──
+    var all = JSON.parse(localStorage.getItem("queueList") || "[]");
+    var registrarQueue = all.filter(function(q) {
+        return q.department === "registrar";
+    });
+
+    var tbody = document.getElementById("queueBody");
+    tbody.innerHTML = "";
+    if (registrarQueue.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:20px;">No students in queue</td></tr>';
+    } else {
+        registrarQueue.forEach(function(q, i) {
+            var row = document.createElement("tr");
+            row.innerHTML =
+                '<td>' + (i+1) + '</td>' +
+                '<td><strong>' + q.id + '</strong></td>' +
+                '<td>' + q.name + '</td>' +
+                '<td>' + q.purpose + '</td>' +
+                '<td>' + q.time + '</td>';
+            tbody.appendChild(row);
+        });
+    }
+
+    // ── Stats ──
+    var reports = JSON.parse(localStorage.getItem("reportTransactions") || "[]");
+    var servedToday = reports.filter(function(r) {
+        return r.status === "served" &&
+               registrarWindows.includes(r.window) &&
+               r.date === new Date().toISOString().split("T")[0];
+    }).length;
+
+    var queueCount = document.getElementById("queueCount");
+    var servedCount = document.getElementById("servedCount");
+    if (queueCount) queueCount.textContent = registrarQueue.length;
+    if (servedCount) servedCount.textContent = servedToday;
+}
+
+// Refresh every 3 seconds
+renderView();
+setInterval(renderView, 3000);

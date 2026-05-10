@@ -187,7 +187,7 @@ function loadRegularQueue(queue) {
 
 function createRow(q, type) {
     var row = document.createElement("tr");
-    var windowLabel = q.window === "cashier" ? "Cashier Window" : "Registrar Window";
+    var windowLabel = q.department === "cashier" ? "Cashier — " + q.window : "Registrar — " + q.window;
     if (type === "priority") row.style.background = "#fff8e1";
     row.innerHTML =
         '<td><strong>' + q.id + '</strong></td>' +
@@ -196,9 +196,8 @@ function createRow(q, type) {
         '<td>' + q.time + '</td>' +
         '<td>' + windowLabel + '</td>' +
         '<td class="action-cell">' +
-            '<button class="btn-sm done" onclick="adminServe(\'' + q.id + '\')">✔ Done</button>' +
-            '<button class="btn-sm skip" onclick="adminSkip(\'' + q.id + '\')">✖ Skip</button>' +
-        '</td>';
+          '<td class="action-cell"><span style="color:#9ca3af;font-size:13px;">View Only</span></td>';  
+
     return row;
 }
 
