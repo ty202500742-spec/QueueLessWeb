@@ -13,11 +13,16 @@
   --font: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
  
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; 
+    margin: 0;
+    padding: 0;}
 body { font-family: var(--font);
      background: var(--white); 
      color: var(--black); 
-     overflow-x: hidden; }
+     overflow-x: clip; 
+     margin: 0;
+     padding: 0;
+    }
  
 .overlay {
     position: fixed;
@@ -739,19 +744,23 @@ font-size: 60px;
 }
 
 footer {
+  display: block;
+  width: 100%;
   background: #6b0000;
-  padding: 2.5rem 5%;
-  display: flex; 
-  align-items: center; 
+  padding: 1.5rem 5%;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 1rem;
+  box-sizing: border-box;
+  margin: 0;
 }
 .footer-brand {
-  font-size: 0.95rem; 
+  font-size: 0.95rem;
   font-weight: 700;
-  color: rgba(255,255,255,0.5); 
-  letter-spacing: 0.06em; 
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
@@ -786,6 +795,85 @@ footer {
 .btn-white:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ── Trust & Reviews Section ── */
+.ql-trust { background: var(--white); padding: 72px 5%; }
+.ql-inner { max-width: 1100px; margin: 0 auto; }
+
+.ql-badge {
+  display: inline-block;
+  background: rgba(139,0,0,0.08);
+  border: 1px solid rgba(139,0,0,0.18);
+  color: var(--red);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+}
+.ql-title { font-size: 38px; font-weight: 800; color: var(--black); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 12px; }
+.ql-title em { color: var(--red); font-style: normal; }
+.ql-sub { color: var(--gray); font-size: 16px; margin: 0 0 52px; }
+
+/* VS grid */
+.ql-vs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 72px; }
+.ql-vs-col { border-radius: 16px; padding: 28px 28px 20px; }
+.ql-vs-col.old { background: var(--red-pale); border: 1px solid var(--red-pale2); }
+.ql-vs-col.new { background: var(--red); }
+.ql-vs-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 13px; border-radius: 100px; display: inline-block; margin-bottom: 22px;
+}
+.ql-vs-col.old .ql-vs-label { background: rgba(139,0,0,0.1); color: var(--red); }
+.ql-vs-col.new .ql-vs-label { background: rgba(255,255,255,0.15); color: #fff; }
+.ql-vs-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+.ql-vs-icon {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px; font-size: 11px; font-weight: 700;
+}
+.ql-vs-col.old .ql-vs-icon { background: rgba(139,0,0,0.12); color: var(--red); }
+.ql-vs-col.new .ql-vs-icon { background: rgba(255,255,255,0.18); color: #fff; }
+.ql-vs-col.old .ql-vs-text { color: var(--gray); font-size: 14px; line-height: 1.55; }
+.ql-vs-col.new .ql-vs-text { color: rgba(255,255,255,0.82); font-size: 14px; line-height: 1.55; }
+
+/* Reviews */
+.ql-rev-title { font-size: 26px; font-weight: 800; color: var(--black); letter-spacing: -.01em; margin-bottom: 6px; }
+.ql-rev-sub { color: var(--gray); font-size: 15px; margin-bottom: 32px; }
+.ql-rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ql-rev-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px;
+  transition: box-shadow .2s, transform .2s;
+}
+.ql-rev-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(139,0,0,.1); }
+.ql-rev-hd { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.ql-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--red-pale); color: var(--red);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; flex-shrink: 0;
+}
+.ql-rev-name { font-size: 14px; font-weight: 700; color: var(--black); }
+.ql-rev-dept { font-size: 12px; color: var(--gray); }
+.ql-stars { color: var(--red); font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
+.ql-rev-text { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+/* Stats bar */
+.ql-stats-bar {
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 64px; background: var(--red-pale);
+  border: 1px solid var(--red-pale2); border-radius: 16px; overflow: hidden;
+}
+.ql-stat { flex: 1; text-align: center; padding: 28px 16px; border-right: 1px solid #f0dada; }
+.ql-stat:last-child { border-right: none; }
+.ql-stat-num { font-size: 28px; font-weight: 800; color: var(--red); letter-spacing: -.02em; }
+.ql-stat-lbl { font-size: 13px; color: var(--gray); margin-top: 4px; }
+
+@media (max-width: 720px) {
+  .ql-vs { grid-template-columns: 1fr; }
+  .ql-rev-grid { grid-template-columns: 1fr; }
+  .ql-stats-bar { flex-wrap: wrap; }
+  .ql-stat { border-right: none; border-bottom: 1px solid #f0dada; }
 }
 
 
