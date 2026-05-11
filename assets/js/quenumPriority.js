@@ -71,17 +71,41 @@ function loadQueuePage() {
 function cancelQueue() {
     if (confirm("Are you sure you want to cancel your queue?")) {
         var userId = localStorage.getItem("queue_userId") || "";
-        var queue = JSON.parse(localStorage.getItem("queueList") || "[]");
-        var index = queue.findIndex(function(q) { return q.id === userId; });
-        if (index !== -1) {
-            queue.splice(index, 1);
-            localStorage.setItem("queueList", JSON.stringify(queue));
+
+        // ── Remove from active queue ──
+        var queueList = JSON.parse(localStorage.getItem("queueList") || "[]");
+        var qIndex = queueList.findIndex(function(q) { return q.id === userId; });
+        if (qIndex !== -1) {
+            queueList.splice(qIndex, 1);
+            localStorage.setItem("queueList", JSON.stringify(queueList));
         }
-        localStorage.removeItem("queue_userName");
-        localStorage.removeItem("queue_userType");
-        localStorage.removeItem("queue_userId");
+
+        // ── Mark reportTransactions as cancelled ──
+        var reports = JSON.parse(localStorage.getItem("reportTransactions") || "[]");
+        reports.forEach(function(r) {
+            if (r.queueId === userId && r.status === "waiting") {
+                r.status = "cancelled";
+            }
+        });
+        localStorage.setItem("reportTransactions", JSON.stringify(reports));
+
+        // ── Mark queueHistory as cancelled ──
+        var history = JSON.parse(localStorage.getItem("queueHistory") || "[]");
+        history.forEach(function(h) {
+            if (h.id === userId && h.status === "waiting") {
+                h.status = "cancelled";
+            }
+        });
+        localStorage.setItem("queueHistory", JSON.stringify(history));
+
+        // ── Clear all user queue keys ──
+        ["queue_userName", "queue_userType", "queue_userId",
+         "queue_userService", "queue_userWindow"].forEach(function(key) {
+            localStorage.removeItem(key);
+        });
+
         alert("Your queue has been cancelled.");
-        window.location.href = "index.html";
+        window.location.href = "../../index.html";
     }
 }
 

@@ -11,7 +11,7 @@ function loadStudents() {
         var tr = document.createElement("tr");
         tr.innerHTML = '<td>' + (s.id || '—') + '</td>' +
                        '<td>' + s.name + '</td>' +
-                       '<td>' + (s.college || '—') + '</td>' +
+                       '<td>' + (s.phone || '—') + '</td>' +
                        '<td><span class="pill waiting">' + s.status + '</span></td>';
         tbody.appendChild(tr);
     });
