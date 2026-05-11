@@ -88,6 +88,46 @@ function addQueue() {
 
     // ✅ Determine department AFTER queueList is declared
     var queueList = JSON.parse(localStorage.getItem("queueList") || "[]");
+
+    // ✅ DUPLICATE CHECK — only against active (waiting/serving) entries
+    var activeStatuses = ["waiting", "serving"];
+    var duplicateName = queueList.find(function(q) {
+        return activeStatuses.includes(q.status) &&
+               q.firstName.toLowerCase() === firstName.toLowerCase() &&
+               q.lastName.toLowerCase() === lastName.toLowerCase();
+    });
+    var duplicatePhone = queueList.find(function(q) {
+        return activeStatuses.includes(q.status) && q.phone === phone;
+    });
+
+    if (duplicateName) {
+        alert(
+            "⚠️ Duplicate Entry Detected!\n\n" +
+            "\"" + fullName + "\" is already in the queue.\n" +
+            "Queue Number: " + duplicateName.id + "\n" +
+            "Status: " + duplicateName.status.toUpperCase() + "\n\n" +
+            "Please wait for your current queue to be completed."
+        );
+        return;
+    }
+
+    if (duplicatePhone) {
+        alert(
+            "⚠️ Duplicate Entry Detected!\n\n" +
+            "This phone number is already registered in the queue.\n" +
+            "Queue Number: " + duplicatePhone.id + "\n" +
+            "Name: " + duplicatePhone.name + "\n" +
+            "Status: " + duplicatePhone.status.toUpperCase() + "\n\n" +
+            "Please wait for your current queue to be completed."
+        );
+        return;
+    }
+
+    // ... rest of your existing code unchanged below
+    var counter = parseInt(localStorage.getItem("queueCounter") || "0") + 1;
+    // ...
+
+
     var counter = parseInt(localStorage.getItem("queueCounter") || "0") + 1;
     localStorage.setItem("queueCounter", counter);
     var qNum = (isPriority ? "PR-" : "Q-") + String(counter).padStart(3, "0");
