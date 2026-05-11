@@ -109,7 +109,8 @@ function addQueue() {
         type: isPriority ? "priority" : "regular",
         window: selectedWindow,
         category: category,
-        department: dept   // ✅ department field added here
+        department: dept,
+        idNum : idNum
     });
 
     queueList.sort(function(a, b) {

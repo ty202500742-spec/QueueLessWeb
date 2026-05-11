@@ -12,9 +12,11 @@ function loadPriorityRecords() {
     }
     priority.forEach(function(p) {
         var tr = document.createElement("tr");
-        tr.innerHTML = '<td>' + p.name + '</td>' +
+        tr.innerHTML = '<td>' + p.id + '</td>' +
+                       '<td>' + p.name + '</td>' +
                        '<td><span class="pill priority">' + p.category + '</span></td>' +
-                       '<td>' + (p.phone ? "ID: " + p.phone : "—") + '</td>' +
+                       '<td>' + (p.phone ? p.phone : "—") +'</td>' +
+                       '<td>' + p.idNum + '</td>' +
                        '<td><span class="pill waiting">' + p.status + '</span></td>';
         tbody.appendChild(tr);
     });
