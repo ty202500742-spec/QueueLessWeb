@@ -121,7 +121,7 @@ function renderDashboard() {
     // Priority queue table
     html += '<div class="window-section">';
     html += '<div class="window-title">⭐ Priority Queue — ' + myWindow + '</div>';
-    html += '<table class="queue-table"><thead><tr><th>#</th><th>Ticket</th><th>Name</th><th>Purpose</th><th>Waiting</th></tr></thead><tbody>';
+    html += '<table class="queue-table"><thead><tr><th>#</th><th>Queue </th><th>Name</th><th>Purpose</th><th>Waiting</th></tr></thead><tbody>';
     if (priority.length === 0) {
         html += '<tr><td colspan="5" style="text-align:center;color:#999;">No priority entries</td></tr>';
     } else {
@@ -134,7 +134,7 @@ function renderDashboard() {
     // Regular queue table
     html += '<div class="window-section">';
     html += '<div class="window-title">👤 Regular Queue — ' + myWindow + '</div>';
-    html += '<table class="queue-table"><thead><tr><th>#</th><th>Ticket</th><th>Name</th><th>Purpose</th><th>Waiting</th></tr></thead><tbody>';
+    html += '<table class="queue-table"><thead><tr><th>#</th><th>QUEUE ID</th><th>Name</th><th>Purpose</th><th>Waiting</th></tr></thead><tbody>';
     if (regular.length === 0) {
         html += '<tr><td colspan="5" style="text-align:center;color:#999;">No regular entries</td></tr>';
     } else {

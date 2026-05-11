@@ -47,7 +47,7 @@ function loadQueuePage() {
         var li = document.createElement("li");
         if (index === userIndex) {
             li.classList.add("current");
-            li.innerHTML = '<span>#' + q.id + ' You</span><span>' + (q.status === "serving" ? "Now Serving!" : "Your Turn") + '</span>';
+            li.innerHTML =  '<span>#' + q.id + ' You</span><span>' + (q.status === "serving" ? "Now Serving!" : "Your Turn") + '</span>';
         } else {
             li.innerHTML = '<span>#' + q.id + ' ' + q.name + '</span><span>' + (q.status === "serving" ? "Now Serving" : "Waiting") + '</span>';
         }
