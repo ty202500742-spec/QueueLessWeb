@@ -131,7 +131,7 @@ function addQueue() {
 
     var counter = parseInt(localStorage.getItem("queueCounter") || "0") + 1;
     localStorage.setItem("queueCounter", counter);
-    var qNum = (isPriority ? "PR-" : "Q-") + String(counter).padStart(3, "0");
+    var qNum = (isPriority ? "PR-" : "Q-") + String(counter).padStart(5, "0");
 
     // ✅ Department check goes here, right before the push
     var dept = cashierWindows.includes(selectedWindow) ? "cashier" : "registrar";
