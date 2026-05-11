@@ -1,8 +1,8 @@
 var registrarWindows = [
     "Window 1 - School to School & Faculty Clearance",
     "Window 2 - Request of Documents",
-    "Window 3 - Request of Documents",
-    "Window 4 - Request of Documents",
+    "Window 3 - Grades & Academic Records",
+    "Window 4 - Enrollment & Registration",
     "Window 5 - Releasing",
     "Window 6 - Releasing"
 ];
