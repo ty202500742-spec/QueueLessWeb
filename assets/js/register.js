@@ -61,11 +61,18 @@ function registerStaff() {
         alert("Please fill in all required fields (First Name, Last Name, Email, Password, Role, Window, Employee ID).");
         return;
     }
+    if(firstName >= 0 || lastName >= 0) {
+        alert("Names cannot contain numbers.");
+        return;
+    }
     if (password.length < 6) {
         alert("Password must be at least 6 characters.");
         return;
     }
-
+    if(!/^\d{11}$/.test(contact)) {
+        alert("Contact number must be 11 digits (e.g. 09XXXXXXXXX).");
+        return;
+    }
     var accounts = JSON.parse(localStorage.getItem("staffAccounts") || "[]");
     if (accounts.some(function(acc) { return acc.email === email; })) {
         alert("An account with this email already exists.");
@@ -90,9 +97,9 @@ function registerStaff() {
 
 // Attach event listeners
 window.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("registerBtn").addEventListener("click", registerStaff);
-    document.getElementById("reg-role").addEventListener("change", toggleWindows);
-    document.getElementById("resetBtn").addEventListener("click", function() {
+    document.getElementById("registerBtn")?.addEventListener("click", registerStaff);
+    document.getElementById("reg-role")?.addEventListener("change", toggleWindows);
+    document.getElementById("resetBtn")?.addEventListener("click", function() {
         // Handle reset password logic here
         alert("Email sent! Check your email inbox to reset your password.");
     });
