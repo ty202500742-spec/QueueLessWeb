@@ -92,4 +92,9 @@ function registerStaff() {
 window.addEventListener("DOMContentLoaded", function() {
     document.getElementById("registerBtn").addEventListener("click", registerStaff);
     document.getElementById("reg-role").addEventListener("change", toggleWindows);
+    document.getElementById("resetBtn").addEventListener("click", function() {
+        // Handle reset password logic here
+        alert("Email sent! Check your email inbox to reset your password.");
+    });
+
 });
