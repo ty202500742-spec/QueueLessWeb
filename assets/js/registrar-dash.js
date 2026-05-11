@@ -111,7 +111,7 @@ function renderDashboard() {
     } else {
         html += '<div class="empty-hero" style="display:block; margin-bottom:20px;">';
         html += '<div class="empty-hero-title">No active ticket</div>';
-        html += '<button class="btn-next" onclick="callNext()">Call Next Student ↓</button>';
+        html += '<button class="btn-next" onclick="callNext()">Call Next Queue ↓</button>';
         html += '</div>';
     }
 

@@ -70,7 +70,8 @@ function addQueue() {
     if (!firstName || !lastName) { alert("Please enter your first and last name."); return; }
     if (!phone) { alert("Please enter your phone number."); return; }
     if (!terms) { alert("You must accept the Terms & Conditions!"); return; }
-
+    if(firstName >= 0 || lastName >= 0) { alert("Name fields cannot contain numbers."); return; }
+    if(phone.length < 10 || phone.length > 11 || !/^\d+$/.test(phone)) { alert("Please enter a valid phone number."); return; }
     var fullName = firstName + (middleName ? " " + middleName : "") + " " + lastName + (suffix ? " " + suffix : "");
 
     var priorityChoice = document.querySelector('input[name="priority"]:checked');
